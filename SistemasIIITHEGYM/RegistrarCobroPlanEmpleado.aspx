@@ -76,7 +76,16 @@
                       <asp:Label ID="lblhora" CssClass="text-muted" runat="server" Text="HoraActual"></asp:Label>
                   </div>
                 </div>
+                <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">N° de comprobante:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:Label ID="Label2" CssClass="text-muted" runat="server" Text="N°COMPROBANTE"></asp:Label>
+                  </div>
+                </div>
                     <br />
+                <br />
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Plan:</label>
 
@@ -87,6 +96,19 @@
                       </ajaxToolkit:ValidatorCalloutExtender>
                   </div>
                 </div>
+                <br />
+                <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Forma de Pago:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:DropDownList ID="ddlformadepago" Cssclass="form-control" runat="server" Width="170px"></asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+                  </div>
+                </div>
+               
                     <br />
                <br />
               <!-- /.form-group -->

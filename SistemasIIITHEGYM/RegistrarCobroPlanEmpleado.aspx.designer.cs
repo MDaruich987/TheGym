@@ -94,6 +94,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblhora;
         
         /// <summary>
+        /// Control Label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// Control ddlplan.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,33 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
+        
+        /// <summary>
+        /// Control ddlformadepago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlformadepago;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator45.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator45;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender45.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender45;
         
         /// <summary>
         /// Control Label1.

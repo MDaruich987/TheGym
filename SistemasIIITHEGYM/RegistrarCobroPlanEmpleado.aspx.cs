@@ -22,10 +22,10 @@ namespace SistemasIIITHEGYM
                 panelseleccioncliente.Visible = true;
                 //Response.Write("<script>window.alert('Bienvenido');</script>");
                 //preguntamos si no se realizo la apertura de caja del día en el 5==5
-                if (5==5){
-                Response.Write("<script>window.alert('No se realizó la apertura de caja del día. Debe registrar una primero');</script>" + "<script>window.setTimeout(location.href='AperturadeCajaEmpleado.aspx', 2000);</script>");
+                //if (5==5){
+                //Response.Write("<script>window.alert('No se realizó la apertura de caja del día. Debe registrar una primero');</script>" + "<script>window.setTimeout(location.href='AperturadeCajaEmpleado.aspx', 2000);</script>");
                     //si no, me manda a la pagina de apertura de caja
-                }
+               // }
             }
         }
 
