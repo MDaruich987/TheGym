@@ -50,7 +50,7 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <asp:TextBox ID="tbpassword" Cssclass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="tbcontraseña" Cssclass="form-control" runat="server" TextMode="Password"></asp:TextBox>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -59,7 +59,7 @@
             <label class="auto-style1">
                 <asp:Label ID="lblerror" CssClass="error-text text-center" runat="server"></asp:Label>
                 <br />
-                <asp:Button ID="btnIngresar" CssClass="btn btn-success center-block text-center " runat="server" Text="Ingresar" />
+                <asp:Button ID="btnIngresar" CssClass="btn btn-success center-block text-center " runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
             </label>
           </div>
         </div>
