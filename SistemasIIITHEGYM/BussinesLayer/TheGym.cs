@@ -8,78 +8,79 @@ using System.Web;
 
 namespace SistemasIIITHEGYM.BussinesLayer
 {
-        public class TheGym
-        {
-            //POR FAVOR, COMENTAR TODO.
-            //variables para realizar el registro de sucursal
-            public string NombreSucursal;
-            public string DireccionSucursal;
-            public long TelefonoSucursal;
-            //variable para realizar la busqueda de cliente
-            public string NombreClienteBusc;
-            public string DNIClienteBusc = "0";
-            //variables para realizar la consulta de empleado
-            public string NombreEmpleadoBusc;
-            public string DNIEmpleadoBusc = "";
-            public string CargoEmpleadoBusc = "";
-            //variables para realizar registro de empleado
-            public string NombreEmpladoIns;
-            public string ApellidoEmpleadoIns;
-            public DateTime FechaNacEmpleadoIns;
-            public string EmailEmpleadoIns;
-            public long TelefEmpleadoIns;
-            public string DomicilioEmpleadoIns;
-            public int DNIEmpleadoIns;
-            public DateTime FechaContEmpleadoIns;
-            public string TitulEmpleadoIns;
-            public string ExperEmpleadoIns;
-            public int CargoEmpleadoIns;
-            //variables para realizar la edicion de empleado
-            public string DNIEditar = "0";
-            public string NombreClienteEditar;
-            public string ApellidoClienteEditar;
-            public string TelefonoClienteEditar;
-            public string DomicilioClienteEditar;
-            public string FechaClienteEditar;
-            public string EmailClienteEditar;
-            public string DNIClienteEditar;
-            //variables para consultar una actividad
-            public string NombreActividadBuscar;
-            //variables para consultar cliente
-            public string NombreClienteBuscar;
-            //variables para registrar actividad
-            public string NombreActividad;
-            public string ProfesorActividad;
-            public string SucursalActividad;
-            public string HorarioInicioActividad;
-            public string HorarioFinActividad;
-            public string CuposActividad;
-            public string DescripcionActividad;
-            // variables para registrar cliente
-            public string NombreCliente;
-            public string ApellidoCliente;
-            public string FechaCliente;
-            public string EmailCliente;
-            public string TelefonoCliente;
-            public string CalleCliente;
+    public class TheGym
+    {
+        //POR FAVOR, COMENTAR TODO.
+        //variables para realizar el registro de sucursal
+        public string NombreSucursal;
+        public string DireccionSucursal;
+        public long TelefonoSucursal;
+        //variable para realizar la busqueda de cliente
+        public string NombreClienteBusc;
+        public string DNIClienteBusc = "0";
+        //variables para realizar la consulta de empleado
+        public string NombreEmpleadoBusc;
+        public string DNIEmpleadoBusc = "";
+        public string CargoEmpleadoBusc = "";
+        //variables para realizar registro de empleado
+        public string NombreEmpladoIns;
+        public string ApellidoEmpleadoIns;
+        public DateTime FechaNacEmpleadoIns;
+        public string EmailEmpleadoIns;
+        public long TelefEmpleadoIns;
+        public string DomicilioEmpleadoIns;
+        public int DNIEmpleadoIns;
+        public DateTime FechaContEmpleadoIns;
+        public string TitulEmpleadoIns;
+        public string ExperEmpleadoIns;
+        public int CargoEmpleadoIns;
+        //variables para realizar la edicion de empleado
+        public string DNIEditar = "0";
+        public string NombreClienteEditar;
+        public string ApellidoClienteEditar;
+        public string TelefonoClienteEditar;
+        public string DomicilioClienteEditar;
+        public string FechaClienteEditar;
+        public string EmailClienteEditar;
+        public string DNIClienteEditar;
+        //variables para consultar una actividad
+        public string NombreActividadBuscar;
+        //variables para consultar cliente
+        public string NombreClienteBuscar;
+        //variables para registrar actividad
+        public string NombreActividad;
+        public string ProfesorActividad;
+        public string SucursalActividad;
+        public string HorarioInicioActividad;
+        public string HorarioFinActividad;
+        public string CuposActividad;
+        public string DescripcionActividad;
+        // variables para registrar cliente
+        public string NombreCliente;
+        public string ApellidoCliente;
+        public string FechaCliente;
+        public string EmailCliente;
+        public string TelefonoCliente;
+        public string CalleCliente;
         public string NumeroCliente;
         public string BarrioCliente;
         public string FKLocalidadCliente;
         public string DNICliente;
+        public string FotoCliente;
 
 
 
-            //métodos
-            //método para agregar una nueva sucursal
+        //métodos
+        //método para agregar una nueva sucursal
 
-            public void AddNewSucursal()
-            {
-                SqlParameter[] parameters = new SqlParameter[3];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreSucursal, SqlDbType.VarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Direccion", DireccionSucursal, SqlDbType.VarChar, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucursal, SqlDbType.BigInt, 100);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddSucursal", parameters);
-            }
+        public void AddNewSucursal()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreSucursal, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Direccion", DireccionSucursal, SqlDbType.VarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucursal, SqlDbType.BigInt, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddSucursal", parameters);
+        }
 
             public void AddNewEmpleado()
             {
@@ -146,6 +147,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
                 parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Domicilio", DomicilioClienteEditar, SqlDbType.NVarChar, 50);
                 parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteEditar, SqlDbType.Int, 100);
                 parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@DNIEdit", DNIEditar, SqlDbType.Int, 100);
+
                 DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
             }
 
@@ -181,18 +183,21 @@ namespace SistemasIIITHEGYM.BussinesLayer
             }
 
             //Metodo para Registrar Cliente 
-            public void AddNewCliente()
-            {
-                SqlParameter[] parameters = new SqlParameter[7];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("Nombre", NombreCliente, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("Apellido", ApellidoCliente, SqlDbType.NVarChar, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("Fecha_Nac", FechaCliente, SqlDbType.Date, 50);
-                parameters[3] = BussinesDataLayer.DataAccess.AddParameter("Email", EmailCliente, SqlDbType.NVarChar, 100);
-                parameters[4] = BussinesDataLayer.DataAccess.AddParameter("Telefono", TelefonoCliente, SqlDbType.BigInt, 50);
-                parameters[5] = BussinesDataLayer.DataAccess.AddParameter("Domicilio", DomicilioCliente, SqlDbType.NVarChar, 50);
-                parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNICliente, SqlDbType.Int, 100);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCliente", parameters);
-            }
-
+        public void AddNewCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[7];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreCliente, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoCliente, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_Nac", FechaCliente, SqlDbType.Date, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailCliente, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoCliente, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleCliente, SqlDbType.NVarChar, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroCliente, SqlDbType.Int, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioCliente, SqlDbType.NVarChar, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Foto", FotoCliente, SqlDbType.NVarChar, 500);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNICliente, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCliente", parameters);
         }
+
     }
+}
