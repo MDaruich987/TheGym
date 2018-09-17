@@ -83,7 +83,6 @@
     <%--fin modal--%>
 
     <form id="form1" runat="server">
-            <asp:ScriptManager ID="SMAJAX" runat="server"></asp:ScriptManager>
 <%--inicio cabecera--%>
     <section class="content-header">
       <h1>

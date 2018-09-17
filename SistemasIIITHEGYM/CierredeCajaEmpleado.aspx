@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestraEmpleado.Master" AutoEventWireup="true" CodeBehind="AperturadeCajaEmpleado.aspx.cs" Inherits="SistemasIIITHEGYM.AperturadeCajaEmpleado" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestraEmpleado.Master" AutoEventWireup="true" CodeBehind="CierredeCajaEmpleado.aspx.cs" Inherits="SistemasIIITHEGYM.CierredeCajaEmpleado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
@@ -25,7 +24,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Registrar apertura</h3>
+            <h3 class="box-title">Registrar Cierre</h3>
             <div class="box-tools pull-right">
 <%--                boton minimizar y cerrar--%>
 <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -53,7 +52,7 @@
                 </div>
                     <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Monto de Apertura:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Monto de Cierre:</label>
                  <%--input dinero--%>
                  <div class="input-group" style="left: 0px; top: 0px; width: 320px">
                 <span class="input-group-addon">$</span>
@@ -92,6 +91,8 @@
                       <asp:Label ID="lblestadocaja" CssClass="text-muted" runat="server" Text="Apertura/Cierre"></asp:Label>
                   </div>
                 </div>
+                <br />
+                   <br />
                <br />
               <!-- /.form-group -->
                 <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
@@ -101,9 +102,27 @@
           <!-- /.row -->
         </div>
         <!-- /.box-body -->
+
+      <div class="col-sm-10" style="left: 0px; top: 0px; width: 530px">
+      <asp:Label ID="lblgridview" CssClass="text-muted" runat="server" Text="Movimientos del día" Font-Size="Large" ForeColor="Black"></asp:Label>
+       </div>
+                          <asp:GridView ID="gridmovimientos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="204px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 91px; margin-bottom: 9px;" Width="448px">
+                      <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                      <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                      <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                      <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                      <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                      <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                      <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                      <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                      <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                      <SortedDescendingHeaderStyle BackColor="#242121" />
+                  </asp:GridView>
 <div class="box-footer">
+    <br />
+    <br />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
+                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar Cierre" OnClick="btnregistrar_Click" />
                 
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarSucursalGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarSucursalGerente" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
     <link href="EstilosCSS.css" rel="stylesheet" />
 
 </asp:Content>
@@ -32,7 +33,6 @@
 
 
     </script>
-        <asp:ScriptManager ID="SMparaAJAX" runat="server"></asp:ScriptManager>
         <section class="content-header" style="left: 0px; top: 0px; height: 26px">
       <h1>
         Registrar Sucursal

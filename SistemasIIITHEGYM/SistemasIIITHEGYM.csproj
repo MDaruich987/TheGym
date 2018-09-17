@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AperturadeCajaEmpleado.aspx" />
+    <Content Include="CierredeCajaEmpleado.aspx" />
     <Content Include="ConsultarActividadEmpleado.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
@@ -78,6 +79,7 @@
     <Content Include="IngresoEgreso.aspx" />
     <Content Include="IngresoEgresoEmpleado.aspx" />
     <Content Include="InicioEmpleado.aspx" />
+    <Content Include="InicioGerente.aspx" />
     <Content Include="packages.config" />
     <Content Include=".gitignore" />
     <Content Include=".npmignore" />
@@ -139,6 +141,13 @@
     </Compile>
     <Compile Include="BussinesDataLayer\DataAccess.cs" />
     <Compile Include="BussinesLayer\TheGym.cs" />
+    <Compile Include="CierredeCajaEmpleado.aspx.cs">
+      <DependentUpon>CierredeCajaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CierredeCajaEmpleado.aspx.designer.cs">
+      <DependentUpon>CierredeCajaEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarActividadEmpleado.aspx.cs">
       <DependentUpon>ConsultarActividadEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -212,6 +221,13 @@
     <Compile Include="InicioEmpleado.aspx.designer.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InicioGerente.aspx.cs">
+      <DependentUpon>InicioGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioGerente.aspx.designer.cs">
+      <DependentUpon>InicioGerente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioLogueo.aspx.cs">
       <DependentUpon>InicioLogueo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,8 +285,8 @@
     <Folder Include="build\" />
     <Folder Include="dist\" />
     <Folder Include="documentation\" />
+    <Folder Include="GYMPaginasMaestras\Models\" />
     <Folder Include="ImagenesSistema\" />
-    <Folder Include="Models\" />
     <Folder Include="plugins\" />
   </ItemGroup>
   <PropertyGroup>

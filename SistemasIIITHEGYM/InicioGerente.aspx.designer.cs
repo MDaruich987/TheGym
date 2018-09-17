@@ -10,7 +10,7 @@
 namespace SistemasIIITHEGYM {
     
     
-    public partial class InicioEmpleado {
+    public partial class InicioGerente {
         
         /// <summary>
         /// Control lblusuario.

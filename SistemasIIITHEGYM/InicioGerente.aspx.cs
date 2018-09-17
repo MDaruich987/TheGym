@@ -7,12 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace SistemasIIITHEGYM
 {
-    public partial class InicioEmpleado : System.Web.UI.Page
+    public partial class InicioGerente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //lblmensajebienvenida.Text = Session["inicio"].ToString();
-            //si efectivamente se ha iniciado sesión
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -36,6 +34,7 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
         }
     }
 }

@@ -2,6 +2,8 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
+    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="EstilosCSS.css" rel="stylesheet" />
@@ -14,7 +16,6 @@
     </script>
 
 
-    <asp:ScriptManager ID="SMAJAX" runat="server"></asp:ScriptManager>
 
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>
