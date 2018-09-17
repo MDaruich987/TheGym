@@ -61,8 +61,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
             public string FechaCliente;
             public string EmailCliente;
             public string TelefonoCliente;
-            public string DomicilioCliente;
-            public string DNICliente;
+            public string CalleCliente;
+        public string NumeroCliente;
+        public string BarrioCliente;
+        public string FKLocalidadCliente;
+        public string DNICliente;
 
 
 
