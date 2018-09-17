@@ -13,5 +13,15 @@ namespace SistemasIIITHEGYM
         {
 
         }
+
+        protected void btnregistrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnverificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
