@@ -29,17 +29,6 @@ namespace SistemasIIITHEGYM
                     //declaramos una variale sesion para mantener el dato del usuario
                     string usuario = (string)Session["Usuario"];
                     lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
-                    /*if (Request.Params["parametro"] != null)
-                    {
-                        //para que el label capte el nombre y apellido enviado desde el form de acceso
-                        lblmensajebienvenida.Text = "Bienvenido " + Request.Params["parametro"];
-                    }
-                    else
-                    {
-                        //si no, muestra un mensaje de bienvenida solamente
-                        lblmensajebienvenida.Text = "Bienvenido";
-                    }
-                    */
 
                 }
                 else
@@ -122,7 +111,7 @@ namespace SistemasIIITHEGYM
                 ddlprofesor.ClearSelection();
                 ddlprofesor.Items.FindByText(gridactividades.SelectedRow.Cells[3].Text).Selected = true;
                 idemp = ddlprofesor.SelectedValue;
-                ddlcupos.Text = gridactividades.SelectedRow.Cells[7].Text;
+                ddlcupos.SelectedValue = gridactividades.SelectedRow.Cells[7].Text;
 
             }
             catch (Exception ex)

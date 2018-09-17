@@ -76,6 +76,7 @@
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
+    <Content Include="EmailClientesPlanes.aspx" />
     <Content Include="IngresoEgreso.aspx" />
     <Content Include="IngresoEgresoEmpleado.aspx" />
     <Content Include="InicioEmpleado.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="ConsultarSucursal.aspx.designer.cs">
       <DependentUpon>ConsultarSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailClientesPlanes.aspx.cs">
+      <DependentUpon>EmailClientesPlanes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailClientesPlanes.aspx.designer.cs">
+      <DependentUpon>EmailClientesPlanes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
