@@ -91,7 +91,6 @@
       </h1>
     </section>
   <%--      fin cabecera--%>
-<asp:PlaceHolder ID="contenidoprincipal" runat="server">
 
         <div class="login-box">
   <div class="login-logo">
@@ -104,7 +103,7 @@
       <div class="form-group has-feedback">
         <asp:TextBox ID="tbid"  Cssclass="form-control"  runat="server" Text="ID"></asp:TextBox>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            <asp:Button ID="btnverificar" runat="server" Text="Verificar Cliente" Cssclass=" btn btn-default btn-block btn-flat"/>
+            <asp:Button ID="btnverificar" runat="server" Text="Verificar Cliente" Cssclass=" btn btn-default btn-block btn-flat" OnClick="btnverificar_Click"/>
           <br />
             <asp:Panel ID="panelNOT" runat="server">
                 <div class="clean-gray">
@@ -112,7 +111,7 @@
                 </div>
             </asp:Panel>
             <br />
-          <asp:Button ID="btnregistrar" runat="server" Text="Registrar" Cssclass="btn btn-success btn-block btn-flat"/>
+          <asp:Button ID="btnregistrar" runat="server" Text="Registrar" Cssclass="btn btn-success btn-block btn-flat" OnClick="btnregistrar_Click"/>
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -149,7 +148,6 @@
   });
 </script>
 
-</asp:PlaceHolder>
    </form>
     
 
