@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Data;
 
 
 namespace SistemasIIITHEGYM
@@ -40,7 +41,43 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
+            CargarLocalidades();
+            CargarTipoDocumento();
+
+
         }
+
+        public void CargarLocalidades()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllLocalidades();
+            if (dt.Rows.Count > 0)
+            {
+                ddllocalidad.DataTextField = "Nombre";
+                ddllocalidad.DataValueField = "CodigoPostal";
+                ddllocalidad.DataSource = dt;
+                ddllocalidad.DataBind();
+            }
+        }
+
+        public void CargarTipoDocumento()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllTipoDocumento();
+            if (dt.Rows.Count > 0)
+            {
+                ddltipodedocumento.DataTextField = "Descripcion";
+                ddltipodedocumento.DataValueField = "Id_TipoDocumento";
+                ddltipodedocumento.DataSource = dt;
+                ddltipodedocumento.DataBind();
+            }
+        }
+
+
+        
 
         private void SaveClienteFoto()
         {
@@ -181,6 +218,16 @@ namespace SistemasIIITHEGYM
         protected void btncancelar_Click1(object sender, EventArgs e)
         {
 
+        }
+
+        protected void tbemail_TextChanged(object sender, EventArgs e)
+        {
+            tbusuario.Text = tbemail.Text;
+        }
+
+        protected void tbnumerodocumento_TextChanged(object sender, EventArgs e)
+        {
+            tbcontraseña.Text = tbnumerodocumento.Text;
         }
     }
     }
