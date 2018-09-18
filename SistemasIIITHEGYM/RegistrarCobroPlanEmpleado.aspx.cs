@@ -13,8 +13,11 @@ namespace SistemasIIITHEGYM
     {
         public static bool flag=false;
 
+        static string aux;
+
         public static string nombre;
         public static string apellido;
+        public static string id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -82,7 +85,7 @@ namespace SistemasIIITHEGYM
                 //DdlPlan.Items.Add("Seleccione...");
                 //DdlPlan.DataSource = dt;
                 ddlplan.DataTextField = "Nombre";
-                ddlplan.DataValueField = "Precio";
+                ddlplan.DataValueField = "Id_plan";
 
                 ddlplan.DataSource = dt;
                 ddlplan.DataBind();
@@ -145,8 +148,9 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = ex.Message.ToString();
             }
 
-            nombre = gridclientes.SelectedRow.Cells[0].Text;
-            apellido = gridclientes.SelectedRow.Cells[1].Text;
+            nombre = gridclientes.SelectedRow.Cells[1].Text;
+            apellido = gridclientes.SelectedRow.Cells[2].Text;
+            id = gridclientes.SelectedRow.Cells[0].Text;
             lblnombreusuario.Text = apellido + ", " + nombre;
 
         }
@@ -159,7 +163,7 @@ namespace SistemasIIITHEGYM
             DataTable dt = new DataTable();
             TheGym k = new TheGym
             {
-                FechaIdDetCaja = TxFecha.Text
+                FechaIdDetCaja = lblFecha.Text
             };
             dt = k.GetEstadoDetCaja();
             if (dt.Rows.Count < 1)
@@ -175,26 +179,41 @@ namespace SistemasIIITHEGYM
                     dt2 = k.GetIdDetCaja();
                     ID = dt2.Rows[0][0].ToString();
                     k.FKDetCajaMov = ID;
-                    k.FKFormaPagoMov = DdlMedioPago.SelectedValue.ToString();
+                    k.FKFormaPagoMov = ddlformadepago.SelectedValue.ToString();
                     k.EstadoMov = "Ingreso";
-                    k.ComprobanteMov = TxbComprobante.Text;
-                    k.MontoMov = TxTotal.Text;
+                    k.ComprobanteMov = TbComprobante.Text;
+                    k.MontoMov = tbmonto.Text;
                     k.ConceptoMov = "Pago Plan";
                     k.HoraMov = Convert.ToString(DateTime.Now.TimeOfDay);
 
                     k.AddMovimientoCaja();
 
-                    k.FechaCuota = TxFecha.Text;
-                    k.FK_clienteCuota = GridView1.SelectedRow.Cells[0].Text;
-                    k.FK_planCuota = DdlPlan.SelectedValue.ToString();
-                    k.MontoCuota = TxTotal.Text;
+                    k.FechaCuota = lblFecha.Text;
+                    k.FK_clienteCuota = id;
+                    k.FK_planCuota = ddlplan.SelectedValue.ToString();
+                    k.MontoCuota = tbmonto.Text;
                     DataTable aux1 = new DataTable();
-                    k.IDPlanVencimiento = DdlPlan.SelectedValue;
+                    k.IDPlanVencimiento = ddlplan.SelectedValue;
                     aux1 = k.GetVencimiento();
                     auxiliar = Convert.ToInt32(aux1.Rows[0][0].ToString());
-                    auxiliar1 = Convert.ToDateTime(TxFecha.Text).AddDays(auxiliar);
+                    auxiliar1 = Convert.ToDateTime(lblFecha.Text).AddDays(auxiliar);
                     k.VencimientoCuota = Convert.ToString(auxiliar1);
                     k.AddCuota();
+
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
+
+                    tbmonto.Text = string.Empty;
+                    TbComprobante.Text = string.Empty;
+                    lblComprobante.Visible = false;
+                    TbComprobante.Visible = false;
+                    ddlformadepago.ClearSelection();
+                    ddlplan.ClearSelection();
+
+                    panelseleccioncliente.Visible = true;
+                    panelseleccioncliente.Focus();
+                    paneldatosdecobro.Visible = false;
+                    tbnombre.Text = "";
+
 
                 }
                 else
@@ -213,7 +232,7 @@ namespace SistemasIIITHEGYM
             }
 
             //mensaje de registro exitoso
-            this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
+            //this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
@@ -240,14 +259,25 @@ namespace SistemasIIITHEGYM
 
         protected void ddlplan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlplan.SelectedItem.Text != "Seleccione...")
+            //.Visible = true;
+            //DdlMedioPago.Visible = true;
+            //GetAllMedioPago();
+            aux = ddlplan.SelectedValue;
+            if (aux != "Seleccione...")
             {
-                tbmonto.Text = ddlplan.SelectedItem.Value.ToString();
-             
+                TheGym k = new TheGym
+                {
+                    IdPlanMonto = aux
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetTotalPlan();
+                tbmonto.Text = dt.Rows[0][0].ToString();
             }
             else
             {
-                tbmonto.Text = string.Empty;
+                tbmonto.Text = "";
+                //LblMedioPago.Visible = false;
+                //DdlMedioPago.Visible = false;
             }
         }
     }

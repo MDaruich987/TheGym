@@ -79,7 +79,26 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FKSemanaReg;
         public string DesdeReg;
         public string HastaReg;
-
+        //Variable para buscar ID det pla
+        public string FechaIdDetCaja;
+        //variables para registrar movimiento de caja
+        public string FKFormaPagoMov;
+        public string FKDetCajaMov;
+        public string MontoMov;
+        public string EstadoMov;
+        public string ConceptoMov;
+        public string ComprobanteMov;
+        public string HoraMov;
+        //Variable para registrar Cuota
+        public string FK_planCuota;
+        public string MontoCuota;
+        public string FechaCuota;
+        public string VencimientoCuota;
+        public string FK_clienteCuota;
+        // varialbe para calcular vencimiento
+        public string IDPlanVencimiento;
+        //varaible para buscar monto de plan
+        public string IdPlanMonto;
 
 
 
@@ -98,9 +117,44 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCronograma", parameters);
         }
 
+        public DataTable GetEstadoDetCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEstadoDetCaja", parameters);
+            return dt;
+        }
+
+        public void AddMovimientoCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[7];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_formapago", FKFormaPagoMov, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Monto", MontoMov, SqlDbType.Money, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Estado", EstadoMov, SqlDbType.NVarChar, 20);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Concepto", ConceptoMov, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Comprobante", ComprobanteMov, SqlDbType.NVarChar, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@FK_DetCaja", FKDetCajaMov, SqlDbType.Int, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@Hora", HoraMov, SqlDbType.Time, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddMovCaja", parameters);
+        }
+
+        public DataTable GetEstadoDetCajaAP()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEstadoDetCajaAP", parameters);
+            return dt;
+        }
+
+        public DataTable GetIdDetCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIdDetCaja", parameters);
+            return dt;
+        }
 
 
-        
         public void AddNewSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[3];
@@ -171,8 +225,28 @@ namespace SistemasIIITHEGYM.BussinesLayer
                 return dt;
             }
 
-            //método para consultar un empleado
-            public DataTable GetEmpleadoNom()
+        public DataTable GetVencimiento()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("Id_Plan", IDPlanVencimiento, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetVencimiento", parameters);
+            return dt;
+        }
+
+        public void AddCuota()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_Plan", FK_planCuota, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Monto", MontoCuota, SqlDbType.Money, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaCuota, SqlDbType.DateTime, 30);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Vencimiento", VencimientoCuota, SqlDbType.Date, 20);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_Cliente", FK_clienteCuota, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCuota", parameters);
+        }
+
+
+        //método para consultar un empleado
+        public DataTable GetEmpleadoNom()
             {
                 SqlParameter[] parameters = new SqlParameter[3];
                 parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpleadoBusc, SqlDbType.NVarChar, 50);
@@ -261,6 +335,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[11] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoDocumento", FKTipoDocumento, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCliente", parameters);
         }
+
+        public DataTable GetTotalPlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", IdPlanMonto, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMontoPlan", parameters);
+            return dt;
+        }
+
 
     }
 }
