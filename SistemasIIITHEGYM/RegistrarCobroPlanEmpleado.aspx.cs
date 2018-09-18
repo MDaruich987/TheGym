@@ -11,6 +11,11 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarCobroPlanEmpleado : System.Web.UI.Page
     {
+        public static bool flag=false;
+
+        public static string nombre;
+        public static string apellido;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,6 +55,56 @@ namespace SistemasIIITHEGYM
                     //Response.Redirect("InicioLogin.aspx");
                 }
             }
+
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblhora.Text = DateTime.Now.ToShortTimeString();
+            
+            //lblnombreusuario.Text = apellido + ", " +nombre;
+            
+            //lblnombreusuario.Text = gridclientes.SelectedRow.Cells[1].Text;
+
+            if (flag == false)
+            {
+                GetAllPlan();
+                GetAllMedioPago();
+                flag = true;
+            }
+            
+        }
+
+        private void GetAllPlan()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllPlans();
+            if (dt.Rows.Count > 0)
+            {
+                //DdlPlan.Items.Add("Seleccione...");
+                //DdlPlan.DataSource = dt;
+                ddlplan.DataTextField = "Nombre";
+                ddlplan.DataValueField = "Precio";
+
+                ddlplan.DataSource = dt;
+                ddlplan.DataBind();
+                // DdlPlan.Items.Add("Seleccione...");
+                ddlplan.Items.Insert(0, "Seleccione...");
+
+            }
+        }
+
+
+        private void GetAllMedioPago()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllMedioPago();
+            if (dt.Rows.Count > 1)
+            {
+                ddlformadepago.DataTextField = "descripcion";
+                ddlformadepago.DataValueField = "id_formapago";
+                ddlformadepago.DataSource = dt;
+                ddlformadepago.DataBind();
+            }
         }
 
         protected void btnconsultar_Click(object sender, EventArgs e)
@@ -65,6 +120,8 @@ namespace SistemasIIITHEGYM
                 gridclientes.DataBind();
                 gridclientes.Focus();
             }
+
+            flag = true;
         }
 
         protected void gridclientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +133,9 @@ namespace SistemasIIITHEGYM
                 panelseleccioncliente.Visible = false;
                 paneldatosdecobro.Visible = true;
                 paneldatosdecobro.Focus();
+                tbmonto.ReadOnly = true;
+                TbComprobante.Visible = false;
+                lblComprobante.Visible = false;
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
 
             }
@@ -84,6 +144,11 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+
+            nombre = gridclientes.SelectedRow.Cells[0].Text;
+            apellido = gridclientes.SelectedRow.Cells[1].Text;
+            lblnombreusuario.Text = apellido + ", " + nombre;
+
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
@@ -100,6 +165,33 @@ namespace SistemasIIITHEGYM
             panelseleccioncliente.Focus();
             paneldatosdecobro.Visible = false;
             tbnombre.Text = "";
+        }
+
+        protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlformadepago.SelectedItem.Text == "Efectivo")
+            {
+                lblComprobante.Visible = false;
+                TbComprobante.Visible = false;
+            }
+            else
+            {
+                lblComprobante.Visible = true;
+                TbComprobante.Visible = true;
+            }
+        }
+
+        protected void ddlplan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlplan.SelectedItem.Text != "Seleccione...")
+            {
+                tbmonto.Text = ddlplan.SelectedItem.Value.ToString();
+             
+            }
+            else
+            {
+                tbmonto.Text = string.Empty;
+            }
         }
     }
 }
