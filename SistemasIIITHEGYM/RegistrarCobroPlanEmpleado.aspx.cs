@@ -153,7 +153,64 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            string ID;
+            int auxiliar;
+            DateTime auxiliar1;
+            DataTable dt = new DataTable();
+            TheGym k = new TheGym
+            {
+                FechaIdDetCaja = TxFecha.Text
+            };
+            dt = k.GetEstadoDetCaja();
+            if (dt.Rows.Count < 1)
+            {
+                //dt = ;
+                //ID = Session["IdSession"]; GetIdDetCaja
+                //ID = 3;
+                DataTable dt1 = new DataTable();
+                dt1 = k.GetEstadoDetCajaAP();
+                if (dt1.Rows.Count > 0)
+                {
+                    DataTable dt2 = new DataTable();
+                    dt2 = k.GetIdDetCaja();
+                    ID = dt2.Rows[0][0].ToString();
+                    k.FKDetCajaMov = ID;
+                    k.FKFormaPagoMov = DdlMedioPago.SelectedValue.ToString();
+                    k.EstadoMov = "Ingreso";
+                    k.ComprobanteMov = TxbComprobante.Text;
+                    k.MontoMov = TxTotal.Text;
+                    k.ConceptoMov = "Pago Plan";
+                    k.HoraMov = Convert.ToString(DateTime.Now.TimeOfDay);
 
+                    k.AddMovimientoCaja();
+
+                    k.FechaCuota = TxFecha.Text;
+                    k.FK_clienteCuota = GridView1.SelectedRow.Cells[0].Text;
+                    k.FK_planCuota = DdlPlan.SelectedValue.ToString();
+                    k.MontoCuota = TxTotal.Text;
+                    DataTable aux1 = new DataTable();
+                    k.IDPlanVencimiento = DdlPlan.SelectedValue;
+                    aux1 = k.GetVencimiento();
+                    auxiliar = Convert.ToInt32(aux1.Rows[0][0].ToString());
+                    auxiliar1 = Convert.ToDateTime(TxFecha.Text).AddDays(auxiliar);
+                    k.VencimientoCuota = Convert.ToString(auxiliar1);
+                    k.AddCuota();
+
+                }
+                else
+                {
+                    lblerror.Visible = true;
+                    lblerror.Text = "Caja No Abierta";
+                    lblerror.ForeColor = System.Drawing.Color.Red;
+                }
+
+            }
+            else
+            {
+                lblerror.Visible = true;
+                lblerror.Text = "Caja Cerrada";
+                lblerror.ForeColor = System.Drawing.Color.Red;
+            }
 
             //mensaje de registro exitoso
             this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");

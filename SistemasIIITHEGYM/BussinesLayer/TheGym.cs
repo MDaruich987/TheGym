@@ -73,6 +73,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string DNICliente;
         public string FotoCliente;
         public string FKTipoDocumento;
+        //Variable para buscar ID det pla
+        public string FechaIdDetCaja;
+
 
 
         //métodos
