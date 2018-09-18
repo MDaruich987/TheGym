@@ -173,7 +173,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-
+            SaveClienteFoto();
             //Configuracion para registrar cliente en la base de datos
             //Creo el objeto k
             TheGym k = new TheGym
@@ -187,7 +187,10 @@ namespace SistemasIIITHEGYM
                 NumeroCliente = tbnumerocasa.Text,
                 BarrioCliente = tbbarrio.Text,
                 FKLocalidadCliente = ddllocalidad.SelectedValue,
-               //falta la parte del domicilio
+                DNICliente = tbnumerodocumento.Text,
+                FotoCliente = "~/ImagenesSistema/" + fiupfotografiacliente.FileName,
+                FKTipoDocumento = ddltipodedocumento.SelectedValue,
+                //falta la parte del domicilio
             };
 
             
@@ -211,6 +214,9 @@ namespace SistemasIIITHEGYM
             tbcontraseña.Text = string.Empty;
             ddllocalidad.ClearSelection();
             ddltipodedocumento.ClearSelection();
+            tbtelefono.Text = string.Empty;
+            tbnumerodocumento.Text = string.Empty;
+            tbusuario.Text = string.Empty;
             //daltan algunos
 
         }
@@ -227,7 +233,10 @@ namespace SistemasIIITHEGYM
 
         protected void tbnumerodocumento_TextChanged(object sender, EventArgs e)
         {
-            tbcontraseña.Text = tbnumerodocumento.Text;
+            string aux;
+            aux = tbnumerodocumento.Text;
+            tbcontraseña.Text = aux;
+            //tbcontraseña.Text = tbnumerodocumento.Text;
         }
     }
     }
