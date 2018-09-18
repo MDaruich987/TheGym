@@ -8,11 +8,11 @@
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblProfesor" runat="server" Text="Profesor:"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server">
+        <asp:DropDownList ID="ddlProfesor" runat="server">
         </asp:DropDownList>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="LblActividad" runat="server" Text="Actividad:"></asp:Label>
-        <asp:DropDownList ID="DropDownList2" runat="server">
+        <asp:DropDownList ID="ddlActividad" runat="server">
         </asp:DropDownList>
         <br />
         <br />
@@ -41,7 +41,7 @@
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="123px" />
+        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="123px" OnClick="BtnGuardar_Click" />
         <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" Width="123px" />
         <br />
     </asp:Panel>
