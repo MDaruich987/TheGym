@@ -112,25 +112,14 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº de documento:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="128px" TextMode="number" AutoPostBack="True" OnTextChanged="tbnumerodocumento_TextChanged"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="128px" TextMode="number" OnTextChanged="tbnumerodocumento_TextChanged"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbnumerodocumento" Display="None" ErrorMessage="Ingrese el documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                    <br />
                   <br />
                   <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fotografía:</label>
-
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 259px">
-                    <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
-                  <p class="help-block">Seleccione la fotografía del cliente.</p>
-                      <p class="help-block">
-                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="fiupfotografiacliente" Display="None" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                          <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator6_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator6_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator6">
-                          </ajaxToolkit:ValidatorCalloutExtender>
-                      </p>
-                  </div>
-                </div>
+                  &nbsp;</div>
                    <br />
 
                 <%--<div class="form-group">
@@ -285,11 +274,24 @@
                   <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
 
                   <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" TextMode="password"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" AutoPostBack="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="tbcontraseña" Display="None" ErrorMessage="Ingrese una contraseña" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
             </div>
+              <br />
+&nbsp;<div class="form-group">
+                  &nbsp;<label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fotografía:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 259px">
+                    <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
+                  <p class="help-block">Seleccione la fotografía del cliente.</p>
+                      <p class="help-block">
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="fiupfotografiacliente" Display="None" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                          <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator6_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator6_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator6">
+                          </ajaxToolkit:ValidatorCalloutExtender>
+                      </p>
+                  </div>
+                </div>
+                   <br />
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

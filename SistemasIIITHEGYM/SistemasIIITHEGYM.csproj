@@ -304,6 +304,7 @@
     <Folder Include="GYMPaginasMaestras\Models\" />
     <Folder Include="ImagenesSistema\" />
     <Folder Include="plugins\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
