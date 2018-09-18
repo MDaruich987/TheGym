@@ -205,7 +205,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
                 return dt;
             }
 
-            //Metodo para Registrar Cliente 
+        public DataTable GetAllPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            //parameters[0] = DataLayer.DataAccess.AddParameter("@Nombre", NombrePlanBusc, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllPlan", parameters);
+            return dt;
+        }
+
+        public DataTable GetAllMedioPago()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            //parameters[0] = DataLayer.DataAccess.AddParameter("@Nombre", NombrePlanBusc, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllMedioPago", parameters);
+            return dt;
+        }
+
+        //Metodo para Registrar Cliente 
         public void AddNewCliente()
         {
             SqlParameter[] parameters = new SqlParameter[12];
