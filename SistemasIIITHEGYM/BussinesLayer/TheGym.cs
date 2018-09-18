@@ -25,15 +25,20 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variables para realizar registro de empleado
         public string NombreEmpladoIns;
         public string ApellidoEmpleadoIns;
-        public DateTime FechaNacEmpleadoIns;
+        public string FechaNacEmpleadoIns;
         public string EmailEmpleadoIns;
-        public long TelefEmpleadoIns;
-        public string DomicilioEmpleadoIns;
-        public int DNIEmpleadoIns;
-        public DateTime FechaContEmpleadoIns;
+        public string TelefEmpleadoIns;
+        public string DocumentoEmpleadoIns;
+        public string FechaContEmpleadoIns;
+        public string FotoEmpleadoIns;
         public string TitulEmpleadoIns;
-        public string ExperEmpleadoIns;
-        public int CargoEmpleadoIns;
+        public string FKCargoEmpleadoIns;
+        public string FKTipoDocEmpleadoIns;
+        public string FKSucursalEmpleadoIns;
+        public string CalleEmpleadoIns;
+        public string BarrioEmpleadoIns;
+        public string NumeroEmpleadoIns;
+        public string FKLocalidadEmpleadoIns;
         //variables para realizar la edicion de empleado
         public string DNIEditar = "0";
         public string NombreClienteEditar;
@@ -95,23 +100,27 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllTipoDocumento", parameters);
             return dt;
         }
-
         public void AddNewEmpleado()
-            {
-                SqlParameter[] parameters = new SqlParameter[11];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpladoIns, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoEmpleadoIns, SqlDbType.NVarChar, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaNacEmpleadoIns, SqlDbType.Date, 20);
-                parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailEmpleadoIns, SqlDbType.NVarChar, 100);
-                parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefEmpleadoIns, SqlDbType.BigInt, 50);
-                parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Domicilio", DomicilioEmpleadoIns, SqlDbType.NVarChar, 50);
-                parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIEmpleadoIns, SqlDbType.Int, 100);
-                parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_cont", FechaContEmpleadoIns, SqlDbType.DateTime, 100);
-                parameters[8] = BussinesDataLayer.DataAccess.AddParameter("@Titulo", TitulEmpleadoIns, SqlDbType.NVarChar, 50);
-                parameters[9] = BussinesDataLayer.DataAccess.AddParameter("@Experiencia", ExperEmpleadoIns, SqlDbType.NVarChar, 1000);
-                parameters[10] = BussinesDataLayer.DataAccess.AddParameter("@FK_cargo", CargoEmpleadoIns, SqlDbType.Int, 10);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEmpleado", parameters);
-            }
+        {
+            SqlParameter[] parameters = new SqlParameter[16];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpladoIns, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoEmpleadoIns, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaNacEmpleadoIns, SqlDbType.Date, 20);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailEmpleadoIns, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefEmpleadoIns, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleEmpleadoIns, SqlDbType.NVarChar, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroEmpleadoIns, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioEmpleadoIns, SqlDbType.NVarChar, 50);
+            parameters[8] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DocumentoEmpleadoIns, SqlDbType.NVarChar, 20);
+            parameters[9] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoDocumento", FKTipoDocEmpleadoIns, SqlDbType.Int, 50);
+            parameters[10] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_cont", FechaContEmpleadoIns, SqlDbType.Date, 100);
+            parameters[11] = BussinesDataLayer.DataAccess.AddParameter("@Titulo", TitulEmpleadoIns, SqlDbType.NVarChar, 50);
+            parameters[12] = BussinesDataLayer.DataAccess.AddParameter("@FK_cargo", FKCargoEmpleadoIns, SqlDbType.Int, 50);
+            parameters[13] = BussinesDataLayer.DataAccess.AddParameter("@Foto", FotoEmpleadoIns, SqlDbType.NVarChar, 500);
+            parameters[14] = BussinesDataLayer.DataAccess.AddParameter("@FK_sucursal", FKSucursalEmpleadoIns, SqlDbType.Int, 50);
+            parameters[15] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadEmpleadoIns, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEmpleado", parameters);
+        }
 
             //método para agregar una nueva actividad
 

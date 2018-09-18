@@ -77,7 +77,7 @@ namespace SistemasIIITHEGYM
         }
 
 
-        
+
 
         private void SaveClienteFoto()
         {
