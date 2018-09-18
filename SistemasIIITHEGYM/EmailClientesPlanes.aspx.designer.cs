@@ -31,13 +31,22 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblseleccione;
         
         /// <summary>
-        /// Control gridclientes.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridclientes;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// Control SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// Control tbusuario.
@@ -49,6 +58,24 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbusuario;
         
         /// <summary>
+        /// Control tbusuario0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbusuario0;
+        
+        /// <summary>
+        /// Control lberror.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lberror;
+        
+        /// <summary>
         /// Control tbmensaje.
         /// </summary>
         /// <remarks>
@@ -58,12 +85,12 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbmensaje;
         
         /// <summary>
-        /// Control btnenviar.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnenviar;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

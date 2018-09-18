@@ -40,13 +40,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblProfesor;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control ddlProfesor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProfesor;
         
         /// <summary>
         /// Control LblActividad.
@@ -58,13 +58,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label LblActividad;
         
         /// <summary>
-        /// Control DropDownList2.
+        /// Control ddlActividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlActividad;
         
         /// <summary>
         /// Control lblHorario.

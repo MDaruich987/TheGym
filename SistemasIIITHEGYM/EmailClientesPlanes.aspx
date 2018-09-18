@@ -22,46 +22,55 @@
    <asp:Label ID="lblseleccione" runat="server" Text="Seleccione el cliente al cual desea enviar el Email:" Font-Names="Arial" Font-Size="Medium"></asp:Label>       
                     <br />       
                     <br /> 
-                    <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
-                                                          <Columns>
-                                                              <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">
-                                                              <ItemStyle Width="150px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="100">
-                                                              <ItemStyle Width="150px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="DNI" HeaderText="DNI" ItemStyle-Width="100">
-                                                              <ItemStyle Width="190px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Fecha_nac" HeaderText="Fecha Nacimiento" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="180px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Email" HeaderText="Emai" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="160px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="160px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField ConvertEmptyStringToNull="true" DataField="Domicilio" HeaderText="Domicilio" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="190px" />
-                                                              </asp:BoundField>
-                                                              <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto">
-                                                              </asp:ImageField>
-                                                              <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
-                                                          </Columns>
-                                                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                                          <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                          <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                                          <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                          <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                                          <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                                          <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                                          <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                                          <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                                          <SortedDescendingHeaderStyle BackColor="#242121" />
-                                                      </asp:GridView>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar." OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                <Columns>
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                    <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
+                    <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
+                    <asp:BoundField DataField="Foto" HeaderText="Foto" SortExpression="Foto" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="Vencimiento" HeaderText="Vencimiento" SortExpression="Vencimiento" />
+                    <asp:CommandField ShowSelectButton="True" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" DeleteCommand="DELETE FROM [Cliente] WHERE [Id_cliente] = @Id_cliente" InsertCommand="INSERT INTO [Cliente] ([Nombre], [Apellido], [Fecha_nac], [Email], [Telefono], [Foto], [Estado], [FK_TipoDocumento], [Numero], [Calle], [Barrio], [DNI], [FK_localidad]) VALUES (@Nombre, @Apellido, @Fecha_nac, @Email, @Telefono, @Foto, @Estado, @FK_TipoDocumento, @Numero, @Calle, @Barrio, @DNI, @FK_localidad)" ProviderName="System.Data.SqlClient" SelectCommand="select Nombre,Apellido,DNI,Foto,Email,Vencimiento
+from Cliente as cli inner join Cuota as cuo on cli.Id_cliente=cuo.FK_Cliente where Vencimiento  &lt; =  GETDATE()
+" UpdateCommand="UPDATE [Cliente] SET [Nombre] = @Nombre, [Apellido] = @Apellido, [Fecha_nac] = @Fecha_nac, [Email] = @Email, [Telefono] = @Telefono, [Foto] = @Foto, [Estado] = @Estado, [FK_TipoDocumento] = @FK_TipoDocumento, [Numero] = @Numero, [Calle] = @Calle, [Barrio] = @Barrio, [DNI] = @DNI, [FK_localidad] = @FK_localidad WHERE [Id_cliente] = @Id_cliente">
+                <DeleteParameters>
+                    <asp:Parameter Name="Id_cliente" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Nombre" Type="String" />
+                    <asp:Parameter Name="Apellido" Type="String" />
+                    <asp:Parameter DbType="Date" Name="Fecha_nac" />
+                    <asp:Parameter Name="Email" Type="String" />
+                    <asp:Parameter Name="Telefono" Type="Int64" />
+                    <asp:Parameter Name="Foto" Type="String" />
+                    <asp:Parameter Name="Estado" Type="String" />
+                    <asp:Parameter Name="FK_TipoDocumento" Type="Int32" />
+                    <asp:Parameter Name="Numero" Type="Int32" />
+                    <asp:Parameter Name="Calle" Type="String" />
+                    <asp:Parameter Name="Barrio" Type="String" />
+                    <asp:Parameter Name="DNI" Type="String" />
+                    <asp:Parameter Name="FK_localidad" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Nombre" Type="String" />
+                    <asp:Parameter Name="Apellido" Type="String" />
+                    <asp:Parameter DbType="Date" Name="Fecha_nac" />
+                    <asp:Parameter Name="Email" Type="String" />
+                    <asp:Parameter Name="Telefono" Type="Int64" />
+                    <asp:Parameter Name="Foto" Type="String" />
+                    <asp:Parameter Name="Estado" Type="String" />
+                    <asp:Parameter Name="FK_TipoDocumento" Type="Int32" />
+                    <asp:Parameter Name="Numero" Type="Int32" />
+                    <asp:Parameter Name="Calle" Type="String" />
+                    <asp:Parameter Name="Barrio" Type="String" />
+                    <asp:Parameter Name="DNI" Type="String" />
+                    <asp:Parameter Name="FK_localidad" Type="Int32" />
+                    <asp:Parameter Name="Id_cliente" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
 
           <!-- /.row -->
         </div>
@@ -82,14 +91,16 @@
             </div>
             <div class="box-body">
                 <div class="form-group">
-                  <asp:TextBox ID="tbusuario" Cssclass="form-control" runat="server" Height="24px" Width="140px"></asp:TextBox>
+                  <asp:TextBox ID="tbusuario" Cssclass="form-control" runat="server" Height="24px" Width="140px" ReadOnly="True"></asp:TextBox>
+                  <asp:TextBox ID="tbusuario0" Cssclass="form-control" runat="server" Height="24px" Width="140px" ReadOnly="True"></asp:TextBox>
+                    <asp:Label ID="lberror" runat="server"></asp:Label>
                 </div>
                 <div>
-                    <asp:TextBox ID="tbmensaje" Cssclass="textarea" runat="server" Height="51px" TextMode="MultiLine" Width="537px"></asp:TextBox>
+                    <asp:TextBox ID="tbmensaje" Cssclass="textarea" runat="server" Height="51px" TextMode="MultiLine" Width="537px" ReadOnly="True">Te estamos esperando. A ponerse las piletas ! o noo? ahre </asp:TextBox>
                 </div>
             </div>
             <div class="box-footer clearfix">
-            <asp:Button ID="btnenviar" CssClass="pull-right btn btn-default" runat="server" Text="Enviar" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Enviar Email" />
             </div>
           </div>
 </asp:Content>
