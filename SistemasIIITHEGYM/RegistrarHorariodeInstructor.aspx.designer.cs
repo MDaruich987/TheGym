@@ -67,31 +67,22 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.DropDownList ddlActividad;
         
         /// <summary>
-        /// Control lblHorario.
+        /// Control lbldias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHorario;
+        protected global::System.Web.UI.WebControls.Label lbldias;
         
         /// <summary>
-        /// Control lblDe.
+        /// Control lblDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDe;
-        
-        /// <summary>
-        /// Control DropDownList3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.Label lblDesde;
         
         /// <summary>
         /// Control lblHasta.
@@ -103,76 +94,166 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblHasta;
         
         /// <summary>
-        /// Control DropDownList5.
+        /// Control CbLunes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.CheckBox CbLunes;
         
         /// <summary>
-        /// Control lblSemana.
+        /// Control DdldeLunes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSemana;
+        protected global::System.Web.UI.WebControls.DropDownList DdldeLunes;
         
         /// <summary>
-        /// Control RbLunes.
+        /// Control DdlhastaLunes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RbLunes;
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaLunes;
         
         /// <summary>
-        /// Control RbMartes.
+        /// Control CbMartes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RbMartes;
+        protected global::System.Web.UI.WebControls.CheckBox CbMartes;
         
         /// <summary>
-        /// Control RbMiercoles.
+        /// Control DdldeMartes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RbMiercoles;
+        protected global::System.Web.UI.WebControls.DropDownList DdldeMartes;
         
         /// <summary>
-        /// Control RBJueves.
+        /// Control DdlhastaMartes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RBJueves;
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaMartes;
         
         /// <summary>
-        /// Control RBViernes.
+        /// Control CbMiercoles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RBViernes;
+        protected global::System.Web.UI.WebControls.CheckBox CbMiercoles;
         
         /// <summary>
-        /// Control RBSabado.
+        /// Control DdldeMiercoles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RBSabado;
+        protected global::System.Web.UI.WebControls.DropDownList DdldeMiercoles;
+        
+        /// <summary>
+        /// Control DdlhastaMiercoles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaMiercoles;
+        
+        /// <summary>
+        /// Control CbJueves.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CbJueves;
+        
+        /// <summary>
+        /// Control DdldeJueves.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdldeJueves;
+        
+        /// <summary>
+        /// Control DdlhastaJueves.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaJueves;
+        
+        /// <summary>
+        /// Control CbViernes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CbViernes;
+        
+        /// <summary>
+        /// Control DdldeViernes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdldeViernes;
+        
+        /// <summary>
+        /// Control DdlhastaViernes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaViernes;
+        
+        /// <summary>
+        /// Control CbSabado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CbSabado;
+        
+        /// <summary>
+        /// Control DdldeSabado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdldeSabado;
+        
+        /// <summary>
+        /// Control DdlhastaSabado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlhastaSabado;
         
         /// <summary>
         /// Control BtnGuardar.
