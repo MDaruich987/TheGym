@@ -73,14 +73,34 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string DNICliente;
         public string FotoCliente;
         public string FKTipoDocumento;
-        //Variable para buscar ID det pla
-        public string FechaIdDetCaja;
+        //Variables para Registrar Horario de Instructor
+        public string FKEmpleadoReg;
+        public string FKActividadReg;
+        public string FKSemanaReg;
+        public string DesdeReg;
+        public string HastaReg;
+
+
 
 
 
         //métodos
         //método para agregar una nueva sucursal
 
+        public void AddCronograma()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_semana", FKSemanaReg, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado",FKEmpleadoReg, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_actividad", FKActividadReg, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Desde", DesdeReg, SqlDbType.Time, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", HastaReg, SqlDbType.Time, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCronograma", parameters);
+        }
+
+
+
+        
         public void AddNewSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[3];
@@ -179,9 +199,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
             public DataTable GetActividad()
             {
-                SqlParameter[] parameters = new SqlParameter[1];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+                SqlParameter[] parameters = new SqlParameter[0];
+                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllActividades", parameters);
                 return dt;
             }
 
