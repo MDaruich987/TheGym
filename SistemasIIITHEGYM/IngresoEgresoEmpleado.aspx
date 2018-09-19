@@ -91,12 +91,12 @@
           <asp:Label ID="lblerror" CssClass="error-text center-block text-center" runat="server" Text=""></asp:Label>
            <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" InsertCommand="insert into Asistencia (FK_empleado,Fecha,Hora,Estado) values (@codigo,GETDATE(),GETDATE(),@estado)" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>--%>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" ProviderName="System.Data.SqlClient">
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)" ConnectionString="<%$ ConnectionStrings:MiConec %>" ProviderName="<%$ ConnectionStrings:MiConec.ProviderName %>">
                 <SelectParameters>
                     <asp:Parameter Name="codigo" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" InsertCommand="insert into Asistencia (FK_empleado,Fecha,Hora,Estado) values (@codigo,GETDATE(),GETDATE(),@estado)" ProviderName="System.Data.SqlClient" UpdateCommandType="StoredProcedure">
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MiConec %>" InsertCommand="insert into Asistencia (FK_empleado,Fecha,Hora,Estado) values (@codigo,GETDATE(),GETDATE(),@estado)" ProviderName="<%$ ConnectionStrings:MiConec.ProviderName %>" UpdateCommandType="StoredProcedure">
                 <InsertParameters>
                     <asp:Parameter Name="codigo" />
                     <asp:Parameter Name="estado" />
