@@ -11,6 +11,8 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarClienteEmpleado : System.Web.UI.Page
     {
+        public static bool flag = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -45,6 +47,42 @@ namespace SistemasIIITHEGYM
                     //si no se ha iniciado sesion me manda al inicio
                     //Response.Redirect("InicioLogin.aspx");
                 }
+
+                if (flag == true)
+                {
+                    CargarTipoDocumento();
+                    CargarLocalidades();
+                    flag = false;
+                }
+
+            }
+        }
+
+        public void CargarLocalidades()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllLocalidades();
+            if (dt.Rows.Count > 0)
+            {
+                ddllocalidad.DataTextField = "Nombre";
+                ddllocalidad.DataValueField = "CodigoPostal";
+                ddllocalidad.DataSource = dt;
+                ddllocalidad.DataBind();
+            }
+        }
+
+        public void CargarTipoDocumento()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllTipoDocumento();
+            if (dt.Rows.Count > 0)
+            {
+                ddltipodedocumento.DataTextField = "Descripcion";
+                ddltipodedocumento.DataValueField = "Id_TipoDocumento";
+                ddltipodedocumento.DataSource = dt;
+                ddltipodedocumento.DataBind();
             }
         }
 
@@ -52,24 +90,36 @@ namespace SistemasIIITHEGYM
         {
             gridclientes.Visible = true;
             
-                TheGym k = new TheGym();
-                k.NombreClienteBusc = tbnombre.Text;
-                DataTable dt = k.GetClienteNom();
-                if (dt.Rows.Count > 0)
-                {
-                    gridclientes.DataSource = dt;
-                    gridclientes.DataBind();
-                     gridclientes.Focus();
-                }
-
+            TheGym k = new TheGym();
+            k.NombreClienteBusc = tbnombre.Text;
+            DataTable dt = k.GetClienteNom();
+            if (dt.Rows.Count > 0)
+            {
+                gridclientes.DataSource = dt;
+                gridclientes.DataBind();
+                gridclientes.Focus();
             }
+
+        }
 
         protected void btneditar_Click(object sender, EventArgs e)
         {
             if (btneditar.Text == "Editar")
             {
-               //significa que estaba viendo los campos y ahora quiere editar
-               //mandamos todos los valores de los campos al panel de edicion
+                //significa que estaba viendo los campos y ahora quiere editar
+                //mandamos todos los valores de los campos al panel de edicion
+                TextBox1.Enabled = true;
+                tbapellido.Enabled = true;
+                ddltipodedocumento.Enabled = true;
+                tbnumerodocumento.Enabled = true;
+                tbfechadenacimiento.Enabled = true;
+                ddllocalidad.Enabled = true;
+                tbemail.Enabled = true;
+                tbtelefono.Enabled = true;
+                tbcalle.Enabled = true;
+                tbnumerocasa.Enabled = true;
+                tbbarrio.Enabled = true;
+                btneditar.Text = "Guardar";
             }
             else
             {
@@ -100,7 +150,28 @@ namespace SistemasIIITHEGYM
                 paneledicion.Visible = true;
                 paneledicion.Focus();
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
-               
+
+                TheGym k = new TheGym
+                {
+                    IdClienteSearch = gridclientes.SelectedRow.Cells[0].Text
+                };
+
+                DataTable dt = new DataTable();
+                dt = k.GetAllDatosCliente();
+
+                TextBox1.Text = dt.Rows[0][1].ToString();
+                tbapellido.Text = dt.Rows[0][2].ToString();
+                tbfechadenacimiento.Text = Convert.ToDateTime(dt.Rows[0][3]).ToShortDateString();
+                tbemail.Text = dt.Rows[0][4].ToString();
+                tbtelefono.Text = dt.Rows[0][5].ToString();
+                ddltipodedocumento.SelectedValue = dt.Rows[0][8].ToString();
+                tbnumerocasa.Text = dt.Rows[0][9].ToString();
+                tbcalle.Text = dt.Rows[0][10].ToString();
+                tbbarrio.Text = dt.Rows[0][11].ToString();
+                tbnumerodocumento.Text = dt.Rows[0][12].ToString();
+                ddllocalidad.SelectedValue = dt.Rows[0][13].ToString();
+                tbusuario.Text = tbemail.Text;
+                tbcontraseña.Text = tbnumerodocumento.Text;
             }
             catch (Exception ex)
             {
@@ -108,6 +179,24 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = ex.Message.ToString();
             }
 
+        }
+
+
+        public void CargarDatos()
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            tbnombre.ReadOnly = false;
+            tbapellido.ReadOnly = false;
+            tbfechadenacimiento.ReadOnly = false;
+            tbemail.ReadOnly = false;
+            tbtelefono.ReadOnly = false;
+            tbcalle.ReadOnly = false;
+            tbnumerocasa.ReadOnly = false;
+            tbbarrio.ReadOnly = false;
         }
     }
 }

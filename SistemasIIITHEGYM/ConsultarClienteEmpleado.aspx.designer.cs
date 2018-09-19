@@ -490,6 +490,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btneditar;
         
         /// <summary>
+        /// Control lblerror.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblerror;
+        
+        /// <summary>
         /// Control btncancelar.
         /// </summary>
         /// <remarks>
@@ -499,13 +508,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btncancelar;
         
         /// <summary>
-        /// Control lblerror.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerror;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Control panelconsulta.

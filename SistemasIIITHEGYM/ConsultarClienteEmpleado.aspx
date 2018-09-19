@@ -78,7 +78,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Tipo de documento:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:DropDownList ID="ddltipodedocumento" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px">
+                                            <asp:DropDownList ID="ddltipodedocumento" runat="server" CssClass="form-control" Enabled="False" Height="32px" Width="128px">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddltipodedocumento" Display="None" ErrorMessage="Seleccione el tipo de Documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
@@ -239,7 +239,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Localidad:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:DropDownList ID="ddllocalidad" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px">
+                                            <asp:DropDownList ID="ddllocalidad" runat="server" CssClass="form-control" Enabled="False" Height="32px" Width="128px">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="ddllocalidad" Display="None" ErrorMessage="Seleccione una localidad" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator10_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator10_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator10">
@@ -251,7 +251,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Calle:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                                            <asp:TextBox ID="tbcalle" runat="server" CssClass="form-control" Enabled="False" Height="24px" TextMode="number" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="tbcalle" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbcalle" Display="None" ErrorMessage="Ingrese una calle" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator11_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator11_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator11">
                                             </ajaxToolkit:ValidatorCalloutExtender>
@@ -262,7 +262,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Barrio:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                                            <asp:TextBox ID="tbbarrio" runat="server" CssClass="form-control" Enabled="False" Height="24px" TextMode="number" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="tbbarrio" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbbarrio" Display="None" ErrorMessage="Ingrese un barrio" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                                             </ajaxToolkit:ValidatorCalloutExtender>
@@ -321,9 +321,14 @@
                                         <label class="col-sm-2 control-label" for="inputPassword3">
                                         Contraseña</label>
                                         <div class="col-sm-10">
-                                            <asp:TextBox ID="tbcontraseña" runat="server" CssClass="form-control" Enabled="False" Height="24px" TextMode="password" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="tbcontraseña" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="tbcontraseña" Display="None" ErrorMessage="Ingrese una contraseña" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
+                                        <br />
+                                        <br />
+                                        <asp:Button ID="btneditar" runat="server" CssClass="btn btn-info" OnClick="btneditar_Click" Text="Editar" />
+                                        <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
+                                        <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Volver" />
                                     </div>
                                 </div>
             <!-- /.box-body -->
@@ -336,12 +341,9 @@
                 </section>
     <!-- /.content -->
                 <div class="box-footer">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btneditar" runat="server" CssClass="btn btn-info" OnClick="btneditar_Click" Text="Editar" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Volver" />
-                
-                  <br />
-                    <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
-                </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    </div>
             </asp:Panel>
     <%--inicio panel de consulta--%>
             <asp:Panel ID="panelconsulta" runat="server">
@@ -390,6 +392,7 @@
                                                   <td>
                                                       <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridclientes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                                           <Columns>
+                                                              <asp:BoundField DataField="Id_cliente" HeaderText="ID" ItemStyle-Width="100" />
                                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">
                                                               <ItemStyle Width="150px" />
                                                               </asp:BoundField>

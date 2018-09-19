@@ -99,6 +99,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDPlanVencimiento;
         //varaible para buscar monto de plan
         public string IdPlanMonto;
+        //Variable para obtener todos los datos de Cliente
+        public string IdClienteSearch;
 
 
 
@@ -341,6 +343,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", IdPlanMonto, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMontoPlan", parameters);
+            return dt;
+        }
+
+        public DataTable GetAllDatosCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_cliente", IdClienteSearch, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosCliente", parameters);
             return dt;
         }
 
