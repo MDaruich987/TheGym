@@ -4,13 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using SistemasIIITHEGYM.BussinesLayer;
+
 
 namespace SistemasIIITHEGYM
 {
     public partial class CierredeCajaEmpleado : System.Web.UI.Page
     {
+
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
             //lblmensajebienvenida.Text = Session["inicio"].ToString();
             //si efectivamente se ha iniciado sesión
             if (Session["inicio"] != null)
@@ -41,7 +49,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
     }
