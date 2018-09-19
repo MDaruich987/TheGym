@@ -194,6 +194,9 @@
                                                   <td>
                                                       <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridclientes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                                           <Columns>
+                                                              <asp:BoundField DataField="Id_cliente" HeaderText="ID" ItemStyle-Width="100">
+                                                              <ItemStyle Width="150px" />
+                                                              </asp:BoundField>
                                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">
                                                               <ItemStyle Width="150px" />
                                                               </asp:BoundField>
@@ -215,7 +218,7 @@
                                                               <asp:BoundField ConvertEmptyStringToNull="true" DataField="Domicilio" HeaderText="Domicilio" ItemStyle-Width="100" Visible="False">
                                                               <ItemStyle Width="190px" />
                                                               </asp:BoundField>
-                                                              <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto">
+                                                              <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto" ItemStyle-Width="150">
                                                               </asp:ImageField>
                                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
