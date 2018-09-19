@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace SistemasIIITHEGYM
 {
@@ -11,6 +15,9 @@ namespace SistemasIIITHEGYM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblhora.Text = DateTime.Now.ToShortTimeString();
+            lblusuario.Text = "USUARIO";
             //lblmensajebienvenida.Text = Session["inicio"].ToString();
             //si efectivamente se ha iniciado sesión
             if (Session["inicio"] != null)
@@ -18,6 +25,11 @@ namespace SistemasIIITHEGYM
                 //declaramos una variale sesion para mantener el dato del usuario
                 string usuario = (string)Session["Usuario"];
                 lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
+                lblusuario.Text= (string)Session["Usuario"];
+                lblnombreusuario.Text = "";
+                lblsucursal.Text = "";
+                lblestadocaja.Text = "";
+                lblerror.Text = "";
                 /*if (Request.Params["parametro"] != null)
                 {
                     //para que el label capte el nombre y apellido enviado desde el form de acceso
@@ -46,7 +58,7 @@ namespace SistemasIIITHEGYM
                 //bloque try-catch por cualquier error de la base de datos
                 try
                 {
-
+                    
                 }
                 catch (Exception ex)
                 {

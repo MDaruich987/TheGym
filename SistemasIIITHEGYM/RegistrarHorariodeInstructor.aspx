@@ -2,8 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="Panel1" runat="server" Font-Size="Medium" Height="478px" Width="524px">
-        <asp:Label ID="lblRegistrar" runat="server" Text="Registrar Horario de Instructor" Font-Size="X-Large"></asp:Label>
+    <div class="box box-primary" style="left: 0px; top: 0px; width: 97%">
+            <div class="box-header with-border">
+              <h3 class="box-title" style="width: 390px">Horario de Instructor</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+              <div class="box-body">
+                      <asp:Panel ID="Panel1" runat="server" Font-Size="Medium" Height="478px" Width="524px" style="margin-left: 34px">
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -303,8 +309,10 @@
         </table>
         <br />
         <br />
-        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="123px" OnClick="BtnGuardar_Click" />
-        <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" Width="123px" OnClick="BtnCancelar_Click" />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="BtnGuardar" CssClass="btn btn-info" runat="server" Text="Guardar" Width="123px" OnClick="BtnGuardar_Click" />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="BtnCancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" Width="123px" OnClick="BtnCancelar_Click" />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
         <br />
@@ -312,4 +320,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
     </asp:Panel>
+              </div>
+              <!-- /.box-body -->
+
+          </div>
+
 </asp:Content>
