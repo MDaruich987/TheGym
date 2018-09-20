@@ -128,7 +128,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Localidad:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:DropDownList ID="ddllocalidad" runat="server" CssClass="form-control" Height="24px" Width="128px">
+                                            <asp:DropDownList ID="ddllocalidad" runat="server" CssClass="form-control" Height="32px" Width="128px">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="ddllocalidad" Display="None" ErrorMessage="Seleccione una localidad" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator9_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator9_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator9">
@@ -140,7 +140,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Calle:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                                            <asp:TextBox ID="tbcalle" runat="server" CssClass="form-control" Height="24px" TextMode="number" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="tbcalle" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="tbcalle" Display="None" ErrorMessage="Ingrese una calle" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator10_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator10_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator10">
                                             </ajaxToolkit:ValidatorCalloutExtender>
@@ -151,7 +151,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Barrio:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                                            <asp:TextBox ID="tbbarrio" runat="server" CssClass="form-control" Height="24px" TextMode="number" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="tbbarrio" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbbarrio" Display="None" ErrorMessage="Ingrese un barrio" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator11_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator11_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator11">
                                             </ajaxToolkit:ValidatorCalloutExtender>
