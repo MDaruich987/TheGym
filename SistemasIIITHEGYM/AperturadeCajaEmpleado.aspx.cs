@@ -180,7 +180,7 @@ namespace SistemasIIITHEGYM
 
                                 k.AperturaDeCaja();
 
-                                lblerror.Text = "Apertura de caja diaria realizada.";
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Apertura de caja registrada exitosamente');</script>");
                                 tbmonto.Enabled = false;
                             }
                         }
