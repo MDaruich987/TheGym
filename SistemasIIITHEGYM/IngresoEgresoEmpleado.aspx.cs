@@ -12,7 +12,7 @@ namespace SistemasIIITHEGYM
     public partial class IngresoEgresoEmpleado : System.Web.UI.Page
     {
         //coneccion base david
-        SqlConnection conex = new SqlConnection("Data Source=DAVID\\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True;");
+        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-TN40SE1\\SQLEXPRESS;Initial Catalog=TheGym;Integrated Security=True;");
         //coneccion base mica
         //coneccion base mili
         //coneccion base cami

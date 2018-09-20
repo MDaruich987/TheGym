@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SistemasIIITHEGYM.BussinesLayer;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -34,10 +36,58 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                GetProfesores();
+                GetSucursales();
+            }
+
+        }
+
+        private void GetProfesores()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = k.GetProfesores();
+            if (dt.Rows.Count > 0)
+            {
+                ddlprofesor.DataValueField = "Id_empleado";
+                ddlprofesor.DataTextField = "Profesor";
+                ddlprofesor.DataSource = dt;
+                ddlprofesor.DataBind();
+
+            }
+        }
+
+        private void GetSucursales()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = k.GetSucursales();
+            if (dt.Rows.Count > 0)
+            {
+                ddlsucursal.DataValueField = "Id_sucursal";
+                ddlsucursal.DataTextField = "Nombre";
+                ddlsucursal.DataSource = dt;
+                ddlsucursal.DataBind();
+            }
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            TheGym k = new TheGym
+            {
+                NombreActividad = tbnombre.Text,
+                ProfesorActividad = ddlprofesor.SelectedValue,
+                SucursalActividad = ddlsucursal.SelectedValue,
+                CuposActividad = ddlcupos.SelectedValue,
+                DescripcionActividad = tbdescripcion.Text
+            };
+
+            k.AddNewActividad();
+
+            tbnombre.Text = string.Empty;
+            tbdescripcion.Text = string.Empty;
+
 
         }
     }

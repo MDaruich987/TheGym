@@ -21,6 +21,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variables para realizar la consulta de empleado
         public string NombreEmpleadoBusc;
         public string DNIEmpleadoBusc = "";
+        public string IDEmpleadoBusc = "0";
         public string CargoEmpleadoBusc = "";
         //variables para realizar registro de empleado
         public string NombreEmpladoIns;
@@ -44,7 +45,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string NombreClienteEditar;
         public string ApellidoClienteEditar;
         public string TelefonoClienteEditar;
-        public string DomicilioClienteEditar;
+        public string CalleClienteEditar;
+        public string NumeroClienteEditar;
+        public string BarrioClienteEditar;
+        public string FKLocalidadClienteEditar;
+        public string FKTipoDocClienteEditar;
         public string FechaClienteEditar;
         public string EmailClienteEditar;
         public string DNIClienteEditar;
@@ -101,12 +106,53 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdPlanMonto;
         //Variable para obtener todos los datos de Cliente
         public string IdClienteSearch;
+        //Variable para editar Empleados
+        public string NombreEmpladoEdit;
+        public string ApellidoEmpleadoEdit;
+        public string FechaNacEmpleadoEdit;
+        public string EmailEmpleadoEdit;
+        public string TelefEmpleadoEdit;
+        public string DocumentoEmpleadoEdit;
+        public string FechaContEmpleadoEdit;
+        public string TitulEmpleadoEdit;
+        public string FKCargoEmpleadoEdit;
+        public string FKTipoDocEmpleadoEdit;
+        public string FKSucursalEmpleadoEdit;
+        public string CalleEmpleadoEdit;
+        public string BarrioEmpleadoEdit;
+        public string NumeroEmpleadoEdit;
+        public string FKLocalidadEmpleadoEdit;
 
 
 
 
         //métodos
         //método para agregar una nueva sucursal
+
+
+        public void UpdateEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[15];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpladoEdit, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoEmpleadoEdit, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaNacEmpleadoEdit, SqlDbType.Date, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailEmpleadoEdit, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefEmpleadoEdit, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Titulo", TitulEmpleadoEdit, SqlDbType.NVarChar, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@FK_cargo", FKCargoEmpleadoEdit, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoDocumento", FKTipoDocEmpleadoEdit, SqlDbType.Int, 50);
+            parameters[8] = BussinesDataLayer.DataAccess.AddParameter("@Documento", DocumentoEmpleadoEdit, SqlDbType.NVarChar, 20);
+            parameters[9] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleEmpleadoEdit, SqlDbType.NVarChar, 50);
+            parameters[10] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioEmpleadoEdit, SqlDbType.NVarChar, 50);
+            parameters[11] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroEmpleadoEdit, SqlDbType.Int, 50);
+            parameters[12] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadEmpleadoEdit, SqlDbType.Int, 50);
+            parameters[13] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_cont", FechaContEmpleadoEdit, SqlDbType.Date, 50);
+            parameters[14] = BussinesDataLayer.DataAccess.AddParameter("@DNIedit", DNIEditar, SqlDbType.NVarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateEmpleado", parameters);
+
+        }
+
+
 
         public void AddCronograma()
         {
@@ -250,28 +296,31 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //método para consultar un empleado
         public DataTable GetEmpleadoNom()
             {
-                SqlParameter[] parameters = new SqlParameter[3];
+                SqlParameter[] parameters = new SqlParameter[2];
                 parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpleadoBusc, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIEmpleadoBusc, SqlDbType.Int, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@K_cargo", CargoEmpleadoBusc, SqlDbType.Int, 50);
+                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoBusc, SqlDbType.Int, 50);
+                //parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@K_cargo", CargoEmpleadoBusc, SqlDbType.Int, 50);
                 DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEmpleado", parameters);
                 return dt;
             }
 
-            public void UpdateCliente()
-            {
-                SqlParameter[] parameters = new SqlParameter[8];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaClienteEditar, SqlDbType.Date, 50);
-                parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailClienteEditar, SqlDbType.NVarChar, 100);
-                parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoClienteEditar, SqlDbType.BigInt, 50);
-                parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Domicilio", DomicilioClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteEditar, SqlDbType.Int, 100);
-                parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@DNIEdit", DNIEditar, SqlDbType.Int, 100);
+        public void UpdateCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[11];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaClienteEditar, SqlDbType.Date, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailClienteEditar, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoClienteEditar, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroClienteEditar, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[8] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[9] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteEditar, SqlDbType.Int, 100);
+            parameters[10] = BussinesDataLayer.DataAccess.AddParameter("@DNIEdit", DNIEditar, SqlDbType.Int, 100);
 
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
-            }
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
+        }
 
             public DataTable GetActividad()
             {
