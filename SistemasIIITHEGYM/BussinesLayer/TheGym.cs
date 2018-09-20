@@ -257,10 +257,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public void AddNewSucursal()
         {
-            SqlParameter[] parameters = new SqlParameter[3];
+            SqlParameter[] parameters = new SqlParameter[6];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreSucursal, SqlDbType.VarChar, 50);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Direccion", DireccionSucursal, SqlDbType.VarChar, 50);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucursal, SqlDbType.BigInt, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleSucursal, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioSucursal, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroSucursal, SqlDbType.Int, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadSucursal, SqlDbType.NVarChar, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucursal, SqlDbType.BigInt, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddSucursal", parameters);
         }
 
