@@ -12,10 +12,12 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarHorariodeInstructor : System.Web.UI.Page
     {
+        int cont=0;
         static public bool flag = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (flag == true)
             {
                 CargarProfesores();
@@ -56,6 +58,7 @@ namespace SistemasIIITHEGYM
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+          
             try
             {
 
@@ -71,6 +74,7 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
+                    cont=cont+1;
                 }
                 if (CbMartes.Checked == true)
                 {
@@ -84,6 +88,7 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
+                    cont = cont + 1;
                 }
                 if (CbMiercoles.Checked == true)
                 {
@@ -97,6 +102,7 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
+                    cont = cont + 1;
                 }
                 if (CbJueves.Checked == true)
                 {
@@ -110,6 +116,7 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
+                    cont = cont + 1;
                 }
                 if (CbViernes.Checked == true)
                 {
@@ -123,6 +130,7 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
+                    cont = cont + 1;
                 }
                 if (CbSabado.Checked == true)
                 {
@@ -136,10 +144,22 @@ namespace SistemasIIITHEGYM
 
                     };
                     k.AddCronograma();
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El horario se ha registrado exitosamente');</script>");
+                    cont = cont + 1;
+
                     ddlProfesor.ClearSelection();
                     ddlActividad.ClearSelection();
                 }
+                if (cont>=1)
+                {
+                    lblerror.Text = "";
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El horario se ha registrado exitosamente');</script>");
+
+                }
+                else
+                {
+                    lblerror.Text = "Seleccione un dia y horario";
+                }
+                
             }
             catch (Exception ex)
             {
