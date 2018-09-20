@@ -11,6 +11,8 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarSucursalGerente : System.Web.UI.Page
     {
+        static bool flag = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -37,7 +39,13 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
-            CargarLocalidades();
+
+            if (flag == true)
+            {
+                CargarLocalidades();
+                flag = false;
+            }
+            
         }
 
         public void CargarLocalidades()
@@ -76,15 +84,22 @@ namespace SistemasIIITHEGYM
             TheGym k = new TheGym
             {
                 NombreSucursal = tbnombre.Text,
-                //falta lo de la direccion
+                CalleSucursal = tbcalle.Text,
+                BarrioSucursal = tbbarrio.Text,
+                NumeroSucursal = tbnumerocasa.Text,
+                FKLocalidadSucursal = ddllocalidad.SelectedValue,
                 TelefonoSucursal = Convert.ToInt64(tbtelefono.Text)
             };
 
             k.AddNewSucursal();
 
-
+            ddllocalidad.ClearSelection();
+            tbcalle.Text = string.Empty;
+            tbbarrio.Text = string.Empty;
+            tbnumerocasa.Text = string.Empty;
             tbnombre.Text = string.Empty;
             tbtelefono.Text = string.Empty;
+            lblerror.Text = "Sucursal registrada con exito!.";
         }
     }
 }
