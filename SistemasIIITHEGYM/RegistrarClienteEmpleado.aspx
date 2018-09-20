@@ -89,7 +89,7 @@
                        <br />
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:TextBox  CssClass="form-control"   ID="tbfechadenacimiento"  runat="server" Height="24px" Width="128px" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"   ID="tbfechadenacimiento"  runat="server" Height="24px" Width="156px" TextMode="Date"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbfechadenacimiento" Display="None" ErrorMessage="Ingrese la fecha de Nacimiento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="validadorfechanacimiento" runat="server" BehaviorID="validadorfechanacimiento" TargetControlID="RequiredFieldValidator3">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -112,7 +112,10 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº de documento:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="128px" TextMode="number" OnTextChanged="tbnumerodocumento_TextChanged"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="128px" OnTextChanged="tbnumerodocumento_TextChanged" TextMode="Number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbnumerodocumento" Font-Bold="True" ForeColor="#CC0000" SetFocusOnError="True" ValidationExpression="^\d+$" Display="None" ErrorMessage="Ingrese un documento válido" ValidateRequestMode="Enabled"></asp:RegularExpressionValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender90" runat="server" BehaviorID="RequiredFieldValidator90_ValidatorCalloutExtender" TargetControlID="RegularExpressionValidator1">
+                      </ajaxToolkit:ValidatorCalloutExtender>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbnumerodocumento" Display="None" ErrorMessage="Ingrese el documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
@@ -155,7 +158,7 @@
                   <label for="inputPassword3" class="col-sm-2 control-label">Teléfono:</label>
 
                   <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbtelefono"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbtelefono"  runat="server" Height="24px" Width="128px" TextMode="Phone"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tbtelefono" Display="None" ErrorMessage="Ingrese el teléfono" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator8_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator8_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator8">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -229,6 +232,9 @@
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
                     <asp:TextBox  CssClass="form-control"  ID="tbnumerocasa"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="tbnumerocasa" Font-Bold="True" ForeColor="#CC0000" SetFocusOnError="True" ValidationExpression="^\d+$" Display="None" ErrorMessage="Ingrese un número válido" ValidateRequestMode="Enabled"></asp:RegularExpressionValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender70" runat="server" BehaviorID="RequiredFieldValidator70_ValidatorCalloutExtender" TargetControlID="RegularExpressionValidator6">
+                      </ajaxToolkit:ValidatorCalloutExtender>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbnumerocasa" Display="None" ErrorMessage="Ingrese un número" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -280,7 +286,20 @@
                 </div>
             </div>
               <br />
-&nbsp;<div class="form-group">
+              <div class="form-group" style="margin-bottom: 5px">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Fotografía</label>
+
+                  <div class="col-sm-10">
+                   <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
+                  <p class="help-block">Seleccione la fotografía del cliente.</p>
+                      <p class="help-block">
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="fiupfotografiacliente" Display="None" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                          <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender30" runat="server" BehaviorID="RequiredFieldValidator30_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator15">
+                          </ajaxToolkit:ValidatorCalloutExtender>
+                      </p>
+                  </div>
+                </div>
+&nbsp;<%--<div class="form-group">
                   &nbsp;<label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fotografía:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 259px">
                     <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
                   <p class="help-block">Seleccione la fotografía del cliente.</p>
@@ -290,7 +309,7 @@
                           </ajaxToolkit:ValidatorCalloutExtender>
                       </p>
                   </div>
-                </div>
+                </div>--%>
                    <br />
             <!-- /.box-body -->
           </div>
