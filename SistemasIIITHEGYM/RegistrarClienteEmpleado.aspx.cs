@@ -82,8 +82,6 @@ namespace SistemasIIITHEGYM
         }
 
 
-
-
         private void SaveClienteFoto()
         {
             if (fiupfotografiacliente.PostedFile != null)
@@ -225,11 +223,6 @@ namespace SistemasIIITHEGYM
             tbnumerodocumento.Text = string.Empty;
             tbusuario.Text = string.Empty;
             //daltan algunos
-
-        }
-
-        protected void btncancelar_Click1(object sender, EventArgs e)
-        {
 
         }
 
