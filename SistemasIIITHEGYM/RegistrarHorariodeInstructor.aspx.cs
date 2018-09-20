@@ -56,83 +56,95 @@ namespace SistemasIIITHEGYM
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (CbLunes.Checked == true)
+            try
             {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "1",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeLunes.SelectedItem.Text,
-                    HastaReg = DdlhastaLunes.SelectedItem.Text
 
-                };
-                k.AddCronograma();
+                if (CbLunes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "1",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeLunes.SelectedItem.Text,
+                        HastaReg = DdlhastaLunes.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                }
+                if (CbMartes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "2",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeMartes.SelectedItem.Text,
+                        HastaReg = DdlhastaMartes.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                }
+                if (CbMiercoles.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "3",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeMiercoles.SelectedItem.Text,
+                        HastaReg = DdlhastaMiercoles.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                }
+                if (CbJueves.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "4",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeJueves.SelectedItem.Text,
+                        HastaReg = DdlhastaJueves.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                }
+                if (CbViernes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "5",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeViernes.SelectedItem.Text,
+                        HastaReg = DdlhastaViernes.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                }
+                if (CbSabado.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        FKSemanaReg = "6",
+                        FKActividadReg = ddlActividad.SelectedValue,
+                        FKEmpleadoReg = ddlProfesor.SelectedValue,
+                        DesdeReg = DdldeSabado.SelectedItem.Text,
+                        HastaReg = DdlhastaSabado.SelectedItem.Text
+
+                    };
+                    k.AddCronograma();
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El horario se ha registrado exitosamente');</script>");
+                    ddlProfesor.ClearSelection();
+                    ddlActividad.ClearSelection();
+                }
             }
-            if (CbMartes.Checked == true)
+            catch (Exception ex)
             {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "2",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeMartes.SelectedItem.Text,
-                    HastaReg = DdlhastaMartes.SelectedItem.Text
 
-                };
-                k.AddCronograma();
-            }
-            if (CbMiercoles.Checked == true)
-            {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "3",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeMiercoles.SelectedItem.Text,
-                    HastaReg = DdlhastaMiercoles.SelectedItem.Text
-
-                };
-                k.AddCronograma();
-            }
-            if (CbJueves.Checked == true)
-            {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "4",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeJueves.SelectedItem.Text,
-                    HastaReg = DdlhastaJueves.SelectedItem.Text
-
-                };
-                k.AddCronograma();
-            }
-            if (CbViernes.Checked == true)
-            {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "5",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeViernes.SelectedItem.Text,
-                    HastaReg = DdlhastaViernes.SelectedItem.Text
-
-                };
-                k.AddCronograma();
-            }
-            if (CbSabado.Checked == true)
-            {
-                TheGym k = new TheGym
-                {
-                    FKSemanaReg = "6",
-                    FKActividadReg = ddlActividad.SelectedValue,
-                    FKEmpleadoReg = ddlProfesor.SelectedValue,
-                    DesdeReg = DdldeSabado.SelectedItem.Text,
-                    HastaReg = DdlhastaSabado.SelectedItem.Text
-
-                };
-                k.AddCronograma();
+                lblerror.Text=ex.Message.ToString();
             }
         }
 

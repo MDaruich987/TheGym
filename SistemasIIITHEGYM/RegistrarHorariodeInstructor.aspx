@@ -2,12 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="EstilosCSS.css" rel="stylesheet" />
     <div class="box box-primary" style="left: 0px; top: 0px; width: 97%">
             <div class="box-header with-border">
               <h3 class="box-title" style="width: 390px">Horario de Instructor</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+              <!-- /.box-body -->
+
+          </div>
+
               <div class="box-body">
                       <asp:Panel ID="Panel1" runat="server" Font-Size="Medium" Height="478px" Width="524px" style="margin-left: 34px">
         <br />
@@ -315,14 +320,13 @@
         <asp:Button ID="BtnCancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" Width="123px" OnClick="BtnCancelar_Click" />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
         <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
     </asp:Panel>
               </div>
-              <!-- /.box-body -->
-
-          </div>
-
+              
 </asp:Content>
