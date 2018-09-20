@@ -16,7 +16,7 @@ namespace SistemasIIITHEGYM
 
         private static string id;
         private static string IdSuc;
-        //cadena mili
+        //cadena mili pero no se usa
         SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
