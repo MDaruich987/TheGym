@@ -118,53 +118,24 @@
                                         Cupos:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
                                             <asp:DropDownList ID="ddlcupos" runat="server" CssClass="form-control" Enabled="False" Height="30px" Width="128px">
+                                                <asp:ListItem>5</asp:ListItem>
+                                                <asp:ListItem>10</asp:ListItem>
+                                                <asp:ListItem>15</asp:ListItem>
+                                                <asp:ListItem>20</asp:ListItem>
+                                                <asp:ListItem>25</asp:ListItem>
+                                                <asp:ListItem>30</asp:ListItem>
+                                                <asp:ListItem>35</asp:ListItem>
+                                                <asp:ListItem>40</asp:ListItem>
+                                                <asp:ListItem>45</asp:ListItem>
+                                                <asp:ListItem>50</asp:ListItem>
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlcupos" Display="None" ErrorMessage="Seleccione un cupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" BehaviorID="RequiredFieldValidator4_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator4">
                                             </ajaxToolkit:ValidatorCalloutExtender>
                                         </div>
                                     </div>
-                   <br />
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Horario:</label>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 340px">
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                De:</label>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 309px">
-                                                    <asp:DropDownList ID="ddlhorarioinicio" runat="server" CssClass="form-control" Enabled="False" Height="30px" Width="128px">
-                                                    </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlhorarioinicio" Display="None" ErrorMessage="Seleccione un cupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender8" runat="server" BehaviorID="RequiredFieldValidator7_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator7">
-                                                    </ajaxToolkit:ValidatorCalloutExtender>
-                                                </div>
-                                            </div>
-                                     <br />
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                A:</label>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 306px">
-                                                    <asp:DropDownList ID="ddlhorariofin" runat="server" CssClass="form-control" Enabled="False" Height="30px" Width="128px">
-                                                    </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlhorariofin" Display="None" ErrorMessage="Seleccione un cupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender12" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
-                                                    </ajaxToolkit:ValidatorCalloutExtender>
-                                                </div>
-                                            </div>
-                                     <br />
-                       <%-- <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">De:</label>
-                    <asp:DropDownList  CssClass="form-control"   ID="ddlhorarioinicio"  runat="server" Height="24px" Width="128px"></asp:DropDownList>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlhorarioinicio" Display="None" ErrorMessage="Seleccione un horario" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" BehaviorID="RequiredFieldValidator6_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator6">
-                      </ajaxToolkit:ValidatorCalloutExtender>
-                                            <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">A:</label>
-                    <asp:DropDownList  CssClass="form-control"   ID="ddlhorariofin"  runat="server" Height="24px" Width="128px"></asp:DropDownList>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlhorariofin" Display="None" ErrorMessage="Seleccione un horario" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" BehaviorID="RequiredFieldValidator7_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator7">
-                      </ajaxToolkit:ValidatorCalloutExtender>--%>
-                                        </div>
-                                    </div>
+                                        &nbsp;</div>
                    <br />
                   
 
@@ -241,14 +212,12 @@
                                                   <td>
                                                       <asp:GridView ID="gridactividades" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_actividad" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridactividades_SelectedIndexChanged1" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                                           <Columns>
-                                                              <asp:BoundField DataField="Id_actividad" HeaderText="ID" Visible="False" />
+                                                              <asp:BoundField DataField="Id_actividad" HeaderText="ID" Visible="true" />
                                                               <asp:BoundField DataField="Actividad" HeaderText="Nombre" />
                                                               <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                                                               <asp:BoundField DataField="Profesor" HeaderText="Profesor" />
-                                                              <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" Visible="False" />
-                                                              <asp:BoundField DataField="HoraInicio" HeaderText="Hora Inicio" Visible="False" />
-                                                              <asp:BoundField DataField="HoraFin" HeaderText="Hora Fin" Visible="False" />
-                                                              <asp:BoundField DataField="Cupos" HeaderText="Cupos" Visible="False" />
+                                                              <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" Visible="false" />
+                                                              <asp:BoundField DataField="Cupos" HeaderText="Cupos" Visible="false" />
                                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>
