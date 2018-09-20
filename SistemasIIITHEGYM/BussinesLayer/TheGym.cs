@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web;
+using SistemasIIITHEGYM.BussinesLayer;
 
 
 namespace SistemasIIITHEGYM.BussinesLayer
@@ -125,9 +126,65 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string BarrioEmpleadoEdit;
         public string NumeroEmpleadoEdit;
         public string FKLocalidadEmpleadoEdit;
+        //variables para registrar apertura y cierre de caja 
+        public string FK_empleado;
+        public string FK_caja;
+        public string Estadocaja;
+        public string Monto;
+        public string FechaCaja;
+        public string FK_det_caja;
+        //variable para Cargar sucursal
+        public string IdEmpleadoCargaSuc;
+        //variable para cargar caja
+        public string IdSucursalCarga;
 
 
 
+        //Metodos para cajas 
+        public DataTable GetAllCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
+            return dt;
+        }
+
+        public DataTable GetAllSucursal()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_empleado", IdEmpleadoCargaSuc, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllSucursal", parameters);
+            return dt;
+        }
+
+
+        //Metodo para apertura y cierre de caja
+        public void AperturaDeCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_caja", FK_caja, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FK_empleado, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@estado", Estadocaja, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@monto", Monto, SqlDbType.Money, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@fecha", FechaCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AperturaCaja", parameters);
+        }
+
+        public DataTable CierreDeCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_DetCaja", FK_det_caja, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_CierreCaja", parameters);
+            return dt;
+        }
+
+        public DataTable GetIdDetCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIdDetCaja", parameters);
+            return dt;
+        }
 
         //métodos
         //método para agregar una nueva sucursal
@@ -194,14 +251,6 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEstadoDetCajaAP", parameters);
-            return dt;
-        }
-
-        public DataTable GetIdDetCaja()
-        {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIdDetCaja", parameters);
             return dt;
         }
 

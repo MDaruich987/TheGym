@@ -13,6 +13,11 @@ namespace SistemasIIITHEGYM
 {
     public partial class AperturadeCajaEmpleado : System.Web.UI.Page
     {
+
+        private static string id;
+        private static string IdSuc;
+        //cadena mili
+        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToShortDateString();
@@ -48,6 +53,8 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
+            
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
