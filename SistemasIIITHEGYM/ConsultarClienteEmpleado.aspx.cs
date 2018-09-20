@@ -129,7 +129,7 @@ namespace SistemasIIITHEGYM
                 {
                     TheGym k = new TheGym
                     {
-                        NombreClienteEditar = tbnombre.Text,
+                        NombreClienteEditar = TextBox1.Text,
                         ApellidoClienteEditar = tbapellido.Text,
                         EmailClienteEditar = tbemail.Text,
                         FechaClienteEditar = tbfechadenacimiento.Text,
