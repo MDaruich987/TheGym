@@ -139,6 +139,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbnumerodocumento;
         
         /// <summary>
+        /// Control RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
         /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
@@ -317,6 +326,15 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbnumerocasa;
+        
+        /// <summary>
+        /// Control RegularExpressionValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
         /// Control RequiredFieldValidator12.
