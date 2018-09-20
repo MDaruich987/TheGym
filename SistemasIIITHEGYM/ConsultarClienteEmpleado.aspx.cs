@@ -241,5 +241,10 @@ namespace SistemasIIITHEGYM
             tbnumerocasa.ReadOnly = false;
             tbbarrio.ReadOnly = false;
         }
+
+        protected void btnregistrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

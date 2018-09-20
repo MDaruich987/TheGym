@@ -1,6 +1,7 @@
 ﻿using SistemasIIITHEGYM.BussinesLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,7 @@ namespace SistemasIIITHEGYM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -35,6 +37,30 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+            CargarLocalidades();
+        }
+
+        public void CargarLocalidades()
+        {
+            try
+            {
+                TheGym k = new TheGym();
+                DataTable dt = new DataTable();
+                dt = k.GetAllLocalidades();
+                if (dt.Rows.Count > 0)
+                {
+                    ddllocalidad.DataTextField = "Nombre";
+                    ddllocalidad.DataValueField = "CodigoPostal";
+                    ddllocalidad.DataSource = dt;
+                    ddllocalidad.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text=ex.Message.ToString();
+            }
+          
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
