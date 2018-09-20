@@ -118,6 +118,7 @@ namespace SistemasIIITHEGYM
                             k.Monto = tbmonto.Text;
                             k.FK_empleado = id;
                             k.CierreCajaDet();
+                            this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Caja cerrada exitosamente');</script>");
 
                         }
                         else
