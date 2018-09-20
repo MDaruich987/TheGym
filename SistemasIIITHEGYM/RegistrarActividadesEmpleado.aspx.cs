@@ -87,7 +87,7 @@ namespace SistemasIIITHEGYM
             {
                 k.AddNewActividad();
                 lblerror.Visible = true;
-                lblerror.Text = "Actividad Registrada con exito!.";
+                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Apertura de caja registrada exitosamente');</script>");
 
                 tbnombre.Text = string.Empty;
                 tbdescripcion.Text = string.Empty;

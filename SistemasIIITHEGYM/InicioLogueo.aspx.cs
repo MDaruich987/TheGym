@@ -12,9 +12,9 @@ namespace SistemasIIITHEGYM
     public partial class InicioLogueo : System.Web.UI.Page
     {
         //cadena de conexion MICA
-        SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion MAXI
-        //SqlConnection conex = new SqlConnection("Data Source = DESKTOP-TN40SE1\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        SqlConnection conex = new SqlConnection("Data Source = DESKTOP-TN40SE1\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion CAMI
         //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion MILI
@@ -73,7 +73,7 @@ namespace SistemasIIITHEGYM
                             //es gerente
                             lblerror.Text = dat.Rows[0][2].ToString() + ", " + dat.Rows[0][1].ToString();
                             Session["inicio"] = usuario;
-                            Response.Redirect("~/WebGerenteInicio.aspx?parametro=" + lblerror.Text, false);
+                            Response.Redirect("~/InicioGerente.aspx?parametro=" + lblerror.Text, false);
                         }
                     }
                     else
