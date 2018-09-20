@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarEmpleadoGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarEmpleadoGerente" %>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
     <link href="EstilosCSS.css" rel="stylesheet" />
@@ -63,7 +63,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nombre:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                    <asp:TextBox  CssClass="form-control" ID="tbnombre"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control" ID="tbnombre"  runat="server" Height="24px" Width="156px"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -74,7 +74,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Apellido:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:TextBox  CssClass="form-control" ID="tbapellido"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control" ID="tbapellido"  runat="server" Height="24px" Width="156px"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbapellido" Display="None" ErrorMessage="Ingrese el apellido" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="validadorapellido" runat="server" BehaviorID="validadorapellido" TargetControlID="RequiredFieldValidator2">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -89,7 +89,7 @@
                        <br />
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:TextBox  CssClass="form-control"   ID="tbfechadenacimiento"  runat="server" Height="24px" Width="128px" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"   ID="tbfechadenacimiento"  runat="server" Height="24px" Width="156px" TextMode="Date"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbfechadenacimiento" Display="None" ErrorMessage="Ingrese la fecha de Nacimiento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="validadorfechanacimiento" runat="server" BehaviorID="validadorfechanacimiento" TargetControlID="RequiredFieldValidator3">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -100,7 +100,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Tipo de documento:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddltipodedocumento"  runat="server" Height="32px" Width="128px"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddltipodedocumento"  runat="server" Height="32px" Width="156px"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddltipodedocumento" Display="None" ErrorMessage="Seleccione el tipo de Documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -112,14 +112,15 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº de documento:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbnumerodocumento"  runat="server" Height="24px" Width="156px" TextMode="number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" CssClass="error-text" ControlToValidate="tbnumerodocumento" ErrorMessage="Ingrese un número válido" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbnumerodocumento" Display="None" ErrorMessage="Ingrese el documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                    <br />
                   <br />
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Sucursal:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddlSucursal"  runat="server" Height="32px" Width="128px" OnSelectedIndexChanged="ddlSucursal_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddlSucursal"  runat="server" Height="32px" Width="156px" OnSelectedIndexChanged="ddlSucursal_SelectedIndexChanged"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator91" runat="server" ControlToValidate="ddlSucursal" Display="None" ErrorMessage="Seleccione el tipo la Sucursal" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator91_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator91">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -148,7 +149,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                   <div class="col-sm-10">
-                    <asp:TextBox  CssClass="form-control"  ID="tbemail"  runat="server" Height="24px" Width="128px" TextMode="email" AutoPostBack="True" OnTextChanged="tbemail_TextChanged"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbemail"  runat="server" Height="24px" Width="156px" TextMode="email" AutoPostBack="True" OnTextChanged="tbemail_TextChanged"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="tbemail" Display="None" ErrorMessage="Ingrese el el E-mail" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator7_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator7_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator7">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -159,7 +160,7 @@
                   <label for="inputPassword3" class="col-sm-2 control-label">Teléfono:</label>
 
                   <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbtelefono"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbtelefono"  runat="server" Height="24px" Width="156px" TextMode="Phone"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tbtelefono" Display="None" ErrorMessage="Ingrese el teléfono" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator8_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator8_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator8">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -199,7 +200,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Localidad:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddllocalidad"  runat="server" Height="32px" Width="128px"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddllocalidad"  runat="server" Height="32px" Width="156px"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="ddllocalidad" Display="None" ErrorMessage="Seleccione una localidad" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator9_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator9_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator9">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -210,7 +211,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Calle:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbcalle"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbcalle"  runat="server" Height="24px" Width="156px"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="tbcalle" Display="None" ErrorMessage="Ingrese una calle" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator10_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator10_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator10">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -221,7 +222,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Barrio:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbbarrio"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbbarrio"  runat="server" Height="24px" Width="156px"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbbarrio" Display="None" ErrorMessage="Ingrese un barrio" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator11_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator11_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator11">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -233,6 +234,9 @@
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
                     <asp:TextBox  CssClass="form-control"  ID="tbnumerocasa"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" CssClass="error-text" ControlToValidate="tbnumerocasa" ErrorMessage="Ingrese un número válido" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
+
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbnumerocasa" Display="None" ErrorMessage="Ingrese un número" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -288,7 +292,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fotografía:</label>
 
                 </div>
-                    <div class="col-sm-10" style="left: 0px; top: 0px; width: 259px">
+                    <div class="col-sm-10" style="left: 0px; top: 0px; width: 397px">
                     <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
                   <p class="help-block">Seleccione la fotografía del cliente.</p>
                       <p class="help-block">
@@ -307,7 +311,7 @@
   <!-- general form elements disabled -->
           <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Información Laboral
+              <h3 class="box-title">Información Laboral</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -315,7 +319,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Cargo:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddlcargo"  runat="server" Height="32px" Width="181px"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddlcargo"  runat="server" Height="32px" Width="156px"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="ddlcargo" Display="None" ErrorMessage="Seleccione un cargo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender20" runat="server" BehaviorID="RequiredFieldValidator20_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator20">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -326,7 +330,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Titulo:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                   <asp:TextBox  CssClass="form-control"  ID="tbtitulo"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbtitulo"  runat="server" Height="24px" Width="156px"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator90" runat="server" ControlToValidate="tbtitulo" Display="None" ErrorMessage="Ingrese un titulo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender90" runat="server" BehaviorID="RequiredFieldValidator90_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator90">
                       </ajaxToolkit:ValidatorCalloutExtender>

@@ -157,82 +157,93 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            string ID;
-            int auxiliar;
-            DateTime auxiliar1;
-            DataTable dt = new DataTable();
-            TheGym k = new TheGym
+            try
             {
-                FechaIdDetCaja = lblFecha.Text
-            };
-            dt = k.GetEstadoDetCaja();
-            if (dt.Rows.Count < 1)
-            {
-                //dt = ;
-                //ID = Session["IdSession"]; GetIdDetCaja
-                //ID = 3;
-                DataTable dt1 = new DataTable();
-                dt1 = k.GetEstadoDetCajaAP();
-                if (dt1.Rows.Count > 0)
+                string ID;
+                int auxiliar;
+                DateTime auxiliar1;
+                DataTable dt = new DataTable();
+                TheGym k = new TheGym
                 {
-                    DataTable dt2 = new DataTable();
-                    dt2 = k.GetIdDetCaja();
-                    ID = dt2.Rows[0][0].ToString();
-                    k.FKDetCajaMov = ID;
-                    k.FKFormaPagoMov = ddlformadepago.SelectedValue.ToString();
-                    k.EstadoMov = "Ingreso";
-                    k.ComprobanteMov = TbComprobante.Text;
-                    k.MontoMov = tbmonto.Text;
-                    k.ConceptoMov = "Pago Plan";
-                    k.HoraMov = Convert.ToString(DateTime.Now.TimeOfDay);
+                    FechaIdDetCaja = lblFecha.Text
+                };
+                dt = k.GetEstadoDetCaja();
+                if (dt.Rows.Count < 1)
+                {
+                    //dt = ;
+                    //ID = Session["IdSession"]; GetIdDetCaja
+                    //ID = 3;
+                    DataTable dt1 = new DataTable();
+                    dt1 = k.GetEstadoDetCajaAP();
+                    if (dt1.Rows.Count > 0)
+                    {
+                        DataTable dt2 = new DataTable();
+                        dt2 = k.GetIdDetCaja();
+                        ID = dt2.Rows[0][0].ToString();
+                        k.FKDetCajaMov = ID;
+                        k.FKFormaPagoMov = ddlformadepago.SelectedValue.ToString();
+                        k.EstadoMov = "Ingreso";
+                        k.ComprobanteMov = TbComprobante.Text;
+                        k.MontoMov = tbmonto.Text;
+                        k.ConceptoMov = "Pago Plan";
+                        k.HoraMov = Convert.ToString(DateTime.Now.TimeOfDay);
 
-                    k.AddMovimientoCaja();
+                        k.AddMovimientoCaja();
 
-                    k.FechaCuota = lblFecha.Text;
-                    k.FK_clienteCuota = id;
-                    k.FK_planCuota = ddlplan.SelectedValue.ToString();
-                    k.MontoCuota = tbmonto.Text;
-                    DataTable aux1 = new DataTable();
-                    k.IDPlanVencimiento = ddlplan.SelectedValue;
-                    aux1 = k.GetVencimiento();
-                    auxiliar = Convert.ToInt32(aux1.Rows[0][0].ToString());
-                    auxiliar1 = Convert.ToDateTime(lblFecha.Text).AddDays(auxiliar);
-                    k.VencimientoCuota = Convert.ToString(auxiliar1);
-                    k.AddCuota();
+                        k.FechaCuota = lblFecha.Text;
+                        k.FK_clienteCuota = id;
+                        k.FK_planCuota = ddlplan.SelectedValue.ToString();
+                        k.MontoCuota = tbmonto.Text;
+                        DataTable aux1 = new DataTable();
+                        k.IDPlanVencimiento = ddlplan.SelectedValue;
+                        aux1 = k.GetVencimiento();
+                        auxiliar = Convert.ToInt32(aux1.Rows[0][0].ToString());
+                        auxiliar1 = Convert.ToDateTime(lblFecha.Text).AddDays(auxiliar);
+                        k.VencimientoCuota = Convert.ToString(auxiliar1);
+                        k.AddCuota();
 
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
 
-                    tbmonto.Text = string.Empty;
-                    TbComprobante.Text = string.Empty;
-                    lblComprobante.Visible = false;
-                    TbComprobante.Visible = false;
-                    ddlformadepago.ClearSelection();
-                    ddlplan.ClearSelection();
+                        tbmonto.Text = string.Empty;
+                        TbComprobante.Text = string.Empty;
+                        lblComprobante.Visible = false;
+                        TbComprobante.Visible = false;
+                        ddlformadepago.ClearSelection();
+                        ddlplan.ClearSelection();
 
-                    panelseleccioncliente.Visible = true;
-                    panelseleccioncliente.Focus();
-                    paneldatosdecobro.Visible = false;
-                    tbnombre.Text = "";
+                        panelseleccioncliente.Visible = true;
+                        panelseleccioncliente.Focus();
+                        paneldatosdecobro.Visible = false;
+                        tbnombre.Text = "";
 
+
+                    }
+                    else
+                    {
+                        lblerror.Visible = true;
+                        lblerror.Text = "Caja No Abierta";
+                        lblerror.ForeColor = System.Drawing.Color.Red;
+                    }
 
                 }
                 else
                 {
                     lblerror.Visible = true;
-                    lblerror.Text = "Caja No Abierta";
+                    lblerror.Text = "Caja Cerrada";
                     lblerror.ForeColor = System.Drawing.Color.Red;
                 }
 
+                //mensaje de registro exitoso
+                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
             }
-            else
+            catch (Exception ex)
             {
-                lblerror.Visible = true;
-                lblerror.Text = "Caja Cerrada";
-                lblerror.ForeColor = System.Drawing.Color.Red;
-            }
 
-            //mensaje de registro exitoso
-            //this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
+                lblerror.Text=ex.Message.ToString();
+            }
+          
+
+
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)

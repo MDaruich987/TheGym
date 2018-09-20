@@ -195,19 +195,20 @@ namespace SistemasIIITHEGYM
                 DNICliente = tbnumerodocumento.Text,
                 FotoCliente = "~/ImagenesSistema/" + tbnumerodocumento.Text + extention,
                 FKTipoDocumento = ddltipodedocumento.SelectedValue,
-                //falta la parte del domicilio
-            };
+                
+               
+        };
 
             
             try
             {
                 k.AddNewCliente();
-                lblerror.Text = ("Cliente registrado con éxito.");
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('Cliente registrado con éxito');</script>");
 
             }
-            catch
+            catch (Exception ex)
             {
-
+                lblerror.Text = ex.Message.ToString();
             }
             tbnombre.Text = string.Empty;
             tbapellido.Text = string.Empty;
@@ -223,7 +224,7 @@ namespace SistemasIIITHEGYM
             tbnumerodocumento.Text = string.Empty;
             tbusuario.Text = string.Empty;
             //daltan algunos
-
+            
         }
 
         protected void tbemail_TextChanged(object sender, EventArgs e)

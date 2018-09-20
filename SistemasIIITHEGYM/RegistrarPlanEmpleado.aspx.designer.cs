@@ -58,13 +58,49 @@ namespace SistemasIIITHEGYM {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender validadornombre;
         
         /// <summary>
-        /// Control lbduración.
+        /// Control tbprecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbduración;
+        protected global::System.Web.UI.WebControls.TextBox tbprecio;
+        
+        /// <summary>
+        /// Control RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// Control ValidatorCalloutExtender1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
+        
+        /// <summary>
+        /// Control lbduracion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbduracion;
         
         /// <summary>
         /// Control RequiredFieldValidator5.
@@ -94,22 +130,40 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.DropDownList ddlactividad;
         
         /// <summary>
-        /// Control lbduración0.
+        /// Control lbclasessemanales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbduración0;
+        protected global::System.Web.UI.WebControls.ListBox lbclasessemanales;
         
         /// <summary>
-        /// Control gridactividades0.
+        /// Control btnañadir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridactividades0;
+        protected global::System.Web.UI.WebControls.Button btnañadir;
+        
+        /// <summary>
+        /// Control lblerror.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblerror;
+        
+        /// <summary>
+        /// Control griddetalleactividades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView griddetalleactividades;
         
         /// <summary>
         /// Control btnregistrar.

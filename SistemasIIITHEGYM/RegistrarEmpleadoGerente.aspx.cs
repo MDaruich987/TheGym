@@ -231,7 +231,7 @@ namespace SistemasIIITHEGYM
             try
             {
                 k.AddNewEmpleado();
-                lblerror.Text = ("Cliente registrado con éxito.");
+                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El Empleado se ha registrado exitosamente');</script>");
 
                 tbnombre.Text = string.Empty;
                 tbapellido.Text = string.Empty;
@@ -251,14 +251,11 @@ namespace SistemasIIITHEGYM
                 ddltipodedocumento.ClearSelection();
             }
 
-            catch
+            catch (Exception ex)
             {
-
+                lblerror.Text = ex.Message.ToString();
                 
             }
-
-
-            //faltamostrarmensajeemergente
         }
 
         protected void tbnumerodocumento_TextChanged(object sender, EventArgs e)

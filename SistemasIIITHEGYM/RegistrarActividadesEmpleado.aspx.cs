@@ -83,10 +83,24 @@ namespace SistemasIIITHEGYM
                 DescripcionActividad = tbdescripcion.Text
             };
 
-            k.AddNewActividad();
+            try
+            {
+                k.AddNewActividad();
+                lblerror.Visible = true;
+                lblerror.Text = "Actividad Registrada con exito!.";
 
-            tbnombre.Text = string.Empty;
-            tbdescripcion.Text = string.Empty;
+                tbnombre.Text = string.Empty;
+                tbdescripcion.Text = string.Empty;
+
+                ddlcupos.ClearSelection();
+                ddlprofesor.ClearSelection();
+                ddlsucursal.ClearSelection();
+
+            }
+            catch
+            {
+                lblerror.Text = "Error al registrar Actividad.";
+            }
 
 
         }
