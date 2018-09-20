@@ -13,7 +13,10 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //POR FAVOR, COMENTAR TODO.
         //variables para realizar el registro de sucursal
         public string NombreSucursal;
-        public string DireccionSucursal;
+        public string CalleSucursal;
+        public string BarrioSucursal;
+        public string NumeroSucursal;
+        public string FKLocalidadSucursal;
         public long TelefonoSucursal;
         //variable para realizar la busqueda de cliente
         public string NombreClienteBusc;
