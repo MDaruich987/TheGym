@@ -44,6 +44,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string BarrioEmpleadoIns;
         public string NumeroEmpleadoIns;
         public string FKLocalidadEmpleadoIns;
+        //variables para registrar plan
+        public string Nombreplanins;
+        public string duracionplanins;
+        public string precioplanins;
+        //variables para registrar Detalles de Plan
+        public string FK_plan;
+        public string FK_actividad;
+        public string Dias_semanas;
         //variables para realizar la edicion de empleado
         public string DNIEditar = "0";
         public string NombreClienteEditar;
@@ -146,6 +154,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
+            return dt;
+        }
+
+        public DataTable GetActividades()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllActividades", parameters);
             return dt;
         }
 
@@ -274,6 +289,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetLastPlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetLastPlan", parameters);
+            return dt;
+        }
+
         public DataTable GetAllTipoDocumento()
         {
             SqlParameter[] parameters = new SqlParameter[0];
@@ -302,9 +324,28 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEmpleado", parameters);
         }
 
-            //método para agregar una nueva actividad
+        public void AddDetallePlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_plan", FK_plan, SqlDbType.Int, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_actividad", FK_actividad, SqlDbType.Int, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Dias_semana", FK_actividad, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetallePlan", parameters);
+        }
 
-            public void AddNewActividad()
+        //metodo para agregar un nuevo plan
+        public void AddNewPlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad_dias", duracionplanins, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioplanins, SqlDbType.Money, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddPlan", parameters);
+        }
+
+        //método para agregar una nueva actividad
+
+        public void AddNewActividad()
             {
                 SqlParameter[] parameters = new SqlParameter[7];
                 parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividad, SqlDbType.VarChar, 50);
