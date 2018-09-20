@@ -158,12 +158,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //Metodo para apertura y cierre de caja
         public void AperturaDeCaja()
         {
-            SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_caja", FK_caja, SqlDbType.Int, 50);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FK_empleado, SqlDbType.Int, 50);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@estado", Estadocaja, SqlDbType.NVarChar, 50);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@monto", Monto, SqlDbType.Money, 50);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@fecha", FechaCaja, SqlDbType.Date, 50);
+            SqlParameter[] parameters = new SqlParameter[4];
+            //parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_caja", FK_caja, SqlDbType.Int, 50);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@empleado", FK_empleado, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@estado", Estadocaja, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@monto", Monto, SqlDbType.Money, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@fecha", FechaCaja, SqlDbType.Date, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AperturaCaja", parameters);
         }
 
