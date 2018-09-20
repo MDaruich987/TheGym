@@ -89,7 +89,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Estado:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                      <asp:Label ID="lblestadocaja" CssClass="text-muted" runat="server" Text="Apertura/Cierre"></asp:Label>
+                      <asp:Label ID="lblestadocaja" CssClass="text-muted" runat="server" Text="Apertura"></asp:Label>
                   </div>
                 </div>
                <br />

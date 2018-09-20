@@ -183,6 +183,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public void CierreCajaDet()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Monto", Monto, SqlDbType.Money, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FK_empleado, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_CierreCajaDet", parameters);
+        }
+
         //métodos
         //método para agregar una nueva sucursal
 

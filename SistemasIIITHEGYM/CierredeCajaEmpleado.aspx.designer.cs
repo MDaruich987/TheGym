@@ -85,13 +85,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblsucursal;
         
         /// <summary>
-        /// lblestadocaja control.
+        /// lblestadocaja1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblestadocaja;
+        protected global::System.Web.UI.WebControls.Label lblestadocaja1;
         
         /// <summary>
         /// lblerror control.
