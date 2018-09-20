@@ -16,8 +16,10 @@ namespace SistemasIIITHEGYM
 
         private static string id;
         private static string IdSuc;
+        //cadena mica
+        SqlConnection conex = new SqlConnection("Data Source=MICADARUICH\\SQLEXPRESS;Initial Catalog=TheGym;Integrated Security=True");
         //cadena mili
-        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+       // SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToShortDateString();
