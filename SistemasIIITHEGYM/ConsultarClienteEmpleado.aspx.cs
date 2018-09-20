@@ -13,6 +13,8 @@ namespace SistemasIIITHEGYM
     {
         public static bool flag = true;
 
+        static string DNIedit;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -123,7 +125,44 @@ namespace SistemasIIITHEGYM
             }
             else
             {
-                //aqui va el codigo para registrar los cambios
+                if (btneditar.Text == "Guardar")
+                {
+                    TheGym k = new TheGym
+                    {
+                        NombreClienteEditar = tbnombre.Text,
+                        ApellidoClienteEditar = tbapellido.Text,
+                        EmailClienteEditar = tbemail.Text,
+                        FechaClienteEditar = tbfechadenacimiento.Text,
+                        TelefonoClienteEditar = tbtelefono.Text,
+                        CalleClienteEditar = tbcalle.Text,
+                        NumeroClienteEditar = tbnumerocasa.Text,
+                        BarrioClienteEditar = tbbarrio.Text,
+                        FKLocalidadClienteEditar = ddllocalidad.SelectedValue,
+                        FKTipoDocClienteEditar = ddltipodedocumento.SelectedValue,
+                        DNIEditar = DNIedit,
+                        DNIClienteEditar = tbnumerodocumento.Text
+                        //falta la parte del domicilio
+                    };
+
+                    k.UpdateCliente();
+                    btneditar.Text = "Editar";
+                    lblerror.Text = "Cliente Editado con exito!";
+
+                    tbnombre.Enabled = false;
+                    tbapellido.Enabled = false;
+                    tbfechadenacimiento.Enabled = false;
+                    tbemail.Enabled = false;
+                    tbtelefono.Enabled = false;
+                    tbcalle.Enabled = false;
+                    tbnumerocasa.Enabled = false;
+                    tbbarrio.Enabled = false;
+                    TextBox1.Enabled = false;
+                    ddllocalidad.Enabled = false;
+                    ddltipodedocumento.Enabled = false;
+                    tbnumerodocumento.Enabled = false;
+                    
+
+                }
             }
         }
 
@@ -172,6 +211,10 @@ namespace SistemasIIITHEGYM
                 ddllocalidad.SelectedValue = dt.Rows[0][13].ToString();
                 tbusuario.Text = tbemail.Text;
                 tbcontraseña.Text = tbnumerodocumento.Text;
+
+                DNIedit = tbnumerodocumento.Text;
+
+
             }
             catch (Exception ex)
             {
