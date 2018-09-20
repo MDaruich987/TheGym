@@ -11,6 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class IngresoEgresoEmpleado : System.Web.UI.Page
     {
+        
         //coneccion base david
         SqlConnection conex = new SqlConnection("Data Source=DESKTOP-TN40SE1\\SQLEXPRESS;Initial Catalog=TheGym;Integrated Security=True;");
         //coneccion base mica
@@ -23,7 +24,7 @@ namespace SistemasIIITHEGYM
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblerror.Text = string.Empty;
         }
 
         protected void Button1_Click(object sender, EventArgs e)

@@ -13,7 +13,6 @@ namespace SistemasIIITHEGYM
     {
 
         static bool flag = true;
-        static string ID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
