@@ -15,6 +15,9 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarEmpleadoGerente : System.Web.UI.Page
     {
+
+        static string extention;
+
         protected void Page_Load(object sender, EventArgs e)
         {
            lblerror.Text = ("");
@@ -118,6 +121,8 @@ namespace SistemasIIITHEGYM
                 string filename = fiupfotografiacliente.FileName.ToString();
                 string fileExt = System.IO.Path.GetExtension(fiupfotografiacliente.FileName);
 
+                extention = fileExt;
+
                 if (filename.Length > 96)
                 {
                     lblerror.Text = ("El nomnre de la imagen no debe exceder los 96 caracteres");
@@ -157,7 +162,7 @@ namespace SistemasIIITHEGYM
                             img = ResizeImage(imagen, 150, 150);
                         }
 
-                        img.Save(Server.MapPath("~/ImagenesSistema/") + tbnombre.Text + ".jpg");
+                        img.Save(Server.MapPath("~/ImagenesSistema/") + tbnumerodocumento.Text + ".jpg");
                         ///////
                         lblerror.Text = "El producto se agregó correctamente";
                     }
@@ -213,7 +218,7 @@ namespace SistemasIIITHEGYM
                 TelefEmpleadoIns = tbtelefono.Text,
                 DocumentoEmpleadoIns = tbnumerodocumento.Text,
                 FechaContEmpleadoIns = tbfechacontratacion.Text,
-                FotoEmpleadoIns = "~/ImagenesSistema/" + fiupfotografiacliente.FileName,
+                FotoEmpleadoIns = "~/ImagenesSistema/" + tbnumerodocumento.Text + extention,
                 TitulEmpleadoIns = tbtitulo.Text,
                 FKCargoEmpleadoIns = ddlcargo.SelectedItem.Value,
                 FKTipoDocEmpleadoIns = ddltipodedocumento.SelectedValue,

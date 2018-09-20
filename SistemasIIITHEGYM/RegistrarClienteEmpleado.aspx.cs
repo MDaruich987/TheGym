@@ -16,8 +16,13 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarClienteEmpleado : System.Web.UI.Page
     {
+        static string extention;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
+
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -86,6 +91,8 @@ namespace SistemasIIITHEGYM
                 string filename = fiupfotografiacliente.FileName.ToString();
                 string fileExt = System.IO.Path.GetExtension(fiupfotografiacliente.FileName);
 
+                extention = fileExt;
+
                 if (filename.Length > 96)
                 {
                     lblerror.Text = ("El nomnre de la imagen no debe exceder los 96 caracteres");
@@ -125,7 +132,7 @@ namespace SistemasIIITHEGYM
                             img = ResizeImage(imagen, 150, 150);
                         }
 
-                        img.Save(Server.MapPath("~/ImagenesSistema/") + tbnombre.Text + ".jpg");
+                        img.Save(Server.MapPath("~/ImagenesSistema/") + tbnumerodocumento.Text + ".jpg");
                         ///////
                         lblerror.Text = "El producto se agregó correctamente";
                     }
@@ -188,7 +195,7 @@ namespace SistemasIIITHEGYM
                 BarrioCliente = tbbarrio.Text,
                 FKLocalidadCliente = ddllocalidad.SelectedValue,
                 DNICliente = tbnumerodocumento.Text,
-                FotoCliente = "~/ImagenesSistema/" + fiupfotografiacliente.FileName,
+                FotoCliente = "~/ImagenesSistema/" + tbnumerodocumento.Text + extention,
                 FKTipoDocumento = ddltipodedocumento.SelectedValue,
                 //falta la parte del domicilio
             };

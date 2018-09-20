@@ -44,7 +44,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string NombreClienteEditar;
         public string ApellidoClienteEditar;
         public string TelefonoClienteEditar;
-        public string DomicilioClienteEditar;
+        public string CalleClienteEditar;
+        public string NumeroClienteEditar;
+        public string BarrioClienteEditar;
+        public string FKLocalidadClienteEditar;
+        public string FKTipoDocClienteEditar;
         public string FechaClienteEditar;
         public string EmailClienteEditar;
         public string DNIClienteEditar;
@@ -258,20 +262,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
                 return dt;
             }
 
-            public void UpdateCliente()
-            {
-                SqlParameter[] parameters = new SqlParameter[8];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaClienteEditar, SqlDbType.Date, 50);
-                parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailClienteEditar, SqlDbType.NVarChar, 100);
-                parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoClienteEditar, SqlDbType.BigInt, 50);
-                parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Domicilio", DomicilioClienteEditar, SqlDbType.NVarChar, 50);
-                parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteEditar, SqlDbType.Int, 100);
-                parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@DNIEdit", DNIEditar, SqlDbType.Int, 100);
+        public void UpdateCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[11];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha_nac", FechaClienteEditar, SqlDbType.Date, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailClienteEditar, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoClienteEditar, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroClienteEditar, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[8] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadClienteEditar, SqlDbType.NVarChar, 50);
+            parameters[9] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteEditar, SqlDbType.Int, 100);
+            parameters[10] = BussinesDataLayer.DataAccess.AddParameter("@DNIEdit", DNIEditar, SqlDbType.Int, 100);
 
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
-            }
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
+        }
 
             public DataTable GetActividad()
             {

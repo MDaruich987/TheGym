@@ -263,7 +263,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label">Usuario:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbusuario"  runat="server" Height="24px" Width="128px" TextMode="email" AutoPostBack="True"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbusuario"  runat="server" Height="24px" Width="128px" TextMode="email" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="tbusuario" Display="None" ErrorMessage="Ingrese un usuario" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator13_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator13_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator13">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -274,7 +274,7 @@
                   <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
 
                   <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" AutoPostBack="True"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="tbcontraseña" Display="None" ErrorMessage="Ingrese una contraseña" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
