@@ -137,6 +137,17 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdEmpleadoCargaSuc;
         //variable para cargar caja
         public string IdSucursalCarga;
+        //variable para buscar una sucursal
+        public string NomSucBuscar;
+        //Variable para Editar una sucursal
+        public string IDSucEditar;
+        public string NombreSucEditar;
+        public string TelefonoSucEditar;
+        public string CalleSucEditar;
+        public string BarrioSucEditar;
+        public string NumeroSucEditar;
+        public string FKLocSucEditar;
+
 
 
 
@@ -189,6 +200,19 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //métodos
         //método para agregar una nueva sucursal
 
+
+        public void UpdateSucursal()
+        {
+            SqlParameter[] parameters = new SqlParameter[7];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreSucEditar, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucEditar, SqlDbType.BigInt, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleSucEditar, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Barrio", BarrioSucEditar, SqlDbType.NVarChar, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumeroSucEditar, SqlDbType.Int, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocSucEditar, SqlDbType.Int, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDSucEditar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateSucursal", parameters);
+        }
 
         public void UpdateEmpleado()
         {
@@ -455,6 +479,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_cliente", IdClienteSearch, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosCliente", parameters);
+            return dt;
+        }
+
+        public DataTable GetOneSucursal()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NomSucBuscar, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneSucursal", parameters);
+            return dt;
+        }
+
+
+        public DataTable GetOneSucursalID()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IdSucursalCarga, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneSucursalID", parameters);
             return dt;
         }
 
