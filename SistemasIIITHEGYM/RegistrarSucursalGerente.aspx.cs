@@ -73,33 +73,43 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            //string Nombre;
-            //string Direccion;
-            //int Telefono;
-
-            //Nombre = tbnombre.Text;
-            //Direccion = tbdireccion.Text;
-            //Telefono = Convert.ToInt16(tbtelefono.Text);
-
-            TheGym k = new TheGym
+            try
             {
-                NombreSucursal = tbnombre.Text,
-                CalleSucursal = tbcalle.Text,
-                BarrioSucursal = tbbarrio.Text,
-                NumeroSucursal = tbnumerocasa.Text,
-                FKLocalidadSucursal = ddllocalidad.SelectedValue,
-                TelefonoSucursal = Convert.ToInt64(tbtelefono.Text)
-            };
+                //string Nombre;
+                //string Direccion;
+                //int Telefono;
 
-            k.AddNewSucursal();
+                //Nombre = tbnombre.Text;
+                //Direccion = tbdireccion.Text;
+                //Telefono = Convert.ToInt16(tbtelefono.Text);
 
-            ddllocalidad.ClearSelection();
-            tbcalle.Text = string.Empty;
-            tbbarrio.Text = string.Empty;
-            tbnumerocasa.Text = string.Empty;
-            tbnombre.Text = string.Empty;
-            tbtelefono.Text = string.Empty;
-            lblerror.Text = "Sucursal registrada con exito!.";
+                TheGym k = new TheGym
+                {
+                    NombreSucursal = tbnombre.Text,
+                    CalleSucursal = tbcalle.Text,
+                    BarrioSucursal = tbbarrio.Text,
+                    NumeroSucursal = tbnumerocasa.Text,
+                    FKLocalidadSucursal = ddllocalidad.SelectedValue,
+                    TelefonoSucursal = Convert.ToInt64(tbtelefono.Text)
+                };
+
+                k.AddNewSucursal();
+
+                ddllocalidad.ClearSelection();
+                tbcalle.Text = string.Empty;
+                tbbarrio.Text = string.Empty;
+                tbnumerocasa.Text = string.Empty;
+                tbnombre.Text = string.Empty;
+                tbtelefono.Text = string.Empty;
+                lblerror.Text = "Sucursal registrada con exito!.";
+                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('La sucursal se ha registrado exitosamente');</script>");
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
+           
         }
     }
 }

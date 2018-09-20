@@ -78,8 +78,7 @@ namespace SistemasIIITHEGYM
                 //Tabla.Columns.Add(Column);
 
 
-            }
-            this.Page.Response.Write("<script language='JavaScript'>window.alert('Hello');</script>");
+            }         
         }
 
         private void GetActividad()
@@ -144,7 +143,7 @@ namespace SistemasIIITHEGYM
                 tbprecio.Text = string.Empty;
 
                 griddetalleactividades.Dispose();
-
+                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El plan se ha registrado exitosamente');</script>");
             }
             catch (Exception ex)
             {
