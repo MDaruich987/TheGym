@@ -74,6 +74,8 @@
 
     </style>
 
+
+
 <%--inicio para jquery--%>
     <link href="../EstilosCSS.css" rel="stylesheet" />
          <link href="ValidationEngine.css" rel="stylesheet" type="text/css" />
@@ -96,9 +98,55 @@
         }
     </script>
 <%--fin para jquery--%>
-
+    
     </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
+
+    <%--parte de la barra superior--%>
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>GYM</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>The</b></span>
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+          </li>
+
+
+          <li>
+            <a href="InicioLogueo.aspx"><i class="fa-chevron-circle-right">SALIR</i></a>        
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+          
+      </asp:ContentPlaceHolder>
+                
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+
+
+
+
+
+
+
     <form id="form1" runat="server">
             <asp:ScriptManager ID="SMCONTROLPANEL" runat="server"></asp:ScriptManager>
         <div class="wrapper">
@@ -167,8 +215,16 @@
                             <a href="#"><i class="fa fa-dashboard"></i><span>Operaciones de caja</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="AperturadeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Apertura</a></li>
-                                <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Registrar Cierre</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Consultar Movimientos</a></li>
+                                <li class="active"><a href="CierredeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Cierre</a></li>
+                                <li><a href="ConsultarMovimientosEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Movimientos</a></li>
+                                 <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Cobro de Plan</a></li>
+                            </ul>
+                        </li>
+                         <li class="treeview">
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestion de Cuotas</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar cobro de Cuota</a></li>
+                                <li class="active"><a href="ConsultarCobrodeCuotaEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar cobro de Cuota</a></li>                     
                             </ul>
                         </li>
                         <li class="treeview">

@@ -90,6 +90,46 @@
     </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
+        <%--parte de la barra superior--%>
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>GYM</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>The</b></span>
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+          </li>
+
+
+          <li>
+            <a href="InicioLogueo.aspx"><i class="fa-chevron-circle-right">SALIR</i></a>        
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+          
+      </asp:ContentPlaceHolder>
+                
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+
+
+
     <form id="form1" runat="server">
         <asp:ScriptManager ID="SMGENERALGERENTE" runat="server">
         </asp:ScriptManager>
