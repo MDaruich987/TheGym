@@ -175,8 +175,9 @@
                             <a href="#"><i class="fa fa-dashboard"></i><span>Operaciones de caja</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="AperturadeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Apertura</a></li>
-                                <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Registrar Cierre</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Consultar Movimientos</a></li>
+                                <li class="active"><a href="CierredeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Cierre</a></li>
+                                <li><a href="ConsultarMovimientosEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Movimientos</a></li>
+                                 <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Cobro de Plan</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
