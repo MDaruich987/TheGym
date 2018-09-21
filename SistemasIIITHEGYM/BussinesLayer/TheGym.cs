@@ -73,8 +73,6 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string NombreActividad;
         public string ProfesorActividad;
         public string SucursalActividad;
-        public string HorarioInicioActividad;
-        public string HorarioFinActividad;
         public string CuposActividad;
         public string DescripcionActividad;
         // variables para registrar cliente
@@ -155,9 +153,44 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string BarrioSucEditar;
         public string NumeroSucEditar;
         public string FKLocSucEditar;
+        //Variable para actualiza Actividad
+        public string IdActEdit;
+        public string NombreActEdit;
+        public string DescripcionActEdit;
+        public string CuposActEdit;
+        public string FKEmpleadoActEdit;
+        public string FKSucuActEdit;
+        //Variable para buscar una actividad
+        public string IDActBuscar;
+        public string IDSucActBuscar;
+        public string IDEmpActBuscar;
 
 
 
+
+        //Metodo para Editar Actividad
+        public void UpdateActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[8];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDActBuscar, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID_suc", IDSucActBuscar, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Id_empleado", IDEmpActBuscar, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActEdit, SqlDbType.VarChar, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionActEdit, SqlDbType.VarChar, 500);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Cupos", CuposActEdit, SqlDbType.Int, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FKEmpleadoActEdit, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@FK_sucursal", FKSucuActEdit, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateActividad", parameters);
+        }
+
+
+        public DataTable GetOneActividad2()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDActBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneActividad", parameters);
+            return dt;
+        }
 
         //Metodos para cajas 
         public DataTable GetAllCaja()
@@ -455,7 +488,17 @@ namespace SistemasIIITHEGYM.BussinesLayer
                 return dt;
             }
 
-            public DataTable GetCargos()
+
+        public DataTable GetOneActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+            return dt;
+        }
+
+
+        public DataTable GetCargos()
             {
                 SqlParameter[] parameters = new SqlParameter[0];
                 DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCargos", parameters);

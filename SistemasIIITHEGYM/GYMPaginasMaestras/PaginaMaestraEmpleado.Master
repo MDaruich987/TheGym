@@ -153,14 +153,6 @@
                                 <li class="active"><a href="ConsultarPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Plan</a></li>
                             </ul>
                         </li>
-                        <li class="treeview">
-            <%--fin contenedor--%>
-                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Clientes</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                            <ul class="treeview-menu">
-                                <li><a href="RegistrarClienteEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Cliente</a></li>
-                                <li class="active"><a href="ConsultarClienteEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Cliente</a></li>
-                            </ul>
-                        </li>
                         <%--inicio contenedor asistencia--%>
                          <li>
                          <a href="IngresoEgreso.aspx">

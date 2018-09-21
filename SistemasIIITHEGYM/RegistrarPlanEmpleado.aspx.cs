@@ -144,6 +144,8 @@ namespace SistemasIIITHEGYM
 
                 griddetalleactividades.Dispose();
                 this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El plan se ha registrado exitosamente');</script>");
+                griddetalleactividades.Dispose();
+                griddetalleactividades.DataBind();
             }
             catch (Exception ex)
             {
