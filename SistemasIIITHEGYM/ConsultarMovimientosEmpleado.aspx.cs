@@ -13,5 +13,10 @@ namespace SistemasIIITHEGYM
         {
 
         }
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
