@@ -73,6 +73,7 @@
     <Content Include="AperturadeCajaEmpleado.aspx" />
     <Content Include="CierredeCajaEmpleado.aspx" />
     <Content Include="ConsultarActividadEmpleado.aspx" />
+    <Content Include="ConsultarCobrodeCuotaEmpleado.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="ConsultarClienteEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarClienteEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarCobrodeCuotaEmpleado.aspx.cs">
+      <DependentUpon>ConsultarCobrodeCuotaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarCobrodeCuotaEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarCobrodeCuotaEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarEmpleadoGerente.aspx.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>

@@ -172,6 +172,13 @@
                                  <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Cobro de Plan</a></li>
                             </ul>
                         </li>
+                         <li class="treeview">
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestion de Cuotas</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar cobro de Cuota</a></li>
+                                <li class="active"><a href="ConsultarCobrodeCuotaEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar cobro de Cuota</a></li>                     
+                            </ul>
+                        </li>
                         <li class="treeview">
             <%--fin contenedor--%>
           <%--<ul class="treeview-menu">
