@@ -141,8 +141,8 @@
                         <li class="treeview">
                             <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Planes</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Registrar Plan</a></li>
-                                <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i>Consultar Plan</a></li>
+                                <li><a href="RegistrarPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Plan</a></li>
+                                <li class="active"><a href="ConsultarPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Plan</a></li>
                             </ul>
                         </li>
             <%--fin contenedor--%>

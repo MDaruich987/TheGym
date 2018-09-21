@@ -39,15 +39,15 @@ namespace SistemasIIITHEGYM
 
 
             //Specify senders gmail address
-            string SendersAddress = "email del gym @gmail.com";
+            string SendersAddress = "thegyminfo@gmail.com";
             //Specify The Address You want to sent Email To(can be any valid email address)
             string ReceiversAddress = tbusuario0.Text;
             //Specify The password of gmial account u are using to sent mail(pw of sender@gmail.com)
-            const string SendersPassword = "contraseña del mail del gym";
+            const string SendersPassword = "thegymsistema2018";
             //Write the subject of ur mail.el asunto
-            const string subject = "THEGYM";
+            const string subject = "THE GYM";
             //Write the contents of your mail. En la pantalla yo copie lo mismo que el codigo para que sepan que se va a enviar pero solo se puede cambiar desde aca abajo
-            const string body = "Te estamos esperando. A ponerse las piletas !o noo? ahre";
+            const string body = "Te estamos esperando. Presentando este mail obtene un 20% de descuento.";
 
 
 
