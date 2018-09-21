@@ -25,7 +25,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Registrar apertura</h3>
+            <h3 class="box-title">Registrar apertura </h3>
             <div class="box-tools pull-right">
 <%--                boton minimizar y cerrar--%>
 <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>

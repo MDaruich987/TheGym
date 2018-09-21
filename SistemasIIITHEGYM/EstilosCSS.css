@@ -104,3 +104,54 @@ input.twitterStyleTextbox:focus {
     padding: 15px;
     margin: 5px;
 }
+
+
+
+.buttonclaserojo {
+    background-color: #f44336; /* red */
+    border: none;
+    color: white;
+    padding: 9px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.buttonclaseverde {
+    background-color: #4CAF50; /* green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonclaseazul {
+    background-color: #008CBA; /* blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonclasenegro {
+    background-color: #e7e7e7; 
+    color: black; /* grey */
+    border: none;
+    color: white;
+    padding: 1px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+
+
