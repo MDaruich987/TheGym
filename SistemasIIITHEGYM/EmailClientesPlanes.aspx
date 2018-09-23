@@ -3,7 +3,7 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <%--<section class="content-header">
+    <%--<section class="content-header">
                     <h1>Operaciones de caja <small>TheGym</small> </h1>
                 </section>--%>
     <!-- SELECT2 EXAMPLE -->
@@ -96,7 +96,7 @@ from Cliente as cli inner join Cuota as cuo on cli.Id_cliente=cuo.FK_Cliente whe
                     <asp:Label ID="lberror" runat="server"></asp:Label>
                 </div>
                 <div>
-                    <asp:TextBox ID="tbmensaje" Cssclass="textarea" runat="server" Height="51px" TextMode="MultiLine" Width="537px" ReadOnly="True">Te estamos esperando. A ponerse las piletas ! o noo? ahre </asp:TextBox>
+                    <asp:TextBox ID="tbmensaje" Cssclass="textarea" runat="server" Height="51px" TextMode="MultiLine" Width="537px" ReadOnly="True">Te estamos esperando. Presentando este mail obtene un 20% de descuento.</asp:TextBox>
                 </div>
             </div>
             <div class="box-footer clearfix">
