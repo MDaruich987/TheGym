@@ -9,11 +9,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-              <!-- /.box-body -->
-
-          </div>
-
-              <div class="box-body">
+                      <div class="box-body">
                       <asp:Panel ID="Panel1" runat="server" Font-Size="Medium" Height="478px" Width="524px" style="margin-left: 34px">
         <br />
         <br />
@@ -43,7 +39,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbLunes" runat="server" Text="Lunes" />
+                    <asp:CheckBox ID="CbLunes" runat="server" Text="Lunes" OnCheckedChanged="CbLunes_CheckedChanged" AutoPostBack="True" />
                 </td>
                 <td>
                     <asp:DropDownList ID="DdldeLunes" runat="server">
@@ -88,7 +84,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbMartes" runat="server" Text="Martes" />
+                    <asp:CheckBox ID="CbMartes" runat="server" Text="Martes" AutoPostBack="True" OnCheckedChanged="CbMartes_CheckedChanged" />
                 </td>
                 <td>
                     <asp:DropDownList ID="DdldeMartes" runat="server" OnSelectedIndexChanged="DdldeMartes_SelectedIndexChanged">
@@ -133,7 +129,7 @@
             </tr>
             <tr>
                 <td style="height: 25px">
-                    <asp:CheckBox ID="CbMiercoles" runat="server" Text="Miercoles" />
+                    <asp:CheckBox ID="CbMiercoles" runat="server" Text="Miercoles" AutoPostBack="True" OnCheckedChanged="CbMiercoles_CheckedChanged" />
                 </td>
                 <td style="height: 25px">
                     <asp:DropDownList ID="DdldeMiercoles" runat="server">
@@ -178,7 +174,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbJueves" runat="server" Text="Jueves" />
+                    <asp:CheckBox ID="CbJueves" runat="server" Text="Jueves" AutoPostBack="True" OnCheckedChanged="CbJueves_CheckedChanged" />
                 </td>
                 <td>
                     <asp:DropDownList ID="DdldeJueves" runat="server">
@@ -223,7 +219,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbViernes" runat="server" Text="Viernes" />
+                    <asp:CheckBox ID="CbViernes" runat="server" Text="Viernes" AutoPostBack="True" OnCheckedChanged="CbViernes_CheckedChanged" />
                 </td>
                 <td>
                     <asp:DropDownList ID="DdldeViernes" runat="server">
@@ -268,7 +264,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbSabado" runat="server" Text="Sabado" />
+                    <asp:CheckBox ID="CbSabado" runat="server" Text="Sabado" AutoPostBack="True" OnCheckedChanged="CbSabado_CheckedChanged" />
                 </td>
                 <td>
                     <asp:DropDownList ID="DdldeSabado" runat="server">
@@ -328,5 +324,8 @@
         <br />
     </asp:Panel>
               </div>
+              <!-- /.box-body -->
+
+          </div>
               
 </asp:Content>

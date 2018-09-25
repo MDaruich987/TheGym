@@ -24,6 +24,21 @@ namespace SistemasIIITHEGYM
                 CargarActividades();
                 flag = false;
             }
+            if (!IsPostBack)
+            {
+                DdldeLunes.Enabled = false;
+                DdlhastaLunes.Enabled = false;
+                DdldeMartes.Enabled = false;
+                DdlhastaMartes.Enabled = false;
+                DdldeMiercoles.Enabled = false;
+                DdlhastaMiercoles.Enabled = false;
+                DdldeJueves.Enabled = false;
+                DdlhastaJueves.Enabled = false;
+                DdldeViernes.Enabled = false;
+                DdlhastaViernes.Enabled = false;
+                DdldeSabado.Enabled = false;
+                DdlhastaSabado.Enabled = false;
+            }
           
         }
 
@@ -206,6 +221,91 @@ namespace SistemasIIITHEGYM
 
 
 
+        }
+
+        protected void CbLunes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbLunes.Checked)
+            {
+                DdldeLunes.Enabled = true;
+                DdlhastaLunes.Enabled = true;
+            }
+            else
+            {
+                DdldeLunes.Enabled = false;
+                DdlhastaLunes.Enabled = false;
+            }
+        }
+
+        protected void CbMartes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbMartes.Checked)
+            {
+                DdldeMartes.Enabled = true;
+                DdlhastaMartes.Enabled = true;
+            }
+            else
+            {
+                DdldeMartes.Enabled = false;
+                DdlhastaMartes.Enabled = false;
+            }
+        }
+
+        protected void CbMiercoles_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbMiercoles.Checked)
+            {
+                DdldeMiercoles.Enabled = true;
+                DdlhastaMiercoles.Enabled = true;
+            }
+            else
+            {
+                DdldeMiercoles.Enabled = false;
+                DdlhastaMiercoles.Enabled = false;
+            }
+        }
+
+        protected void CbJueves_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (CbJueves.Checked)
+            {
+                DdldeJueves.Enabled = true;
+                DdlhastaJueves.Enabled = true;
+            }
+            else
+            {
+                DdldeJueves.Enabled = false;
+                DdlhastaJueves.Enabled = false;
+            }
+        }
+
+        protected void CbViernes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbViernes.Checked)
+            {
+                DdldeViernes.Enabled = true;
+                DdlhastaViernes.Enabled = true;
+            }
+            else
+            {
+                DdldeViernes.Enabled = false;
+                DdlhastaViernes.Enabled = false;
+            }
+        }
+
+        protected void CbSabado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CbSabado.Checked)
+            {
+                DdlhastaSabado.Enabled = true;
+                DdldeSabado.Enabled = true;
+            }
+            else
+            {
+                DdlhastaSabado.Enabled = false;
+                DdldeSabado.Enabled = false;
+            }
         }
     }
 }
