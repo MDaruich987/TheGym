@@ -307,5 +307,77 @@ namespace SistemasIIITHEGYM
                 DdldeSabado.Enabled = false;
             }
         }
+
+        protected void DdldeLunes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = DdldeLunes.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion)+1;
+            while (horainicio<22)
+            {
+                DdlhastaLunes.DataTextField = horainicio+":00";
+                DdlhastaLunes.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
+
+        protected void DdldeMartes_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            string seleccion = DdldeMartes.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion) + 1;
+            while (horainicio < 22)
+            {
+                DdlhastaMartes.DataTextField = horainicio + ":00";
+                DdlhastaMartes.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
+
+        protected void DdldeMiercoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = DdldeMiercoles.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion) + 1;
+            while (horainicio < 22)
+            {
+                DdlhastaMiercoles.DataTextField = horainicio + ":00";
+                DdlhastaMiercoles.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
+
+        protected void DdldeJueves_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = DdldeJueves.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion) + 1;
+            while (horainicio < 22)
+            {
+                DdlhastaJueves.DataTextField = horainicio + ":00";
+                DdlhastaJueves.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
+
+        protected void DdldeViernes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = DdldeViernes.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion) + 1;
+            while (horainicio < 22)
+            {
+                DdlhastaViernes.DataTextField = horainicio + ":00";
+                DdlhastaViernes.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
+
+        protected void DdldeSabado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = DdldeSabado.SelectedValue;
+            int horainicio = Convert.ToInt32(seleccion) + 1;
+            while (horainicio < 22)
+            {
+                DdlhastaSabado.DataTextField = horainicio + ":00";
+                DdlhastaSabado.Items.Add(horainicio + ":00");
+                horainicio = horainicio + 1;
+            }
+        }
     }
 }
