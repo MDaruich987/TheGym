@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//para generar el PDF
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace SistemasIIITHEGYM
 {
@@ -98,6 +102,33 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+        }
+
+        protected void btnimprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 42, 35);
+                string path = Server.MapPath("~/PDFs/");
+                PdfWriter.GetInstance(doc, new FileStream(path + "/" + lblusuario.Text + ".pdf", FileMode.Create));
+                doc.Open();
+                //abrimos el documento para escribir
+                // Paragraph para = new Paragraph("This is my first line");
+                // doc.Add(para);
+                Font LineBreak = FontFactory.GetFont("Arial", size: 16);
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"~/EncabezadoInforme.JPG");
+                Paragraph parrafo2 = new Paragraph(string.Format("               Comprobante de Cuotas"), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16));
+               
+                doc.Close();
+                //cerramos el documento
+            }
+            catch (Exception ex)
+            {
+
+                lblerrorimpresion.Text=ex.Message.ToString();
+            }
+
+           
         }
     }
 }
