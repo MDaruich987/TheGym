@@ -19,7 +19,7 @@
                 <asp:Panel ID="paneldatosdecobro" runat="server" Height="1859px">
                     <!-- SELECT2 EXAMPLE -->
                     <div class="box box-default">
-                        <div class="box-header with-border">
+                        <div class="box-header with-border" style="left: 0px; top: 0px">
                             <h3 class="box-title">Datos de Cobro</h3>
                             <div class="box-tools pull-right">
                                 <%--                boton minimizar y cerrar--%><%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -42,7 +42,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Cliente:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:Label ID="lblnombreusuario" runat="server" CssClass="text-muted" Text="APELLIDO, Nombre"></asp:Label>
+                                            <asp:Label ID="lblnombrecliente" runat="server" CssClass="text-muted" Text="APELLIDO, Nombre"></asp:Label>
                                         </div>
                                     </div>
                                     <br />
@@ -78,27 +78,13 @@
                                                 </div>
                                             </div>
                                             <br />
-                                            <br />
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                Forma de Pago:</label>
+                                                Vencimiento:</label>
                                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                                    <asp:Label ID="lblformapago" runat="server" CssClass="text-muted" Text="PAGO"></asp:Label>
-                                                </div>
-                                                <br />
-                                                <br />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
-                                                </label>
-                                                <br />
-                                                &nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                                    <asp:Label ID="lblcomprobante2" runat="server" CssClass="text-muted" Text="Nº"></asp:Label>
+                                                    <asp:Label ID="lblvencimiento" runat="server" CssClass="text-muted" Text="VENCIMIENTO"></asp:Label>
                                                 </div>
                                             </div>
-                                            <br />
-                                            <br />
                                             <br />
                                             <br />
                                             <!-- /.form-group -->
@@ -172,7 +158,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridcuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 161px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridcuota_SelectedIndexChanged">
+                                          <asp:GridView ID="gridcuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 161px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridcuota_SelectedIndexChanged" DataKeyNames="Id_cuota">
                                               <Columns>
                                                    <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />

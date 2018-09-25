@@ -65,9 +65,39 @@ namespace SistemasIIITHEGYM
 
         protected void gridcuota_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            //cuando seleccionamos una fila del grid
             panelconsulta.Visible = false;
             paneldatosdecobro.Visible = true;
             paneldatosdecobro.Focus();
+            try
+            {
+
+                //codigo para cargar los valores de la fila en los textbox del panel de edicion
+
+                string idact = gridcuota.SelectedRow.Cells[1].Text;
+                lblerror.Text = idact;
+
+                TheGym k = new TheGym
+                {
+                    CuotaBusca = idact
+                };
+
+                DataTable dt1 = new DataTable();
+                dt1 = k.getOneCuota();
+
+                lblnombrecliente.Text = dt1.Rows[0][1].ToString()+", "+dt1.Rows[0][0].ToString();
+                lblFecha.Text = dt1.Rows[0][2].ToString();
+                lblplan.Text = dt1.Rows[0][3].ToString();
+                lblmonto.Text = dt1.Rows[0][4].ToString();
+                lblvencimiento.Text = dt1.Rows[0][5].ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
         }
     }
 }

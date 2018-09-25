@@ -58,13 +58,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblFecha;
         
         /// <summary>
-        /// Control lblnombreusuario.
+        /// Control lblnombrecliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnombreusuario;
+        protected global::System.Web.UI.WebControls.Label lblnombrecliente;
         
         /// <summary>
         /// Control lblmonto.
@@ -103,31 +103,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblplan;
         
         /// <summary>
-        /// Control lblformapago.
+        /// Control lblvencimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblformapago;
-        
-        /// <summary>
-        /// Control lblComprobante.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComprobante;
-        
-        /// <summary>
-        /// Control lblcomprobante2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcomprobante2;
+        protected global::System.Web.UI.WebControls.Label lblvencimiento;
         
         /// <summary>
         /// Control Label1.

@@ -110,8 +110,10 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FechaCuota;
         public string VencimientoCuota;
         public string FK_clienteCuota;
-        //variables para realizar la busqueda de una cuota
+        //variables para realizar la busqueda de  cuotas
         public string ClienteCuota;
+        //variables para buscar una cuota seleccionada
+        public string CuotaBusca;
         // varialbe para calcular vencimiento
         public string IDPlanVencimiento;
         //varaible para buscar monto de plan
@@ -191,6 +193,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDActBuscar, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneActividad", parameters);
+            return dt;
+        }
+        //procedimiento para buscar una cuota seleccionada
+        public DataTable getOneCuota()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", CuotaBusca, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("Pa_GetOneCuota", parameters);
             return dt;
         }
 
