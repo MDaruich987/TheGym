@@ -143,6 +143,7 @@
     <Content Include="IngresoEgreso.aspx" />
     <Content Include="IngresoEgresoEmpleado.aspx" />
     <Content Include="InicioEmpleado.aspx" />
+    <Content Include="InicioEntrenador.aspx" />
     <Content Include="InicioGerente.aspx" />
     <Content Include="packages.config" />
     <Content Include=".gitignore" />
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="InicioEmpleado.aspx.designer.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioEntrenador.aspx.cs">
+      <DependentUpon>InicioEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioEntrenador.aspx.designer.cs">
+      <DependentUpon>InicioEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="InicioGerente.aspx.cs">
       <DependentUpon>InicioGerente.aspx</DependentUpon>

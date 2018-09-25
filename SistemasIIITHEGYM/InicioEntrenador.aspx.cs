@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SistemasIIITHEGYM
 {
-    public partial class RegistrarEjercicioEntrenador : System.Web.UI.Page
+    public partial class InicioEntrenador : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,11 +36,6 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
-        }
-
-        protected void btnregistrar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
