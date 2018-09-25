@@ -108,6 +108,7 @@ namespace SistemasIIITHEGYM
         {
             try
             {
+                //AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
                 Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 42, 35);
                 string path = Server.MapPath("~/PDFs/");
                 PdfWriter.GetInstance(doc, new FileStream(path + "/" + lblusuario.Text + ".pdf", FileMode.Create));
@@ -115,12 +116,16 @@ namespace SistemasIIITHEGYM
                 //abrimos el documento para escribir
                 // Paragraph para = new Paragraph("This is my first line");
                 // doc.Add(para);
+                doc.NewPage();
+                doc.Add(new Paragraph("Hello"));
                 Font LineBreak = FontFactory.GetFont("Arial", size: 16);
-                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"~/EncabezadoInforme.JPG");
+                string pathImage = Server.MapPath("~/ImagenesSistema/EncabezadoInforme.JPG");
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(pathImage);
                 Paragraph parrafo2 = new Paragraph(string.Format("               Comprobante de Cuotas"), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16));
                
                 doc.Close();
                 //cerramos el documento
+                lblerror.Text = "!";
             }
             catch (Exception ex)
             {
