@@ -11,6 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarCobrodeCuotaEmpleado : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -60,6 +61,13 @@ namespace SistemasIIITHEGYM
                 lblerror.Text=ex.Message.ToString();
             }
 
+        }
+
+        protected void gridcuota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panelconsulta.Visible = false;
+            paneldatosdecobro.Visible = true;
+            paneldatosdecobro.Focus();
         }
     }
 }

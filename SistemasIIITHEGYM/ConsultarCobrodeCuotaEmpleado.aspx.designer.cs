@@ -67,31 +67,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblnombreusuario;
         
         /// <summary>
-        /// Control tbmonto.
+        /// Control lblmonto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbmonto;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator12_ValidatorCalloutExtender.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator12_ValidatorCalloutExtender;
+        protected global::System.Web.UI.WebControls.Label lblmonto;
         
         /// <summary>
         /// Control lblhora.
@@ -112,58 +94,22 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
-        /// Control ddlplan.
+        /// Control lblplan.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlplan;
+        protected global::System.Web.UI.WebControls.Label lblplan;
         
         /// <summary>
-        /// Control RequiredFieldValidator3.
+        /// Control lblformapago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// Control ValidatorCalloutExtender2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
-        
-        /// <summary>
-        /// Control ddlformadepago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlformadepago;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator45;
-        
-        /// <summary>
-        /// Control ValidatorCalloutExtender45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender45;
+        protected global::System.Web.UI.WebControls.Label lblformapago;
         
         /// <summary>
         /// Control lblComprobante.
@@ -175,13 +121,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblComprobante;
         
         /// <summary>
-        /// Control TbComprobante.
+        /// Control lblcomprobante2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TbComprobante;
+        protected global::System.Web.UI.WebControls.Label lblcomprobante2;
         
         /// <summary>
         /// Control Label1.
