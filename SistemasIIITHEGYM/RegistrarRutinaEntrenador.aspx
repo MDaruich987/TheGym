@@ -57,9 +57,12 @@
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                  Cliente:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:DropDownList ID="ddlcliente" runat="server" CssClass="form-control" Height="32px" Width="128px">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlcliente" Display="None" ErrorMessage="Seleccione un cliente" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="tbdnicliente" runat="server"></asp:TextBox>
+                                    <asp:Button ID="Button1" runat="server" Text="Verificar" />
+                                    <br />
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                    <br />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbdnicliente" Display="None" ErrorMessage="Seleccione un cliente" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
                                     </ajaxToolkit:ValidatorCalloutExtender>
                                 </div>
@@ -141,8 +144,8 @@
                     <div class="form-group">
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Grupo Muscular:</label>
-                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
-                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px">
+                                a<div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
+                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged1">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlgrupomuscular" Display="None" ErrorMessage="Seleccione un grupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
@@ -206,6 +209,21 @@
                           <asp:ListItem>12</asp:ListItem>
                       </asp:ListBox>
                   </div>
+                       <br />
+                       <div class="form-group">
+                           <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: -6px; width: 115px">
+                           Día:</label>
+                           <div class="col-sm-10" style="left: 0px; top: 0px; width: 162px">
+                               <asp:DropDownList ID="DropDownList1" runat="server">
+                                   <asp:ListItem>Lunes</asp:ListItem>
+                                   <asp:ListItem>Martes</asp:ListItem>
+                                   <asp:ListItem>Miercoles</asp:ListItem>
+                                   <asp:ListItem>Jueves</asp:ListItem>
+                                   <asp:ListItem>Viernes</asp:ListItem>
+                                   <asp:ListItem>Sabado</asp:ListItem>
+                               </asp:DropDownList>
+                           </div>
+                       </div>
                        <br />
                        <br />
                        &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" CausesValidation="False" />
