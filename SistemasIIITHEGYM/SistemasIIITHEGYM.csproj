@@ -47,6 +47,70 @@
       <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Engine.13.0.3501\lib\net20\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ClientDoc.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommLayer.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonControls.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Controllers.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Shared.13.0.3501\lib\net20\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -73,13 +137,19 @@
     <Content Include="AperturadeCajaEmpleado.aspx" />
     <Content Include="CierredeCajaEmpleado.aspx" />
     <Content Include="ConsultarActividadEmpleado.aspx" />
+    <Content Include="ConsultarCobrodeCuotaEmpleado.aspx" />
+    <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
+    <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
+    <Content Include="ConsultarRutinaEntrenador.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
     <Content Include="EmailClientesPlanes.aspx" />
+    <Content Include="GenerarReportesGerente.aspx" />
     <Content Include="IngresoEgreso.aspx" />
     <Content Include="IngresoEgresoEmpleado.aspx" />
     <Content Include="InicioEmpleado.aspx" />
+    <Content Include="InicioEntrenador.aspx" />
     <Content Include="InicioGerente.aspx" />
     <Content Include="packages.config" />
     <Content Include=".gitignore" />
@@ -94,6 +164,7 @@
     <Content Include="README.md" />
     <Content Include="GYMPaginasMaestras\PaginaMaestraEmpleado.Master" />
     <Content Include="GYMPaginasMaestras\PaginaMaestaGerente.Master" />
+    <Content Include="GYMPaginasMaestras\MasterPageEntrenador.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -101,8 +172,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="RegistrarCobroPlanEmpleado.aspx" />
+    <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
+    <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
   </ItemGroup>
@@ -164,6 +237,20 @@
     <Compile Include="ConsultarClienteEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarClienteEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarCobrodeCuotaEmpleado.aspx.cs">
+      <DependentUpon>ConsultarCobrodeCuotaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarCobrodeCuotaEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarCobrodeCuotaEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarEjercicioEntrenador.aspx.cs">
+      <DependentUpon>ConsultarEjercicioEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarEjercicioEntrenador.aspx.designer.cs">
+      <DependentUpon>ConsultarEjercicioEntrenador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarEmpleadoGerente.aspx.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,12 +258,26 @@
     <Compile Include="ConsultarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarMovimientosEmpleado.aspx.cs">
+      <DependentUpon>ConsultarMovimientosEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarMovimientosEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarMovimientosEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarPlanEmpleado.aspx.cs">
       <DependentUpon>ConsultarPlanEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarPlanEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarRutinaEntrenador.aspx.cs">
+      <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarRutinaEntrenador.aspx.designer.cs">
+      <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarSucursal.aspx.cs">
       <DependentUpon>ConsultarSucursal.aspx</DependentUpon>
@@ -191,6 +292,13 @@
     </Compile>
     <Compile Include="EmailClientesPlanes.aspx.designer.cs">
       <DependentUpon>EmailClientesPlanes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarReportesGerente.aspx.cs">
+      <DependentUpon>GenerarReportesGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerarReportesGerente.aspx.designer.cs">
+      <DependentUpon>GenerarReportesGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,6 +338,13 @@
     <Compile Include="InicioEmpleado.aspx.designer.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InicioEntrenador.aspx.cs">
+      <DependentUpon>InicioEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioEntrenador.aspx.designer.cs">
+      <DependentUpon>InicioEntrenador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioGerente.aspx.cs">
       <DependentUpon>InicioGerente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,6 +358,13 @@
     </Compile>
     <Compile Include="InicioLogueo.aspx.designer.cs">
       <DependentUpon>InicioLogueo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GYMPaginasMaestras\MasterPageEntrenador.Master.cs">
+      <DependentUpon>MasterPageEntrenador.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GYMPaginasMaestras\MasterPageEntrenador.Master.designer.cs">
+      <DependentUpon>MasterPageEntrenador.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarActividadesEmpleado.aspx.cs">
@@ -266,6 +388,13 @@
     <Compile Include="RegistrarCobroPlanEmpleado.aspx.designer.cs">
       <DependentUpon>RegistrarCobroPlanEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarEjercicioEntrenador.aspx.cs">
+      <DependentUpon>RegistrarEjercicioEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarEjercicioEntrenador.aspx.designer.cs">
+      <DependentUpon>RegistrarEjercicioEntrenador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarEmpleadoGerente.aspx.cs">
       <DependentUpon>RegistrarEmpleadoGerente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +416,13 @@
     <Compile Include="RegistrarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
+      <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarRutinaEntrenador.aspx.designer.cs">
+      <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarSucursalGerente.aspx.cs">
       <DependentUpon>RegistrarSucursalGerente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -303,6 +439,7 @@
     <Folder Include="documentation\" />
     <Folder Include="GYMPaginasMaestras\Models\" />
     <Folder Include="ImagenesSistema\" />
+    <Folder Include="PDFs\" />
     <Folder Include="plugins\" />
     <Folder Include="Uploads\" />
   </ItemGroup>

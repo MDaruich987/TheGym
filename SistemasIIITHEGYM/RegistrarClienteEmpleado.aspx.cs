@@ -132,7 +132,6 @@ namespace SistemasIIITHEGYM
 
                         img.Save(Server.MapPath("~/ImagenesSistema/") + tbnumerodocumento.Text + ".jpg");
                         ///////
-                        lblerror.Text = "El producto se agregó correctamente";
                     }
                     catch (Exception ex)
                     {

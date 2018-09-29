@@ -2,13 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="EstilosCSS.css" rel="stylesheet" />
     <div class="box box-primary" style="left: 0px; top: 0px; width: 97%">
             <div class="box-header with-border">
               <h3 class="box-title" style="width: 390px">Horario de Instructor</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-              <div class="box-body">
+                      <div class="box-body">
                       <asp:Panel ID="Panel1" runat="server" Font-Size="Medium" Height="478px" Width="524px" style="margin-left: 34px">
         <br />
         <br />
@@ -38,271 +39,175 @@
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbLunes" runat="server" Text="Lunes" />
+                    <asp:CheckBox ID="CbLunes" runat="server" Text="Lunes" OnCheckedChanged="CbLunes_CheckedChanged" AutoPostBack="True" />
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdldeLunes" runat="server">
+                    <asp:DropDownList ID="DdldeLunes" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeLunes_SelectedIndexChanged">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdlhastaLunes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaLunes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbMartes" runat="server" Text="Martes" />
+                    <asp:CheckBox ID="CbMartes" runat="server" Text="Martes" AutoPostBack="True" OnCheckedChanged="CbMartes_CheckedChanged" />
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdldeMartes" runat="server" OnSelectedIndexChanged="DdldeMartes_SelectedIndexChanged">
+                    <asp:DropDownList ID="DdldeMartes" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeMartes_SelectedIndexChanged1">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdlhastaMartes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaMartes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td style="height: 25px">
-                    <asp:CheckBox ID="CbMiercoles" runat="server" Text="Miercoles" />
+                    <asp:CheckBox ID="CbMiercoles" runat="server" Text="Miercoles" AutoPostBack="True" OnCheckedChanged="CbMiercoles_CheckedChanged" />
                 </td>
                 <td style="height: 25px">
-                    <asp:DropDownList ID="DdldeMiercoles" runat="server">
+                    <asp:DropDownList ID="DdldeMiercoles" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeMiercoles_SelectedIndexChanged">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td style="height: 25px">
-                    <asp:DropDownList ID="DdlhastaMiercoles" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaMiercoles" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbJueves" runat="server" Text="Jueves" />
+                    <asp:CheckBox ID="CbJueves" runat="server" Text="Jueves" AutoPostBack="True" OnCheckedChanged="CbJueves_CheckedChanged" />
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdldeJueves" runat="server">
+                    <asp:DropDownList ID="DdldeJueves" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeJueves_SelectedIndexChanged">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdlhastaJueves" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaJueves" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbViernes" runat="server" Text="Viernes" />
+                    <asp:CheckBox ID="CbViernes" runat="server" Text="Viernes" AutoPostBack="True" OnCheckedChanged="CbViernes_CheckedChanged" />
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdldeViernes" runat="server">
+                    <asp:DropDownList ID="DdldeViernes" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeViernes_SelectedIndexChanged">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdlhastaViernes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaViernes" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:CheckBox ID="CbSabado" runat="server" Text="Sabado" />
+                    <asp:CheckBox ID="CbSabado" runat="server" Text="Sabado" AutoPostBack="True" OnCheckedChanged="CbSabado_CheckedChanged" />
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdldeSabado" runat="server">
+                    <asp:DropDownList ID="DdldeSabado" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdldeSabado_SelectedIndexChanged">
                         <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>08:00</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
+                        <asp:ListItem Value="8">8:00</asp:ListItem>
+                        <asp:ListItem Value="9">9:00</asp:ListItem>
+                        <asp:ListItem Value="10">10:00</asp:ListItem>
+                        <asp:ListItem Value="11">11:00</asp:ListItem>
+                        <asp:ListItem Value="12">12:00</asp:ListItem>
+                        <asp:ListItem Value="13">13:00</asp:ListItem>
+                        <asp:ListItem Value="14">14:00</asp:ListItem>
+                        <asp:ListItem Value="15">15:00</asp:ListItem>
+                        <asp:ListItem Value="16">16:00</asp:ListItem>
+                        <asp:ListItem Value="17">17:00</asp:ListItem>
+                        <asp:ListItem Value="18">18:00</asp:ListItem>
+                        <asp:ListItem Value="19">19:00</asp:ListItem>
+                        <asp:ListItem Value="20">20:00</asp:ListItem>
+                        <asp:ListItem Value="21">21:00</asp:ListItem>
+                        <asp:ListItem Value="22">22:00</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DdlhastaSabado" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged">
-                        <asp:ListItem>--</asp:ListItem>
-                        <asp:ListItem>09:00</asp:ListItem>
-                        <asp:ListItem>10:00</asp:ListItem>
-                        <asp:ListItem>11:00</asp:ListItem>
-                        <asp:ListItem>12:00</asp:ListItem>
-                        <asp:ListItem>13:00</asp:ListItem>
-                        <asp:ListItem>14:00</asp:ListItem>
-                        <asp:ListItem>15:00</asp:ListItem>
-                        <asp:ListItem>16:00</asp:ListItem>
-                        <asp:ListItem>17:00</asp:ListItem>
-                        <asp:ListItem>18:00</asp:ListItem>
-                        <asp:ListItem>19:00</asp:ListItem>
-                        <asp:ListItem>20:00</asp:ListItem>
-                        <asp:ListItem>21:00</asp:ListItem>
-                        <asp:ListItem>22:00</asp:ListItem>
-                        <asp:ListItem>23:00</asp:ListItem>
+                    <asp:DropDownList ID="DdlhastaSabado" runat="server" OnSelectedIndexChanged="DropDownList7_SelectedIndexChanged" Width="54px">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -315,14 +220,16 @@
         <asp:Button ID="BtnCancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" Width="123px" OnClick="BtnCancelar_Click" />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
         <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
     </asp:Panel>
               </div>
               <!-- /.box-body -->
 
           </div>
-
+              
 </asp:Content>

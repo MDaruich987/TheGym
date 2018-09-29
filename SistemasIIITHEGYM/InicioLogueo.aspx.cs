@@ -12,9 +12,9 @@ namespace SistemasIIITHEGYM
     public partial class InicioLogueo : System.Web.UI.Page
     {
         //cadena de conexion MICA
-        SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion MAXI
-        //SqlConnection conex = new SqlConnection("Data Source = DESKTOP-TN40SE1\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        SqlConnection conex = new SqlConnection("Data Source = DESKTOP-TN40SE1\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion CAMI
         //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
         //cadena de conexion MILI
@@ -57,9 +57,9 @@ namespace SistemasIIITHEGYM
                     {
                         //si al contar las filas del data table tenemos uno, el login es correcto
                         //verificamos si es un admin o empleado
-                        if (dat.Rows[0][0].ToString() == "3" | dat.Rows[0][0].ToString() == "4" | dat.Rows[0][0].ToString() == "5" | dat.Rows[0][0].ToString() == "6")
+                        if (dat.Rows[0][0].ToString() == "4")
                         {
-                            //es empleado
+                            //es empleado administrativo
                             //lblerrorlogin.Text = "admin";
                             //enviamos como parametro al form de inicio del admin su nombre y apellido consultado en el datatable
                             lblerror.Text = dat.Rows[0][2].ToString() + ", " + dat.Rows[0][1].ToString();
@@ -68,12 +68,24 @@ namespace SistemasIIITHEGYM
                             Response.Redirect("~/Inicioempleado.aspx?parametro=" + lblerror.Text, false);
 
                         }
+                        //verificamos si es un admin o empleado
+                        else if (dat.Rows[0][0].ToString() == "3")
+                        {
+                            //es entrenador
+                            //lblerrorlogin.Text = "admin";
+                            //enviamos como parametro al form de inicio del admin su nombre y apellido consultado en el datatable
+                            lblerror.Text = dat.Rows[0][2].ToString() + ", " + dat.Rows[0][1].ToString();
+                            Session["inicio"] = lblerror.Text;
+                            Session["Usuario"] = usuario;
+                            Response.Redirect("~/InicioEntrenador.aspx?parametro=" + lblerror.Text, false);
+
+                        }
                         else if (dat.Rows[0][0].ToString() == "1" | dat.Rows[0][0].ToString() == "2")
                         {
                             //es gerente
                             lblerror.Text = dat.Rows[0][2].ToString() + ", " + dat.Rows[0][1].ToString();
                             Session["inicio"] = usuario;
-                            Response.Redirect("~/WebGerenteInicio.aspx?parametro=" + lblerror.Text, false);
+                            Response.Redirect("~/InicioGerente.aspx?parametro=" + lblerror.Text, false);
                         }
                     }
                     else
