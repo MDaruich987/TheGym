@@ -172,11 +172,18 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDEmpleadoIngreso;
         //variable para estado empleado en ingreso
         public string EstadoIngresoEmpleado;
+        //Variable para ingreso de cliente
+        public string IDIngresoCliente;
 
 
-
-
-
+        //Metodo para ingreso de cliente
+        public DataTable GetOneCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDIngresoCliente, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneCliente", parameters);
+            return dt;
+        }
 
         //Metodo para Editar Actividad
         public void UpdateActividad()
