@@ -657,5 +657,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
             
         }
 
+        public DataTable GetCuotasVencidas()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCuotasVencidas", parameters);
+            return dt;
+        }
     }
 }
