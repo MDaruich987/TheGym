@@ -38,6 +38,7 @@ namespace SistemasIIITHEGYM
             }
             else
             {
+                lblerror.Visible = true;
                 lblerror.Text = "Cuota vencida";
             }
            
