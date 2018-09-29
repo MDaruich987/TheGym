@@ -172,8 +172,29 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDEmpleadoIngreso;
         //variable para estado empleado en ingreso
         public string EstadoIngresoEmpleado;
-        //Variable para ingreso de cliente
+        //Variable para ingreso de cliente y vencimiento cuota
         public string IDIngresoCliente;
+        //variable para registrar ingreso cliente
+        public string IDSucIngreso;
+
+        //Metodo para registrar ingreso de cliente
+        public DataTable AddIngresoCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDIngresoCliente, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Suc", IDSucIngreso, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddIngresoCliente", parameters);
+            return dt;
+        }
+
+        //Metodo para consultar vencimiento
+        public DataTable ConsultarVencimiento()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDIngresoCliente, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_ConsultarVencimiento", parameters);
+            return dt;
+        }
 
 
         //Metodo para ingreso de cliente

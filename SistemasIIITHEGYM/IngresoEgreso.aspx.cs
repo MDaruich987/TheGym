@@ -25,31 +25,22 @@ namespace SistemasIIITHEGYM
 
             TheGym k = new TheGym
             {
-
+                IDIngresoCliente = tbid.Text
             };
 
+            DataTable dt = k.ConsultarVencimiento();
 
-            //CODIGO COPIADO DE INGRESO EGRESO EMPLEADO
-            //try
-            //{
-            //    TheGym k = new TheGym
-            //    {
-            //        IDEmpleadoIngreso = tbid.Text,
-            //        EstadoIngresoEmpleado = estado,
-
-            //    };
-            //    k.AddIngresoEmpleado();
-            //    lblerror.Text = "se efectuó el registro";
-            //    Label1.Text = "";
-            //    btnregistrar.Visible = false;
-
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    lblerror.Text = ex.Message.ToString();
-            //}
+            if (dt.Rows.Count > 1)
+            {
+                k.IDSucIngreso = "2";
+                k.AddIngresoCliente();
+                lblerror.Text = "Cuotas al dia, bienvenido!";
+            }
+            else
+            {
+                lblerror.Text = "Cuota vencida";
+            }
+           
         }
 
         protected void btnverificar_Click(object sender, EventArgs e)
