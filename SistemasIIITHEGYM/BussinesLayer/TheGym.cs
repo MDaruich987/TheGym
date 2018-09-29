@@ -160,13 +160,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
 
         //Metodos para cajas 
-        public DataTable GetAllCaja()
-        {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
-            return dt;
-        }
+        //public DataTable GetAllCaja()
+        //{
+        //    SqlParameter[] parameters = new SqlParameter[1];
+        //    parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
+        //    DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
+        //    return dt;
+        //}
 
         public DataTable GetActividades()
         {

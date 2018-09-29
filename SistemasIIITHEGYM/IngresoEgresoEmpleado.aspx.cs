@@ -24,7 +24,7 @@ namespace SistemasIIITHEGYM
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblerror.Text = string.Empty;
+            //lblerror.Text = string.Empty;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
