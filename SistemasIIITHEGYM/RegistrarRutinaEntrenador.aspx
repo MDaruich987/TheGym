@@ -144,7 +144,7 @@
                     <div class="form-group">
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Grupo Muscular:</label>
-                                a<div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
+                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
                                     <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged1">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlgrupomuscular" Display="None" ErrorMessage="Seleccione un grupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
