@@ -168,6 +168,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDActBuscar;
         public string IDSucActBuscar;
         public string IDEmpActBuscar;
+        //variable para buscar empleado en ingreso
+        public string IDEmpleadoIngreso;
+        //variable para estado empleado en ingreso
+        public string EstadoIngresoEmpleado;
+
+
 
 
 
@@ -618,6 +624,38 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable IngresoNombreEmp()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoIngreso, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_IngresoNombreEmp", parameters);
+            return dt;
+        }
+
+        public DataTable GetIngresoEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoIngreso, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIngresoEmpleado", parameters);
+            return dt;
+        }
+
+        public DataTable GetEgresoEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoIngreso, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEgresoEmpleado", parameters);
+            return dt;
+        }
+
+        public void AddIngresoEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoIngreso, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@estado", EstadoIngresoEmpleado, SqlDbType.VarChar, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddIngresoEmpleado", parameters);
+            
+        }
 
     }
 }
