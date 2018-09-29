@@ -90,6 +90,7 @@
             </asp:Panel>
             <br />
           <asp:Button ID="Button1" runat="server" Text="Registrar" Cssclass="btn btn-success btn-block btn-flat" OnClick="Button1_Click"/>
+          <asp:Label ID="Label2" runat="server"></asp:Label>
       </div>
       <div class="row">
         <div class="col-xs-8">
