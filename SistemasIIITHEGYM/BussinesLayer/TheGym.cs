@@ -213,6 +213,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //para obtener el ultimo pago de cuota ingresado
+        public DataTable GetLastCuota()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetLastCuota", parameters);
+            return dt;
+        }
+
         //Metodos para cajas 
         public DataTable GetAllCaja()
         {
