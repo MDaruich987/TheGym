@@ -30,7 +30,7 @@ namespace SistemasIIITHEGYM
 
             DataTable dt = k.ConsultarVencimiento();
 
-            if (dt.Rows.Count > 1)
+            if (dt.Rows.Count > 0)
             {
                 k.IDSucIngreso = "2";
                 k.AddIngresoCliente();
