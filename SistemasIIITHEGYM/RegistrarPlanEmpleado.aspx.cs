@@ -142,10 +142,10 @@ namespace SistemasIIITHEGYM
                 tbnombre.Text = string.Empty;
                 tbprecio.Text = string.Empty;
 
-                griddetalleactividades.Dispose();
+                gridejerciciosderutina.Dispose();
                 this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El plan se ha registrado exitosamente');</script>");
-                griddetalleactividades.Dispose();
-                griddetalleactividades.DataBind();
+                gridejerciciosderutina.Dispose();
+                gridejerciciosderutina.DataBind();
             }
             catch (Exception ex)
             {
@@ -186,8 +186,8 @@ namespace SistemasIIITHEGYM
                 Row["Dias por Semana"] = cantact;
                 Tabla.Rows.Add(Row);
 
-                griddetalleactividades.DataSource = Tabla;
-                griddetalleactividades.DataBind();
+                gridejerciciosderutina.DataSource = Tabla;
+                gridejerciciosderutina.DataBind();
             }
             catch (Exception ex)
             {

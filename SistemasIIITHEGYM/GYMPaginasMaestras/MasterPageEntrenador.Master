@@ -189,8 +189,8 @@
                         </li>
                         <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Rutinas</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
-                                <li><a href="RegistrarActividadesEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Rutina</a></li>
-                                <li class="active"><a href="ConsultarActividadEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Rutina</a></li>
+                                <li><a href="RegistrarRutinaEntrenador.aspx"><i class="fa fa-circle-o"></i>Registrar Rutina</a></li>
+                                <li class="active"><a href="ConsultarRutinaEntrenador.aspx"><i class="fa fa-circle-o"></i>Consultar Rutina</a></li>
                             </ul>
                         </li>
                         <%--<li class="treeview">

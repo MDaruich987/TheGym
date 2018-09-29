@@ -219,14 +219,22 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
-        //Metodos para cajas 
-        public DataTable GetAllCaja()
+        //para obtener el ultimo pago de cuota ingresado
+        public DataTable GetLastCuota()
         {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetLastCuota", parameters);
             return dt;
         }
+
+        //Metodos para cajas 
+        //public DataTable GetAllCaja()
+        //{
+        //    SqlParameter[] parameters = new SqlParameter[1];
+        //    parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_sucursal", IdSucursalCarga, SqlDbType.Int, 50);
+        //    DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCaja", parameters);
+        //    return dt;
+        //}
 
         public DataTable GetActividades()
         {

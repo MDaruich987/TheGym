@@ -142,6 +142,7 @@
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
+    <Content Include="ConsultarRutinaEntrenador.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
     <Content Include="EmailClientesPlanes.aspx" />
     <Content Include="GenerarReportesGerente.aspx" />
@@ -174,6 +175,7 @@
     <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
+    <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
   </ItemGroup>
@@ -269,6 +271,13 @@
     </Compile>
     <Compile Include="ConsultarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarPlanEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarRutinaEntrenador.aspx.cs">
+      <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarRutinaEntrenador.aspx.designer.cs">
+      <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarSucursal.aspx.cs">
       <DependentUpon>ConsultarSucursal.aspx</DependentUpon>
@@ -406,6 +415,13 @@
     </Compile>
     <Compile Include="RegistrarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
+      <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarRutinaEntrenador.aspx.designer.cs">
+      <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarSucursalGerente.aspx.cs">
       <DependentUpon>RegistrarSucursalGerente.aspx</DependentUpon>
