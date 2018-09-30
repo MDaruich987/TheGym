@@ -177,6 +177,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variable para registrar ingreso cliente
         public string IDSucIngreso;
 
+
+
+
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
         {
