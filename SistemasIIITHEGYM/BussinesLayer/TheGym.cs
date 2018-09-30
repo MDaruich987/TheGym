@@ -176,6 +176,10 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDIngresoCliente;
         //variable para registrar ingreso cliente
         public string IDSucIngreso;
+        //variable para Id Grupo muscular
+        public string FK_Grupo;
+
+
 
 
 
@@ -686,6 +690,36 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@estado", EstadoIngresoEmpleado, SqlDbType.VarChar, 10);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddIngresoEmpleado", parameters);
             
+        }
+
+        public DataTable GetCuotasVencidas()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCuotasVencidas", parameters);
+            return dt;
+        }
+
+        public DataTable GetTodosClientesNombres()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNICliente, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetTodosClientesNombres", parameters);
+            return dt;
+        }
+
+        public DataTable GetGruposMusculares()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetGruposMusculares", parameters);
+            return dt;
+        }
+
+        public DataTable GetEjercicosxGrupo()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", FK_Grupo, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEjercicosxGrupo", parameters);
+            return dt;
         }
 
     }
