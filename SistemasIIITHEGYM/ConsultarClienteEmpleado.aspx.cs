@@ -248,5 +248,23 @@ namespace SistemasIIITHEGYM
         {
 
         }
+
+
+        protected void gridclientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            //idcliente search 
+            TheGym k = new TheGym
+            {
+                IdClienteSearch = gridclientes.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarCliente();
+            DataTable aux = new DataTable();
+            gridclientes.DataSource = aux;
+            gridclientes.DataBind();
+            gridclientes.Visible = false;
+            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
+        }
     }
 }

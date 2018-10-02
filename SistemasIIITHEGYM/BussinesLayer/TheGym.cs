@@ -730,6 +730,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public void InhabilitarCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdClienteSearch, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitaCliente", parameters);
+        }
 
     }
 }
