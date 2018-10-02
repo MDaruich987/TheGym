@@ -329,7 +329,6 @@ namespace SistemasIIITHEGYM
         protected void btngenerarcomprobante_Click(object sender, EventArgs e)
         {
             string lblnombrecliente = "";
-            string lblFecha = "";
             string lblplan = "";
             string lblmonto = "";
             string lblvencimiento = "";
