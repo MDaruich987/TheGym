@@ -216,7 +216,9 @@ namespace SistemasIIITHEGYM
                 btnvolver.CausesValidation = false;
                 panelgeneral.Visible = true;
                 panelregistro.Visible = false;
-                panelgeneral.Focus();
+            gridactividades.Dispose();
+            gridactividades.DataBind();
+            panelgeneral.Focus();
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnvolver.Text = "Volver";

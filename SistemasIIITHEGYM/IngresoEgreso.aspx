@@ -58,6 +58,18 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        .auto-style1 {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 89%;
+            left: 0px;
+            top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -98,7 +110,10 @@
   </div>
     <br />
   <!-- /.login-logo -->
-  <div class="login-box-body">
+            <asp:ScriptManager ID="SM" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="updatepanelingreso" runat="server">
+                <ContentTemplate>
+                                    <div class="login-box-body">
 
       <div class="form-group has-feedback">
         <asp:TextBox ID="tbid"  Cssclass="form-control"  runat="server" Text="ID"></asp:TextBox>
@@ -121,13 +136,15 @@
           </div>
         </div>
         <!-- /.col -->
-        <div class="col-xs-4">
+        <div class="auto-style1">
           <asp:Label ID="lblerror" CssClass="error-text center-block text-center" runat="server" Text=""></asp:Label>
         </div>
         <!-- /.col -->
       </div>
-
   </div>
+
+                </ContentTemplate>
+            </asp:UpdatePanel>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
