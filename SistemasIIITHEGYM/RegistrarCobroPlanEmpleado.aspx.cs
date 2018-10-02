@@ -116,19 +116,32 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
-            gridclientes.Visible = true;
-
-            TheGym k = new TheGym();
-            k.NombreClienteBusc = tbnombre.Text;
-            DataTable dt = k.GetClienteNom();
-            if (dt.Rows.Count > 0)
+            try
             {
-                gridclientes.DataSource = dt;
-                gridclientes.DataBind();
-                gridclientes.Focus();
-            }
+                gridclientes.Visible = true;
 
-            flag = true;
+                TheGym k = new TheGym();
+                k.NombreClienteBusc = tbnombre.Text;
+                DataTable dt = k.GetClienteNom();
+                if (dt.Rows.Count > 0)
+                {
+                    gridclientes.DataSource = dt;
+                    gridclientes.DataBind();
+                    gridclientes.Focus();
+                }
+                else
+                {
+                    lblerror.Text = "No se encontraron clientes relacionados";
+                }
+
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
+            
         }
 
         protected void gridclientes_SelectedIndexChanged(object sender, EventArgs e)
