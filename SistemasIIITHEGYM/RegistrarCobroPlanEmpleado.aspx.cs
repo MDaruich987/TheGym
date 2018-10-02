@@ -357,13 +357,13 @@ namespace SistemasIIITHEGYM
                     //obtenemos la fecha actual para guardar el pdf con ella
                     string fecha_actual = DateTime.Now.ToString("dd-MM-yyyy");
                     //obtenemos el nombre del cliente para guardar el pdf con él         
-                    string nombrearchivo = lblnombrecliente + fecha_actual;
+                    string nombrearchivo = lblnombrecliente +"-ComprobanteCuota-"+fecha_actual;
                     //creamos un objeto escritor para escribir en el pdf
-                    //PdfWriter writer = PdfWriter.GetInstance(doc,
-                    //            new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\prueba.pdf", FileMode.Create));
-                    //Cadena Maxi
                     PdfWriter writer = PdfWriter.GetInstance(doc,
-                                new FileStream(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\PDFs\prueba.pdf", FileMode.Create));
+                               new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\"+nombrearchivo+".pdf", FileMode.Create));
+                    //Cadena Maxi
+                    //PdfWriter writer = PdfWriter.GetInstance(doc,
+                     //           new FileStream(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\PDFs\"+nombrearchivo+".pdf", FileMode.Create));
                     // le agregamos titulo, creador y abrimos
                     doc.AddTitle("Comprobante de Pago de Cuota");
                     doc.AddCreator("THEGYM");
