@@ -117,7 +117,7 @@
                         <asp:Label ID="Label1" runat="server" CssClass="error-text"></asp:Label>
                         <br />
                         <br />
-                        <asp:Button ID="btngenerarcomprobante" runat="server" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click" Text="Generar Comprobante" Width="177px" />
+                        <asp:Button ID="btngenerarcomprobante" runat="server" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click" Text="Generar Comprobante" Width="177px" CausesValidation="False" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btnvolver_Click" Text="Volver" />
                     </ContentTemplate>

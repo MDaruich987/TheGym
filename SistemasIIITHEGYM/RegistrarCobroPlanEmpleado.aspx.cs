@@ -30,6 +30,7 @@ namespace SistemasIIITHEGYM
                 GetAllPlan();
                 btngenerarcomprobante.Visible = false;
                 btnvolver.Visible = false;
+                
                 //la primera vez que se carga la página
                 //muestra el panel de  busqueda, no el de edicion
                 paneldatosdecobro.Visible = false;
@@ -198,7 +199,7 @@ namespace SistemasIIITHEGYM
                     FechaIdDetCaja = lblFecha.Text
                 };
                 dt = k.GetEstadoDetCaja();
-                if (dt.Rows.Count <= 1)
+                if (dt.Rows.Count < 1)
                 {
                     //dt = ;
                     //ID = Session["IdSession"]; GetIdDetCaja
@@ -246,10 +247,10 @@ namespace SistemasIIITHEGYM
                         ddlformadepago.ClearSelection();
                         ddlplan.ClearSelection();
 
-                        panelseleccioncliente.Visible = true;
-                        panelseleccioncliente.Focus();
-                        paneldatosdecobro.Visible = false;
-                        tbnombre.Text = "";
+                        //panelseleccioncliente.Visible = true;
+                        //panelseleccioncliente.Focus();
+                        //paneldatosdecobro.Visible = false;
+                        //tbnombre.Text = "";
 
 
                     }
@@ -359,8 +360,11 @@ namespace SistemasIIITHEGYM
                     //obtenemos el nombre del cliente para guardar el pdf con él         
                     string nombrearchivo = lblnombrecliente + fecha_actual;
                     //creamos un objeto escritor para escribir en el pdf
+                    //PdfWriter writer = PdfWriter.GetInstance(doc,
+                    //            new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\prueba.pdf", FileMode.Create));
+                    //Cadena Maxi
                     PdfWriter writer = PdfWriter.GetInstance(doc,
-                                new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\prueba.pdf", FileMode.Create));
+                                new FileStream(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\PDFs\prueba.pdf", FileMode.Create));
                     // le agregamos titulo, creador y abrimos
                     doc.AddTitle("Comprobante de Pago de Cuota");
                     doc.AddCreator("THEGYM");
@@ -375,7 +379,9 @@ namespace SistemasIIITHEGYM
                     //cambiamos los - por /
                     nombre = nombre.Replace('/', '-');
                     // Creamos una tabla y le añadimos el dia de hoy y el logo de la marca.
-                    iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
+                    //iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
+                    //Cadena Maxi
+                    iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
                     imagen.BorderWidth = 0;
                     imagen.ScalePercent(30f);
                     imagen.Alignment = Element.ALIGN_RIGHT;
