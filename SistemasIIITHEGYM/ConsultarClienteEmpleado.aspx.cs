@@ -174,6 +174,8 @@ namespace SistemasIIITHEGYM
             panelconsulta.Visible = true;
             paneledicion.Visible = false;
             panelconsulta.Focus();
+            gridclientes.Dispose();
+            gridclientes.DataBind();
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btncancelar.Text = "Volver";
