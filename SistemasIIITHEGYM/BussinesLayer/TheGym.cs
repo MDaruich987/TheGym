@@ -178,7 +178,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDSucIngreso;
         //variable para Id Grupo muscular
         public string FK_Grupo;
-
+        //Variable para buscar Plan
+        public string IdPlanBuscar;
 
 
 
@@ -735,6 +736,27 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdClienteSearch, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitaCliente", parameters);
+        }
+
+        public void InhabilitarEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDEmpleadoBusc, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarEmpleado", parameters);
+        }
+
+        public void InhabilitarActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDActBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarActividad", parameters);
+        }
+
+        public void InhabilitarPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarPlans", parameters);
         }
 
     }
