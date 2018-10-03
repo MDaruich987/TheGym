@@ -279,7 +279,6 @@ namespace SistemasIIITHEGYM
 
         protected void gridempleados_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //idcliente search 
             TheGym k = new TheGym
             {
                 IDEmpleadoBusc = gridempleados.Rows[e.RowIndex].Cells[0].Text
@@ -289,7 +288,7 @@ namespace SistemasIIITHEGYM
             gridempleados.DataSource = aux;
             gridempleados.DataBind();
             gridempleados.Visible = false;
-            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Text = "Empleado inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
         }

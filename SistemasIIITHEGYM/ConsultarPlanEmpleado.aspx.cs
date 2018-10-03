@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -45,6 +47,24 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
+            TheGym k = new TheGym
+            {
+                Nombreplanins = tbnombre.Text
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetPlans();
+            if(dt.Rows.Count > 0)
+            {
+                lblerror.Visible = false;
+                gvplanes.Visible = true;
+                gvplanes.DataSource = dt;
+                gvplanes.DataBind();
+            }
+            else
+            {
+                lblerror.Text = "Plan no encontrado";
+                lblerror.Visible = true;
+            }
 
         }
 
@@ -92,6 +112,22 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnvolver.Text = "Volver";
+        }
+
+        protected void gvplanes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                IdPlanBuscar = gvplanes.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarPlans();
+            DataTable aux = new DataTable();
+            gvplanes.DataSource = aux;
+            gvplanes.DataBind();
+            gvplanes.Visible = false;
+            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
         }
     }
 }

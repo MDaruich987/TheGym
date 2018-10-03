@@ -226,11 +226,12 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
+                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvplanes_RowDeleting">
                                               <Columns>
-                                                  <asp:BoundField DataField="Id_actividad" HeaderText="ID" ItemStyle-Width="150px" />
-                                                  <asp:BoundField DataField="Nombre" HeaderText="Actividad" ItemStyle-Width="150px" />
-                                                  <asp:BoundField DataField="Dias_semanas" HeaderText="Dias a la Semana" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Id_plan" HeaderText="ID" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Nombre" HeaderText="Plan" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Cantidad_dias" HeaderText="Dias" ItemStyle-Width="150px" />
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>
