@@ -37,7 +37,7 @@
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Nombre:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:TextBox ID="tbnombre" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
+                                    <asp:TextBox ID="tbnombre" runat="server" CssClass="form-control" Height="24px" Width="128px" OnTextChanged="tbnombre_TextChanged"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
                                     </ajaxToolkit:ValidatorCalloutExtender>
