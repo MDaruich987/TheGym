@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using SistemasIIITHEGYM.BussinesLayer;
-
+using System.Configuration;
 
 namespace SistemasIIITHEGYM
 {
@@ -16,7 +16,7 @@ namespace SistemasIIITHEGYM
         private static string id;
         private static string IdSuc;
         //cadena mili
-        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+        SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
