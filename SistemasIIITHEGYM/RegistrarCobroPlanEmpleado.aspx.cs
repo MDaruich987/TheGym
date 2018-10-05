@@ -26,7 +26,11 @@ namespace SistemasIIITHEGYM
         {
             if (!IsPostBack)
             {
+                GetAllMedioPago();
+                GetAllPlan();
                 btngenerarcomprobante.Visible = false;
+                btnvolver.Visible = false;
+                
                 //la primera vez que se carga la página
                 //muestra el panel de  busqueda, no el de edicion
                 paneldatosdecobro.Visible = false;
@@ -81,22 +85,31 @@ namespace SistemasIIITHEGYM
 
         private void GetAllPlan()
         {
-            TheGym k = new TheGym();
-            DataTable dt = new DataTable();
-            dt = k.GetAllPlans();
-            if (dt.Rows.Count > 0)
+            try
             {
-                //DdlPlan.Items.Add("Seleccione...");
-                //DdlPlan.DataSource = dt;
-                ddlplan.DataTextField = "Nombre";
-                ddlplan.DataValueField = "Id_plan";
+                TheGym k = new TheGym();
+                DataTable dt = new DataTable();
+                dt = k.GetAllPlans();
+                if (dt.Rows.Count > 0)
+                {
+                    //DdlPlan.Items.Add("Seleccione...");
+                    //DdlPlan.DataSource = dt;
+                    ddlplan.DataTextField = "Nombre";
+                    ddlplan.DataValueField = "Id_plan";
 
-                ddlplan.DataSource = dt;
-                ddlplan.DataBind();
-                // DdlPlan.Items.Add("Seleccione...");
-                ddlplan.Items.Insert(0, "Seleccione...");
+                    ddlplan.DataSource = dt;
+                    ddlplan.DataBind();
+                    // DdlPlan.Items.Add("Seleccione...");
+                    ddlplan.Items.Insert(0, "Seleccione...");
 
+                }
             }
+            catch (Exception ex)
+            {
+
+                Label1.Text=ex.Message.ToString();
+            }
+
         }
 
 
@@ -116,19 +129,33 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
-            gridclientes.Visible = true;
-
-            TheGym k = new TheGym();
-            k.NombreClienteBusc = tbnombre.Text;
-            DataTable dt = k.GetClienteNom();
-            if (dt.Rows.Count > 0)
+            try
             {
-                gridclientes.DataSource = dt;
-                gridclientes.DataBind();
-                gridclientes.Focus();
-            }
+                gridclientes.Visible = true;
 
-            flag = true;
+                TheGym k = new TheGym();
+                k.NombreClienteBusc = tbnombre.Text;
+                DataTable dt = k.GetClienteNom();
+                if (dt.Rows.Count > 0)
+                {
+                    gridclientes.DataSource = dt;
+                    gridclientes.DataBind();
+                    gridclientes.Focus();
+                    lblerror.Text = "";
+                }
+                else
+                {
+                    lblerror.Text = "No se encontraron clientes relacionados";
+                }
+
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
+            
         }
 
         protected void gridclientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,7 +234,12 @@ namespace SistemasIIITHEGYM
                         k.AddCuota();
 
                         this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
-
+                        Label1.Text = "El pago se ha registrado exitosamente!";
+                        btngenerarcomprobante.Visible = true;
+                        btnregistrar.Visible = false;
+                        btngenerarcomprobante.Visible = true;
+                        btncancelar.Visible = false;
+                        btnvolver.Visible = true;
                         tbmonto.Text = string.Empty;
                         TbComprobante.Text = string.Empty;
                         lblComprobante.Visible = false;
@@ -215,18 +247,20 @@ namespace SistemasIIITHEGYM
                         ddlformadepago.ClearSelection();
                         ddlplan.ClearSelection();
 
-                        panelseleccioncliente.Visible = true;
-                        panelseleccioncliente.Focus();
-                        paneldatosdecobro.Visible = false;
-                        tbnombre.Text = "";
+                        //panelseleccioncliente.Visible = true;
+                        //panelseleccioncliente.Focus();
+                        //paneldatosdecobro.Visible = false;
+                        //tbnombre.Text = "";
 
 
                     }
                     else
                     {
                         lblerror.Visible = true;
-                        lblerror.Text = "Caja No Abierta";
                         lblerror.ForeColor = System.Drawing.Color.Red;
+                        gridclientes.Enabled = false;
+                        btnregistrar.Enabled = false;
+                        Label1.Text= "Caja No Abierta";
                     }
 
                 }
@@ -236,10 +270,6 @@ namespace SistemasIIITHEGYM
                     lblerror.Text = "Caja Cerrada";
                     lblerror.ForeColor = System.Drawing.Color.Red;
                 }
-
-                //mensaje de registro exitoso
-                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
-                btngenerarcomprobante.Visible = true;
             }
             catch (Exception ex)
             {
@@ -300,7 +330,6 @@ namespace SistemasIIITHEGYM
         protected void btngenerarcomprobante_Click(object sender, EventArgs e)
         {
             string lblnombrecliente = "";
-            string lblFecha = "";
             string lblplan = "";
             string lblmonto = "";
             string lblvencimiento = "";
@@ -318,7 +347,6 @@ namespace SistemasIIITHEGYM
                 if (dt.Rows.Count > 0)
                 {
                    lblnombrecliente = dt1.Rows[0][1].ToString() + " " + dt1.Rows[0][0].ToString();
-                   lblFecha = dt1.Rows[0][2].ToString();
                    lblplan = dt1.Rows[0][3].ToString();
                    lblmonto = dt1.Rows[0][4].ToString();
                    lblvencimiento = dt1.Rows[0][5].ToString();
@@ -329,10 +357,13 @@ namespace SistemasIIITHEGYM
                     //obtenemos la fecha actual para guardar el pdf con ella
                     string fecha_actual = DateTime.Now.ToString("dd-MM-yyyy");
                     //obtenemos el nombre del cliente para guardar el pdf con él         
-                    string nombrearchivo = lblnombrecliente + fecha_actual;
+                    string nombrearchivo = lblnombrecliente +"-ComprobanteCuota-"+fecha_actual;
                     //creamos un objeto escritor para escribir en el pdf
                     PdfWriter writer = PdfWriter.GetInstance(doc,
-                                new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\" + nombrearchivo + ".pdf", FileMode.Create));
+                               new FileStream(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\PDFs\"+nombrearchivo+".pdf", FileMode.Create));
+                    //Cadena Maxi
+                    //PdfWriter writer = PdfWriter.GetInstance(doc,
+                     //           new FileStream(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\PDFs\"+nombrearchivo+".pdf", FileMode.Create));
                     // le agregamos titulo, creador y abrimos
                     doc.AddTitle("Comprobante de Pago de Cuota");
                     doc.AddCreator("THEGYM");
@@ -347,7 +378,9 @@ namespace SistemasIIITHEGYM
                     //cambiamos los - por /
                     nombre = nombre.Replace('/', '-');
                     // Creamos una tabla y le añadimos el dia de hoy y el logo de la marca.
-                    iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
+                    //iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\Micaela Daruich\Documents\ProyectoGym\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
+                    //Cadena Maxi
+                    iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(@"C:\Users\maxi_\Source\Repos\TheGym4\SistemasIIITHEGYM\ImagenesSistema\logoGym.JPG");
                     imagen.BorderWidth = 0;
                     imagen.ScalePercent(30f);
                     imagen.Alignment = Element.ALIGN_RIGHT;
@@ -416,7 +449,7 @@ namespace SistemasIIITHEGYM
 
 
                     // Llenamos la tabla con información
-                    clFecha = new PdfPCell(new Phrase(lblFecha, _standardFont));
+                    clFecha = new PdfPCell(new Phrase(nombre, _standardFont));
                     clFecha.BorderWidth = 0;
 
                     clCliente = new PdfPCell(new Phrase(lblnombrecliente, _standardFont));
@@ -442,21 +475,29 @@ namespace SistemasIIITHEGYM
                     //cerramos el documento
                     doc.Close();
                     writer.Close();
-                    lblerror.Text = "Comprobante generado exitosamente";
+                    Label1.Text = "Comprobante generado exitosamente";
                 }
                 else
                 {
-                    lblerror.Text = "No se encontraron coincidencias";
+                    Label1.Text = "No se encontraron coincidencias";
                 }
               
             }
             catch (Exception ex)
             {
 
-                lblerror.Text = ex.Message.ToString();
+                Label1.Text = ex.Message.ToString();
             }
 
 
+        }
+
+        protected void btnvolver_Click(object sender, EventArgs e)
+        {
+            paneldatosdecobro.Visible = false;
+            panelseleccioncliente.Visible = true;
+            gridclientes.Dispose();
+            gridclientes.DataBind();
         }
     }
 }

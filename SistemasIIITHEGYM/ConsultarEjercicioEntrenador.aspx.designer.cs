@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SistemasIIITHEGYM {
-    
-    
-    public partial class ConsultarEjercicioEntrenador {
-        
+namespace SistemasIIITHEGYM
+{
+
+
+    public partial class ConsultarEjercicioEntrenador
+    {
+
         /// <summary>
         /// Control lblusuario.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblusuario;
-        
+
         /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// Control panelregistro.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panelregistro;
-        
+
         /// <summary>
         /// Control TextBox1.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator2.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// Control validadornombre.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender validadornombre;
-        
+
         /// <summary>
         /// Control ddlelemento.
         /// </summary>
@@ -74,7 +76,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlelemento;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator5.
         /// </summary>
@@ -83,7 +85,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator5_ValidatorCalloutExtender.
         /// </summary>
@@ -92,16 +94,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator5_ValidatorCalloutExtender;
-        
-        /// <summary>
-        /// Control fiupfotografiacliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fiupfotografiacliente;
-        
+
         /// <summary>
         /// Control ddlgrupomuscular.
         /// </summary>
@@ -110,7 +103,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlgrupomuscular;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator3.
         /// </summary>
@@ -119,7 +112,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
+
         /// <summary>
         /// Control ValidatorCalloutExtender2.
         /// </summary>
@@ -128,7 +121,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender2;
-        
+
         /// <summary>
         /// Control tbdescripcion.
         /// </summary>
@@ -137,7 +130,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbdescripcion;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator4.
         /// </summary>
@@ -146,7 +139,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
+
         /// <summary>
         /// Control ValidatorCalloutExtender10.
         /// </summary>
@@ -155,7 +148,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender10;
-        
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -164,7 +157,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control btneditar.
         /// </summary>
@@ -173,7 +166,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btneditar;
-        
+
         /// <summary>
         /// Control btnVolver.
         /// </summary>
@@ -182,7 +175,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVolver;
-        
+
         /// <summary>
         /// Control panelgeneral.
         /// </summary>
@@ -191,7 +184,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panelgeneral;
-        
+
         /// <summary>
         /// Control tbnombre.
         /// </summary>
@@ -200,7 +193,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbnombre;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator1.
         /// </summary>
@@ -209,7 +202,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator1_ValidatorCalloutExtender.
         /// </summary>
@@ -218,7 +211,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator1_ValidatorCalloutExtender;
-        
+
         /// <summary>
         /// Control btnconsultar.
         /// </summary>
@@ -227,7 +220,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnconsultar;
-        
+
         /// <summary>
         /// Control lblerror.
         /// </summary>
@@ -236,7 +229,7 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblerror;
-        
+
         /// <summary>
         /// Control gridejercicios.
         /// </summary>
