@@ -15,6 +15,7 @@ namespace SistemasIIITHEGYM
         {
             if (!IsPostBack)
             {
+                GetActividad();
                 //la primera vez que se carga la página
                 //muestra el panel de  busqueda, no el de edicion
                 panelconsulta.Focus();
@@ -45,6 +46,20 @@ namespace SistemasIIITHEGYM
             }
         }
 
+        private void GetActividad()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = k.GetActividades();
+            if (dt.Rows.Count > 0)
+            {
+                ddlactividad.DataValueField = "Id_actividad";
+                ddlactividad.DataTextField = "Nombre";
+                ddlactividad.DataSource = dt;
+                ddlactividad.DataBind();
+            }
+        }
+
+
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
             TheGym k = new TheGym
@@ -70,15 +85,43 @@ namespace SistemasIIITHEGYM
 
         protected void gvplanes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string idplan;
             //cuando seleccionamos una fila del grid
             try
             {
+                TextBox1.Text = gvplanes.SelectedRow.Cells[1].Text;
+                TextBox2.Text = gvplanes.SelectedRow.Cells[2].Text;
                 //mostrar un panel y ocultar otro
                 panelconsulta.Visible = false;
                 paneledicion.Visible = true;
                 paneledicion.Focus();
+                lbduración.Enabled = false;
+                lbduración0.Enabled = false;
+                lbduración.SelectedValue = gvplanes.SelectedRow.Cells[3].Text;
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
-                
+                idplan = gvplanes.SelectedRow.Cells[0].Text;
+                TheGym k = new TheGym
+                {
+                    IdPlanBuscar = idplan
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetDetPlans();
+                if (dt.Rows.Count > 0)
+                {
+                    gridactividades0.DataSource = dt;
+                    gridactividades0.DataBind();
+                    gridactividades0.Visible = true;
+
+                    
+                }
+                else
+                {
+                    gridactividades0.Visible = false;
+                    DataTable dt1 = new DataTable();
+                    gridactividades0.DataSource = dt1;
+                    gridactividades0.DataBind();
+                }
+
             }
             catch (Exception ex)
             {
@@ -91,13 +134,19 @@ namespace SistemasIIITHEGYM
         {
             if (btneditar.Text == "Editar")
             {
-                //significa que estaba viendo y ahora quiere editar
-                //habilitamos los controles
-               
+                btnAdd.Enabled = true;
+                TextBox1.Enabled = true;
+                TextBox2.Enabled = true;
+                ddlactividad.Enabled = true;
+                lbduración.Enabled = true;
+                lbduración0.Enabled = true;
+
+                btneditar.Text = "Guardar";
+            
             }
             else
             {
-                //aqui va el codigo para registrar los cambios
+                
             }
         }
 
@@ -128,6 +177,18 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "Cliente inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            DataTable dt = gridactividades0.DataSource as DataTable;
+            DataRow row = dt.NewRow();
+            row["ID"] = ddlactividad.SelectedValue.ToString();
+            row["Actividad"] = ddlactividad.SelectedItem.ToString();
+            row["Dias de la semana"] = lbduración0.SelectedItem.ToString();
+            dt.Rows.Add(row);
+            gridactividades0.DataSource = dt;
+
         }
     }
 }

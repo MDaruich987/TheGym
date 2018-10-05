@@ -767,6 +767,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetDetPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetPlan", parameters);
+            return dt;
+        }
+
 
     }
 }
