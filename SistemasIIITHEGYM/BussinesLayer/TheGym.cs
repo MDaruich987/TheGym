@@ -308,6 +308,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable MontoApertura()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMontoApertura", parameters);
+            return dt;
+        }
+
+
         public DataTable GetIdDetCaja()
         {
             SqlParameter[] parameters = new SqlParameter[1];
@@ -765,6 +774,49 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlans", parameters);
             return dt;
+        }
+
+        public DataTable GetDetPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetPlan", parameters);
+            return dt;
+        }
+
+        //public string Nombreplanins;
+        //public string duracionplanins;
+        //public string precioplanins;
+        ////variables para registrar Detalles de Plan
+        //public string FK_plan;
+        //public string FK_actividad;
+        //public string Dias_semanas;
+
+        public void UpdatePlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@IdPlan", IdPlanBuscar, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioplanins, SqlDbType.Money, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Duracion", duracionplanins, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_UpdatePlan", parameters);
+        }
+
+        public void UpdateDetallePlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", FK_plan, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Id_actividad", FK_actividad, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Dias_semanas", Dias_semanas, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_UpdateDetPlan", parameters);
+        }
+
+        //PA_DeleteDetPlan
+
+        public void DeleteDetPlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_DeleteDetPlan", parameters);
         }
 
 
