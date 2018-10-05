@@ -308,6 +308,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable MontoApertura()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMontoApertura", parameters);
+            return dt;
+        }
+
+
         public DataTable GetIdDetCaja()
         {
             SqlParameter[] parameters = new SqlParameter[1];

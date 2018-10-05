@@ -56,7 +56,7 @@
                  <%--input dinero--%>
                  <div class="input-group" style="left: 0px; top: 0px; width: 320px">
                 <span class="input-group-addon">$</span>
-                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 44%" TextMode="Number"></asp:TextBox>
+                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 44%" Enabled="False" Font-Bold="True" ForeColor="#CC0000"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>
