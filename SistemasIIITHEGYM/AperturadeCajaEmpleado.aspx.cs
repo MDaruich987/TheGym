@@ -28,8 +28,8 @@ namespace SistemasIIITHEGYM
         {
             lblFecha.Text = DateTime.Now.ToShortDateString();
             lblhora.Text = DateTime.Now.ToShortTimeString();
-            lblusuario.Text = "USUARIO";
-            id = "3";
+            //lblusuario.Text = "USUARIO";
+            //id = "3";
             //lblmensajebienvenida.Text = Session["inicio"].ToString();
             //si efectivamente se ha iniciado sesión
             if (Session["inicio"] != null)
@@ -38,7 +38,13 @@ namespace SistemasIIITHEGYM
                 string usuario = (string)Session["Usuario"];
                 lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
                 lblusuario.Text = (string)Session["Usuario"];
-                lblnombreusuario.Text = "";
+                lblnombreusuario.Text = (string)Session["Ususario"];
+
+                TheGym k = new TheGym
+                {
+
+                };
+
                 lblsucursal.Text = "";
                 lblestadocaja.Text = "";
                 lblerror.Text = "";
