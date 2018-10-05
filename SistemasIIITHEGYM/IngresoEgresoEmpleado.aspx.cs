@@ -33,7 +33,7 @@ namespace SistemasIIITHEGYM
 
                 };
                 k.AddIngresoEmpleado();
-                lblerror.Text = "se efectuó el registro";
+                lblerror.Text = "Se efectuó el registro";
                 Label1.Text = "";
                 Button1.Visible = false;
 

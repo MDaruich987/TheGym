@@ -73,7 +73,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Descripción:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:TextBox ID="tbdescripcion" runat="server" CssClass="form-control" Enabled="False" Height="37px" textmode="MultiLine" Width="225px"></asp:TextBox>
+                                            <asp:TextBox ID="tbdescripcion" runat="server" CssClass="form-control" Enabled="False" Height="70px" textmode="MultiLine" Width="225px"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbdescripcion" Display="None" ErrorMessage="Ingrese una descripción" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender10" runat="server" BehaviorID="validardescri" TargetControlID="RequiredFieldValidator2">
                                             </ajaxToolkit:ValidatorCalloutExtender>
@@ -212,12 +212,12 @@
                                                   <td>
                                                       <asp:GridView ID="gridactividades" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_actividad" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridactividades_SelectedIndexChanged1" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gridactividades_RowDeleting">
                                                           <Columns>
-                                                              <asp:BoundField DataField="Id_actividad" HeaderText="ID" Visible="true" />
+                                                              <asp:BoundField DataField="Id_actividad" HeaderText="ID" Visible="False" />
                                                               <asp:BoundField DataField="Actividad" HeaderText="Nombre" />
-                                                              <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                                                              <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="False" />
                                                               <asp:BoundField DataField="Profesor" HeaderText="Profesor" />
                                                               <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" Visible="false" />
-                                                              <asp:BoundField DataField="Cupos" HeaderText="Cupos" Visible="false" />
+                                                              <asp:BoundField DataField="Cupos" HeaderText="Cupos" />
                                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>

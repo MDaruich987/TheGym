@@ -77,8 +77,21 @@ namespace SistemasIIITHEGYM
                 panelconsulta.Visible = false;
                 paneledicion.Visible = true;
                 paneledicion.Focus();
+
+               string idact = gvplanes.SelectedRow.Cells[0].Text;
+
+                TheGym k = new TheGym
+                {
+                    IDActBuscar = idact
+                };
+
+                DataTable dt1 = new DataTable();
+                dt1 = k.GetPlans();
+                tbnombre.Text= dt1.Rows[0][1].ToString();
+                lbduración.SelectedValue = dt1.Rows[0][4].ToString();
+
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
-                
+
             }
             catch (Exception ex)
             {

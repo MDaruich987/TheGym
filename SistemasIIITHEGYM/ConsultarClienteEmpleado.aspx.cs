@@ -62,16 +62,25 @@ namespace SistemasIIITHEGYM
 
         public void CargarLocalidades()
         {
-            TheGym k = new TheGym();
-            DataTable dt = new DataTable();
-            dt = k.GetAllLocalidades();
-            if (dt.Rows.Count > 0)
+            try
             {
-                ddllocalidad.DataTextField = "Nombre";
-                ddllocalidad.DataValueField = "CodigoPostal";
-                ddllocalidad.DataSource = dt;
-                ddllocalidad.DataBind();
+                TheGym k = new TheGym();
+                DataTable dt = new DataTable();
+                dt = k.GetAllLocalidades();
+                if (dt.Rows.Count > 0)
+                {
+                    ddllocalidad.DataTextField = "Nombre";
+                    ddllocalidad.DataValueField = "CodigoPostal";
+                    ddllocalidad.DataSource = dt;
+                    ddllocalidad.DataBind();
+                }
             }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString() + "carga ddl";
+            }
+
         }
 
         public void CargarTipoDocumento()
@@ -148,7 +157,8 @@ namespace SistemasIIITHEGYM
                     btneditar.Text = "Editar";
                     lblerror.Text = "Cliente Editado con exito!";
 
-                    tbnombre.Enabled = false;
+                    tbnombre.Enabled = true;
+                    tbnombre.Text = "";
                     tbapellido.Enabled = false;
                     tbfechadenacimiento.Enabled = false;
                     tbemail.Enabled = false;

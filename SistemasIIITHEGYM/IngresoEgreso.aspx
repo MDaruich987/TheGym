@@ -116,7 +116,7 @@
                                     <div class="login-box-body">
 
       <div class="form-group has-feedback">
-        <asp:TextBox ID="tbid"  Cssclass="form-control"  runat="server" Text="ID"></asp:TextBox>
+        <asp:TextBox ID="tbid"  Cssclass="form-control"  runat="server"></asp:TextBox>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             <asp:Button ID="btnverificar" runat="server" Text="Verificar Cliente" Cssclass=" btn btn-default btn-block btn-flat" OnClick="btnverificar_Click"/>
           <br />
