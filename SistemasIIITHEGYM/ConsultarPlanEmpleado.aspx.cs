@@ -11,6 +11,10 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarPlanEmpleado : System.Web.UI.Page
     {
+
+        static DataTable aux = new DataTable();
+        static string idplan;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,6 +24,9 @@ namespace SistemasIIITHEGYM
                 //muestra el panel de  busqueda, no el de edicion
                 panelconsulta.Focus();
                 paneledicion.Visible = false;
+
+                
+
                 if (Session["inicio"] != null)
                 {
                     //declaramos una variale sesion para mantener el dato del usuario
@@ -85,7 +92,7 @@ namespace SistemasIIITHEGYM
 
         protected void gvplanes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idplan;
+            
             //cuando seleccionamos una fila del grid
             try
             {
@@ -108,10 +115,10 @@ namespace SistemasIIITHEGYM
                 dt = k.GetDetPlans();
                 if (dt.Rows.Count > 0)
                 {
+                    aux = dt;
                     gridactividades0.DataSource = dt;
                     gridactividades0.DataBind();
                     gridactividades0.Visible = true;
-
                     
                 }
                 else
@@ -146,7 +153,35 @@ namespace SistemasIIITHEGYM
             }
             else
             {
+                try
+                {
+                    TheGym k = new TheGym()
+                    {
+                        IdPlanBuscar = idplan,
+                        Nombreplanins = TextBox1.Text,
+                        precioplanins = TextBox2.Text,
+                        duracionplanins = lbduración.SelectedItem.Text
+                    };
+                    k.UpdatePlan();
+                    k.DeleteDetPlan();
+                    for (int j = 0; j < gridactividades0.Rows.Count; j++)
+                    {
+                        k.FK_plan = idplan;
+                        k.FK_actividad = ddlactividad.SelectedValue;
+                        k.Dias_semanas = lbduración0.SelectedItem.Text;
+
+                        k.UpdateDetallePlan();
+                    }
+                    lblerror.Text = "Actualizado exitosamente";
+
+
+                }
+                catch
+                {
+                    lblerror.Text = "Problema al actualizar";
+                }
                 
+
             }
         }
 
@@ -174,21 +209,21 @@ namespace SistemasIIITHEGYM
             gvplanes.DataSource = aux;
             gvplanes.DataBind();
             gvplanes.Visible = false;
-            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Text = "Plan inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            DataTable dt = gridactividades0.DataSource as DataTable;
+            DataTable dt = aux as DataTable;
             DataRow row = dt.NewRow();
-            row["ID"] = ddlactividad.SelectedValue.ToString();
-            row["Actividad"] = ddlactividad.SelectedItem.ToString();
-            row["Dias de la semana"] = lbduración0.SelectedItem.ToString();
+            row[0] = ddlactividad.SelectedValue.ToString();
+            row[1] = ddlactividad.SelectedItem.ToString();
+            row[2] = lbduración0.SelectedItem.ToString();
             dt.Rows.Add(row);
             gridactividades0.DataSource = dt;
-
+            gridactividades0.DataBind();
         }
     }
 }
