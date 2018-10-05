@@ -9,8 +9,10 @@ using System.Data;
 
 namespace SistemasIIITHEGYM
 {
+
     public partial class ConsultarEjercicioEntrenador : System.Web.UI.Page
     {
+        static string idejercicio;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,6 +37,37 @@ namespace SistemasIIITHEGYM
                     //Response.Redirect("InicioLogin.aspx");
                 }
 
+                GetElementos();
+                GetGrupoMuscular();
+
+            }
+        }
+
+
+        private void GetElementos()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = k.GetElementos();
+            if (dt.Rows.Count > 0)
+            {
+                ddlelemento.DataValueField = "id_elemento";
+                ddlelemento.DataTextField = "nombre";
+                ddlelemento.DataSource = dt;
+                ddlelemento.DataBind();
+
+            }
+        }
+        private void GetGrupoMuscular()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = k.GetGruposMusculares();
+            if (dt.Rows.Count > 0)
+            {
+                ddlgrupomuscular.DataValueField = "id_grupo";
+                ddlgrupomuscular.DataTextField = "nombre";
+                ddlgrupomuscular.DataSource = dt;
+                ddlgrupomuscular.DataBind();
+
             }
         }
 
@@ -45,11 +78,20 @@ namespace SistemasIIITHEGYM
                 panelgeneral.Visible = false;
                 panelregistro.Visible = true;
                 panelregistro.Focus();
+
+                idejercicio = gridejercicios.SelectedRow.Cells[0].Text;
+                TextBox1.Text = gridejercicios.SelectedRow.Cells[1].Text;
+                tbdescripcion.Text = gridejercicios.SelectedRow.Cells[2].Text;
+                ddlgrupomuscular.FindControl(gridejercicios.SelectedRow.Cells[3].Text).Focus();
+                ddlelemento.SelectedValue = gridejercicios.SelectedRow.Cells[4].ToString();
+
+
+
             }
             catch (Exception ex)
             {
 
-                lblerror.Text=ex.Message.ToString();
+                lblerror.Text = ex.Message.ToString();
             }
         }
 
@@ -60,6 +102,14 @@ namespace SistemasIIITHEGYM
             {
                 //significa que estaba viendo y ahora quiere editar
                 //habilitamos los controles
+                TextBox1.Enabled = true;
+                ddlelemento.Enabled = true;
+                ddlgrupomuscular.Enabled = true;
+                tbdescripcion.Enabled = true;
+
+
+
+
                 btneditar.Text = "Guardar";
                 btneditar.CausesValidation = true;
                 btnVolver.Text = "Cancelar";
@@ -70,11 +120,40 @@ namespace SistemasIIITHEGYM
             }
             else
             {
+                try
+                {
+                    TheGym k = new TheGym
+                    {
+                        IdEjercicio = idejercicio,
+                        NombreEjercicio = TextBox1.Text,
+                        FKelementos = ddlelemento.SelectedValue,
+                        FKgrupomuscular = ddlgrupomuscular.SelectedValue,
+                        DescripcionEjercicio = tbdescripcion.Text
+                    };
+
+                    k.UpdateEjercicio();
+
+                    TextBox1.Text = string.Empty;
+                    ddlelemento.ClearSelection();
+                    ddlgrupomuscular.ClearSelection();
+                    tbdescripcion.Text = string.Empty;
+                    TextBox1.Enabled = false;
+                    ddlelemento.Enabled = false;
+                    ddlgrupomuscular.Enabled = false;
+                    tbdescripcion.Enabled = false;
+                    btneditar.Text = "Editar";
+                }
+                catch
+                {
+                    lblerror.Text = "Error al actualizar Ejercicio";
+                }
                 //aqui va el codigo para registrar los cambios
 
-             }
+
 
             }
+
+        }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
@@ -91,7 +170,7 @@ namespace SistemasIIITHEGYM
             btnVolver.Text = "Volver";
         }
 
-     
+
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
@@ -114,4 +193,4 @@ namespace SistemasIIITHEGYM
     }
 
 
-    }
+}
