@@ -34,10 +34,12 @@ namespace SistemasIIITHEGYM
             {
                 k.IDSucIngreso = "2";
                 k.AddIngresoCliente();
+                lblerror.Visible = true;
                 lblerror.Text = "Cuotas al dia, bienvenido!";
             }
             else
             {
+                lblerror.Visible = true;
                 lblerror.Text = "Cuota vencida";
             }
            

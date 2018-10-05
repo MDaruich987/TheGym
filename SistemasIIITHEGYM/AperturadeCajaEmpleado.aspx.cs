@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using SistemasIIITHEGYM.BussinesLayer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 
 namespace SistemasIIITHEGYM
@@ -17,7 +19,11 @@ namespace SistemasIIITHEGYM
         private static string id;
         private static string IdSuc;
         //cadena mili
-        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+        //SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+        //cadena de conexion MICA
+        //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        //Cadena de Maxi
+        SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToShortDateString();

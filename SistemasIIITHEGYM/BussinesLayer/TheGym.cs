@@ -178,12 +178,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDSucIngreso;
         //variable para Id Grupo muscular
         public string FK_Grupo;
-        //variable para agregar Ejercicio
-        public string NombreEjercicio;
-        public string DescripcionEjercicio;
-        public string ImagenesEjercicio;
-        public string FKgrupomuscular;
-        public string FKelementos;
+        //Variable para buscar Plan
+        public string IdPlanBuscar;
 
 
 
@@ -734,24 +730,43 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMovimientoCaja", parameters);
             return dt;
         }
-        public DataTable GetElementos()
+
+        public void InhabilitarCliente()
         {
-            SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetElementos", parameters);
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdClienteSearch, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitaCliente", parameters);
+        }
+
+        public void InhabilitarEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDEmpleadoBusc, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarEmpleado", parameters);
+        }
+
+        public void InhabilitarActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDActBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarActividad", parameters);
+        }
+
+        public void InhabilitarPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarPlans", parameters);
+        }
+
+        public DataTable GetPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlans", parameters);
             return dt;
         }
 
-
-        public void AddEjercicio()
-        {
-            SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionEjercicio, SqlDbType.VarChar, 1000);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Imagenes", ImagenesEjercicio, SqlDbType.NVarChar, 500);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@FKgrupomuscular", FKgrupomuscular, SqlDbType.Int,100);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FKelementos", FKelementos, SqlDbType.Int, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEjercicio", parameters);
-        }
 
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -45,6 +47,24 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
+            TheGym k = new TheGym
+            {
+                Nombreplanins = tbnombre.Text
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetPlans();
+            if(dt.Rows.Count > 0)
+            {
+                lblerror.Visible = false;
+                gvplanes.Visible = true;
+                gvplanes.DataSource = dt;
+                gvplanes.DataBind();
+            }
+            else
+            {
+                lblerror.Text = "Plan no encontrado";
+                lblerror.Visible = true;
+            }
 
         }
 
@@ -57,8 +77,21 @@ namespace SistemasIIITHEGYM
                 panelconsulta.Visible = false;
                 paneledicion.Visible = true;
                 paneledicion.Focus();
+
+               string idact = gvplanes.SelectedRow.Cells[0].Text;
+
+                TheGym k = new TheGym
+                {
+                    IDActBuscar = idact
+                };
+
+                DataTable dt1 = new DataTable();
+                dt1 = k.GetPlans();
+                tbnombre.Text= dt1.Rows[0][1].ToString();
+                lbduración.SelectedValue = dt1.Rows[0][4].ToString();
+
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
-                
+
             }
             catch (Exception ex)
             {
@@ -92,6 +125,22 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnvolver.Text = "Volver";
+        }
+
+        protected void gvplanes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                IdPlanBuscar = gvplanes.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarPlans();
+            DataTable aux = new DataTable();
+            gvplanes.DataSource = aux;
+            gvplanes.DataBind();
+            gvplanes.Visible = false;
+            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
         }
     }
 }

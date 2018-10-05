@@ -369,7 +369,7 @@
                   <br />
 
 
-                                          <asp:GridView ID="gridempleados" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridempleados_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 85px; margin-bottom: 9px;" Width="601px">
+                                          <asp:GridView ID="gridempleados" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridempleados_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 85px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gridempleados_RowDeleting">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_empleado" HeaderText="ID" ItemStyle-Width="100" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">

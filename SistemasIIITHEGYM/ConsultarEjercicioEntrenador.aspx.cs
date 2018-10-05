@@ -82,6 +82,8 @@ namespace SistemasIIITHEGYM
             btnVolver.CausesValidation = false;
             panelgeneral.Visible = true;
             panelregistro.Visible = false;
+            gridejercicios.Dispose();
+            gridejercicios.DataBind();
             panelgeneral.Focus();
             lblerror.Text = "";
             btneditar.Text = "Editar";

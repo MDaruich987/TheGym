@@ -60,6 +60,7 @@ namespace SistemasIIITHEGYM
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
             
+            
                 TheGym k = new TheGym
                 {
                     NombreActividadBuscar = tbnombre.Text
@@ -71,6 +72,7 @@ namespace SistemasIIITHEGYM
                     gridactividades.DataSource = dt;
                     gridactividades.DataBind();
                     lblerror.Text = "";
+                    gridactividades.Visible = true;
                 }
                 else
                 {
@@ -216,10 +218,28 @@ namespace SistemasIIITHEGYM
                 btnvolver.CausesValidation = false;
                 panelgeneral.Visible = true;
                 panelregistro.Visible = false;
-                panelgeneral.Focus();
+            gridactividades.Dispose();
+            gridactividades.DataBind();
+            panelgeneral.Focus();
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnvolver.Text = "Volver";
         }
+
+        protected void gridactividades_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                IDActBuscar = gridactividades.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarActividad();
+            DataTable aux = new DataTable();
+            gridactividades.DataSource = aux;
+            gridactividades.DataBind();
+            gridactividades.Visible = false;
+            lblerror.Text = "Actividad inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
         }
+    }
     }
