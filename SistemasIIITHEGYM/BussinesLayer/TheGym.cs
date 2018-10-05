@@ -178,6 +178,18 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDSucIngreso;
         //variable para Id Grupo muscular
         public string FK_Grupo;
+        //variable para agregar rutina
+        public string NombreRutina;
+        public string IDEmpleado;
+        public string IDCliete;
+        //variable para agregar detalle drutina
+        public string IDRutina;
+        public string Serie;
+        public string Repeticion;
+        public string Dia;
+        public string IDEjercicio;
+      
+
 
 
 
@@ -721,6 +733,31 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEjercicosxGrupo", parameters);
             return dt;
         }
+
+        public DataTable AddRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_Empleado", IDEmpleado, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Id_Cliente", IDCliete, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.VarChar, 20);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddRutina", parameters);
+            return dt;
+        }
+
+        public void AddDetalleRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_rutina", IDRutina, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Serie", Serie, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Rep", Repeticion, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Dia", Dia, SqlDbType.VarChar, 20);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Id_ejercicio", IDEjercicio, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetalleRutina", parameters);
+
+        }
+        
+
+
 
     }
 }

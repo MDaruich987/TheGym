@@ -8,11 +8,15 @@ using System.Data;
 using System.Data.SqlClient;
 using SistemasIIITHEGYM.BussinesLayer;
 
+
+
 namespace SistemasIIITHEGYM
 {
     public partial class RegistrarRutinaEntrenador : System.Web.UI.Page
     {
         static bool flag = true;
+
+        static string   idcliente;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,48 +45,102 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
+            if (IsPostBack == false)
+            {
+                DataTable Tabla = new DataTable();
+                Tabla.Columns.Add("Grupo_muscular");
+                Tabla.Columns.Add("Ejercicio");
+                Tabla.Columns.Add("Id_ejercicio");
+                Tabla.Columns.Add("Serie");
+                Tabla.Columns.Add("Rep");
+                Tabla.Columns.Add("Dia");
+                gridejerciciosrutina.DataSource = Tabla;
+                gridejerciciosrutina.DataBind();
+                Session["Datos"] = Tabla;
+
+                
+            }
 
             if (flag == true)
             {
                 cargargrupomuscular();
+                getallprofesores();
                 flag = false;
-            }
-            
 
+            }
+
+            
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+
+                string idrutina;
+
+                DataTable aux1 = new DataTable();
+
+                TheGym k = new TheGym
+                {
+                    NombreRutina = tbnombre.Text,
+                    IDEmpleado = ddlprofesores.SelectedValue,
+                    IDCliete = idcliente
+                };
+
+
+                aux1 = k.AddRutina();
+
+
+                idrutina = aux1.Rows[0][0].ToString();
+
+
+
+                for (int i = 0; i < gridejerciciosrutina.Rows.Count; i++)
+                {
+
+
+                    TheGym q = new TheGym
+                    {
+                        IDRutina = idrutina,
+                        IDEjercicio = gridejerciciosrutina.Rows[i].Cells[2].Text,
+                        Serie = gridejerciciosrutina.Rows[i].Cells[3].Text,
+                        Repeticion = gridejerciciosrutina.Rows[i].Cells[4].Text,
+                        Dia = gridejerciciosrutina.Rows[i].Cells[5].Text
+                        
+
+                    };
+                    
+
+                
+                    q.AddDetalleRutina();
+
+                    Label3.Text = "Rutina Registrada";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
         }
 
         protected void btnañadir_Click(object sender, EventArgs e)
         {
+          
 
+            DataTable Tabla = new DataTable();
+            Tabla = (DataTable)Session["Datos"];
+            Tabla.Rows.Add(ddlgrupomuscular.SelectedItem, ddlejercicio.SelectedItem,ddlejercicio.Text,
+            lbseries.Text, lbrrepeticiones.Text, lbdias.Text);
+            gridejerciciosrutina.DataSource = Tabla;
+            gridejerciciosrutina.DataBind();
+            Session["Datos"] = Tabla;
+            
         }
 
-       
-    
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            TheGym k = new TheGym
-            {
-                DNICliente = tbdnicliente.Text,
-                
-            };
-            k.AddIngresoEmpleado();
-            DataTable dt = new DataTable();
-            dt = k.GetTodosClientesNombres();
-            if (dt.Rows.Count > 0)
-            {
-                Label1.Text = "Nombre: " + dt.Rows[0][0].ToString() + " \n Apellido: " + dt.Rows[0][1].ToString() + " \n DNI: " + dt.Rows[0][3].ToString();
-
-            }
-            else
-            {
-                Label1.Text = "No existe el empleado";
-            }
-        }
+        
 
         private void cargargrupomuscular()
         {
@@ -96,7 +154,17 @@ namespace SistemasIIITHEGYM
             
         }
 
-      
+        private void getallprofesores()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetProfesores();
+            ddlprofesores.DataSource = dt;
+            ddlprofesores.DataValueField = "Id_empleado";
+            ddlprofesores.DataTextField = "Profesor";
+            ddlprofesores.DataBind();
+
+        }
 
         protected void ddlgrupomuscular_SelectedIndexChanged1(object sender, EventArgs e)
         {
@@ -111,5 +179,42 @@ namespace SistemasIIITHEGYM
             ddlejercicio.DataTextField = "Nombre";
             ddlejercicio.DataBind();
         }
+
+       
+
+       
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                DNICliente = tbdnicliente.Text,
+
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetTodosClientesNombres();
+            if (dt.Rows.Count > 0)
+            {
+                Label1.Text = "Nombre: " + dt.Rows[0][0].ToString() + "// Apellido: " + dt.Rows[0][1].ToString() + "  ID: " + dt.Rows[0][2].ToString();
+                idcliente = dt.Rows[0][2].ToString();
+            }
+            else
+            {
+                Label1.Text = "No existe el empleado";
+            }
+        }
+
+        protected void ddlprofesores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            //falta modificar
+            Response.Redirect("InicioEntrenador.aspx");
+        }
+
+        
     }
 }
