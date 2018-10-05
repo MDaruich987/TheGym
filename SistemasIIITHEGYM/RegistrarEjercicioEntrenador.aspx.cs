@@ -16,6 +16,8 @@ namespace SistemasIIITHEGYM
     public partial class RegistrarEjercicioEntrenador : System.Web.UI.Page
     {
         static string extention;
+
+        static bool flag = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             //lblmensajebienvenida.Text = Session["inicio"].ToString();
@@ -44,10 +46,13 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
+            if (flag == true)
             {
                 GetElementos();
                 GetGrupoMuscular();
+                flag = false;
             }
+
         }
         private void GetElementos()
         {
@@ -77,6 +82,7 @@ namespace SistemasIIITHEGYM
         }
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            SaveEjercicioFoto();
             TheGym k = new TheGym
             {
                 NombreEjercicio = tbnombre.Text,
@@ -198,6 +204,12 @@ namespace SistemasIIITHEGYM
             return srcImage;
         }
         protected void tbnombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        protected void fiupfotografiacliente_Load(object sender, EventArgs e)
         {
 
         }

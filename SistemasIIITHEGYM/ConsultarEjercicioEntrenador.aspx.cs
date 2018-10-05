@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -88,6 +89,27 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnVolver.Text = "Volver";
+        }
+
+     
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                NombreEjercicio = TextBox1.Text
+            };
+            DataTable dt = k.GetEjercicio();
+
+            if (dt.Rows.Count > 0)
+            {
+                gridejercicios.DataSource = dt;
+                gridejercicios.DataBind();
+            }
+            else
+            {
+                lblerror.Text = "No se encontro el Ejercicio";
+            }
         }
     }
 

@@ -180,6 +180,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FK_Grupo;
         //Variable para buscar Plan
         public string IdPlanBuscar;
+        //variable para agregar Ejercicio
+        public string NombreEjercicio;
+        public string DescripcionEjercicio;
+        public string ImagenesEjercicio;
+        public string FKgrupomuscular;
+        public string FKelementos;
 
 
 
@@ -817,6 +823,34 @@ namespace SistemasIIITHEGYM.BussinesLayer
         {
             SqlParameter[] parameters = new SqlParameter[0];
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_DeleteDetPlan", parameters);
+        }
+
+        public DataTable GetElementos()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetElementos", parameters);
+            return dt;
+        }
+
+
+        public void AddEjercicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionEjercicio, SqlDbType.VarChar, 1000);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Imagenes", ImagenesEjercicio, SqlDbType.NVarChar, 500);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@FKgrupomuscular", FKgrupomuscular, SqlDbType.Int, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FKelementos", FKelementos, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEjercicio", parameters);
+        }
+
+
+        public DataTable GetEjercicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEjercicio", parameters);
+            return dt;
         }
 
 
