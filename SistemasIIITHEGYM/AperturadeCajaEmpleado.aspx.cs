@@ -40,6 +40,12 @@ namespace SistemasIIITHEGYM
                 lblusuario.Text = (string)Session["Usuario"];
                 lblnombreusuario.Text = (string)Session["Ususario"];
 
+                string cadena = (string)Session["Usuario"];
+
+                string[] separadas;
+
+                separadas = cadena.Split(',');
+
                 TheGym k = new TheGym
                 {
 
