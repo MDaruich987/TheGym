@@ -11,7 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarSucursal : System.Web.UI.Page
     {
-
+        static string ID1;
         static bool flag = true;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -95,6 +95,11 @@ namespace SistemasIIITHEGYM
                 gridplanes.DataSource = dt;
                 gridplanes.DataBind();
             }
+            else
+            {
+                lblerror.Text = "No se encontro Sucursal";
+            }
+            gridplanes.Visible = true;
 
         }
 
@@ -124,7 +129,7 @@ namespace SistemasIIITHEGYM
 
                 TheGym k = new TheGym
                 {
-                    IDSucEditar = ID,
+                    IDSucEditar = ID1,
                     NombreSucEditar = TextBox1.Text,
                     TelefonoSucEditar = tbtelefono.Text,
                     CalleSucEditar = tbcalle.Text,
@@ -143,6 +148,21 @@ namespace SistemasIIITHEGYM
                     lblerror.Text = "Error al actualizar";
                 }
 
+
+                ddllocalidad.ClearSelection();
+                ddllocalidad.Enabled = false;
+                TextBox1.Enabled = false;
+                tbtelefono.Enabled = false;
+                tbcalle.Enabled = false;
+                tbbarrio.Enabled = false;
+                tbnumerocasa.Enabled = false;
+
+                lblerror0.Text = "Sucursal Editada con Exito!";
+                lblerror0.Visible = true;
+
+                //btneditar.Enabled = false;
+                btneditar.Text = "Editar";
+
                 //aqui va el codigo para registrar los cambios
             }
         }
@@ -158,6 +178,13 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btnvolver.Text = "Volver";
+            lblerror0.Text = "";
+            lblerror0.Visible = false;
+            DataTable dt = new DataTable();
+            gridplanes.DataSource = dt;
+            gridplanes.DataBind();
+            gridplanes.Visible = false;
+            tbnombre.Text = string.Empty;
         }
 
         protected void gridplanes_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,7 +207,7 @@ namespace SistemasIIITHEGYM
 
                 dt1 = k.GetOneSucursalID();
 
-                ID = dt1.Rows[0][0].ToString(); 
+                ID1 = dt1.Rows[0][0].ToString(); 
                 TextBox1.Text = dt1.Rows[0][1].ToString();
                 tbtelefono.Text = dt1.Rows[0][2].ToString();
                 tbcalle.Text = dt1.Rows[0][3].ToString();

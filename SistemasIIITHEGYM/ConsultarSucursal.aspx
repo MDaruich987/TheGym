@@ -175,6 +175,7 @@
                         <input type="checkbox"> Remember me
                       </label>
                     &nbsp;&nbsp;&nbsp;&nbsp;</div>--%>
+                                            <asp:Label ID="lblerror0" runat="server" CssClass="error-text" Visible="False"></asp:Label>
                                         </div>
                                     </div>
                                 </div>

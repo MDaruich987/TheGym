@@ -47,6 +47,10 @@ namespace SistemasIIITHEGYM
                     //declaramos una variale sesion para mantener el dato del usuario
                     string usuario = (string)Session["Usuario"];
                     lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
+
+
+
+
                     /*if (Request.Params["parametro"] != null)
                     {
                         //para que el label capte el nombre y apellido enviado desde el form de acceso
