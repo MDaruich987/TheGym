@@ -16,7 +16,7 @@ namespace SistemasIIITHEGYM
     public partial class AperturadeCajaEmpleado : System.Web.UI.Page
     {
 
-        private static string id;
+        private static string id=" ";
         private static string IdSuc;
         //cadena mili
         //SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
