@@ -11,13 +11,14 @@ using System.Configuration;
 
 namespace SistemasIIITHEGYM
 {
+
     public partial class CierredeCajaEmpleado : System.Web.UI.Page
     {
         private static string id;
         private static string IdSuc;
         //cadena mili
+        // SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //formato fecha
@@ -79,7 +80,7 @@ namespace SistemasIIITHEGYM
             gridmovimientos.Visible = false;
             tbmonto.Text = string.Empty;
             btnregistrar.Enabled = false;
-            this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Caja cerrada exitosamente');</script>");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
         }
 

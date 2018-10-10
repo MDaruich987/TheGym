@@ -145,7 +145,7 @@ namespace SistemasIIITHEGYM
 
                                 k.AperturaDeCaja();
 
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Apertura de caja registrada exitosamente');</script>");
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                                 tbmonto.Enabled = false;
                             }
                         }
