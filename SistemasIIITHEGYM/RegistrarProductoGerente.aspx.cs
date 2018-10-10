@@ -23,6 +23,9 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
+            //aqui esta el mensaje de exito, colocalo despues de que se inserte el producto
+            // ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);             
         }
     }
 }

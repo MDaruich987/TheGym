@@ -73,6 +73,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 //string Nombre;
@@ -102,7 +103,7 @@ namespace SistemasIIITHEGYM
                 tbnombre.Text = string.Empty;
                 tbtelefono.Text = string.Empty;
                 lblerror.Text = "Sucursal registrada con exito!.";
-                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('La sucursal se ha registrado exitosamente');</script>");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);             
             }
             catch (Exception ex)
             {
@@ -110,6 +111,11 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = ex.Message.ToString();
             }
            
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
