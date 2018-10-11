@@ -87,8 +87,7 @@ namespace SistemasIIITHEGYM
             {
                 k.AddNewActividad();
                 lblerror.Visible = true;
-                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Apertura de caja registrada exitosamente');</script>");
-
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                 tbnombre.Text = string.Empty;
                 tbdescripcion.Text = string.Empty;
 

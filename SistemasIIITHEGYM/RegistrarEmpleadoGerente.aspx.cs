@@ -231,8 +231,7 @@ namespace SistemasIIITHEGYM
             try
             {
                 k.AddNewEmpleado();
-                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El Empleado se ha registrado exitosamente');</script>");
-
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                 tbnombre.Text = string.Empty;
                 tbapellido.Text = string.Empty;
                 tbnumerodocumento.Text = string.Empty;

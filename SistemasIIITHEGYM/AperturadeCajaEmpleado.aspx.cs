@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using SistemasIIITHEGYM.BussinesLayer;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 
 namespace SistemasIIITHEGYM
@@ -14,16 +16,20 @@ namespace SistemasIIITHEGYM
     public partial class AperturadeCajaEmpleado : System.Web.UI.Page
     {
 
-        private static string id;
+        private static string id=" ";
         private static string IdSuc;
         //cadena mili
-        SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+        //SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
+        //cadena de conexion MICA
+        //SqlConnection conex = new SqlConnection("Data Source = MICADARUICH\\SQLEXPRESS; Initial Catalog = TheGym; Integrated Security = True");
+        //Cadena de Maxi
+        SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToShortDateString();
             lblhora.Text = DateTime.Now.ToShortTimeString();
-            lblusuario.Text = "USUARIO";
-            id = "3";
+            //lblusuario.Text = "USUARIO";
+            //id = "3";
             //lblmensajebienvenida.Text = Session["inicio"].ToString();
             //si efectivamente se ha iniciado sesión
             if (Session["inicio"] != null)
@@ -32,7 +38,19 @@ namespace SistemasIIITHEGYM
                 string usuario = (string)Session["Usuario"];
                 lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
                 lblusuario.Text = (string)Session["Usuario"];
-                lblnombreusuario.Text = "";
+                lblnombreusuario.Text = (string)Session["Ususario"];
+
+                string cadena = (string)Session["Usuario"];
+
+                string[] separadas;
+
+                separadas = cadena.Split(',');
+
+                TheGym k = new TheGym
+                {
+
+                };
+
                 lblsucursal.Text = "";
                 lblestadocaja.Text = "";
                 lblerror.Text = "";
@@ -127,7 +145,7 @@ namespace SistemasIIITHEGYM
 
                                 k.AperturaDeCaja();
 
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('Apertura de caja registrada exitosamente');</script>");
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                                 tbmonto.Enabled = false;
                             }
                         }

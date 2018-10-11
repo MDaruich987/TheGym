@@ -106,6 +106,7 @@ namespace SistemasIIITHEGYM
             {
                 gridempleados.DataSource = dt1;
                 gridempleados.DataBind();
+                gridempleados.Visible = true;
  
             }
             else
@@ -274,6 +275,22 @@ namespace SistemasIIITHEGYM
             }
 
             
+        }
+
+        protected void gridempleados_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                IDEmpleadoBusc = gridempleados.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarEmpleado();
+            DataTable aux = new DataTable();
+            gridempleados.DataSource = aux;
+            gridempleados.DataBind();
+            gridempleados.Visible = false;
+            lblerror.Text = "Empleado inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
         }
     }
 }

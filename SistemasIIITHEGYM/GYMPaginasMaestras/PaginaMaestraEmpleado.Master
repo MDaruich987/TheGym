@@ -189,6 +189,7 @@
                         </li>
                         <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Actividades</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
+                                <li><a href="RegistrarHorarioInstructor.aspx"><i class="fa fa-circle-o"></i>Registrar horario de instructor</a></li>
                                 <li><a href="RegistrarActividadesEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Acividad</a></li>
                                 <li class="active"><a href="ConsultarActividadEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Actividad</a></li>
                             </ul>

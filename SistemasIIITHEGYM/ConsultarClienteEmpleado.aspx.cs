@@ -62,16 +62,25 @@ namespace SistemasIIITHEGYM
 
         public void CargarLocalidades()
         {
-            TheGym k = new TheGym();
-            DataTable dt = new DataTable();
-            dt = k.GetAllLocalidades();
-            if (dt.Rows.Count > 0)
+            try
             {
-                ddllocalidad.DataTextField = "Nombre";
-                ddllocalidad.DataValueField = "CodigoPostal";
-                ddllocalidad.DataSource = dt;
-                ddllocalidad.DataBind();
+                TheGym k = new TheGym();
+                DataTable dt = new DataTable();
+                dt = k.GetAllLocalidades();
+                if (dt.Rows.Count > 0)
+                {
+                    ddllocalidad.DataTextField = "Nombre";
+                    ddllocalidad.DataValueField = "CodigoPostal";
+                    ddllocalidad.DataSource = dt;
+                    ddllocalidad.DataBind();
+                }
             }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString() + "carga ddl";
+            }
+
         }
 
         public void CargarTipoDocumento()
@@ -148,7 +157,8 @@ namespace SistemasIIITHEGYM
                     btneditar.Text = "Editar";
                     lblerror.Text = "Cliente Editado con exito!";
 
-                    tbnombre.Enabled = false;
+                    tbnombre.Enabled = true;
+                    tbnombre.Text = "";
                     tbapellido.Enabled = false;
                     tbfechadenacimiento.Enabled = false;
                     tbemail.Enabled = false;
@@ -174,6 +184,8 @@ namespace SistemasIIITHEGYM
             panelconsulta.Visible = true;
             paneledicion.Visible = false;
             panelconsulta.Focus();
+            gridclientes.Dispose();
+            gridclientes.DataBind();
             lblerror.Text = "";
             btneditar.Text = "Editar";
             btncancelar.Text = "Volver";
@@ -245,6 +257,24 @@ namespace SistemasIIITHEGYM
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        protected void gridclientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            //idcliente search 
+            TheGym k = new TheGym
+            {
+                IdClienteSearch = gridclientes.Rows[e.RowIndex].Cells[0].Text
+            };
+            k.InhabilitarCliente();
+            DataTable aux = new DataTable();
+            gridclientes.DataSource = aux;
+            gridclientes.DataBind();
+            gridclientes.Visible = false;
+            lblerror.Text = "Cliente inhabilitado";
+            lblerror.Visible = true;
+            tbnombre.Text = "";
         }
     }
 }

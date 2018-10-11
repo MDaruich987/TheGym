@@ -43,8 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
@@ -116,6 +116,34 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Recognizers.Definitions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Recognizers.Text.1.1.1\lib\net452\Microsoft.Recognizers.Definitions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Recognizers.Text, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Recognizers.Text.1.1.1\lib\net452\Microsoft.Recognizers.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Recognizers.Text.DateTime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Recognizers.Text.DateTime.1.1.1\lib\net452\Microsoft.Recognizers.Text.DateTime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Recognizers.Text.Number, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Recognizers.Text.Number.1.1.1\lib\net452\Microsoft.Recognizers.Text.Number.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Recognizers.Text.NumberWithUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Recognizers.Text.NumberWithUnit.1.1.1\lib\net452\Microsoft.Recognizers.Text.NumberWithUnit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,6 +170,7 @@
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
+    <Content Include="ConsultarProductoGerente.aspx" />
     <Content Include="ConsultarRutinaEntrenador.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
     <Content Include="EmailClientesPlanes.aspx" />
@@ -174,7 +203,9 @@
     <Content Include="RegistrarCobroPlanEmpleado.aspx" />
     <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
+    <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
+    <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
@@ -271,6 +302,13 @@
     </Compile>
     <Compile Include="ConsultarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarPlanEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarProductoGerente.aspx.cs">
+      <DependentUpon>ConsultarProductoGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarProductoGerente.aspx.designer.cs">
+      <DependentUpon>ConsultarProductoGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarRutinaEntrenador.aspx.cs">
       <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
@@ -402,6 +440,13 @@
     <Compile Include="RegistrarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>RegistrarEmpleadoGerente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarFacturaEmpleado.aspx.cs">
+      <DependentUpon>RegistrarFacturaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarFacturaEmpleado.aspx.designer.cs">
+      <DependentUpon>RegistrarFacturaEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarHorariodeInstructor.aspx.cs">
       <DependentUpon>RegistrarHorariodeInstructor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +460,13 @@
     </Compile>
     <Compile Include="RegistrarPlanEmpleado.aspx.designer.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProductoGerente.aspx.cs">
+      <DependentUpon>RegistrarProductoGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProductoGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarProductoGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>

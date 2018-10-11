@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Data.SqlClient;
 using System.Data;
+using SistemasIIITHEGYM.BussinesLayer;
+
 
 namespace SistemasIIITHEGYM
 {
@@ -27,12 +29,25 @@ namespace SistemasIIITHEGYM
                 //si no se ha iniciado sesion me manda al inicio
                 //Response.Redirect("InicioLogin.aspx");
             }
+
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetCuotasVencidas();
+
+            if(dt.Rows.Count>0)
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                GridView1.Visible = false;
+            }
+
+        
+
         }
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbusuario0.Text = this.GridView1.Rows[GridView1.SelectedIndex].Cells[4].Text;
-            tbusuario.Text = this.GridView1.Rows[GridView1.SelectedIndex].Cells[1].Text;
-        }
+        
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -81,6 +96,12 @@ namespace SistemasIIITHEGYM
             {
                 lberror.Text = ex.Message.ToString();
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            tbusuario0.Text = this.GridView1.Rows[GridView1.SelectedIndex].Cells[4].Text;
+            tbusuario.Text = this.GridView1.Rows[GridView1.SelectedIndex].Cells[1].Text;
         }
     }
 }

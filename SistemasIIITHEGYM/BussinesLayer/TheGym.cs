@@ -176,6 +176,31 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDIngresoCliente;
         //variable para registrar ingreso cliente
         public string IDSucIngreso;
+        //variable para Id Grupo muscular
+        public string FK_Grupo;
+        //Variable para buscar Plan
+        public string IdPlanBuscar;
+        //variable para agregar Ejercicio
+        public string NombreEjercicio;
+        public string DescripcionEjercicio;
+        public string ImagenesEjercicio;
+        public string FKgrupomuscular;
+        public string FKelementos;
+        public string IdEjercicio;
+        //variable para agregar rutina
+        public string NombreRutina;
+        public string IDEmpleado;
+        public string IDCliete;
+        //variable para agregar detalle drutina
+        public string IDRutina;
+        public string Serie;
+        public string Repeticion;
+        public string Dia;
+        public string IDEjercicio;
+
+
+
+
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -300,6 +325,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable MontoApertura()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaIdDetCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMontoApertura", parameters);
+            return dt;
+        }
+
+
         public DataTable GetIdDetCaja()
         {
             SqlParameter[] parameters = new SqlParameter[1];
@@ -361,7 +395,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         {
             SqlParameter[] parameters = new SqlParameter[5];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_semana", FKSemanaReg, SqlDbType.Int, 50);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado",FKEmpleadoReg, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FKEmpleadoReg, SqlDbType.Int, 50);
             parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_actividad", FKActividadReg, SqlDbType.Int, 50);
             parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Desde", DesdeReg, SqlDbType.Time, 50);
             parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", HastaReg, SqlDbType.Time, 50);
@@ -474,26 +508,26 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //método para agregar una nueva actividad
 
         public void AddNewActividad()
-            {
-                SqlParameter[] parameters = new SqlParameter[5];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividad, SqlDbType.VarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Profesor", ProfesorActividad, SqlDbType.Int, 50);
-                parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", SucursalActividad, SqlDbType.Int, 50);
-                parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Cupos", CuposActividad, SqlDbType.Int, 50);
-                parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionActividad, SqlDbType.VarChar, 500);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddActividad", parameters);
-            }
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividad, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Profesor", ProfesorActividad, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", SucursalActividad, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Cupos", CuposActividad, SqlDbType.Int, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionActividad, SqlDbType.VarChar, 500);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddActividad", parameters);
+        }
 
 
-            //método para consultar un cliente
-            public DataTable GetClienteNom()
-            {
-                SqlParameter[] parameters = new SqlParameter[2];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteBusc, SqlDbType.VarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteBusc, SqlDbType.Int, 100);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCliente", parameters);
-                return dt;
-            }
+        //método para consultar un cliente
+        public DataTable GetClienteNom()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreClienteBusc, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNIClienteBusc, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCliente", parameters);
+            return dt;
+        }
 
         public DataTable GetVencimiento()
         {
@@ -517,14 +551,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         //método para consultar un empleado
         public DataTable GetEmpleadoNom()
-            {
-                SqlParameter[] parameters = new SqlParameter[2];
-                parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpleadoBusc, SqlDbType.NVarChar, 50);
-                parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoBusc, SqlDbType.Int, 50);
-                //parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@K_cargo", CargoEmpleadoBusc, SqlDbType.Int, 50);
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEmpleado", parameters);
-                return dt;
-            }
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEmpleadoBusc, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoBusc, SqlDbType.Int, 50);
+            //parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@K_cargo", CargoEmpleadoBusc, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEmpleado", parameters);
+            return dt;
+        }
 
         public void UpdateCliente()
         {
@@ -544,12 +578,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateCliente", parameters);
         }
 
-            public DataTable GetActividad()
-            {
-                SqlParameter[] parameters = new SqlParameter[0];
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllActividades", parameters);
-                return dt;
-            }
+        public DataTable GetActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllActividades", parameters);
+            return dt;
+        }
 
 
         public DataTable GetOneActividad()
@@ -562,27 +596,27 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
 
         public DataTable GetCargos()
-            {
-                SqlParameter[] parameters = new SqlParameter[0];
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCargos", parameters);
-                return dt;
-            }
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllCargos", parameters);
+            return dt;
+        }
 
 
-            //Obtener todos los profesores
-            public DataTable GetProfesores()
-            {
-                SqlParameter[] parameters = new SqlParameter[0];
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllProfesores", parameters);
-                return dt;
-            }
+        //Obtener todos los profesores
+        public DataTable GetProfesores()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllProfesores", parameters);
+            return dt;
+        }
 
-            public DataTable GetSucursales()
-            {
-                SqlParameter[] parameters = new SqlParameter[0];
-                DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllSucursales", parameters);
-                return dt;
-            }
+        public DataTable GetSucursales()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllSucursales", parameters);
+            return dt;
+        }
 
         public DataTable GetAllPlans()
         {
@@ -682,8 +716,189 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDEmpleadoIngreso, SqlDbType.Int, 50);
             parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@estado", EstadoIngresoEmpleado, SqlDbType.VarChar, 10);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddIngresoEmpleado", parameters);
-            
+
         }
+
+        public DataTable GetCuotasVencidas()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCuotasVencidas", parameters);
+            return dt;
+        }
+
+        public DataTable GetTodosClientesNombres()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@DNI", DNICliente, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetTodosClientesNombres", parameters);
+            return dt;
+        }
+
+        public DataTable GetGruposMusculares()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetGruposMusculares", parameters);
+            return dt;
+        }
+
+        public DataTable GetEjercicosxGrupo()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", FK_Grupo, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEjercicosxGrupo", parameters);
+            return dt;
+        }
+
+        public DataTable GetMovimientoCaja()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaCaja, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMovimientoCaja", parameters);
+            return dt;
+        }
+
+        public void InhabilitarCliente()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdClienteSearch, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitaCliente", parameters);
+        }
+
+        public void InhabilitarEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDEmpleadoBusc, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarEmpleado", parameters);
+        }
+
+        public void InhabilitarActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDActBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarActividad", parameters);
+        }
+
+        public void InhabilitarPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarPlans", parameters);
+        }
+
+        public DataTable GetPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlans", parameters);
+            return dt;
+        }
+
+        public DataTable GetDetPlans()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", IdPlanBuscar, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetPlan", parameters);
+            return dt;
+        }
+
+        //public string Nombreplanins;
+        //public string duracionplanins;
+        //public string precioplanins;
+        ////variables para registrar Detalles de Plan
+        //public string FK_plan;
+        //public string FK_actividad;
+        //public string Dias_semanas;
+
+        public void UpdatePlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@IdPlan", IdPlanBuscar, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", Nombreplanins, SqlDbType.VarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioplanins, SqlDbType.Money, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Duracion", duracionplanins, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_UpdatePlan", parameters);
+        }
+
+        public void UpdateDetallePlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_plan", FK_plan, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Id_actividad", FK_actividad, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Dias_semanas", Dias_semanas, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_UpdateDetPlan", parameters);
+        }
+
+        //PA_DeleteDetPlan
+
+        public void DeleteDetPlan()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("@PA_DeleteDetPlan", parameters);
+        }
+
+        public DataTable GetElementos()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetElementos", parameters);
+            return dt;
+        }
+
+
+        public void AddEjercicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionEjercicio, SqlDbType.VarChar, 1000);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Imagenes", ImagenesEjercicio, SqlDbType.NVarChar, 500);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@FKgrupomuscular", FKgrupomuscular, SqlDbType.Int, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FKelementos", FKelementos, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddEjercicio", parameters);
+        }
+
+
+        public DataTable GetEjercicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetEjercicio", parameters);
+            return dt;
+        }
+
+        public void UpdateEjercicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_ejercicio", IdEjercicio, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreEjercicio, SqlDbType.VarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionEjercicio, SqlDbType.VarChar, 1000);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@FK_grupomuscular", FKgrupomuscular, SqlDbType.Int, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_ELEMENTOS", FKelementos, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateEjercicio", parameters);
+        }
+
+        public DataTable AddRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_Empleado", IDEmpleado, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Id_Cliente", IDCliete, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.VarChar, 20);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddRutina", parameters);
+            return dt;
+        }
+
+        public void AddDetalleRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_rutina", IDRutina, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Serie", Serie, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Rep", Repeticion, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Dia", Dia, SqlDbType.VarChar, 20);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Id_ejercicio", IDEjercicio, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetalleRutina", parameters);
+
+        }
+
+
+
 
     }
 }

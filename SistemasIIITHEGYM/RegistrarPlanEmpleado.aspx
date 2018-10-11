@@ -6,6 +6,31 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+     <%--modal para el registro exitoso--%>
+             <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                  <%--<span aria-hidden="true">&times;</span></button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>¡Plan registrado exitosamente!&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
     <%--para los controles ajax--%>
          <script type ="text/javascript">
        
