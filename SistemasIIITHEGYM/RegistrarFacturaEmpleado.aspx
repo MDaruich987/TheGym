@@ -44,8 +44,6 @@
 
 
     </script>
-    <asp:UpdatePanel ID="updatepanel" runat="server">
-        <ContentTemplate>
             <%--    TituloSuperior--%>
    <section class="content-header">
                     <h1>Registrar Factura de Venta<small>TheGym</small> </h1>
@@ -276,7 +274,7 @@
               <h3 class="box-title">Agregar producto</h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
               </div>
             </div>
@@ -307,9 +305,19 @@
                                         </tr>
                                     </table>               
                 </div>
-                  <asp:GridView ID="gridproductos" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="188px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled">
+                      <asp:UpdatePanel ID="updatepanel" runat="server">
+        <ContentTemplate>
+                  <asp:GridView ID="gridproductos" runat="server" AllowSorting="True" 
+                      BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" 
+                      CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" 
+                      ForeColor="Black" GridLines="Horizontal" Height="188px" 
+                      HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" 
+                      style="margin-left: 107px; margin-bottom: 9px; margin-right: 11px;" 
+                      Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled" 
+                      OnSelectedIndexChanged="gridproductos_SelectedIndexChanged">
                                               <Columns>
-                                                  <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
+                                                  <asp:CommandField ButtonType="Image" 
+                                                      SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>
                                               </Columns>
@@ -334,7 +342,8 @@
                             <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 100px">
                             </label>
                             <div class="col-sm-10" style="left: 0px; top: 0px; width: 160px">
-                                <asp:TextBox  CssClass="form-control"  ID="tbcantidad"  runat="server" Height="24px" Width="100px" TextMode="number"></asp:TextBox>
+                                <asp:TextBox  CssClass="form-control"  ID="tbcantidad"  runat="server" 
+                                    Height="24px" Width="100px" TextMode="number" Enabled="False"></asp:TextBox>
 
                       <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" CssClass="error-text" ControlToValidate="tbcantidad" ErrorMessage="Ingrese una cantidad" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbcantidad" Display="None" ErrorMessage="Ingrese una cantidad" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -342,11 +351,20 @@
                                 </ajaxToolkit:ValidatorCalloutExtender>
                             </div>
                         </div>
+                    <asp:Label ID="lblerror1" runat="server" CssClass="error-text"></asp:Label>
                     <br />
                     <br />
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" />
-                </div>
+                     &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" 
+                        CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" 
+                        Enabled="False" OnClick="btnañadir_Click" />
+               
+
+
+                            </ContentTemplate>
+                            </asp:UpdatePanel>
+
+                     </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
@@ -361,7 +379,6 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-      </div>
       <!-- /.row -->
 
     <div class="row">
@@ -408,7 +425,8 @@
                                   </div>
                                           <div class="box-footer">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" />
+                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" 
+                                                  OnClick="btnregistrar_Click" />
                 
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
@@ -424,8 +442,7 @@
 
 
             </asp:Panel>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+
 
 
 

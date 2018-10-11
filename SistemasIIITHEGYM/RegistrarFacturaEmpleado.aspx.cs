@@ -8,12 +8,28 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
+using System.Reflection;
 
 namespace SistemasIIITHEGYM
 {
     public partial class RegistrarFacturaEmpleado : System.Web.UI.Page
     {
+        //para el carrito de compras
+        static DataTable Tabla = new DataTable();
+        static DataTable TablaID = new DataTable();
+        static int tam = 0;
+        DataRow Row;
+        DataColumn Column;
+        //variables para añadir el producto
+        string idprod;
+        string nomprod;
+        string preuniprod;
+        string cantprod;
+        string subtotalprod;
+        //para guardar el id del cliente
         static string IDcliente;
+        //para la conexion de las consultas
         SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -100,19 +116,62 @@ namespace SistemasIIITHEGYM
                 //setear hora y fecha en los lbl
                 lblFecha.Text = DateTime.Now.ToShortDateString();
                 lblhora.Text = DateTime.Now.ToShortTimeString();
-                //calculamos cual seria el nro de esta factura
-                SqlCommand com = new SqlCommand("select MAX(Id_factura)+1 from Factura", conex);
-                //creamos un objetosql data adapter y le pasamos nuestro comando sql
-                SqlDataAdapter dap = new SqlDataAdapter(com);
-                //creamos un data table 
-                DataTable dat = new DataTable();
-                //para llenarlo con los datos de la tabla desde el data adapter
-                dap.Fill(dat);
-                //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
-                //obtenemos el numero de factura
-                lblnrofactura.Text = dat.Rows[0][0].ToString();
                 IDcliente = gridcliente.SelectedRow.Cells[0].Text;
-                lblcliente.Text = gridcliente.SelectedRow.Cells[2].Text +", "+ gridcliente.SelectedRow.Cells[1].Text;
+                lblcliente.Text = gridcliente.SelectedRow.Cells[2].Text + ", " + gridcliente.SelectedRow.Cells[1].Text;
+                try
+                {
+                    //calculamos cual seria el nro de esta factura
+                    SqlCommand com2 = new SqlCommand("select MAX(Id_factura)+1 from Factura", conex);
+                    //creamos un objetosql data adapter y le pasamos nuestro comando sql
+                    SqlDataAdapter dap2 = new SqlDataAdapter(com2);
+                    //creamos un data table 
+                    DataTable dat2 = new DataTable();
+                    //para llenarlo con los datos de la tabla desde el data adapter
+                    dap2.Fill(dat2);
+                    //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
+                    //obtenemos el numero de factura
+                    lblnrofactura.Text = dat2.Rows[0][0].ToString();
+                    //mostramos el panel de registro y ocultamos el otro
+                    panelregistrarfactura.Visible = true;
+                    panelseleccionarcliente.Visible = false;
+                    panelregistrarfactura.Focus();
+                    //llenamos el gridview del carrito
+                    if (tam == 0)
+                    {
+                        Column = new DataColumn();
+                        Column.DataType = System.Type.GetType("System.Int32");
+                        Column.ColumnName = "Id_producto";
+                        TablaID.Columns.Add(Column);
+
+                        Column = new DataColumn();
+                        Column.DataType = System.Type.GetType("System.String");
+                        Column.ColumnName = "Nombre Producto";
+                        Tabla.Columns.Add(Column);
+
+                        Column = new DataColumn();
+                        Column.DataType = System.Type.GetType("System.Int32");
+                        Column.ColumnName = "Precio por unidad";
+                        Tabla.Columns.Add(Column);
+
+                        Column = new DataColumn();
+                        Column.DataType = System.Type.GetType("System.Int32");
+                        Column.ColumnName = "Cantidad";
+                        Tabla.Columns.Add(Column);
+
+                        Column = new DataColumn();
+                        Column.DataType = System.Type.GetType("System.Int32");
+                        Column.ColumnName = "Subtotal";
+                        Tabla.Columns.Add(Column);
+
+                        tam = 1;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    lblerror0.Text = ex.Message.ToString()+"obtener numero de boleta";
+                }
+                
             }
             catch (Exception ex)
             {
@@ -120,6 +179,111 @@ namespace SistemasIIITHEGYM
                 lblerror0.Text = ex.Message.ToString();
             }
            
+        }
+
+        protected void gridproductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //habilitamos el tb de cantidad y el boton añadir
+            tbcantidad.Enabled = true;
+            btnañadir.Enabled = true;
+        }
+
+        protected void btnañadir_Click(object sender, EventArgs e)
+        {
+            if (tbcantidad.Text != "")
+            {
+                try
+                {
+                    idprod = "";
+                    nomprod = "";
+                    preuniprod = "";
+                    cantprod = tbcantidad.Text;
+                    subtotalprod = (Convert.ToInt32(cantprod) * Convert.ToInt32(preuniprod)).ToString();
+
+                    Row = TablaID.NewRow();
+                    Row["Id_producto"] = idprod;
+                    TablaID.Rows.Add(Row);
+
+                    Row = Tabla.NewRow();
+                    Row["Nombre Producto"] = nomprod;
+                    Row["Cantidad"] = cantprod;
+                    Row["Subtotal"] = subtotalprod;
+                    Tabla.Rows.Add(Row);
+
+                    griddetallefactura.DataSource = Tabla;
+                    griddetallefactura.DataBind();
+                }
+                catch (Exception ex)
+                {
+
+                    lblerror.Text = ex.Message.ToString();
+                }
+            }
+            else
+            {
+                lblerror1.Text = "Debe ingresar una cantidad";
+            }
+        }
+
+        protected void btnregistrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string idplan;
+
+                DataTable aux1 = new DataTable();
+
+                TheGym k = new TheGym
+                {
+                    /*Nombreplanins = tbnombre.Text,
+                    duracionplanins = lbduracion.SelectedValue,
+                    precioplanins = tbprecio.Text
+                    */
+                };
+
+                k.AddNewPlan();
+
+
+                aux1 = k.GetLastPlan();
+
+                DataRow fila = aux1.Rows[0];
+
+                idplan = fila[0].ToString();
+
+                int aux = Tabla.Rows.Count;
+
+                for (int i = aux; i > 0; i--)
+                {
+                    k.FK_plan = idplan;
+
+                    fila = TablaID.Rows[i - 1];
+
+                    k.FK_actividad = fila[0].ToString();
+
+                    fila = Tabla.Rows[i - 1];
+                    k.Dias_semanas = fila["Dias por Semana"].ToString();
+
+                    k.AddDetallePlan();
+
+                    Tabla.Rows.RemoveAt(i - 1);
+                    TablaID.Rows.RemoveAt(i - 1);
+
+                }
+
+                tbnombre.Text = string.Empty;
+                //tbprecio.Text = string.Empty;
+
+                griddetallefactura.Dispose();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                griddetallefactura.Dispose();
+                griddetallefactura.DataBind();
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
         }
     }
 }
