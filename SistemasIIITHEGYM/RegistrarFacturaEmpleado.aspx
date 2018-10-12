@@ -49,7 +49,9 @@
                     <h1>Registrar Factura de Venta<small>TheGym</small> </h1>
        <br />
                 </section>
-    
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+
         <asp:Panel ID="panelseleccionarcliente" runat="server">
                 <%-- inicio contenedor busqueda--%>
                 <div class="row">
@@ -148,7 +150,6 @@
                                                   </td>
                                               </tr>
                                           </table>
-
                   <br />
 
                   <br />
@@ -162,8 +163,10 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
-            
+
 <br />
+
+
             <asp:Panel ID="panelregistrarfactura" runat="server">
 
                          <%--<div class="box-footer">
@@ -238,7 +241,7 @@
                             <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                             Forma de Pago:</label>
                             <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" Width="170px">
+                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" Width="170px" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
@@ -323,7 +326,7 @@
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
                                             <td class="modal-sm" style="width: 261px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" />
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" CausesValidation="False" ValidationGroup="tbnombre" />
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -335,8 +338,6 @@
                                         </tr>
                                     </table>               
                 </div>
-                      <asp:UpdatePanel ID="updatepanel" runat="server">
-        <ContentTemplate>
                   <asp:GridView ID="gridproductos" runat="server" AllowSorting="True" 
                       BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" 
                       CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" 
@@ -346,10 +347,13 @@
                       Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled" 
                       OnSelectedIndexChanged="gridproductos_SelectedIndexChanged">
                                               <Columns>
+                                                  <%--<asp:BoundField DataField="Id_productos" HeaderText="ID" />
+                                                  <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                  <asp:BoundField DataField="Precio" HeaderText="Precio" />--%>
                                                   <asp:CommandField ButtonType="Image" 
-                                                      SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
+                                                  SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
+                                                   <ControlStyle Height="20px" Width="20px" />
+                                                   </asp:CommandField>
                                               </Columns>
                                               <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                               <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -362,6 +366,8 @@
                                               <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                               <SortedDescendingHeaderStyle BackColor="#242121" />
                                           </asp:GridView>
+            <br />
+            <br />
                   
                 <!-- /.col -->
                 <div class="col-md-4">
@@ -388,16 +394,11 @@
                      &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" 
                         CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" 
                         Enabled="False" OnClick="btnañadir_Click" />
-               
-
-
-                            </ContentTemplate>
-                            </asp:UpdatePanel>
-
                      </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
+            </div>
             </div>
             <!-- ./box-body -->
             <%--<div class="box-footer">
@@ -450,6 +451,19 @@
 
                   <br />
                                       </div>
+                                                          <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Total:</label>
+                 <%--input dinero--%>
+                 <div class="input-group" style="left: 0px; top: 0px; width: 320px">
+                <span class="input-group-addon">$</span>
+                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 44%" TextMode="Number" Enabled="False"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+              </div>
+                 <%--fin input dinero--%>
+                </div>
                   <!-- /.description-block -->
                 <br />
                                   </div>
@@ -474,6 +488,7 @@
             </asp:Panel>
 
 
-
+                    </ContentTemplate>
+    </asp:UpdatePanel>
 
 </asp:Content>

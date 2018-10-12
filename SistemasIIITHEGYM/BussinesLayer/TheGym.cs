@@ -52,6 +52,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FK_plan;
         public string FK_actividad;
         public string Dias_semanas;
+        //para buscar un producto
+        public string NomProd;
         //variables para realizar la edicion de empleado
         public string DNIEditar = "0";
         public string NombreClienteEditar;
@@ -174,6 +176,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string EstadoIngresoEmpleado;
         //Variable para ingreso de cliente y vencimiento cuota
         public string IDIngresoCliente;
+        //para ingresar una factura
+        public string FKclienteFac;
+        public string FKempleadoFac;
+        public string FechaFac;
+        public string HoraFac;
+        public string TotalFac;
         //variable para registrar ingreso cliente
         public string IDSucIngreso;
         //variable para Id Grupo muscular
@@ -505,6 +513,18 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddPlan", parameters);
         }
 
+        //metodo para agregar una nueva factura
+        public void AddFacturaSinC()
+        {
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_Empleado", FKempleadoFac, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Total", TotalFac, SqlDbType.Money, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FechaFac, SqlDbType.Date, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", HoraFac, SqlDbType.Time, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddFactura", parameters);
+        }
+
+
         //método para agregar una nueva actividad
 
         public void AddNewActividad()
@@ -594,6 +614,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //para buscar el producto y añadirlo al carrito de la factura
+        public DataTable GetBusquedaProductos()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NomProd, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_getProductoBusqueda", parameters);
+            return dt;
+        }
 
         public DataTable GetCargos()
         {

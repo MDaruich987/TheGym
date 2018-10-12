@@ -29,6 +29,9 @@ namespace SistemasIIITHEGYM
         string subtotalprod;
         //para guardar el id del cliente
         static string IDcliente;
+        //para el id del empleado 
+        static string IDEmpl;
+        static string Usuario;
         //para la conexion de las consultas
         SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         protected void Page_Load(object sender, EventArgs e)
@@ -36,6 +39,7 @@ namespace SistemasIIITHEGYM
 
             if (!IsPostBack)
             {
+                GetAllMedioPago();
                 //consultar si ya se realizó la apertura de caja
                 //abrimos la conexion
                 conex.Open();
@@ -67,7 +71,9 @@ namespace SistemasIIITHEGYM
                     if (Session["inicio"] != null)
                 {
                     //declaramos una variale sesion para mantener el dato del usuario
-                    string usuario = (string)Session["Usuario"];
+                    Usuario = (string)Session["Usuario"];
+                    //buscamos el id del empleado
+
                     lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
                     /*if (Request.Params["parametro"] != null)
                     {
@@ -78,6 +84,7 @@ namespace SistemasIIITHEGYM
                     {
                         //si no, muestra un mensaje de bienvenida solamente
                         lblmensajebienvenida.Text = "Bienvenido";
+                       
                     }
                     */
 
@@ -86,14 +93,50 @@ namespace SistemasIIITHEGYM
                 {
                     //si no se ha iniciado sesion me manda al inicio
                     //Response.Redirect("InicioLogin.aspx");
+                    Usuario = "";
+                }
+
+                //obtenemos el id del empleado
+                SqlCommand com3 = new SqlCommand("select Id_empleado from Empleado e inner join Usuario u on  e.Id_empleado=u.FK_empleado where u.Usuario=@Correo", conex);
+                //con el @ parametrizamos nuestros elementos, y ahora le agregamos el valor
+                com.Parameters.AddWithValue("@Correo", Usuario);
+                //creamos un objetosql data adapter y le pasamos nuestro comando sql
+                SqlDataAdapter dap3 = new SqlDataAdapter(com3);
+                //creamos un data table 
+                DataTable dat3 = new DataTable();
+                //para llenarlo con los datos de la tabla desde el data adapter
+                dap.Fill(dat3);
+                //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
+                //evaluamos si la consulta nos devuelve filas quiere decir que si hay un elemento que coincida
+                if (dat3.Rows.Count> 0)
+                {
+                    IDEmpl = dat.Rows[0][0].ToString();
+                }
+                else
+                {
+                    IDEmpl = "";
                 }
                 panelseleccionarcliente.Visible = true;
                 panelregistrarfactura.Visible = false;
+                conex.Close();
             }
             
 
         }
 
+        private void GetAllMedioPago()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllMedioPago();
+            if (dt.Rows.Count > 1)
+            {
+                ddlformadepago.DataTextField = "descripcion";
+                ddlformadepago.DataValueField = "id_formapago";
+                ddlformadepago.DataSource = dt;
+                ddlformadepago.DataBind();
+            }
+        }
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
@@ -194,9 +237,9 @@ namespace SistemasIIITHEGYM
             {
                 try
                 {
-                    idprod = "";
-                    nomprod = "";
-                    preuniprod = "";
+                    idprod = gridproductos.SelectedRow.Cells[0].Text;
+                    nomprod = gridproductos.SelectedRow.Cells[2].Text;
+                    preuniprod = gridproductos.SelectedRow.Cells[3].Text;
                     cantprod = tbcantidad.Text;
                     subtotalprod = (Convert.ToInt32(cantprod) * Convert.ToInt32(preuniprod)).ToString();
 
@@ -229,55 +272,61 @@ namespace SistemasIIITHEGYM
         {
             try
             {
-
-                string idplan;
-
-                DataTable aux1 = new DataTable();
-
-                TheGym k = new TheGym
+                if(lblcliente.Text== "N/N")
                 {
-                    /*Nombreplanins = tbnombre.Text,
-                    duracionplanins = lbduracion.SelectedValue,
-                    precioplanins = tbprecio.Text
-                    */
-                };
+                    //ingreso la factura sin el FKcliente
+                    DataTable aux1 = new DataTable();
 
-                k.AddNewPlan();
+                    TheGym k = new TheGym
+                    {
+                        FechaFac = lblFecha.Text,
+                        HoraFac = lblhora.Text,
+                        TotalFac = tbmonto.Text,
+                        FKempleadoFac = IDEmpl
+                    };
 
+                    k.AddFacturaSinC();
+                    /////////////////////////////////////////////////////////////////////////
+                    //ahora debo ingresar el detalle de la factura
+                    aux1 = k.GetLastPlan();
 
-                aux1 = k.GetLastPlan();
+                    DataRow fila = aux1.Rows[0];
 
-                DataRow fila = aux1.Rows[0];
+                    idplan = fila[0].ToString();
 
-                idplan = fila[0].ToString();
+                    int aux = Tabla.Rows.Count;
 
-                int aux = Tabla.Rows.Count;
+                    for (int i = aux; i > 0; i--)
+                    {
+                        k.FK_plan = idplan;
 
-                for (int i = aux; i > 0; i--)
-                {
-                    k.FK_plan = idplan;
+                        fila = TablaID.Rows[i - 1];
 
-                    fila = TablaID.Rows[i - 1];
+                        k.FK_actividad = fila[0].ToString();
 
-                    k.FK_actividad = fila[0].ToString();
+                        fila = Tabla.Rows[i - 1];
+                        k.Dias_semanas = fila["Dias por Semana"].ToString();
 
-                    fila = Tabla.Rows[i - 1];
-                    k.Dias_semanas = fila["Dias por Semana"].ToString();
+                        k.AddDetallePlan();
 
-                    k.AddDetallePlan();
+                        Tabla.Rows.RemoveAt(i - 1);
+                        TablaID.Rows.RemoveAt(i - 1);
 
-                    Tabla.Rows.RemoveAt(i - 1);
-                    TablaID.Rows.RemoveAt(i - 1);
+                    }
 
+                    tbnombre.Text = string.Empty;
+                    //tbprecio.Text = string.Empty;
+
+                    griddetallefactura.Dispose();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                    griddetallefactura.Dispose();
+                    griddetallefactura.DataBind();
                 }
-
-                tbnombre.Text = string.Empty;
-                //tbprecio.Text = string.Empty;
-
-                griddetallefactura.Dispose();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
-                griddetallefactura.Dispose();
-                griddetallefactura.DataBind();
+                else
+                {
+                    //ingreso la factura con el FKcliente
+                }
+                
             }
             catch (Exception ex)
             {
@@ -346,6 +395,56 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+        }
+
+        protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlformadepago.SelectedItem.Text == "Efectivo")
+            {
+                lblComprobante.Visible = false;
+                TbComprobante.Visible = false;
+            }
+            else
+            {
+                lblComprobante.Visible = true;
+                TbComprobante.Visible = true;
+            }
+        }
+
+        protected void btnconsultar_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                lblerror1.Text = "";
+                if (tbnombre.Text != "")
+                {
+                    TheGym k = new TheGym
+                    {
+                        NomProd = tbnombre.Text
+                    };
+
+                    DataTable dt = k.GetBusquedaProductos();
+                    if (dt.Rows.Count > 0)
+                    {
+                        gridproductos.DataSource = dt;
+                        gridproductos.DataBind();
+                    }
+                    else
+                    {
+                        lblerror.Text = "No se encontraron coincidencias";
+                    }
+                }
+                else
+                {
+                    Label1.Text = "Inserte un criterio de busqueda";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Label1.Text=ex.Message.ToString();
+            }
+            
         }
     }
 
