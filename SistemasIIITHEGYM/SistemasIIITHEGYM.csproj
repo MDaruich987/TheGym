@@ -171,6 +171,7 @@
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
     <Content Include="ConsultarProductoGerente.aspx" />
+    <Content Include="ConsultarProveedorGerente.aspx" />
     <Content Include="ConsultarRutinaEntrenador.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
     <Content Include="EmailClientesPlanes.aspx" />
@@ -205,7 +206,9 @@
     <Content Include="RegistrarEmpleadoGerente.aspx" />
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
+    <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
+    <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
@@ -309,6 +312,13 @@
     </Compile>
     <Compile Include="ConsultarProductoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarProductoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarProveedorGerente.aspx.cs">
+      <DependentUpon>ConsultarProveedorGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarProveedorGerente.aspx.designer.cs">
+      <DependentUpon>ConsultarProveedorGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarRutinaEntrenador.aspx.cs">
       <DependentUpon>ConsultarRutinaEntrenador.aspx</DependentUpon>
@@ -454,6 +464,13 @@
     <Compile Include="RegistrarHorariodeInstructor.aspx.designer.cs">
       <DependentUpon>RegistrarHorariodeInstructor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarOrdendeCompraGerente.aspx.cs">
+      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarOrdendeCompraGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarPlanEmpleado.aspx.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -467,6 +484,13 @@
     </Compile>
     <Compile Include="RegistrarProductoGerente.aspx.designer.cs">
       <DependentUpon>RegistrarProductoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProveedorGerente.aspx.cs">
+      <DependentUpon>RegistrarProveedorGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProveedorGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarProveedorGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>

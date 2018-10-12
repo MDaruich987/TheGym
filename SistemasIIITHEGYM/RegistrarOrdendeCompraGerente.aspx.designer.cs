@@ -10,7 +10,7 @@
 namespace SistemasIIITHEGYM {
     
     
-    public partial class RegistrarFacturaEmpleado {
+    public partial class RegistrarOrdendeCompraGerente {
         
         /// <summary>
         /// Control lblusuario.
@@ -22,22 +22,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblusuario;
         
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control panelseleccionarproveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// Control panelseleccionarcliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelseleccionarcliente;
+        protected global::System.Web.UI.WebControls.Panel panelseleccionarproveedor;
         
         /// <summary>
         /// Control TextBox1.
@@ -85,15 +76,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btnconsultarcliente;
         
         /// <summary>
-        /// Control btnnocliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnocliente;
-        
-        /// <summary>
         /// Control gridcliente.
         /// </summary>
         /// <remarks>
@@ -103,13 +85,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView gridcliente;
         
         /// <summary>
-        /// Control panelregistrarfactura.
+        /// Control panelregistrarorden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelregistrarfactura;
+        protected global::System.Web.UI.WebControls.Panel panelregistrarorden;
         
         /// <summary>
         /// Control lblFecha.
@@ -121,13 +103,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblFecha;
         
         /// <summary>
-        /// Control lblcliente.
+        /// Control lblproveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcliente;
+        protected global::System.Web.UI.WebControls.Label lblproveedor;
         
         /// <summary>
         /// Control ddlformadepago.
@@ -166,13 +148,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblhora;
         
         /// <summary>
-        /// Control lblnrofactura.
+        /// Control lblnroOrden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnrofactura;
+        protected global::System.Web.UI.WebControls.Label lblnroOrden;
         
         /// <summary>
         /// Control lblComprobante.
@@ -247,6 +229,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Control updatepanel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel;
+        
+        /// <summary>
         /// Control gridproductos.
         /// </summary>
         /// <remarks>
@@ -317,33 +308,6 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView griddetallefactura;
-        
-        /// <summary>
-        /// Control tbmonto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbmonto;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator12_ValidatorCalloutExtender.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator12_ValidatorCalloutExtender;
         
         /// <summary>
         /// Control btnregistrar.

@@ -5,6 +5,7 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <link href="EstilosCSS.css" rel="stylesheet" />
     <script type ="text/javascript">
        
@@ -13,15 +14,11 @@
         document.write("<head runat='server'></head>");
     }
     </script>
-
-
-
-    <asp:UpdatePanel ID="upgeneral" runat="server">
-        <ContentTemplate>
             <asp:Panel ID="paneledicion" runat="server">
                 <section class="content-header">
                     <h1>Datos de Producto <small>TheGym</small> </h1>
                 </section>
+                    
     <%--inicio panel de edicion--%>
             <asp:Panel ID="paneldatosdecobro" runat="server" Height="1859px">
                   <!-- SELECT2 EXAMPLE -->
@@ -146,7 +143,6 @@
     </div>
     <!-- /.box -->
             </asp:Panel>
-        </ContentTemplate>
             </asp:Panel>
             <asp:Panel ID="panelconsulta" runat="server">
                 <%-- inicio contenedor busqueda--%>
@@ -214,7 +210,6 @@
                                               <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                               <SortedDescendingHeaderStyle BackColor="#242121" />
                                           </asp:GridView>
-
                   <br />
 
                   <br />
@@ -228,6 +223,4 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
-        </ContentTemplate>
-    </asp:UpdatePanel>
 </asp:Content>
