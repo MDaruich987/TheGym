@@ -49,8 +49,8 @@
                     <h1>Registrar Factura de Venta<small>TheGym</small> </h1>
        <br />
                 </section>
-
-            <asp:Panel ID="panelseleccionarcliente" runat="server">
+    
+        <asp:Panel ID="panelseleccionarcliente" runat="server">
                 <%-- inicio contenedor busqueda--%>
                 <div class="row">
                     <div class="col-md-12">
@@ -72,6 +72,13 @@
                                             </td>
                                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultarcliente" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
                                             </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="modal-sm" style="width: 408px">
+                                                <asp:Button ID="btnnocliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Text="No registrado" OnClick="btnnocliente_Click" Width="135px" />
+                                            </td>
+                                            <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
@@ -155,6 +162,7 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
+            
 <br />
             <asp:Panel ID="panelregistrarfactura" runat="server">
 
@@ -226,6 +234,19 @@
                   </div>
                 </div>
                     <br />
+                <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                            Forma de Pago:</label>
+                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" Width="170px">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
+                                </ajaxToolkit:ValidatorCalloutExtender>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
               <!-- /.form-group -->
             </div>
             <!-- columna2 inicio/.col -->
@@ -246,6 +267,15 @@
                   </div>
                 </div>
                     <br />
+                <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:" Visible="False"></asp:Label>
+                            </label>
+                            <br />
+                            &nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                <asp:TextBox ID="TbComprobante" runat="server" Visible="False"></asp:TextBox>
+                            </div>
+                        </div>
               <!-- /.form-group -->
                 <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
             </div>

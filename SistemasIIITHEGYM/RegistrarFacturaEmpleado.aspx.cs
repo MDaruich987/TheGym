@@ -52,8 +52,8 @@ namespace SistemasIIITHEGYM
                 //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
                 //evaluamos si la consulta nos devuelve filas quiere decir que si hay un elemento que coincida
                 if (dat.Rows.Count==0){
-                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-redirect').modal('show');", true);
-                    //Response.AddHeader("REFRESH", "3;URL=AperturadeCajaEmpleado.aspx");
+                   // ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-redirect').modal('show');", true);
+                   // Response.AddHeader("REFRESH", "3;URL=AperturadeCajaEmpleado.aspx");
                     //tbnombre.Enabled = false;
                     //btnconsultar.Enabled =false;
                     //si no, me manda a la pagina de apertura de caja a los 3 segundos
@@ -285,5 +285,68 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = ex.Message.ToString();
             }
         }
+
+        protected void btnnocliente_Click(object sender, EventArgs e)
+        {
+            //setear hora y fecha en los lbl
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblhora.Text = DateTime.Now.ToShortTimeString();
+            IDcliente = "0";
+            lblcliente.Text = "N/N";
+            try
+            {
+                //calculamos cual seria el nro de esta factura
+                SqlCommand com2 = new SqlCommand("select MAX(Id_factura)+1 from Factura", conex);
+                //creamos un objetosql data adapter y le pasamos nuestro comando sql
+                SqlDataAdapter dap2 = new SqlDataAdapter(com2);
+                //creamos un data table 
+                DataTable dat2 = new DataTable();
+                //para llenarlo con los datos de la tabla desde el data adapter
+                dap2.Fill(dat2);
+                //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
+                //obtenemos el numero de factura
+                lblnrofactura.Text = dat2.Rows[0][0].ToString();
+                //mostramos el panel de registro y ocultamos el otro
+                panelregistrarfactura.Visible = true;
+                panelseleccionarcliente.Visible = false;
+                panelregistrarfactura.Focus();
+                //llenamos el gridview del carrito
+                if (tam == 0)
+                {
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Id_producto";
+                    TablaID.Columns.Add(Column);
+
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.String");
+                    Column.ColumnName = "Nombre Producto";
+                    Tabla.Columns.Add(Column);
+
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Precio por unidad";
+                    Tabla.Columns.Add(Column);
+
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Cantidad";
+                    Tabla.Columns.Add(Column);
+
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Subtotal";
+                    Tabla.Columns.Add(Column);
+
+                    tam = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
+        }
     }
+
 }
