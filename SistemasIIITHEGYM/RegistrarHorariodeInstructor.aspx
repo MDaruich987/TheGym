@@ -43,9 +43,6 @@
         <asp:DropDownList ID="ddlProfesor" runat="server">
         </asp:DropDownList>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="LblActividad" runat="server" Text="Actividad:"></asp:Label>
-        <asp:DropDownList ID="ddlActividad" runat="server">
-        </asp:DropDownList>
         <br />
         <br />
         <br />

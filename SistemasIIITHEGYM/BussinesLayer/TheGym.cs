@@ -401,12 +401,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public void AddCronograma()
         {
-            SqlParameter[] parameters = new SqlParameter[5];
+            SqlParameter[] parameters = new SqlParameter[4];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_semana", FKSemanaReg, SqlDbType.Int, 50);
             parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FKEmpleadoReg, SqlDbType.Int, 50);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_actividad", FKActividadReg, SqlDbType.Int, 50);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Desde", DesdeReg, SqlDbType.Time, 50);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", HastaReg, SqlDbType.Time, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Desde", DesdeReg, SqlDbType.Time, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", HastaReg, SqlDbType.Time, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCronograma", parameters);
         }
 

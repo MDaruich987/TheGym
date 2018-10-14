@@ -21,7 +21,6 @@ namespace SistemasIIITHEGYM
             if (flag == true)
             {
                 CargarProfesores();
-                CargarActividades();
                 flag = false;
             }
             if (!IsPostBack)
@@ -57,19 +56,7 @@ namespace SistemasIIITHEGYM
         }
 
 
-        public void CargarActividades()
-        {
-            TheGym k = new TheGym();
-            DataTable dt = new DataTable();
-            dt = k.GetActividad();
-            if (dt.Rows.Count > 0)
-            {
-                ddlActividad.DataTextField = "Nombre";
-                ddlActividad.DataValueField = "Id_actividad";
-                ddlActividad.DataSource = dt;
-                ddlActividad.DataBind();
-            }
-        }
+        
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -82,7 +69,7 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "1",
-                        FKActividadReg = ddlActividad.SelectedValue,
+                        
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeLunes.SelectedItem.Text,
                         HastaReg = DdlhastaLunes.SelectedItem.Text
@@ -96,7 +83,7 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "2",
-                        FKActividadReg = ddlActividad.SelectedValue,
+                        
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeMartes.SelectedItem.Text,
                         HastaReg = DdlhastaMartes.SelectedItem.Text
@@ -110,7 +97,7 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "3",
-                        FKActividadReg = ddlActividad.SelectedValue,
+                        
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeMiercoles.SelectedItem.Text,
                         HastaReg = DdlhastaMiercoles.SelectedItem.Text
@@ -124,7 +111,7 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "4",
-                        FKActividadReg = ddlActividad.SelectedValue,
+                        
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeJueves.SelectedItem.Text,
                         HastaReg = DdlhastaJueves.SelectedItem.Text
@@ -138,7 +125,7 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "5",
-                        FKActividadReg = ddlActividad.SelectedValue,
+                        
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeViernes.SelectedItem.Text,
                         HastaReg = DdlhastaViernes.SelectedItem.Text
@@ -152,7 +139,6 @@ namespace SistemasIIITHEGYM
                     TheGym k = new TheGym
                     {
                         FKSemanaReg = "6",
-                        FKActividadReg = ddlActividad.SelectedValue,
                         FKEmpleadoReg = ddlProfesor.SelectedValue,
                         DesdeReg = DdldeSabado.SelectedItem.Text,
                         HastaReg = DdlhastaSabado.SelectedItem.Text
@@ -162,7 +148,7 @@ namespace SistemasIIITHEGYM
                     cont = cont + 1;
 
                     ddlProfesor.ClearSelection();
-                    ddlActividad.ClearSelection();
+                    
                 }
                 if (cont>=1)
                 {
@@ -195,7 +181,7 @@ namespace SistemasIIITHEGYM
 
         protected void BtnCancelar_Click(object sender, EventArgs e)
         {
-            ddlActividad.ClearSelection();
+         
             ddlProfesor.ClearSelection();
             CbLunes.Checked = false;
             CbMartes.Checked = false;
@@ -215,6 +201,17 @@ namespace SistemasIIITHEGYM
             DdldeSabado.ClearSelection();
             DdlhastaSabado.ClearSelection();
             DdlhastaLunes.ClearSelection();
+            DataTable dt = new DataTable();
+            DdlhastaLunes.DataSource = dt;
+            DdlhastaLunes.DataBind();
+            DdlhastaMartes.DataSource=dt;
+            DdlhastaMartes.DataBind();
+            DdlhastaMiercoles.DataSource = dt;
+            DdlhastaMiercoles.DataBind();
+            DdlhastaJueves.DataSource = dt;
+            DdlhastaJueves.DataBind();
+            DdldeViernes.DataSource = dt;
+            DdldeViernes.DataBind();
 
 
 
