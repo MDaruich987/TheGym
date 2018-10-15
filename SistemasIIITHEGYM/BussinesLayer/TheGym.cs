@@ -490,7 +490,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@CUIT", CUITProveedor, SqlDbType.Int, 50);
             parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleProveedor, SqlDbType.NVarChar, 50);
             parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumCasaProveedor, SqlDbType.Int, 50);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadProveedor, SqlDbType.NVarChar, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadProveedor, SqlDbType.Int, 50);
             parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoProveedor, SqlDbType.BigInt, 100);
             parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@NomContacto", RepresentanteProveedor, SqlDbType.NVarChar, 50);
             parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailProveedor,SqlDbType.NVarChar, 50);
