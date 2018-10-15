@@ -166,6 +166,7 @@
     <Content Include="CierredeCajaEmpleado.aspx" />
     <Content Include="ConsultarActividadEmpleado.aspx" />
     <Content Include="ConsultarCobrodeCuotaEmpleado.aspx" />
+    <Content Include="ConsultarDeposito.aspx" />
     <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
@@ -209,6 +210,7 @@
     <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
+    <Content Include="RegistrarMovimientoStock.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
@@ -277,6 +279,13 @@
     </Compile>
     <Compile Include="ConsultarCobrodeCuotaEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarCobrodeCuotaEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDeposito.aspx.cs">
+      <DependentUpon>ConsultarDeposito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarDeposito.aspx.designer.cs">
+      <DependentUpon>ConsultarDeposito.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarEjercicioEntrenador.aspx.cs">
       <DependentUpon>ConsultarEjercicioEntrenador.aspx</DependentUpon>
@@ -491,6 +500,13 @@
     </Compile>
     <Compile Include="RegistrarProveedorGerente.aspx.designer.cs">
       <DependentUpon>RegistrarProveedorGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarMovimientoStock.aspx.cs">
+      <DependentUpon>RegistrarMovimientoStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarMovimientoStock.aspx.designer.cs">
+      <DependentUpon>RegistrarMovimientoStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
