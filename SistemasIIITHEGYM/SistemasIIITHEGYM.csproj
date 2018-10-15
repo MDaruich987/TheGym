@@ -210,7 +210,7 @@
     <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
-    <Content Include="RegistrarRemitoGerente.aspx" />
+    <Content Include="RegistrarMovimientoStock.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
@@ -501,12 +501,12 @@
     <Compile Include="RegistrarProveedorGerente.aspx.designer.cs">
       <DependentUpon>RegistrarProveedorGerente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarRemitoGerente.aspx.cs">
-      <DependentUpon>RegistrarRemitoGerente.aspx</DependentUpon>
+    <Compile Include="RegistrarMovimientoStock.aspx.cs">
+      <DependentUpon>RegistrarMovimientoStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegistrarRemitoGerente.aspx.designer.cs">
-      <DependentUpon>RegistrarRemitoGerente.aspx</DependentUpon>
+    <Compile Include="RegistrarMovimientoStock.aspx.designer.cs">
+      <DependentUpon>RegistrarMovimientoStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
