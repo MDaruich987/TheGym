@@ -292,13 +292,13 @@ namespace SistemasIIITHEGYM
 
                     DataRow fila = aux1.Rows[0];
 
-                    idplan = fila[0].ToString();
+                    //idplan = fila[0].ToString();
 
                     int aux = Tabla.Rows.Count;
 
                     for (int i = aux; i > 0; i--)
                     {
-                        k.FK_plan = idplan;
+                       // k.FK_plan = idplan;
 
                         fila = TablaID.Rows[i - 1];
 
@@ -445,6 +445,11 @@ namespace SistemasIIITHEGYM
                 Label1.Text=ex.Message.ToString();
             }
             
+        }
+
+        protected void btnconsultar_Click2(object sender, EventArgs e)
+        {
+
         }
     }
 
