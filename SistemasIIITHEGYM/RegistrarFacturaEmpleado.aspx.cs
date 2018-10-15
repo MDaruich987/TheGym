@@ -298,7 +298,7 @@ namespace SistemasIIITHEGYM
 
                     for (int i = aux; i > 0; i--)
                     {
-                        //k.FK_plan = idplan;
+                       // k.FK_plan = idplan;
 
                         fila = TablaID.Rows[i - 1];
 
@@ -445,6 +445,11 @@ namespace SistemasIIITHEGYM
                 Label1.Text=ex.Message.ToString();
             }
             
+        }
+
+        protected void btnconsultar_Click2(object sender, EventArgs e)
+        {
+
         }
     }
 

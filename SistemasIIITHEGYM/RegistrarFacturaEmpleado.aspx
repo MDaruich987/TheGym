@@ -326,7 +326,7 @@
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
                                             <td class="modal-sm" style="width: 261px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" CausesValidation="False" ValidationGroup="tbnombre" />
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" CausesValidation="False" ValidationGroup="tbnombre" OnClick="btnconsultar_Click2" />
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
