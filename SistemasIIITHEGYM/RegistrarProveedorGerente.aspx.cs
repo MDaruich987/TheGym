@@ -61,12 +61,12 @@ namespace SistemasIIITHEGYM
             {
                 NombreProveedor = tbnombre.Text,
                 CUITProveedor= tbcuit.Text,
-                EmailCliente = tbemail.Text,
+                EmailProveedor = tbemail.Text,
                 RepresentanteProveedor= tbrepresentante.Text,
-                TelefonoCliente = tbtelefono.Text,
-                CalleCliente = tbcalle.Text,
-                NumeroCliente = tbnumerocasa.Text,
-                FKLocalidadProveedor=ddllocalidad.Text,
+                TelefonoProveedor = tbtelefono.Text,
+                CalleProveedor = tbcalle.Text,
+                NumCasaProveedor = tbnumerocasa.Text,
+                FKLocalidadProveedor=ddllocalidad.SelectedValue,
             };
             try
             {
