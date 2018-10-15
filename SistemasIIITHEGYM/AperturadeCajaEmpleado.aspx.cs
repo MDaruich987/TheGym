@@ -16,7 +16,7 @@ namespace SistemasIIITHEGYM
     public partial class AperturadeCajaEmpleado : System.Web.UI.Page
     {
 
-        private static string id=" ";
+        private static int id;
         private static string IdSuc;
         //cadena mili
         //SqlConnection conex = new SqlConnection("Data Source=DESKTOP-T2J3I6L;Initial Catalog=TheGym;Integrated Security=True");
@@ -37,19 +37,25 @@ namespace SistemasIIITHEGYM
                 //declaramos una variale sesion para mantener el dato del usuario
                 string usuario = (string)Session["Usuario"];
                 lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
-                lblusuario.Text = (string)Session["Usuario"];
+                //lblusuario.Text = (string)Session["Usuario"];
                 lblnombreusuario.Text = (string)Session["Ususario"];
 
                 string cadena = (string)Session["Usuario"];
 
-                string[] separadas;
-
-                separadas = cadena.Split(',');
-
                 TheGym k = new TheGym
                 {
-
+                    emailbusadm = cadena
                 };
+                DataTable dtid = new DataTable();
+
+                dtid = k.GetAdmNomAp();
+
+                lblnombreusuario.Text = (string)Session["inicio"];
+                lblnombreusuario.Visible = true;
+
+                cadena = dtid.Rows[0][0].ToString();
+
+                id = Convert.ToInt32(cadena);
 
                 lblsucursal.Text = "";
                 lblestadocaja.Text = "";
@@ -81,7 +87,7 @@ namespace SistemasIIITHEGYM
 
             TheGym k = new TheGym
             {
-                IdEmpleadoCargaSuc = id
+                IdEmpleadoCargaSuc = Convert.ToString(id)
             };
             DataTable dt = k.GetAllSucursal();
             lblsucursal.Text = dt.Rows[0][0].ToString();
@@ -137,7 +143,7 @@ namespace SistemasIIITHEGYM
                             {
                                 TheGym k = new TheGym
                                 {
-                                    FK_empleado = id,
+                                    FK_empleado = Convert.ToString(id),
                                     Estadocaja = lblestadocaja.Text,
                                     FechaCaja = lblFecha.Text,
                                     Monto = tbmonto.Text

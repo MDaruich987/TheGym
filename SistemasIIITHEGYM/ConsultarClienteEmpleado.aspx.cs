@@ -110,7 +110,6 @@ namespace SistemasIIITHEGYM
                 gridclientes.DataBind();
                 gridclientes.Focus();
             }
-
         }
 
         protected void btneditar_Click(object sender, EventArgs e)
