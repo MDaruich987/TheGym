@@ -35,5 +35,11 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
         }
+
+        protected void btnregistrar_Click(object sender, EventArgs e)
+        {
+            //mensaje de exito
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-modalexito').modal('show');", true);
+        }
     }
 }

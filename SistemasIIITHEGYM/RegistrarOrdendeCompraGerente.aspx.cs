@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using SistemasIIITHEGYM.BussinesLayer;
+
 
 namespace SistemasIIITHEGYM
 {
@@ -55,6 +58,41 @@ namespace SistemasIIITHEGYM
         {
             panelseleccionarproveedor.Visible = false;
             panelregistrarorden.Visible = true;
+        }
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TheGym k = new TheGym
+                {
+                    NombreProveedorBusc = TextBox1.Text
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetProveedorNom();
+                if (dt.Rows.Count > 0)
+                {
+                    lblerror0.Text = string.Empty;
+                    lblerror0.Visible = false;
+                    gridcliente.DataSource = dt;
+                    gridcliente.DataBind();
+                    gridcliente.Visible = true;
+                }
+                else
+                {
+                    DataTable dt1 = new DataTable();
+                    gridcliente.DataSource = dt1;
+                    gridcliente.DataBind();
+                    gridcliente.Visible = false;
+                    lblerror0.Text = "No se encontro proveedor";
+                    lblerror0.Visible = true;
+                }
+            }
+            catch
+            {
+                lblerror0.Text = "Error general";
+                lblerror0.Visible = true;
+            }
         }
     }
 }
