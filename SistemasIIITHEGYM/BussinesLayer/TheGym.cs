@@ -22,6 +22,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variable para realizar la busqueda de cliente
         public string NombreClienteBusc;
         public string DNIClienteBusc = "0";
+        //variable para relaizar la busqueda de proveedor
+        public string NombreProveedorBusc;
+        public string CUITProveedorBusc;
         //variables para realizar la consulta de empleado
         public string NombreEmpleadoBusc;
         public string DNIEmpleadoBusc = "";
@@ -90,6 +93,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string DNICliente;
         public string FotoCliente;
         public string FKTipoDocumento;
+        //variable para registrar proveedor
+        public string NombreProveedor;
+        public string CUITProveedor;
+        public string TelefonoProveedor;
+        public string EmailProveedor;
+        public string CalleProveedor;
+        public string NumCasaProveedor;
+        public string FKLocalidadProveedor;
+        public string RepresentanteProveedor;
         //Variables para Registrar Horario de Instructor
         public string FKEmpleadoReg;
         public string FKActividadReg;
@@ -138,6 +150,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string BarrioEmpleadoEdit;
         public string NumeroEmpleadoEdit;
         public string FKLocalidadEmpleadoEdit;
+        //variables para editar proveedores
+        public string NombreProvEdit;
+        public string CUITProvEdit;
+        public string EmailProvEdit;
+        public string RepresentanteProvEdit;
+        public string TelProvEdit;
+        public string CalleProvEdit;
+        public string NumCasaProvEdit;
+        public string FKLocalidadesProvEdit;
         //variables para registrar apertura y cierre de caja 
         public string FK_empleado;
         public string FK_caja;
@@ -205,9 +226,6 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string Repeticion;
         public string Dia;
         public string IDEjercicio;
-
-
-
 
 
         //Metodo para registrar ingreso de cliente
@@ -397,6 +415,20 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         }
 
+        public void UpdateProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[8];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProvEdit, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@CUIT", CUITProvEdit, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailProvEdit, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@NomContacto", RepresentanteProvEdit, SqlDbType.NVarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelProvEdit, SqlDbType.BigInt, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleProvEdit, SqlDbType.NVarChar, 50);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumCasaProvEdit, SqlDbType.Int, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadesProvEdit, SqlDbType.NVarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_UpdateProveedor", parameters);
+
+        }
 
 
         public void AddCronograma()
@@ -450,6 +482,21 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoSucursal, SqlDbType.BigInt, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddSucursal", parameters);
         }
+
+        public void AddNewProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[8];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProveedor, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@CUIT", CUITProveedor, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Calle", CalleProveedor, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Numero", NumCasaProveedor, SqlDbType.Int, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadProveedor, SqlDbType.NVarChar, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoProveedor, SqlDbType.BigInt, 100);
+            parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@NomContacto", RepresentanteProveedor, SqlDbType.NVarChar, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailProveedor,SqlDbType.NVarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProveedor", parameters);
+        }
+
 
         public DataTable GetAllLocalidades()
         {
@@ -547,6 +594,19 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetCliente", parameters);
             return dt;
         }
+
+        //metodo para consultar proveedor
+        public DataTable GetProveedorNom()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProveedorBusc, SqlDbType.VarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@CUIT", CUITProveedorBusc, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProveedor", parameters);
+            return dt;
+        }
+
+
+
 
         public DataTable GetVencimiento()
         {
