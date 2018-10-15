@@ -205,7 +205,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string Repeticion;
         public string Dia;
         public string IDEjercicio;
-
+        //Variable buscar id adm
+        public string emailbusadm;
+        
 
 
 
@@ -924,7 +926,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         }
 
-
+        public DataTable GetAdmNomAp()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAdmAp", parameters);
+            return dt;
+        }
 
 
     }
