@@ -78,6 +78,15 @@ namespace SistemasIIITHEGYM
             //mostramos el panel de edicion
             paneledicion.Visible = true;
             panelconsulta.Visible = false;
+            TextBox1.Enabled = false;
+            tbcuit.Enabled = false;
+            tbemail.Enabled = false;
+            tbrepresentante.Enabled = false;
+            tbtelefono.Enabled = false;
+            tbcalle.Enabled = false;
+            tbnumerocasa.Enabled = false;
+            ddllocalidad.Enabled = false;
+
 
         }
 

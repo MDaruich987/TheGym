@@ -301,6 +301,10 @@
                                           &nbsp;
                                           <asp:GridView ID="gvproveedores" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify"  PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
                                               <Columns>
+                                                  <asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
+                                                  <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                  <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                                                  <asp:BoundField DataField="NomContacto" HeaderText="Representante" />
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>

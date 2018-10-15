@@ -600,9 +600,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //metodo para consultar proveedor
         public DataTable GetProveedorNom()
         {
-            SqlParameter[] parameters = new SqlParameter[2];
+            SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProveedorBusc, SqlDbType.VarChar, 50);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@CUIT", CUITProveedorBusc, SqlDbType.Int, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProveedor", parameters);
             return dt;
         }
