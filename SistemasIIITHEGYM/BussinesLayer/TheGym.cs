@@ -197,6 +197,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string Repeticion;
         public string Dia;
         public string IDEjercicio;
+        //variable para agregar producto
+        public string NombreProducto;
+        public string PrecioProducto;
+        public string DescripcionProducto;
+        public string StockProducto;
+        public string StockMinimoProducto;
+        public string FKproveedor;
+        
+
 
 
 
@@ -897,8 +906,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         }
 
+        public DataTable GetProveedores()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProveedores", parameters);
+            return dt;
 
 
-
+        }
     }
 }
