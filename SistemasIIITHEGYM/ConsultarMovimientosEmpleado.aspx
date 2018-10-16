@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestraEmpleado.Master" AutoEventWireup="true" CodeBehind="ConsultarMovimientosEmpleado.aspx.cs" Inherits="SistemasIIITHEGYM.ConsultarMovimientos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type ="text/javascript">
@@ -9,6 +10,10 @@
         document.write("<head runat='server'></head>");
     }
     </script>
+    <section class="content-header">
+                    <h1>Consultar Movimientos de Caja<small>TheGym</small> </h1>
+       <br />
+                </section>
    <asp:Panel ID="panelconsulta" runat="server">
         <%-- inicio contenedor busqueda--%>
                 <div class="row">

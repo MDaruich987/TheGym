@@ -13,7 +13,34 @@ namespace SistemasIIITHEGYM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //la primera vez que se carga la página
+                //muestra el panel de  busqueda, no el de edicion
+                if (Session["inicio"] != null)
+                {
+                    //declaramos una variale sesion para mantener el dato del usuario
+                    string usuario = (string)Session["Usuario"];
+                    lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
+                    /*if (Request.Params["parametro"] != null)
+                    {
+                        //para que el label capte el nombre y apellido enviado desde el form de acceso
+                        lblmensajebienvenida.Text = "Bienvenido " + Request.Params["parametro"];
+                    }
+                    else
+                    {
+                        //si no, muestra un mensaje de bienvenida solamente
+                        lblmensajebienvenida.Text = "Bienvenido";
+                    }
+                    */
 
+                }
+                else
+                {
+                    //si no se ha iniciado sesion me manda al inicio
+                    //Response.Redirect("InicioLogin.aspx");
+                }
+            }
         }
 
         protected void btnconsultar_Click(object sender, EventArgs e)
