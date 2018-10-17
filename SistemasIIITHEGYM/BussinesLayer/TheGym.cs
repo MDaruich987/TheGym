@@ -228,6 +228,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDEjercicio;
         //Variable buscar id adm
         public string emailbusadm;
+        //Variable para buscar un producto por proveedor
+        public string ProductName;
+        public string idproveedor;
         
 
         //Metodo para registrar ingreso de cliente
@@ -993,6 +996,29 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetLastOrden()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetLastOrden", parameters);
+            return dt;
+        }
+
+        public DataTable GetProductPorProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", ProductName, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID", idproveedor, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProductoPorProveedor", parameters);
+            return dt;
+        }
+
+        public DataTable GetSucEmailEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSucEmailEmpleado", parameters);
+            return dt;
+        }
 
     }
 }

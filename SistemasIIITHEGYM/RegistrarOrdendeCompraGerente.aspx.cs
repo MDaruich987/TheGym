@@ -12,6 +12,8 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarOrdendeCompraGerente : System.Web.UI.Page
     {
+        static string id;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -54,21 +56,74 @@ namespace SistemasIIITHEGYM
             }
         }
 
+        
+
+
         protected void gridcliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelseleccionarproveedor.Visible = false;
             panelregistrarorden.Visible = true;
+
+            lblFecha.Text = DateTime.Today.ToShortDateString();
+            lblhora.Text = DateTime.Now.ToShortTimeString();
+
+            lblproveedor.Text = gridcliente.SelectedRow.Cells[1].Text;
+           
+
+            id = gridcliente.SelectedRow.Cells[0].Text;
+
+            TheGym k = new TheGym();
+            DataTable dt2 = new DataTable();
+            dt2 = k.GetLastOrden();
+            if (dt2.Rows.Count > 0)
+            {
+                string aux = dt2.Rows[0][0].ToString();
+                if(dt2.Rows[0][0].ToString() != "")
+                {
+                    lblnroOrden.Text = Convert.ToString(Convert.ToInt32(dt2.Rows[0][0].ToString()) + 1);
+                }
+                else
+                {
+                    lblnroOrden.Text = "1";
+                }
+            }
+            else
+            {
+                lblerror.Text = "Error al encontrar ultima Orden de Compra";
+                lblerror.Visible = true;
+            }
+
+            LblEmpleado.Text = (String)Session["inicio"];
+
+
         }
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
+
+            TheGym k = new TheGym
+            {
+                NombreProveedorBusc = TextBox1.Text
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetProveedorNom();
+            if (dt.Rows.Count > 0)
+            {
+                lblerror0.Text = string.Empty;
+                lblerror0.Visible = false;
+                gridcliente.DataSource = dt;
+                gridcliente.DataBind();
+                gridcliente.Visible = true;
+            }
+
+
             try
             {
-                TheGym k = new TheGym
+                TheGym k2 = new TheGym
                 {
                     NombreProveedorBusc = TextBox1.Text
                 };
-                DataTable dt = new DataTable();
+                DataTable dt2 = new DataTable();
                 dt = k.GetProveedorNom();
                 if (dt.Rows.Count > 0)
                 {
@@ -92,6 +147,51 @@ namespace SistemasIIITHEGYM
             {
                 lblerror0.Text = "Error general";
                 lblerror0.Visible = true;
+            }
+        }
+
+        protected void btnconsultar_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                TheGym k = new TheGym
+                {
+                    emailbusadm = (String)Session["Usuario"]
+                };
+                DataTable dt = new DataTable();
+                //dt = k.GetSucEmailEmpleado();
+
+                k.ProductName = tbnombre.Text;
+                k.idproveedor = id;
+                //k.NumeroSucursal = dt.Rows[0][0].ToString();
+                
+
+                DataTable dt2 = new DataTable();
+                dt2 = k.GetProductPorProveedor();
+
+                if (dt2.Rows.Count > 0)
+                {
+                    Label1.Visible = false;
+                    gridproductos.DataSource = dt2;
+                    gridproductos.DataBind();
+                    gridproductos.Visible = true;
+                }
+                else
+                {
+                    Label1.Text = "No se encontro el producto";
+                    Label1.Visible = true;
+                    DataTable dt3 = new DataTable();
+                    gridproductos.DataSource = dt3;
+                    gridproductos.DataBind();
+                    gridproductos.Visible = false;
+                }
+
+
+            }
+            catch
+            {
+                Label1.Text = "Error General";
+                Label1.Visible = false;
             }
         }
     }
