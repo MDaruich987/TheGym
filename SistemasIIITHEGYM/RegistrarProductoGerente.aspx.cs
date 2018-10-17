@@ -58,38 +58,40 @@ namespace SistemasIIITHEGYM
             {
                 NombreProducto = tbnombre.Text,
                 FKproveedor = ddlproveedor.SelectedValue,
-                PrecioProducto = tbprecio.Text,
                 DescripcionProducto = tbdescripcion.Text,
-                StockProducto = tbstock.Text,
-                StockMinimoProducto = tbstockminimo.Text
+                PrecioCompra = tbprecio.Text,
+                PrecioVenta = tbprecio0.Text
             };
             try
             {
+                k.AddProducto();
                 this.Page.Response.Write("<script language='JavaScript'>window.alert('Ejercicio registrado con éxito');</script>");
+                Label1.Text = "Producto Registrado";
+                Label1.Visible = true;
+                tbnombre.Text = String.Empty;
+                ddlproveedor.ClearSelection();
+                tbdescripcion.Text = string.Empty;
+                tbprecio.Text = string.Empty;
+                tbprecio0.Text = string.Empty;
+
             }
-            catch(Exception ex)
+            catch (Exception ex) 
             {
                 Label1.Text = ex.Message.ToString();
+                Label1.Visible = true;
             }
 
+            
+
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
             tbnombre.Text = String.Empty;
             ddlproveedor.ClearSelection();
-            tbprecio.Text = string.Empty;
             tbdescripcion.Text = string.Empty;
-            tbstock.Text = string.Empty;
-            tbstockminimo.Text = string.Empty;
-            {
-
-            }
-
-
-
-
-    }
-
-        protected void btnregistrar_Click1(object sender, EventArgs e)
-        {
-        
+            tbprecio.Text = string.Empty;
+            tbprecio0.Text = string.Empty;
         }
     }
 }

@@ -88,7 +88,7 @@
                 <br />
                 <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Precio:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Precio Compra:</label>
                  <%--input dinero--%>
                  <div class="input-group" style="left: 14px; top: 0px; width: 306px">
                 <span class="input-group-addon">$</span>
@@ -99,6 +99,15 @@
                       </ajaxToolkit:ValidatorCalloutExtender>
               </div>
                  <%--fin input dinero--%>
+                </div>
+                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                Precio Venta:</label><div class="input-group" style="left: 14px; top: 0px; width: 306px">
+                    <span class="input-group-addon">$</span>
+                    <asp:TextBox ID="tbprecio0" runat="server" Cssclass="form-control" style="left: -1px; top: 0px; height: 42px; width: 28%"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="tbprecio" CssClass="error-text" Display="Dynamic" ErrorMessage="Ingrese un precio válido" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="tbprecio" Display="None" ErrorMessage="Ingrese un precio" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator13_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator13">
+                    </ajaxToolkit:ValidatorCalloutExtender>
                 </div>
              <br />
                 <br />
@@ -119,33 +128,7 @@
                     <ContentTemplate>
                         <br />
                         <br />
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                            Stock:</label>
-                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:TextBox  CssClass="form-control"  ID="tbstock"  runat="server" Height="24px" Width="100px" TextMode="number"></asp:TextBox>
-
-                      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" CssClass="error-text" ControlToValidate="tbstock" ErrorMessage="Ingrese un stock válido" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbstock" Display="None" ErrorMessage="Ingrese un stock" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
-                                </ajaxToolkit:ValidatorCalloutExtender>
-                            </div>
-                        </div>
                         <br />
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                            Stock Minimo:</label>
-                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:TextBox  CssClass="form-control"  ID="tbstockminimo"  runat="server" Height="24px" Width="100px" TextMode="number"></asp:TextBox>
-
-                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" CssClass="error-text" ControlToValidate="tbstockminimo" ErrorMessage="Ingrese un stock minimo válido" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="tbstockminimo" Display="None" ErrorMessage="Ingrese un stock minimo" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
-                                </ajaxToolkit:ValidatorCalloutExtender>
-                            </div>
-                            <br />
-                            <br />
-                        </div>
                         <asp:Label ID="Label1" runat="server" CssClass="error-text"></asp:Label>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -160,10 +143,10 @@
         <!-- /.box-body -->
 <div class="box-footer">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click1" />
+                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
                 
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
+                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" OnClick="btncancelar_Click" />
                 
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   
