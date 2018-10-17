@@ -233,7 +233,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //Variable para buscar un producto por proveedor
         public string ProductName;
         public string idproveedor;
-        
+        //variable para agregar producto
+        public string NombreProducto;
+        public string DescripcionProducto;
+        public string PrecioCompra;
+        public string PrecioVenta;
+        public string FKproveedor;
+
+
+
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -1029,6 +1037,38 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSucEmailEmpleado", parameters);
             return dt;
         }
+
+        public DataTable GetProveedores()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProveedores", parameters);
+            return dt;
+
+
+        }
+
+
+
+        public void AddProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.VarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionProducto, SqlDbType.VarChar, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", FKproveedor, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@PrecioCompra", PrecioCompra, SqlDbType.Money, 20);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@PrecioVenta", PrecioVenta, SqlDbType.Money, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProducto", parameters);
+
+        }
+
+        public DataTable GetProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProducto", parameters);
+            return dt;
+        }
+
 
     }
 }
