@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using SistemasIIITHEGYM.BussinesLayer;
 
 namespace SistemasIIITHEGYM
 {
@@ -91,6 +93,27 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+        }
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                NombreProducto = TextBox1.Text
+            };
+            DataTable dt = k.GetProducto();
+
+            if (dt.Rows.Count > 0)
+            {
+                gvproductos.DataSource = dt;
+                gvproductos.DataBind();
+            }
+            else
+            {
+                lblerror.Text = "No se encontro el Producto";
+            }
+
+
         }
     }
 
