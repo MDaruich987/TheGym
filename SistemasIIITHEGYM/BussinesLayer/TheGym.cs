@@ -134,6 +134,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdPlanMonto;
         //Variable para obtener todos los datos de Cliente
         public string IdClienteSearch;
+        //variable para obtener todos los datos de proveedor
+        public string IdProv;
         //Variable para editar Empleados
         public string NombreEmpladoEdit;
         public string ApellidoEmpleadoEdit;
@@ -760,6 +762,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+
+        public DataTable GetAllDatosProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID_Proveedor", IdProv, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosProveedor", parameters);
+            return dt;
+        }
         public DataTable GetOneSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[1];
