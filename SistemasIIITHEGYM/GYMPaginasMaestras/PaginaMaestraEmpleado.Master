@@ -181,15 +181,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">MENÚ</li>
-                        <li class="active treeview menu-open"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Clientes</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                        <li><a href="InicioEmpleado.aspx"><i class="fa fa-th"></i><span>Inicio</span> <span class="pull-right-container"><small class="label pull-right bg-green">Home</small> </span></a></li>
+                        <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Clientes</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="RegistrarClienteEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Cliente</a></li>
                                 <li class="active"><a href="ConsultarClienteEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Cliente</a></li>
                             </ul>
                         </li>
+                        <li><a href="EmailClientesPlanes.aspx"><i class="fa fa-th"></i><span>Envío de Promociones</span> <span class="pull-right-container"><small class="label pull-right bg-green"></small> </span></a></li>
                         <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Actividades</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
-                                <li><a href="RegistrarHorarioInstructor.aspx"><i class="fa fa-circle-o"></i>Registrar horario de instructor</a></li>
+                                <li><a href="RegistrarHorariodeInstructor.aspx"><i class="fa fa-circle-o"></i>Registrar horario de instructor</a></li>
                                 <li><a href="RegistrarActividadesEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Acividad</a></li>
                                 <li class="active"><a href="ConsultarActividadEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Actividad</a></li>
                             </ul>
@@ -218,7 +220,6 @@
                                 <li><a href="AperturadeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Apertura</a></li>
                                 <li class="active"><a href="CierredeCajaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Cierre</a></li>
                                 <li><a href="ConsultarMovimientosEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Movimientos</a></li>
-                                 <li><a href="RegistrarCobroPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Cobro de Plan</a></li>
                             </ul>
                         </li>
                          <li class="treeview">
@@ -229,6 +230,13 @@
                             </ul>
                         </li>
                         <li class="treeview">
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestion de Stock</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="RegistrarMovimientoStock.aspx"><i class="fa fa-circle-o"></i>Registrar Movimiento de Stock</a></li>
+                                <li class="active"><a href="ConsultarMovimientodeStockEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Movimiento de Stock</a></li>                     
+                            </ul>
+                        </li>
+                        
             <%--fin contenedor--%>
           <%--<ul class="treeview-menu">
             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
@@ -236,6 +244,7 @@
             <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>--%>
+                        <%--<li class="treeview">
                         </li>
                         <li><a href="#"><i class="fa fa-th"></i><span>Widgets</span> <span class="pull-right-container"><small class="label pull-right bg-green">new</small> </span></a></li>
                         <li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Charts</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
@@ -305,7 +314,7 @@
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i><span>Important</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i><span>Warning</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>Information</span></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>Information</span></a></li>--%>
                     </ul>
                 </section>
     <!-- /.sidebar -->

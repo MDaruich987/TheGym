@@ -10,7 +10,7 @@
 namespace SistemasIIITHEGYM {
     
     
-    public partial class ConsultarMovimientos {
+    public partial class ConsultarOrdendeCompraGerente {
         
         /// <summary>
         /// Control lblusuario.
@@ -22,6 +22,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblusuario;
         
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control panelconsulta.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbbusqueda.
+        /// Control tbnombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbbusqueda;
+        protected global::System.Web.UI.WebControls.TextBox tbnombre;
         
         /// <summary>
         /// Control RequiredFieldValidator1.
@@ -58,30 +67,48 @@ namespace SistemasIIITHEGYM {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator1_ValidatorCalloutExtender;
         
         /// <summary>
-        /// Control btnconsultar.
+        /// Control btnconsultarsucursales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnconsultar;
+        protected global::System.Web.UI.WebControls.Button btnconsultarsucursales;
         
         /// <summary>
-        /// Control lblerror.
+        /// Control lblerrorsucursales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerror;
+        protected global::System.Web.UI.WebControls.Label lblerrorsucursales;
         
         /// <summary>
-        /// Control gridplanes.
+        /// Control gridsucursales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridplanes;
+        protected global::System.Web.UI.WebControls.GridView gridsucursales;
+        
+        /// <summary>
+        /// Control paneldetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel paneldetalle;
+        
+        /// <summary>
+        /// Control griddepositoproductos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView griddepositoproductos;
     }
 }
