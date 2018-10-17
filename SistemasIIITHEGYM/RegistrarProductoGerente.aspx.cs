@@ -65,7 +65,6 @@ namespace SistemasIIITHEGYM
             try
             {
                 k.AddProducto();
-                this.Page.Response.Write("<script language='JavaScript'>window.alert('Ejercicio registrado con éxito');</script>");
                 Label1.Text = "Producto Registrado";
                 Label1.Visible = true;
                 tbnombre.Text = String.Empty;
