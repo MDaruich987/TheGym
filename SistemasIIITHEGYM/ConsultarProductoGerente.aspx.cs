@@ -1,9 +1,11 @@
-﻿using System;
+﻿using SistemasIIITHEGYM.BussinesLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -25,8 +27,7 @@ namespace SistemasIIITHEGYM
                     tbnombre.Enabled = false;
                     ddlproveedor.Enabled = false;
                     tbprecio.Enabled = false;
-                    tbstock.Enabled = false;
-                    tbstockminimo.Enabled = false;
+                    tbprecio0.Enabled = false;
                     /*if (Request.Params["parametro"] != null)
                     {
                         //para que el label capte el nombre y apellido enviado desde el form de acceso
@@ -46,6 +47,8 @@ namespace SistemasIIITHEGYM
                     //Response.Redirect("InicioLogin.aspx");
                 }
 
+
+
             }
         }
 
@@ -58,8 +61,8 @@ namespace SistemasIIITHEGYM
                 tbnombre.Enabled = true;
                 ddlproveedor.Enabled = true;
                 tbprecio.Enabled = true;
-                tbstock.Enabled = true;
-                tbstockminimo.Enabled = true;
+                tbprecio.Enabled = true;
+                tbprecio0.Enabled = true;
 
                 btneditar.Text = "Guardar";
                 //significa que estaba viendo los campos y ahora quiere editar
@@ -91,6 +94,26 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+        }
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                NombreProducto = TextBox1.Text
+            };
+            DataTable dt = k.GetProducto();
+
+            if (dt.Rows.Count > 0)
+            {
+                gvproductos.DataSource = dt;
+                gvproductos.DataBind();
+            }
+            else
+            {
+                lblerror.Text = "No se encontro el Producto";
+            }
+
         }
     }
 
