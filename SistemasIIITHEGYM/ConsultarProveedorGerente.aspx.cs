@@ -11,6 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarProveedorGerente : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -75,22 +76,58 @@ namespace SistemasIIITHEGYM
 
         protected void gvproveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //mostramos el panel de edicion
-            paneledicion.Visible = true;
-            panelconsulta.Visible = false;
-            TextBox1.Enabled = false;
-            tbcuit.Enabled = false;
-            tbemail.Enabled = false;
-            tbrepresentante.Enabled = false;
-            tbtelefono.Enabled = false;
-            tbcalle.Enabled = false;
-            tbnumerocasa.Enabled = false;
-            ddllocalidad.Enabled = false;
+
+            try
+            {
+                    //mostramos el panel de edicion
+                paneledicion.Visible = true;
+                panelconsulta.Visible = false;
+                paneledicion.Focus();
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
+
+            ////bolquear edicion
+            //TextBox1.Enabled = false;
+            //tbcuit.Enabled = false;
+            //tbemail.Enabled = false;
+            //tbrepresentante.Enabled = false;
+            //tbtelefono.Enabled = false;
+            //tbcalle.Enabled = false;
+            //tbnumerocasa.Enabled = false;
+            //ddllocalidad.Enabled = false;
+
+            //codigo para cargar los valores de la fila en los textbox del panel de edicion
+            TheGym k = new TheGym
+            {
+                NombreProveedorBusc = "",
+                IdProv = gvproveedores.SelectedRow.Cells[0].Text
+            };
+
+            DataTable dt = new DataTable();
+            dt = k.GetAllDatosProveedor();
 
 
-        }
+            if (dt.Rows.Count > 0)
+            {
+                tbnombre.Text = dt.Rows[0][1].ToString();
+                tbcuit.Text = dt.Rows[0][2].ToString();
+                tbcalle.Text = dt.Rows[0][3].ToString();
+                tbnumerocasa.Text = dt.Rows[0][4].ToString();
+                ddllocalidad.SelectedValue = dt.Rows[0][5].ToString();
+                tbtelefono.Text = dt.Rows[0][6].ToString();
+                tbrepresentante.Text = dt.Rows[0][7].ToString();
+                tbemail.Text = dt.Rows[0][8].ToString();
+            }
 
-        protected void btnconsultar_Click(object sender, EventArgs e)
+
+
+}
+
+protected void btnconsultar_Click(object sender, EventArgs e)
         {
 
             gvproveedores.Visible = true;

@@ -112,33 +112,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblproveedor;
         
         /// <summary>
-        /// Control ddlformadepago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlformadepago;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator45;
-        
-        /// <summary>
-        /// Control ValidatorCalloutExtender45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender45;
-        
-        /// <summary>
         /// Control lblhora.
         /// </summary>
         /// <remarks>
@@ -166,13 +139,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblComprobante;
         
         /// <summary>
-        /// Control TbComprobante.
+        /// Control LblEmpleado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TbComprobante;
+        protected global::System.Web.UI.WebControls.Label LblEmpleado;
         
         /// <summary>
         /// Control lblerror.

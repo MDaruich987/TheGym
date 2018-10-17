@@ -134,6 +134,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdPlanMonto;
         //Variable para obtener todos los datos de Cliente
         public string IdClienteSearch;
+        //variable para obtener todos los datos de proveedor
+        public string IdProv;
         //Variable para editar Empleados
         public string NombreEmpladoEdit;
         public string ApellidoEmpleadoEdit;
@@ -228,13 +230,10 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDEjercicio;
         //Variable buscar id adm
         public string emailbusadm;
-        //variable para agregar producto
-        public string NombreProducto;
-        public string DescripcionProducto;
-        public string PrecioCompra;
-        public string PrecioVenta;
-        public string FKproveedor;
-
+        //Variable para buscar un producto por proveedor
+        public string ProductName;
+        public string idproveedor;
+        
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -763,6 +762,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+
+        public DataTable GetAllDatosProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID_Proveedor", IdProv, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosProveedor", parameters);
+            return dt;
+        }
         public DataTable GetOneSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[1];
@@ -999,28 +1006,29 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
-
-        public DataTable GetProveedores()
+        public DataTable GetLastOrden()
         {
             SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProveedores", parameters);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetLastOrden", parameters);
             return dt;
-
-
         }
 
-        public void AddProducto()
+        public DataTable GetProductPorProveedor()
         {
-            SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.VarChar, 100);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionProducto, SqlDbType.VarChar, 100);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", FKproveedor, SqlDbType.Int, 10);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@PrecioCompra", PrecioCompra, SqlDbType.Money, 20);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@PrecioVenta", PrecioVenta, SqlDbType.Money, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProducto", parameters);
-
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", ProductName, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@ID", idproveedor, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProductoPorProveedor", parameters);
+            return dt;
         }
 
+        public DataTable GetSucEmailEmpleado()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSucEmailEmpleado", parameters);
+            return dt;
+        }
 
     }
 }

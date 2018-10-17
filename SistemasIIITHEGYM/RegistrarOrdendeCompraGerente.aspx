@@ -107,8 +107,13 @@
                                               <tr>
                                                   <td style="width: 70px">&nbsp;</td>
                                                   <td>
-                                                      <asp:GridView ID="gridcliente" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridcliente_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 172px; margin-bottom: 9px;" Width="429px">
-                                                          <Columns>                           
+                                                      <asp:GridView ID="gridcliente" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_proveedor" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridcliente_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 172px; margin-bottom: 9px;" Width="429px">
+                                                          <Columns>
+                                                              <asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
+                                                              <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                              <asp:BoundField DataField="CUIT" HeaderText="CUIT" />
+                                                              <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                                                              <asp:BoundField DataField="NomContacto" HeaderText="Contacto" />                           
                                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/factura.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>
@@ -212,17 +217,7 @@
                         <asp:Label ID="lblproveedor" CssClass="text-muted" runat="server" Text="Proveedor"></asp:Label>
                   </div>
                 </div>
-                    <br />
                 <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                            Forma de Pago:</label>
-                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" Width="170px">
-                                </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
-                                </ajaxToolkit:ValidatorCalloutExtender>
-                            </div>
                             <br />
                             <br />
                         </div>
@@ -248,11 +243,11 @@
                     <br />
                 <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:" Visible="False"></asp:Label>
+                            <asp:Label ID="lblComprobante" runat="server" Text="Empleado:" Visible="False"></asp:Label>
                             </label>
                             <br />
                             &nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:TextBox ID="TbComprobante" runat="server" Visible="False"></asp:TextBox>
+                                <asp:Label ID="LblEmpleado" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
               <!-- /.form-group -->
@@ -302,7 +297,7 @@
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
                                             <td class="modal-sm" style="width: 261px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" />
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" UseSubmitBehavior="False" CausesValidation="False" OnClick="btnconsultar_Click1" />
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -324,6 +319,9 @@
                       style="margin-left: 107px; margin-bottom: 9px; margin-right: 11px;" 
                       Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled">
                                               <Columns>
+                                                  <asp:BoundField DataField="Id_producto" HeaderText="ID" />
+                                                  <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                  <asp:BoundField DataField="PrecioCompra" HeaderText="Precio" />
                                                   <asp:CommandField ButtonType="Image" 
                                                       SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
@@ -403,8 +401,9 @@
                                               <tr>
                                                   <td style="width: 70px">&nbsp;</td>
                                                   <td>
-                                                      <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="425px">
+                                                      <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6"  style="margin-left: 107px; margin-bottom: 9px;" Width="425px">
                                                           <Columns>
+                                                              
                                                               <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>
