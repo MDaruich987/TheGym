@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarSucursalGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarSucursalGerente" %>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
-    <link href="EstilosCSS.css" rel="stylesheet" />
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarProveedorGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarProveedorGerente" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--modal para el registro exitoso--%>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+         <%--modal para el registro exitoso--%>
              <div class="modal fade" id="modal-default">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -16,7 +15,7 @@
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
-                <p>¡Sucursal registrada exitosamente!&hellip;</p>
+                <p>¡Proveedor registrado exitosamente!&hellip;</p>
               </div>
               <div class="modal-footer">
                 <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -28,6 +27,7 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
 
             <%--<div class="checkbox">
                       <label>
@@ -63,7 +63,7 @@
     </script>
         <section class="content-header" style="left: 0px; top: 0px; height: 26px">
       <h1>
-        Registrar Sucursal
+        Registrar Proveedor
         <small>TheGym</small>
       </h1>
     </section>
@@ -75,7 +75,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title" style="width: 390px">Información de Sucursal</h3>
+              <h3 class="box-title" style="width: 390px">Información General</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -91,17 +91,19 @@
                   </div>
                 </div>
                     <br />
-                   <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Teléfono:</label>
+                 <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº de CUIT:</label>
 
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:TextBox  CssClass="form-control" ID="tbtelefono"  runat="server" Height="24px" Width="128px" TextMode="Number"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbtelefono" Display="None" ErrorMessage="Ingrese el teléfono" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="validadorapellido" runat="server" BehaviorID="validadorapellido" TargetControlID="RequiredFieldValidator2">
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
+                    <asp:TextBox  CssClass="form-control"  ID="tbcuit"  runat="server" Height="24px" Width="128px" TextMode="Number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbcuit" Font-Bold="True" ForeColor="#CC0000" SetFocusOnError="True" ValidationExpression="^\d+$" Display="None" ErrorMessage="Ingrese un cuit válido" ValidateRequestMode="Enabled"></asp:RegularExpressionValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender90" runat="server" BehaviorID="RequiredFieldValidator90_ValidatorCalloutExtender" TargetControlID="RegularExpressionValidator1">
                       </ajaxToolkit:ValidatorCalloutExtender>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbcuit" Display="None" ErrorMessage="Ingrese el cuit" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                    <br />
+
               </div>
               <!-- /.box-body -->
 
@@ -109,41 +111,50 @@
           <!-- /.box -->
 
           <!-- Form Element sizes -->
-            <%--          <div class="box box-warning">
+          <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Información de usuario</h3>
+              <h3 class="box-title">Información de contacto</h3>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                                    <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Usuario:</label>
+            <div class="box-body">           
+                <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">E-mail:</label>
 
-                  <div class="col-sm-10" style="left: 0px; top: 0px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbusuario"  runat="server" Height="24px" Width="128px" TextMode="email"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="tbusuario" Display="None" ErrorMessage="Ingrese un usuario" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator13_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator13_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator13">
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
+                    <asp:TextBox  CssClass="form-control" ID="tbemail"  runat="server" Height="24px" Width="128px" TextMode="Email"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator77" runat="server" ControlToValidate="tbemail" Display="None" ErrorMessage="Ingrese el email" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender77" runat="server" BehaviorID="validadorapellido" TargetControlID="RequiredFieldValidator77">
                       </ajaxToolkit:ValidatorCalloutExtender>
                   </div>
                 </div>
                     <br />
-                <div class="form-group" style="margin-bottom: 5px">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
+                   <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Representante:</label>
 
-                  <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" TextMode="password"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="tbcontraseña" Display="None" ErrorMessage="Ingrese una contraseña" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
+                    <asp:TextBox  CssClass="form-control" ID="tbrepresentante"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbrepresentante" Display="None" ErrorMessage="Ingrese el representante" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="validadorapellido" runat="server" BehaviorID="validadorapellido" TargetControlID="RequiredFieldValidator2">
+                      </ajaxToolkit:ValidatorCalloutExtender>
                   </div>
                 </div>
-            </div>
-            <!-- /.box-body -->
-          </div>--%>
-<%--                  </div>
+                    <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Teléfono:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
+                     <asp:TextBox  CssClass="form-control" ID="tbtelefono"  runat="server" Height="24px" Width="128px"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbtelefono" Display="None" ErrorMessage="Ingrese el teléfono" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+                  </div>
                 </div>
+
               </div>
               
-            </div>--%>
+            </div>
             <!-- /.box-body -->
-<%--          </div>--%>
+          </div>
           <!-- /.box -->
           <!-- /.box -->
 
@@ -163,7 +174,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Localidad:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddllocalidad"  runat="server" Height="32px" Width="128px"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddllocalidad"  runat="server" Height="30px" Width="128px"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="ddllocalidad" Display="None" ErrorMessage="Seleccione una localidad" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator9_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator9_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator9">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -180,36 +191,18 @@
                       </ajaxToolkit:ValidatorCalloutExtender>
                   </div>
                 </div>
-                   <br />
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Barrio:</label>
-
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbbarrio"  runat="server" Height="24px" Width="128px"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="tbbarrio" Display="None" ErrorMessage="Ingrese un barrio" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator11_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator11_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator11">
-                      </ajaxToolkit:ValidatorCalloutExtender>
-                  </div>
-                </div>
                   <br />
                   <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº de casa:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nº:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbnumerocasa"  runat="server" Height="24px" Width="128px" TextMode="Number"></asp:TextBox>
-                      <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" CssClass="error-text" ControlToValidate="tbnumerocasa" ErrorMessage="Ingrese un número válido" ValidationExpression="^\d+$" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:TextBox  CssClass="form-control"  ID="tbnumerocasa"  runat="server" Height="24px" Width="128px" TextMode="number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="tbnumerocasa" Font-Bold="True" ForeColor="#CC0000" SetFocusOnError="True" ValidationExpression="^\d+$" Display="None" ErrorMessage="Ingrese un número válido" ValidateRequestMode="Enabled"></asp:RegularExpressionValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender70" runat="server" BehaviorID="RequiredFieldValidator70_ValidatorCalloutExtender" TargetControlID="RegularExpressionValidator6">
+                      </ajaxToolkit:ValidatorCalloutExtender>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbnumerocasa" Display="None" ErrorMessage="Ingrese un número" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <%--<div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Remember me
-                      </label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;</div>--%>
                   </div>
                 </div>
               </div>
@@ -222,7 +215,7 @@
           </div>
           <!-- /.box -->
           <!-- general form elements disabled -->
-<%--          <div class="box box-warning">
+          <%--<div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">Información de usuario</h3>
             </div>
@@ -232,7 +225,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label">Usuario:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px">
-                    <asp:TextBox  CssClass="form-control"  ID="tbusuario"  runat="server" Height="24px" Width="128px" TextMode="email"></asp:TextBox>
+                    <asp:TextBox  CssClass="form-control"  ID="tbusuario"  runat="server" Height="24px" Width="128px" TextMode="email" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="tbusuario" Display="None" ErrorMessage="Ingrese un usuario" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator13_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator13_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator13">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -243,17 +236,41 @@
                   <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
 
                   <div class="col-sm-10">
-                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" TextMode="password"></asp:TextBox>
+                   <asp:TextBox  CssClass="form-control"  ID="tbcontraseña"  runat="server" Height="24px" Width="128px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="tbcontraseña" Display="None" ErrorMessage="Ingrese una contraseña" SetFocusOnError="True"></asp:RequiredFieldValidator>
                   </div>
                 </div>
             </div>
+              <br />
+              <div class="form-group" style="margin-bottom: 5px">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Fotografía</label>
+
+                  <div class="col-sm-10">
+                   <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
+                  <p class="help-block">Seleccione la fotografía del cliente.</p>
+                      <p class="help-block">
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="fiupfotografiacliente" Display="None" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                          <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender30" runat="server" BehaviorID="RequiredFieldValidator30_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator15">
+                          </ajaxToolkit:ValidatorCalloutExtender>
+                      </p>
+                  </div>
+                </div>
+&nbsp;<%--<div class="form-group">
+                  &nbsp;<label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fotografía:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 259px">
+                    <asp:FileUpload ID="fiupfotografiacliente" runat="server" />
+                  <p class="help-block">Seleccione la fotografía del cliente.</p>
+                      <p class="help-block">
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="fiupfotografiacliente" Display="None" ErrorMessage="RequiredFieldValidator" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                          <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator6_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator6_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator6">
+                          </ajaxToolkit:ValidatorCalloutExtender>
+                      </p>
+                  </div>
+                </div>--%>
+                   <br />
             <!-- /.box-body -->
-          </div>--%>
-          <!-- /.box -->
+          </div>
         </div>
         <!--/.col (right) -->
-      </div>
       <!-- /.row -->
     </section>
     <!-- /.content -->
@@ -262,10 +279,10 @@
                   <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
                 
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" OnClick="btncancelar_Click" />
+                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
                 
                   <br />
-                  <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
+                  <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
                 
               </div>
 </asp:Content>

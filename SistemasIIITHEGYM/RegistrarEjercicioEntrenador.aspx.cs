@@ -96,7 +96,7 @@ namespace SistemasIIITHEGYM
             try
             {
                 k.AddEjercicio();
-                this.Page.Response.Write("<script language='JavaScript'>window.alert('Ejercicio registrado con éxito');</script>");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
             }
             catch (Exception ex)

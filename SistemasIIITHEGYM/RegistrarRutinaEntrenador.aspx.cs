@@ -116,7 +116,7 @@ namespace SistemasIIITHEGYM
                 
                     q.AddDetalleRutina();
 
-                    Label3.Text = "Rutina Registrada";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                 }
             }
             catch (Exception ex)

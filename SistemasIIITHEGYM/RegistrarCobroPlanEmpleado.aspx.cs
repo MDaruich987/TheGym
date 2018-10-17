@@ -237,8 +237,8 @@ namespace SistemasIIITHEGYM
                         k.VencimientoCuota = Convert.ToString(auxiliar1);
                         k.AddCuota();
 
-                        this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El cobro se ha registrado exitosamente');</script>");
-                        Label1.Text = "El pago se ha registrado exitosamente!";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                        Label1.Text = "El cobro se ha registrado exitosamente!";
                         btngenerarcomprobante.Visible = true;
                         btnregistrar.Visible = false;
                         btngenerarcomprobante.Visible = true;

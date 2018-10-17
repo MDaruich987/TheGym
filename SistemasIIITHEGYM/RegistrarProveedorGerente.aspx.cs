@@ -9,10 +9,11 @@ using System.Web.UI.WebControls;
 
 namespace SistemasIIITHEGYM
 {
-    public partial class RegistrarActividadesEmpleado : System.Web.UI.Page
+    public partial class RegistrarProveedorGerente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -37,38 +38,20 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
-            if (!IsPostBack)
-            {
-                GetProfesores();
-                GetSucursales();
-            }
-
+            CargarLocalidades();
         }
 
-        private void GetProfesores()
+        public void CargarLocalidades()
         {
             TheGym k = new TheGym();
-            DataTable dt = k.GetProfesores();
+            DataTable dt = new DataTable();
+            dt = k.GetAllLocalidades();
             if (dt.Rows.Count > 0)
             {
-                ddlprofesor.DataValueField = "Id_empleado";
-                ddlprofesor.DataTextField = "Profesor";
-                ddlprofesor.DataSource = dt;
-                ddlprofesor.DataBind();
-
-            }
-        }
-
-        private void GetSucursales()
-        {
-            TheGym k = new TheGym();
-            DataTable dt = k.GetSucursales();
-            if (dt.Rows.Count > 0)
-            {
-                ddlsucursal.DataValueField = "Id_sucursal";
-                ddlsucursal.DataTextField = "Nombre";
-                ddlsucursal.DataSource = dt;
-                ddlsucursal.DataBind();
+                ddllocalidad.DataTextField = "Nombre";
+                ddllocalidad.DataValueField = "CodigoPostal";
+                ddllocalidad.DataSource = dt;
+                ddllocalidad.DataBind();
             }
         }
 
@@ -76,32 +59,36 @@ namespace SistemasIIITHEGYM
         {
             TheGym k = new TheGym
             {
-                NombreActividad = tbnombre.Text,
-                ProfesorActividad = ddlprofesor.SelectedValue,
-                SucursalActividad = ddlsucursal.SelectedValue,
-                CuposActividad = ddlcupos.SelectedValue,
-                DescripcionActividad = tbdescripcion.Text
+                NombreProveedor = tbnombre.Text,
+                CUITProveedor= tbcuit.Text,
+                EmailProveedor = tbemail.Text,
+                RepresentanteProveedor= tbrepresentante.Text,
+                TelefonoProveedor = tbtelefono.Text,
+                CalleProveedor = tbcalle.Text,
+                NumCasaProveedor = tbnumerocasa.Text,
+                FKLocalidadProveedor=ddllocalidad.SelectedValue,
             };
-
             try
             {
-                k.AddNewActividad();
-                lblerror.Visible = true;
+                k.AddNewProveedor();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
-                tbnombre.Text = string.Empty;
-                tbdescripcion.Text = string.Empty;
-
-                ddlcupos.ClearSelection();
-                ddlprofesor.ClearSelection();
-                ddlsucursal.ClearSelection();
 
             }
-            catch
+            catch (Exception ex)
             {
-                lblerror.Text = "Error al registrar Actividad.";
+                lblerror.Text = ex.Message.ToString();
             }
+         
 
-
+            tbnombre.Text = string.Empty;
+            tbcuit.Text = string.Empty;
+            tbrepresentante.Text = string.Empty;
+            tbemail.Text = string.Empty;
+            tbcalle.Text = string.Empty;
+            tbnumerocasa.Text = string.Empty;
+            tbtelefono.Text = string.Empty;
+            ddllocalidad.ClearSelection();
+            
         }
     }
 }
