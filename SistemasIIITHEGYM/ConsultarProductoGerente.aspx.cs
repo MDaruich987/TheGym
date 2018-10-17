@@ -27,8 +27,8 @@ namespace SistemasIIITHEGYM
                     tbnombre.Enabled = false;
                     ddlproveedor.Enabled = false;
                     tbprecio.Enabled = false;
-                    tbstock.Enabled = false;
-                    tbstockminimo.Enabled = false;
+                    //tbstock.Enabled = false;
+                    //tbstockminimo.Enabled = false;
                     /*if (Request.Params["parametro"] != null)
                     {
                         //para que el label capte el nombre y apellido enviado desde el form de acceso
@@ -60,8 +60,8 @@ namespace SistemasIIITHEGYM
                 tbnombre.Enabled = true;
                 ddlproveedor.Enabled = true;
                 tbprecio.Enabled = true;
-                tbstock.Enabled = true;
-                tbstockminimo.Enabled = true;
+                //tbstock.Enabled = true;
+                //tbstockminimo.Enabled = true;
 
                 btneditar.Text = "Guardar";
                 //significa que estaba viendo los campos y ahora quiere editar

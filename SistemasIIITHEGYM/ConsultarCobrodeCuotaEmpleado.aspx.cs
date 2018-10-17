@@ -257,7 +257,7 @@ namespace SistemasIIITHEGYM
                 var boldTableFont = FontFactory.GetFont("Arial", 8, Font.BOLD);
                 var bodyFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
                 var EmailFont = FontFactory.GetFont("Arial", 8, Font.NORMAL, BaseColor.BLUE);
-                BaseColor TabelHeaderBackGroundColor = WebColors.GetRGBColor("#EEEEEE");
+                BaseColor TabelHeaderBackGroundColor = BaseColor.GRAY;
 
                 Rectangle pageSize = writer.PageSize;
                 // abrimos el documento para escribir
