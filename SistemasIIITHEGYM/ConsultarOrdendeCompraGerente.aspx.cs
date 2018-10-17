@@ -4,19 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SistemasIIITHEGYM.BussinesLayer;
-using System.Data;
 
 namespace SistemasIIITHEGYM
 {
-    public partial class ConsultarMovimientos : System.Web.UI.Page
+    public partial class ConsultarOrdendeCompraGerente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //la primera vez que se carga la página
-                //muestra el panel de  busqueda, no el de edicion
                 if (Session["inicio"] != null)
                 {
                     //declaramos una variale sesion para mantener el dato del usuario
@@ -40,43 +36,15 @@ namespace SistemasIIITHEGYM
                     //si no se ha iniciado sesion me manda al inicio
                     //Response.Redirect("InicioLogin.aspx");
                 }
+
             }
         }
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
-            gridplanes.Visible = false;
-            DataTable emp = new DataTable();
-            gridplanes.DataSource = emp;
-            gridplanes.DataBind();
-            if (DateTime.Compare(Convert.ToDateTime(tbbusqueda.Text),DateTime.Now.Date) <= 0)
-            {
-                lblerror.Visible = false;
-                TheGym k = new TheGym
-                {
-                    FechaCaja = tbbusqueda.Text.ToString()
-                };
-                DataTable dt = new DataTable();
-                dt = k.GetMovimientoCaja();
-                if (dt.Rows.Count > 0)
-                {
-                    gridplanes.DataSource = dt;
-                    gridplanes.DataBind();
-                    gridplanes.Visible = true;
-                }
-                else
-                {
-                    lblerror.Visible = true;
-                    lblerror.Text = "Sin movimientos en la fecha";
-                }
-            }
-            else
-            {
-                lblerror.Visible = true;
-                lblerror.Text = "Seleccione una fecha posterior o igual a la actual.";
-            }
-            
-
+            //hay dos paneles: el de consulta que tiene todo el buscar orden de compra y motrar los datos
+            //principales de la cabecera en un gridview y despies al seleccionar un elemento de este 
+            //se deberia activar el paneldetalle con el detalle de esa orden de compra seleccionada
         }
     }
 }

@@ -1,25 +1,22 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarMovimientoStock.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarRemitoGerente" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestraEmpleado.Master" AutoEventWireup="true" CodeBehind="RegistrarMovimientoStock.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarRemitoGerente" %>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="EstilosCSS.css" rel="stylesheet" />
     <div class="modal fade" id="modalexito">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--<section class="content-header">
-                    <h1>Operaciones de caja <small>TheGym</small> </h1>
-                </section>--%><%--                boton minimizar y cerrar--%>
+                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%><%--input dinero--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>Se registró el Movimiento de Stock&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
+                  <%--fin input dinero--%>
               </div>
             </div>
             <!-- /.modal-content -->
