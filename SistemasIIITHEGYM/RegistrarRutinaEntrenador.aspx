@@ -202,6 +202,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 115px">Nº de Series:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 162px">
+                      &nbsp;&nbsp;
                       <asp:ListBox ID="lbseries" runat="server" Height="24px" Width="37px">
                           <asp:ListItem>0</asp:ListItem>
                           <asp:ListItem>1</asp:ListItem>
@@ -240,8 +241,28 @@
                           <asp:ListItem>12</asp:ListItem>
                       </asp:ListBox>
                   </div>
+                      </div>
                        <br />
-                       <div class="form-group">
+                                 <br />        
+                   <div class="form-group">
+                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                Día:</label>
+                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 165px">
+                                    <asp:DropDownList ID="lbdias" runat="server">
+                               <asp:ListItem>Lunes</asp:ListItem>
+                               <asp:ListItem>Martes</asp:ListItem>
+                               <asp:ListItem>Miercoles</asp:ListItem>
+                               <asp:ListItem>Jueves</asp:ListItem>
+                               <asp:ListItem>Viernes</asp:ListItem>
+                               <asp:ListItem>Sabado</asp:ListItem>
+                           </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator48" runat="server" ControlToValidate="lbdias" Display="None" ErrorMessage="Seleccione un día" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender48" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator48">
+                                    </ajaxToolkit:ValidatorCalloutExtender>
+                                </div>
+                            </div>
+                       <br />
+                      <%-- <div class="form-group">
                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 1px; top: 19px; width: 115px">
                            Día:<asp:DropDownList ID="lbdias" runat="server">
                                <asp:ListItem>Lunes</asp:ListItem>
@@ -254,7 +275,7 @@
                            </label>
                            &nbsp;<div class="col-sm-10" style="left: 5px; top: -1px; width: 174px; height: 36px;">
                            </div>
-                       </div>
+                       </div>--%>
                        <br />
                        <br />
                        &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" CausesValidation="False" />

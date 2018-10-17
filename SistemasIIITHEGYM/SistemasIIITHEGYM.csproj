@@ -169,7 +169,9 @@
     <Content Include="ConsultarDeposito.aspx" />
     <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
+    <Content Include="ConsultarMovimientodeStockEmpleado.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
+    <Content Include="ConsultarOrdendeCompraGerente.aspx" />
     <Content Include="ConsultarPlanEmpleado.aspx" />
     <Content Include="ConsultarProductoGerente.aspx" />
     <Content Include="ConsultarProveedorGerente.aspx" />
@@ -303,12 +305,26 @@
     <Compile Include="ConsultarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarMovimientodeStockEmpleado.aspx.cs">
+      <DependentUpon>ConsultarMovimientodeStockEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarMovimientodeStockEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarMovimientodeStockEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarMovimientosEmpleado.aspx.cs">
       <DependentUpon>ConsultarMovimientosEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarMovimientosEmpleado.aspx.designer.cs">
       <DependentUpon>ConsultarMovimientosEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarOrdendeCompraGerente.aspx.cs">
+      <DependentUpon>ConsultarOrdendeCompraGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarOrdendeCompraGerente.aspx.designer.cs">
+      <DependentUpon>ConsultarOrdendeCompraGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarPlanEmpleado.aspx.cs">
       <DependentUpon>ConsultarPlanEmpleado.aspx</DependentUpon>

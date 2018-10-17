@@ -165,7 +165,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">MENÚ</li>
-                        <li class="active treeview menu-open"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Empleados</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                        <li><a href="InicioGerente.aspx"><i class="fa fa-th"></i><span>Inicio</span> <span class="pull-right-container"><small class="label pull-right bg-green">Home</small> </span></a></li>
+                        <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Empleados</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="RegistrarEmpleadoGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Empleado</a></li>
                                 <li class="active"><a href="ConsultarEmpleadoGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Empleado</a></li>
@@ -179,14 +180,30 @@
                         </li>
                         <%--inicio contenedor plan--%>
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Planes</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Proveedores</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
-                                <li><a href="RegistrarPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Plan</a></li>
-                                <li class="active"><a href="ConsultarPlanEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Plan</a></li>
+                                <li><a href="RegistrarProveedorGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Proveedor</a></li>
+                                <li class="active"><a href="ConsultarProveedorGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Proveedor</a></li>
+                            </ul>
+                        </li>
+                         <%--<li><a href="ConsultarDeposito.aspx"><i class="fa fa-th"></i><span>Consultar Depósito</span> <span class="pull-right-container"><small class="label pull-right bg-green"></small> </span></a></li>--%>
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Productos</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="RegistrarProductoGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Producto</a></li>
+                                <li class="active"><a href="ConsultarProductoGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Producto</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Compras</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="ConsultarDeposito.aspx"><i class="fa fa-circle-o"></i>Consultar Depósito</a></li>
+                                <li class="active"><a href="RegistrarOrdendeCompraGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Orden de Compra</a></li>
+                                <li class="active"><a href="ConsultarOrdendeCompraGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Orden de Compra</a></li>
                             </ul>
                         </li>
             <%--fin contenedor--%>
-                        <li class="treeview">
+                        <%--<li class="treeview">
                             <a href="#"><i class="fa fa-files-o"></i><span>Layout Options</span> <span class="pull-right-container"><span class="label label-primary pull-right"></span></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Top Navigation</a></li>
@@ -194,9 +211,9 @@
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Fixed</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Collapsed Sidebar</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                <%-- fin contenedor--%>
-                        <li><a href="pages/widgets.html"><i class="fa fa-th"></i><span>Widgets</span> <span class="pull-right-container"><small class="label pull-right bg-green">new</small> </span></a></li>
+                        <%--<li><a href="pages/widgets.html"><i class="fa fa-th"></i><span>Widgets</span> <span class="pull-right-container"><small class="label pull-right bg-green">new</small> </span></a></li>
                         <li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Charts</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="#"><i class="fa fa-circle-o"></i>ChartJS</a></li>
@@ -264,7 +281,7 @@
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i><span>Important</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i><span>Warning</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>Information</span></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i><span>Information</span></a></li>--%>
                     </ul>
                 </section>
     <!-- /.sidebar -->
