@@ -240,7 +240,9 @@
     <Content Include="RegistrarClienteEmpleado.aspx" />
     <Content Include="RegistrarPlanEmpleado.aspx" />
     <Content Include="starter.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AperturadeCajaEmpleado.aspx.cs">
