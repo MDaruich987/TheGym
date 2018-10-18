@@ -1114,6 +1114,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetOrdenIDprov()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_proveedor", idproveedor, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOrdenProveedor", parameters);
+            return dt;
+        }
+
 
     }
 }

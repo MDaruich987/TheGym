@@ -48,7 +48,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <asp:Label ID="lblerrorsucursales" runat="server" CssClass="error-text"></asp:Label>
+                                                <asp:Label ID="lblerrorproveedor" runat="server" CssClass="error-text"></asp:Label>
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -63,18 +63,19 @@
                       <div class="row">
                           <div class="col-md-12">
                               <div class="box">
-                                  <div class="box-header with-border" style="left: 0px; top: 0px; width: 865px;">
-                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Ficha de Orden de Compra</h3>
-                                  </div>
-                                  <div class="box-body">
-              <!-- Date -->
+                                  <div class="box-body" style="text-align: center;">
+                                      <!-- Date -->
                                       <div class="form-group">
-                                          &nbsp;
-                                          <asp:GridView ID="gridsucursales" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AutoGenerateColumns="False">
+                                          &nbsp;<br />
+                                          <asp:Label ID="lblProveedor" runat="server" CssClass="h3" Text="Ficha Proveedor" Visible="False"></asp:Label>
+                                          <br />
+                                          &nbsp;<br />
+                                          <asp:GridView ID="gridproveedor" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_proveedor" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridproveedor_SelectedIndexChanged">
                                               <Columns>
-                                                  <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Id_proveedor" HeaderText="ID" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="CUIT" HeaderText="CUIT" ItemStyle-Width="150px" />
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>
@@ -90,13 +91,36 @@
                                               <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                               <SortedDescendingHeaderStyle BackColor="#242121" />
                                           </asp:GridView>
-
-                  <br />
-
-                  <br />
+                                          <asp:Label ID="lblerrorgridprov" runat="server" CssClass="error-text"></asp:Label>
+                                          <br />
+                                          <br />
                                       </div>
-                  <!-- /.description-block -->
-                <br />
+                                      <!-- /.description-block -->
+                                      <asp:Label ID="LblOrden" runat="server" CssClass="h3" Text="Ficha de Orden" Visible="False"></asp:Label>
+                                      <br />
+                                      <br />
+                                      <asp:GridView ID="gridorden" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False">
+                                          <Columns>
+                                              <asp:BoundField DataField="Id_orden" HeaderText="ID" ItemStyle-Width="150px" />
+                                              <asp:BoundField DataField="Fecha" HeaderText="Fecha" ItemStyle-Width="150px" />
+                                              <asp:BoundField DataField="Hora" HeaderText="Hora" ItemStyle-Width="150px" />
+                                              <asp:BoundField DataField="Total" HeaderText="Total" ItemStyle-Width="150px" />
+                                              <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
+                                              <ControlStyle Height="20px" Width="20px" />
+                                              </asp:CommandField>
+                                          </Columns>
+                                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                          <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                          <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                          <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                          <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                          <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                          <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                          <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                          <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                          <SortedDescendingHeaderStyle BackColor="#242121" />
+                                      </asp:GridView>
+                                      <br />
                                   </div>
                               </div>
               <!-- /.row -->
@@ -104,7 +128,7 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
-                        <asp:Panel ID="paneldetalle" runat="server">
+                        <asp:Panel ID="paneldetalle" runat="server" Visible="False">
      <!-- Main content -->
                 <section class="content">
                     <div class="row">

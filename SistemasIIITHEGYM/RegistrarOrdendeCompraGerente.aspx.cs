@@ -440,20 +440,20 @@ namespace SistemasIIITHEGYM
 
         protected void btncancelar_Click(object sender, EventArgs e)
         {
-            panelseleccionarproveedor.Visible = true;
-            panelregistrarorden.Visible = false;
+           
+            
             DataTable dt = new DataTable();
             gridcliente.DataSource = dt;
             gridcliente.DataBind();
-            gridcliente.Dispose();
+            //gridcliente.Dispose();
             gridcliente.Visible = false;
             griddetallefactura.DataSource = dt;
             griddetallefactura.DataBind();
-            griddetallefactura.Dispose();
+            //griddetallefactura.Dispose();
             griddetallefactura.Visible = false;
             gridproductos.DataSource = dt;
             gridproductos.DataBind();
-            gridproductos.Dispose();
+            //gridproductos.Dispose();
             gridproductos.Visible = false;
             tbcantidad.Text = string.Empty;
             tbcantidad.Enabled = false;
@@ -472,6 +472,9 @@ namespace SistemasIIITHEGYM
             lblerror0.Visible = false;
             lblerror1.Visible = false;
             lblerror2.Visible = false;
+
+            panelregistrarorden.Visible = false;
+            panelseleccionarproveedor.Visible = true;
         }
     }
 }
