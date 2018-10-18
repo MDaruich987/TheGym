@@ -22,6 +22,7 @@ namespace SistemasIIITHEGYM
                 paneledicion.Visible = false;
                 panelconsulta.Visible = true;
                 panelconsulta.Focus();
+                CargarLocalidades();
 
                 if (Session["inicio"] != null)
                 {
@@ -49,6 +50,8 @@ namespace SistemasIIITHEGYM
             }
 
         }
+
+
 
        public void CargarLocalidades()
         {
@@ -83,6 +86,30 @@ namespace SistemasIIITHEGYM
                 paneledicion.Visible = true;
                 panelconsulta.Visible = false;
                 paneledicion.Focus();
+
+                TheGym k = new TheGym
+                {
+                    NombreProveedorBusc = "",
+                    IdProv = gvproveedores.SelectedRow.Cells[0].Text
+                };
+
+                DataTable dt = new DataTable();
+                dt = k.GetAllDatosProveedor();
+
+
+                if (dt.Rows.Count > 0)
+                {
+                    TextBox1.Text = dt.Rows[0][1].ToString();
+                    tbcuit.Text = dt.Rows[0][2].ToString();
+                    tbcalle.Text = dt.Rows[0][3].ToString();
+                    tbnumerocasa.Text = dt.Rows[0][4].ToString();
+                    ddllocalidad.SelectedValue = dt.Rows[0][5].ToString();
+                    tbtelefono.Text = dt.Rows[0][6].ToString();
+                    tbrepresentante.Text = dt.Rows[0][7].ToString();
+                    tbemail.Text = dt.Rows[0][8].ToString();
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -91,43 +118,20 @@ namespace SistemasIIITHEGYM
             }
 
             ////bolquear edicion
-            //TextBox1.Enabled = false;
-            //tbcuit.Enabled = false;
-            //tbemail.Enabled = false;
-            //tbrepresentante.Enabled = false;
-            //tbtelefono.Enabled = false;
-            //tbcalle.Enabled = false;
-            //tbnumerocasa.Enabled = false;
-            //ddllocalidad.Enabled = false;
+            TextBox1.Enabled = false;
+            tbcuit.Enabled = false;
+            tbemail.Enabled = false;
+            tbrepresentante.Enabled = false;
+            tbtelefono.Enabled = false;
+            tbcalle.Enabled = false;
+            tbnumerocasa.Enabled = false;
+            ddllocalidad.Enabled = false;
 
             //codigo para cargar los valores de la fila en los textbox del panel de edicion
-            TheGym k = new TheGym
-            {
-                NombreProveedorBusc = "",
-                IdProv = gvproveedores.SelectedRow.Cells[0].Text
-            };
 
-            DataTable dt = new DataTable();
-            dt = k.GetAllDatosProveedor();
+        }
 
-
-            if (dt.Rows.Count > 0)
-            {
-                tbnombre.Text = dt.Rows[0][1].ToString();
-                tbcuit.Text = dt.Rows[0][2].ToString();
-                tbcalle.Text = dt.Rows[0][3].ToString();
-                tbnumerocasa.Text = dt.Rows[0][4].ToString();
-                ddllocalidad.SelectedValue = dt.Rows[0][5].ToString();
-                tbtelefono.Text = dt.Rows[0][6].ToString();
-                tbrepresentante.Text = dt.Rows[0][7].ToString();
-                tbemail.Text = dt.Rows[0][8].ToString();
-            }
-
-
-
-}
-
-protected void btnconsultar_Click(object sender, EventArgs e)
+        protected void btnconsultar_Click(object sender, EventArgs e)
         {
 
             gvproveedores.Visible = true;
