@@ -62,6 +62,7 @@ namespace SistemasIIITHEGYM
                     data.Columns.Add("ID",typeof(int));
                     data.Columns.Add("Nombre", typeof(string));
                     data.Columns.Add("Cantidad", typeof(int));
+                    data.Columns.Add("Precio", typeof(double));
                     flag = false;
 
                 }
@@ -159,6 +160,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click1(object sender, EventArgs e)
         {
+            tbcantidad.Enabled = false;
             try
             {
                 TheGym k = new TheGym
@@ -200,13 +202,140 @@ namespace SistemasIIITHEGYM
                 Label1.Text = "Error General";
                 Label1.Visible = false;
             }
+            tbnombre.Text = string.Empty;
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            double total = 0;
+            double subtotal = 0;
+            int cant = 0;
+            double precio = 0;
+            string idorden;
+
+            for (int i = 0; i < griddetallefactura.Rows.Count; i++)
+            {
+                cant = Convert.ToInt32(data.Rows[i][2]);
+                precio = Convert.ToDouble(data.Rows[i][3]);
+                subtotal = cant * precio;
+                total = total + subtotal;
+            }
+
             if (griddetallefactura.Rows.Count > 0)
             {
-                //Codigo
+                try
+                {
+                    if ((String)Session["Usuario"] != null)
+                    {
+                        lblerror2.Visible = false;
+                        TheGym k = new TheGym
+                        {
+                            emailbusadm = (String)Session["Usuario"],
+                        };
+
+                        DataTable dt = new DataTable();
+                        dt = k.GetIDemp();
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            k.fkempleadoorden = dt.Rows[0][0].ToString();
+                            k.fkproveedororden = id;
+                            k.fechaorden = lblFecha.Text;
+                            k.horaorden = lblhora.Text;
+                            k.totalorden = Convert.ToString(total);
+
+                            DataTable dt1 = new DataTable();
+                            dt1 = k.AddOrdenCompra();
+
+                            idorden = dt1.Rows[0][0].ToString();
+
+                            for (int i = 0; i < griddetallefactura.Rows.Count; i++)
+                            {
+                                k.fkorden = idorden;
+                                k.fkproducto = data.Rows[i][0].ToString();
+                                k.cantidadorden = data.Rows[i][2].ToString();
+                                k.precioorden = data.Rows[i][3].ToString();
+
+                                k.AddDetOrden();
+                            }
+
+
+                        }
+                        else
+                        {
+                            lblerror2.Text = "Empleado no encontrado";
+                            lblerror2.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        TheGym k = new TheGym();
+                        k.fkempleadoorden = "1";
+                        k.fkproveedororden = id;
+                        k.fechaorden = lblFecha.Text;
+                        k.horaorden = lblhora.Text;
+                        k.totalorden = Convert.ToString(total);
+
+                        DataTable dt1 = new DataTable();
+                        dt1 = k.AddOrdenCompra();
+
+                        idorden = dt1.Rows[0][0].ToString();
+
+                        for (int i = 0; i < griddetallefactura.Rows.Count; i++)
+                        {
+                            k.fkorden = idorden;
+                            k.fkproducto = data.Rows[i][0].ToString();
+                            k.cantidadorden = data.Rows[i][2].ToString();
+                            k.precioorden = data.Rows[i][3].ToString();
+
+                            k.AddDetOrden();
+                        }
+
+                    }
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+
+                    panelseleccionarproveedor.Visible = true;
+                    panelregistrarorden.Visible = false;
+                    DataTable dtaux = new DataTable();
+                    gridcliente.DataSource = dtaux;
+                    gridcliente.DataBind();
+                    gridcliente.Dispose();
+                    gridcliente.Visible = false;
+                    griddetallefactura.DataSource = dtaux;
+                    griddetallefactura.DataBind();
+                    griddetallefactura.Dispose();
+                    griddetallefactura.Visible = false;
+                    gridproductos.DataSource = dtaux;
+                    gridproductos.DataBind();
+                    gridproductos.Dispose();
+                    gridproductos.Visible = false;
+                    tbcantidad.Text = string.Empty;
+                    tbcantidad.Enabled = false;
+                    tbnombre.Text = string.Empty;
+                    LblEmpleado.Text = string.Empty;
+                    lblnroOrden.Text = string.Empty;
+                    lblhora.Text = string.Empty;
+                    lblproveedor.Text = string.Empty;
+                    lblFecha.Text = string.Empty;
+                    TextBox1.Text = string.Empty;
+                    lblerror.Text = string.Empty;
+                    lblerror0.Text = string.Empty;
+                    lblerror1.Text = string.Empty;
+                    lblerror2.Text = string.Empty;
+                    lblerror.Visible = false;
+                    lblerror0.Visible = false;
+                    lblerror1.Visible = false;
+                    lblerror2.Visible = false;
+
+
+                }
+                catch (Exception ex)
+                {
+                    lblerror2.Visible = true;
+                    lblerror2.Text = ex.Message.ToString();
+                }
+
             }
             else
             {
@@ -235,43 +364,65 @@ namespace SistemasIIITHEGYM
             string nom;
             int id;
             int cant;
+            double precio;
+            bool bandera = true;
 
+            id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
 
-
-            if (tbcantidad.Text != "" && Convert.ToInt32(tbcantidad.Text) > 0)
+            for (int i = 0; i < griddetallefactura.Rows.Count; i++)
             {
-                lblerror1.Visible = false;
-                nom = gridproductos.SelectedRow.Cells[1].Text;
-                id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
-                cant = Convert.ToInt32(tbcantidad.Text);
+                if(id == Convert.ToInt32(data.Rows[i][0].ToString()))
+                {
+                    bandera = false;
+                }
+            }
 
-                DataRow linea;
-                linea = data.NewRow();
-                linea["ID"] = id;
-                linea["Nombre"] = nom;
-                linea["Cantidad"] = Convert.ToInt32(cant);
-                data.Rows.Add(linea);
 
-                if (data.Rows.Count > 0)
+            if (bandera == true)
+            {
+                if (tbcantidad.Text != "" && Convert.ToInt32(tbcantidad.Text) > 0)
                 {
                     lblerror1.Visible = false;
-                    griddetallefactura.DataSource = data;
-                    griddetallefactura.DataBind();
-                    griddetallefactura.Visible = true;
-                    lblDetCompra.Visible = true;
+                    nom = gridproductos.SelectedRow.Cells[1].Text;
+                    id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
+                    cant = Convert.ToInt32(tbcantidad.Text);
+                    precio = Convert.ToDouble(gridproductos.SelectedRow.Cells[2].Text);
+
+                    DataRow linea;
+                    linea = data.NewRow();
+                    linea["ID"] = id;
+                    linea["Nombre"] = nom;
+                    linea["Cantidad"] = Convert.ToInt32(cant);
+                    linea["Precio"] = precio;
+                    data.Rows.Add(linea);
+
+                    if (data.Rows.Count > 0)
+                    {
+                        lblerror1.Visible = false;
+                        griddetallefactura.DataSource = data;
+                        griddetallefactura.DataBind();
+                        griddetallefactura.Visible = true;
+                        lblDetCompra.Visible = true;
+                    }
+                    else
+                    {
+                        lblerror1.Text = "Ingrese productos";
+                        lblerror1.Visible = true;
+                    }
+
                 }
                 else
                 {
-                    lblerror1.Text = "Ingrese productos";
+                    lblerror1.Text = "Ingrese una cantidad valida";
                     lblerror1.Visible = true;
                 }
-
             }
             else
             {
-                lblerror1.Text = "Ingrese una cantidad valida";
+                lblerror1.Text = "Producto ya agregado";
                 lblerror1.Visible = true;
             }
+            tbcantidad.Text = string.Empty;
             
         }
 
@@ -285,6 +436,42 @@ namespace SistemasIIITHEGYM
             data.Rows.RemoveAt(e.RowIndex);
             griddetallefactura.DataSource = data;
             griddetallefactura.DataBind();
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            panelseleccionarproveedor.Visible = true;
+            panelregistrarorden.Visible = false;
+            DataTable dt = new DataTable();
+            gridcliente.DataSource = dt;
+            gridcliente.DataBind();
+            gridcliente.Dispose();
+            gridcliente.Visible = false;
+            griddetallefactura.DataSource = dt;
+            griddetallefactura.DataBind();
+            griddetallefactura.Dispose();
+            griddetallefactura.Visible = false;
+            gridproductos.DataSource = dt;
+            gridproductos.DataBind();
+            gridproductos.Dispose();
+            gridproductos.Visible = false;
+            tbcantidad.Text = string.Empty;
+            tbcantidad.Enabled = false;
+            tbnombre.Text = string.Empty;
+            LblEmpleado.Text = string.Empty;
+            lblnroOrden.Text = string.Empty;
+            lblhora.Text = string.Empty;
+            lblproveedor.Text = string.Empty;
+            lblFecha.Text = string.Empty;
+            TextBox1.Text = string.Empty;
+            lblerror.Text = string.Empty;
+            lblerror0.Text = string.Empty;
+            lblerror1.Text = string.Empty;
+            lblerror2.Text = string.Empty;
+            lblerror.Visible = false;
+            lblerror0.Visible = false;
+            lblerror1.Visible = false;
+            lblerror2.Visible = false;
         }
     }
 }
