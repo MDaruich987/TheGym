@@ -25,6 +25,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variable para relaizar la busqueda de proveedor
         public string NombreProveedorBusc;
         public string CUITProveedorBusc;
+
+        //variable para realizar la busqueda de deposito
+        public string NombreDepositoBusc;
         //variables para realizar la consulta de empleado
         public string NombreEmpleadoBusc;
         public string DNIEmpleadoBusc = "";
@@ -136,6 +139,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdClienteSearch;
         //variable para obtener todos los datos de proveedor
         public string IdProv;
+        //variable para obtener todos los datos de deposito
+        public string IdDep;
         //Variable para editar Empleados
         public string NombreEmpladoEdit;
         public string ApellidoEmpleadoEdit;
@@ -632,6 +637,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //metodo para consultar deposito
+        public DataTable GetDepositoNom()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreDepositoBusc, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDeposito", parameters);
+            return dt;
+        }
+
 
 
 
@@ -791,6 +805,16 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosProveedor", parameters);
             return dt;
         }
+
+
+        public DataTable GetAllDatosDeposito()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID_Deposito", IdDep, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosDeposito", parameters);
+            return dt;
+        }
+
         public DataTable GetOneSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[1];
