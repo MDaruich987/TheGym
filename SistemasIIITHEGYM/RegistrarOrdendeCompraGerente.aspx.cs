@@ -13,6 +13,9 @@ namespace SistemasIIITHEGYM
     public partial class RegistrarOrdendeCompraGerente : System.Web.UI.Page
     {
         static string id;
+        static DataTable data = new DataTable();
+
+        static bool flag = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,7 +56,18 @@ namespace SistemasIIITHEGYM
                 }
                 panelseleccionarproveedor.Visible = true;
                 panelregistrarorden.Visible = false;
+
+                if (flag == true)
+                {
+                    data.Columns.Add("ID",typeof(int));
+                    data.Columns.Add("Nombre", typeof(string));
+                    data.Columns.Add("Cantidad", typeof(int));
+                    flag = false;
+
+                }
+
             }
+
         }
 
         
@@ -100,48 +114,41 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
-
-            TheGym k = new TheGym
-            {
-                NombreProveedorBusc = TextBox1.Text
-            };
-            DataTable dt = new DataTable();
-            dt = k.GetProveedorNom();
-            if (dt.Rows.Count > 0)
-            {
-                lblerror0.Text = string.Empty;
-                lblerror0.Visible = false;
-                gridcliente.DataSource = dt;
-                gridcliente.DataBind();
-                gridcliente.Visible = true;
-            }
-
-
+            
             try
             {
-                TheGym k2 = new TheGym
+                if(TextBox1.Text != string.Empty)
                 {
-                    NombreProveedorBusc = TextBox1.Text
-                };
-                DataTable dt2 = new DataTable();
-                dt = k.GetProveedorNom();
-                if (dt.Rows.Count > 0)
-                {
-                    lblerror0.Text = string.Empty;
-                    lblerror0.Visible = false;
-                    gridcliente.DataSource = dt;
-                    gridcliente.DataBind();
-                    gridcliente.Visible = true;
+                    TheGym k2 = new TheGym
+                    {
+                        NombreProveedorBusc = TextBox1.Text
+                    };
+                    DataTable dt2 = new DataTable();
+                    dt2 = k2.GetProveedorNom();
+                    if (dt2.Rows.Count > 0)
+                    {
+                        lblerror0.Text = string.Empty;
+                        lblerror0.Visible = false;
+                        gridcliente.DataSource = dt2;
+                        gridcliente.DataBind();
+                        gridcliente.Visible = true;
+                    }
+                    else
+                    {
+                        DataTable dt1 = new DataTable();
+                        gridcliente.DataSource = dt1;
+                        gridcliente.DataBind();
+                        gridcliente.Visible = false;
+                        lblerror0.Text = "No se encontro proveedor";
+                        lblerror0.Visible = true;
+                    }
                 }
                 else
                 {
-                    DataTable dt1 = new DataTable();
-                    gridcliente.DataSource = dt1;
-                    gridcliente.DataBind();
-                    gridcliente.Visible = false;
-                    lblerror0.Text = "No se encontro proveedor";
+                    lblerror0.Text = "Ingrese un valor";
                     lblerror0.Visible = true;
                 }
+                
             }
             catch
             {
@@ -197,7 +204,87 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            if (griddetallefactura.Rows.Count > 0)
+            {
+                //Codigo
+            }
+            else
+            {
+                lblerror2.Text = "Seleccione productos con cantidad";
+                lblerror2.Visible = true;
+            }
+        }
 
+        protected void gridproductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //string nom;
+            //int id;
+            //int cant;
+
+
+            //nom = gridproductos.SelectedRow.Cells[1].Text;
+            //id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
+            //cant = Convert.ToInt32(tbcantidad.Text);
+
+            tbcantidad.Enabled = true;
+            btnañadir.Enabled = true;
+        }
+
+        protected void btnañadir_Click(object sender, EventArgs e)
+        {
+            string nom;
+            int id;
+            int cant;
+
+
+
+            if (tbcantidad.Text != "" && Convert.ToInt32(tbcantidad.Text) > 0)
+            {
+                lblerror1.Visible = false;
+                nom = gridproductos.SelectedRow.Cells[1].Text;
+                id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
+                cant = Convert.ToInt32(tbcantidad.Text);
+
+                DataRow linea;
+                linea = data.NewRow();
+                linea["ID"] = id;
+                linea["Nombre"] = nom;
+                linea["Cantidad"] = Convert.ToInt32(cant);
+                data.Rows.Add(linea);
+
+                if (data.Rows.Count > 0)
+                {
+                    lblerror1.Visible = false;
+                    griddetallefactura.DataSource = data;
+                    griddetallefactura.DataBind();
+                    griddetallefactura.Visible = true;
+                    lblDetCompra.Visible = true;
+                }
+                else
+                {
+                    lblerror1.Text = "Ingrese productos";
+                    lblerror1.Visible = true;
+                }
+
+            }
+            else
+            {
+                lblerror1.Text = "Ingrese una cantidad valida";
+                lblerror1.Visible = true;
+            }
+            
+        }
+
+        protected void griddetallefactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void griddetallefactura_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            data.Rows.RemoveAt(e.RowIndex);
+            griddetallefactura.DataSource = data;
+            griddetallefactura.DataBind();
         }
     }
 }

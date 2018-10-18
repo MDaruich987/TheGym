@@ -5,29 +5,21 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <%-- inicio contenedor busqueda--%>
+     <%--<span aria-hidden="true">&times;</span></button>--%>
              <div class="modal fade" id="modal-redirect">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--<div class="box-footer">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
-                
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
-                
-              </div>--%><%--<div class="box-footer">
-             
-              <!-- /.row -->
-            </div>--%>
+                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%><%--                boton minimizar y cerrar--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>No se registró la apertura de caja diaria&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--<span aria-hidden="true">&times;</span></button>--%>
+                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -38,8 +30,14 @@
 
 
         <link rel="stylesheet" href="../../bower_components/select2/dist/css/select2.min.css">
-     <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>--%>
+     <%--<div class="box-footer">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
+                
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
+                
+              </div>--%>
     <script type ="text/javascript">
 
  function show()
@@ -50,7 +48,10 @@
 
 
     </script>
-     <%--                boton minimizar y cerrar--%>
+     <%--<div class="box-footer">
+             
+              <!-- /.row -->
+            </div>--%>
    <section class="content-header">
                     <h1>Registrar Orden de Compra<small>TheGym</small> </h1>
        <br />
@@ -317,7 +318,7 @@
                       ForeColor="Black" GridLines="Horizontal" Height="188px" 
                       HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" 
                       style="margin-left: 107px; margin-bottom: 9px; margin-right: 11px;" 
-                      Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled">
+                      Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled" OnSelectedIndexChanged="gridproductos_SelectedIndexChanged">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -363,7 +364,46 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" 
                         CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" 
-                        Enabled="False" />
+                        Enabled="False" OnClick="btnañadir_Click" />
+               
+
+
+                            <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblDetCompra" runat="server" CssClass="h3" Text="Detalle de Orden de Compra" Visible="False"></asp:Label>
+                    <br />
+                    <table class="nav-justified">
+                        <tr>
+                            <td>
+                                <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnRowDeleting="griddetallefactura_RowDeleting" OnSelectedIndexChanged="griddetallefactura_SelectedIndexChanged" PageSize="6" style="margin-left: 107px; margin-bottom: 9px;" Width="425px">
+                                    <Columns>
+                                        <asp:BoundField DataField="ID" HeaderText="ID" />
+                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+                                        <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
+                                        <ControlStyle Height="20px" Width="20px" />
+                                        </asp:CommandField>
+                                    </Columns>
+                                    <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                    <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                    <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                    <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                    <SortedDescendingHeaderStyle BackColor="#242121" />
+                                </asp:GridView>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <asp:Button ID="btnregistrar0" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" />
+                    &nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
+                    <asp:Label ID="lblerror2" runat="server" CssClass="error-text" Visible="False"></asp:Label>
+                    <br />
                
 
 
@@ -386,64 +426,6 @@
         </div>
         <!-- /.col -->
       <!-- /.row -->
-
-    <div class="row">
-                          <div class="col-md-12">
-                              <div class="box">
-                                  <div class="box-header with-border" style="left: 0px; top: 0px; width: 607px;">
-                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Detalle de Orden de Compra</h3>
-                                  </div>
-                                  <div class="box-body">
-              <!-- Date -->
-                                      <div class="form-group">
-                                          &nbsp;
-                                          <table class="nav-justified">
-                                              <tr>
-                                                  <td style="width: 70px">&nbsp;</td>
-                                                  <td>
-                                                      <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6"  style="margin-left: 107px; margin-bottom: 9px;" Width="425px">
-                                                          <Columns>
-                                                              
-                                                              <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
-                                                          </Columns>
-                                                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                                          <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                          <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                                          <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                          <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                                          <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                                          <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                                          <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                                          <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                                          <SortedDescendingHeaderStyle BackColor="#242121" />
-                                                      </asp:GridView>
-                                                  </td>
-                                              </tr>
-                                          </table>
-
-                  <br />
-
-                  <br />
-                                      </div>
-                  <!-- /.description-block -->
-                <br />
-                                  </div>
-                                          <div class="box-footer">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
-                
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
-                
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  
-              </div>
-                              </div>
-              <!-- /.row -->
-                          </div>
-                </div>
 
 
 
