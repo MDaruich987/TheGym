@@ -277,7 +277,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridsucursales" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AutoGenerateColumns="False">
+                                          <asp:GridView ID="gridsucursales" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AutoGenerateColumns="False" OnSelectedIndexChanged="gridsucursales_SelectedIndexChanged1">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />

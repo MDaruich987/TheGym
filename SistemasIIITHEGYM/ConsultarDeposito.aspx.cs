@@ -68,5 +68,38 @@ namespace SistemasIIITHEGYM
 
         }
 
+        protected void gridsucursales_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                paneledicion.Visible = true;
+                panelconsulta.Visible = false;
+                paneledicion.Focus();
+                griddepositoproductos.Visible = true;
+
+
+                TheGym k = new TheGym
+                {
+                    NombreDepositoBusc = "",
+                    IdDep = griddepositoproductos.SelectedRow.Cells[0].Text
+                };
+
+                DataTable dt1 = new DataTable();
+                dt1 = k.GetAllDatosDeposito();
+
+                if (dt1.Rows.Count > 0)
+                {
+                    griddepositoproductos.DataSource = dt1;
+                    griddepositoproductos.DataBind();
+                    griddepositoproductos.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblerrorsucursales.Text = ex.Message.ToString();
+            }
+        }
+
     }
 }
