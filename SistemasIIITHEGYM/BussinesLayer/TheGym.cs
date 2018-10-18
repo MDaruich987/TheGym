@@ -25,6 +25,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variable para relaizar la busqueda de proveedor
         public string NombreProveedorBusc;
         public string CUITProveedorBusc;
+
+        //variable para realizar la busqueda de deposito
+        public string NombreDepositoBusc;
         //variables para realizar la consulta de empleado
         public string NombreEmpleadoBusc;
         public string DNIEmpleadoBusc = "";

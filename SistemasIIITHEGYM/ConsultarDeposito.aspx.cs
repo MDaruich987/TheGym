@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using SistemasIIITHEGYM.BussinesLayer;
 
 namespace SistemasIIITHEGYM
 {
@@ -49,7 +51,22 @@ namespace SistemasIIITHEGYM
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
             //aqui se debe buscar sobre el gridview de propiedas por productos
-        }
-    }
 
+
+            gridsucursales.Visible = true;
+
+            TheGym k = new TheGym();
+            k.NomSucBuscar = tbnombre.Text;
+            DataTable dt = k.GetOneSucursal();
+
+            if (dt.Rows.Count > 0)
+            {
+                gridsucursales.DataSource = dt;
+                gridsucursales.DataBind();
+                gridsucursales.Focus();
+            }
+
+        }
+
+    }
 }

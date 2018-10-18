@@ -48,7 +48,7 @@
                                         <Columns>
                                             <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
-                                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="Direccion" HeaderText="Direccion" ItemStyle-Width="150px" />
                                         </Columns>
                                         <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
