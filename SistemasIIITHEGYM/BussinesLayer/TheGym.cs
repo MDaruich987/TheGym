@@ -244,17 +244,6 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string PrecioCompra;
         public string PrecioVenta;
         public string FKproveedor;
-        //Variables para agregar orden
-        public string fkempleadoorden;
-        public string fkproveedororden;
-        public string fechaorden;
-        public string horaorden;
-        public string totalorden;
-        //variable para agregar detalle orden
-        public string fkorden;
-        public string fkproducto;
-        public string cantidadorden;
-        public string precioorden;
 
 
 
@@ -1106,46 +1095,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
-        public DataTable AddOrdenCompra()
-        {
-            SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", fkempleadoorden, SqlDbType.Int, 100);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", fkproveedororden , SqlDbType.Int, 100);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", fechaorden, SqlDbType.Date, 100);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", horaorden, SqlDbType.Time, 100);
-            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Total", totalorden, SqlDbType.Money, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddOrdenCompra", parameters);
-            return dt;
-        }
 
-        public void AddDetOrden()
-        {
-            SqlParameter[] parameters = new SqlParameter[4];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_orden", fkorden, SqlDbType.Int, 100);
-            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 100);
-            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 100);
-            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetOrden", parameters);
-        }
-      
-
-
-        public DataTable GetIDemp()
+        public DataTable GetUpProducto()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.NVarChar, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIDemp", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetUpProducto", parameters);
             return dt;
         }
-
-        public DataTable GetOrdenIDprov()
-        {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_proveedor", idproveedor, SqlDbType.Int, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOrdenProveedor", parameters);
-            return dt;
-        }
-
-
     }
 }
