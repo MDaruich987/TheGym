@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
+
 
 namespace SistemasIIITHEGYM
 {
@@ -51,6 +54,11 @@ namespace SistemasIIITHEGYM
             panelconsulta.Visible = false;
             paneledicion.Visible = true;
             paneledicion.Focus();
+        }
+
+        protected void ddlgrupomuscular_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
