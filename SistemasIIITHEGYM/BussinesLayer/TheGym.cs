@@ -239,6 +239,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string PrecioCompra;
         public string PrecioVenta;
         public string FKproveedor;
+        public string IdProducto;
 
 
 
@@ -1069,6 +1070,20 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetoneProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id", IdProducto, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetoneProducto", parameters);
+            return dt;
+        }
 
+        public DataTable GetUpProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetUpProducto", parameters);
+            return dt;
+        }
     }
 }
