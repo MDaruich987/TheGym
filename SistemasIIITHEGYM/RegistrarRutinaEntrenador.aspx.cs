@@ -23,6 +23,8 @@ namespace SistemasIIITHEGYM
             gridejerciciosrutina.Focus();
             if (Session["inicio"] != null)
             {
+                
+
                 //declaramos una variale sesion para mantener el dato del usuario
                 string usuario = (string)Session["Usuario"];
                 lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
@@ -58,7 +60,10 @@ namespace SistemasIIITHEGYM
                 gridejerciciosrutina.DataBind();
                 Session["Datos"] = Tabla;
 
-                
+                cargargrupomuscular();
+                getallprofesores();
+
+
             }
 
             if (flag == true)
@@ -69,7 +74,15 @@ namespace SistemasIIITHEGYM
 
             }
 
-            
+            //ddlgrupomuscular.Visible = false;
+            //ddlejercicio.Visible = false;
+            //lbseries.Visible = false;
+            //lbrrepeticiones.Visible = false;
+            //lbdias.Visible = false;
+            Dia.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+
+
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
@@ -87,6 +100,7 @@ namespace SistemasIIITHEGYM
                     NombreRutina = tbnombre.Text,
                     IDEmpleado = ddlprofesores.SelectedValue,
                     IDCliete = idcliente
+                    
                 };
 
 
@@ -197,6 +211,11 @@ namespace SistemasIIITHEGYM
             {
                 Label1.Text = "Nombre: " + dt.Rows[0][0].ToString() + "// Apellido: " + dt.Rows[0][1].ToString() + "  ID: " + dt.Rows[0][2].ToString();
                 idcliente = dt.Rows[0][2].ToString();
+                //ddlgrupomuscular.Visible = true;
+                //ddlejercicio.Visible = true;
+                //lbseries.Visible = true;
+                //lbrrepeticiones.Visible = true;
+                //lbdias.Visible = true;
             }
             else
             {
@@ -213,6 +232,25 @@ namespace SistemasIIITHEGYM
         {
             //falta modificar
             Response.Redirect("InicioEntrenador.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym
+            {
+                NombreRutina = tbnombre.Text,
+
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetRutinaNombre();
+            if (dt.Rows.Count > 0)
+            {
+                Verificar.Text = "Ya Existe una rutina con este nombre, elija un nuevo nombre";
+            }
+            else
+            {
+                Verificar.Text = "Puede usar este nombre";
+            }
         }
 
         

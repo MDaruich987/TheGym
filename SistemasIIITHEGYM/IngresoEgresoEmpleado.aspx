@@ -94,6 +94,9 @@
           <asp:Label ID="lblerror" CssClass="error-text center-block text-center" runat="server"></asp:Label>
             <br />
           <asp:Button ID="Button1" runat="server" Text="Registrar" Cssclass="btn btn-success btn-block btn-flat" OnClick="Button1_Click"/>
+          <asp:Label ID="Hora" runat="server"></asp:Label>
+          <asp:Label ID="Tarde" runat="server"></asp:Label>
+          <asp:Label ID="Temprano" runat="server"></asp:Label>
       </div>
       <div class="row">
         <div class="col-xs-8">
