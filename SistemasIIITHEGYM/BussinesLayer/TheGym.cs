@@ -83,6 +83,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string SucursalActividad;
         public string CuposActividad;
         public string DescripcionActividad;
+        public string IdProducto;
         // variables para registrar cliente
         public string NombreCliente;
         public string ApellidoCliente;
@@ -255,10 +256,6 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string fkproducto;
         public string cantidadorden;
         public string precioorden;
-
-
-
-
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -713,6 +710,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //este tambien
+        public DataTable GetOrdenIDprov()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+            return dt;
+        }
+
+        //aqui este faltaba
+        public DataTable GetoneProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+            return dt;
+        }
         //para buscar el producto y añadirlo al carrito de la factura
         public DataTable GetBusquedaProductos()
         {
@@ -1137,11 +1151,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public void AddDetOrden()
         {
-            SqlParameter[] parameters = new SqlParameter[];
+            SqlParameter[] parameters = new SqlParameter[4];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_orden", fkorden, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 10);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 10);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetOrden", parameters);
         }
     }
