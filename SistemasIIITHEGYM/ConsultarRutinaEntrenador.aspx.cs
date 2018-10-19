@@ -48,21 +48,22 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
-            //if (IsPostBack == false)
-            //{
-            //    DataTable Tabla = new DataTable();
-            //    Tabla.Columns.Add("Grupo_muscular");
-            //    Tabla.Columns.Add("Ejercicio");
-            //    Tabla.Columns.Add("Id_ejercicio");
-            //    Tabla.Columns.Add("Serie");
-            //    Tabla.Columns.Add("Rep");
-            //    Tabla.Columns.Add("Dia");
-            //    gridejerciciosrutina.DataSource = Tabla;
-            //    gridejerciciosrutina.DataBind();
-            //    Session["Datos"] = Tabla;
+            if (IsPostBack == false)
+            {
+                DataTable Tabla = new DataTable();
+                Tabla.Columns.Add("Grupo_muscular");
+                Tabla.Columns.Add("Ejercicio");
+                Tabla.Columns.Add("Id_ejercicio");
+                Tabla.Columns.Add("Serie");
+                Tabla.Columns.Add("Rep");
+                Tabla.Columns.Add("Dia");
+                gridejerciciosrutina.DataSource = Tabla;
+                gridejerciciosrutina.DataBind();
+                Session["Datos"] = Tabla;
+                cargargrupomuscular();
 
 
-            //}
+            }
 
             if (flag == true)
             {
