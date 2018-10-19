@@ -25,6 +25,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //variable para relaizar la busqueda de proveedor
         public string NombreProveedorBusc;
         public string CUITProveedorBusc;
+
+        //variable para realizar la busqueda de deposito
+        public string NombreDepositoBusc;
         //variables para realizar la consulta de empleado
         public string NombreEmpleadoBusc;
         public string DNIEmpleadoBusc = "";
@@ -80,6 +83,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string SucursalActividad;
         public string CuposActividad;
         public string DescripcionActividad;
+        public string IdProducto;
         // variables para registrar cliente
         public string NombreCliente;
         public string ApellidoCliente;
@@ -136,6 +140,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IdClienteSearch;
         //variable para obtener todos los datos de proveedor
         public string IdProv;
+        //variable para obtener todos los datos de deposito
+        public string IdDep;
         //Variable para editar Empleados
         public string NombreEmpladoEdit;
         public string ApellidoEmpleadoEdit;
@@ -222,14 +228,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string NombreRutina;
         public string IDEmpleado;
         public string IDCliete;
-        public string EstadoRutina;
         //variable para agregar detalle drutina
         public string IDRutina;
         public string Serie;
         public string Repeticion;
         public string Dia;
         public string IDEjercicio;
-        public string Fecha;
         //Variable buscar id adm
         public string emailbusadm;
         //Variable para buscar un producto por proveedor
@@ -241,10 +245,18 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string PrecioCompra;
         public string PrecioVenta;
         public string FKproveedor;
-        //variable para tener la hora del dia
-        public string HoraDia;
-
-
+        //variable para agregar Orden de compra
+        public string fkempleadoorden;
+        public string fkproveedororden;
+        public string fechaorden;
+        public string horaorden;
+        public string totalorden;
+        //variable para agregar detalle orden
+        public string fkorden;
+        public string fkproducto;
+        public string cantidadorden;
+        public string precioorden;
+        public string idorden;
 
 
         //Metodo para registrar ingreso de cliente
@@ -623,6 +635,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //metodo para consultar deposito
+        public DataTable GetDepositoNom()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreDepositoBusc, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDeposito", parameters);
+            return dt;
+        }
+
 
 
 
@@ -691,6 +712,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        //este tambien
+        public DataTable GetOrdenIDprov()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_proveedor", idproveedor, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOrdenProveedor", parameters);
+            return dt;
+        }
+
+        //aqui este faltaba
+        public DataTable GetoneProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id", IdProducto, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneProducto", parameters);
+            return dt;
+        }
         //para buscar el producto y añadirlo al carrito de la factura
         public DataTable GetBusquedaProductos()
         {
@@ -782,6 +820,16 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosProveedor", parameters);
             return dt;
         }
+
+
+        public DataTable GetAllDatosDeposito()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID_Deposito", IdDep, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDatosDeposito", parameters);
+            return dt;
+        }
+
         public DataTable GetOneSucursal()
         {
             SqlParameter[] parameters = new SqlParameter[1];
@@ -1073,66 +1121,53 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
-        public DataTable GetHoraDia()
-        {
-            SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_HoraDia", parameters);
-            return dt;
-        }
 
-        public DataTable GetHoraDiaIngreso()
-        {
-            SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_HoraDiaIngreso", parameters);
-            return dt;
-        }
-
-        public DataTable GetRutinaNombre()
+        public DataTable GetUpProducto()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.NVarChar, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllNombresRutinas", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetUpProducto", parameters);
             return dt;
         }
 
-        public DataTable GetAllClientes()
+        public DataTable GetIDemp()
         {
-            SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetClientes", parameters);
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIDemp", parameters);
             return dt;
         }
 
-        public DataTable GetRutina()
+        public DataTable AddOrdenCompra()
         {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.NVarChar, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetRutina", parameters);
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", fkempleadoorden, SqlDbType.Int, 10);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", fkproveedororden, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", fechaorden, SqlDbType.Date, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", horaorden, SqlDbType.Time, 10);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Total", totalorden, SqlDbType.Money, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddOrdenCompra", parameters);
             return dt;
         }
 
-        public void InhabilitarRutina()
+
+        public void AddDetOrden()
         {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@id", IDRutina, SqlDbType.Int, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_InhabilitarRutina", parameters);
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_orden", fkorden, SqlDbType.Int, 10);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetOrden", parameters);
         }
 
-        public DataTable GetDetalleRutina()
+        public DataTable GetDetalleOrden()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", IDRutina, SqlDbType.NVarChar, 100);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetalleRutina", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", idorden, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetalleOrden", parameters);
             return dt;
         }
-
-        public void BorrarDetalle()
-        {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_rutina", IDRutina, SqlDbType.Int, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_BorrarDetalle", parameters);
-        }
-
-
 
 
     }

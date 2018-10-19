@@ -76,22 +76,58 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btnconsultarsucursales;
         
         /// <summary>
-        /// Control lblerrorsucursales.
+        /// Control lblerrorproveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerrorsucursales;
+        protected global::System.Web.UI.WebControls.Label lblerrorproveedor;
         
         /// <summary>
-        /// Control gridsucursales.
+        /// Control lblProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridsucursales;
+        protected global::System.Web.UI.WebControls.Label lblProveedor;
+        
+        /// <summary>
+        /// Control gridproveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridproveedor;
+        
+        /// <summary>
+        /// Control lblerrorgridprov.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblerrorgridprov;
+        
+        /// <summary>
+        /// Control LblOrden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblOrden;
+        
+        /// <summary>
+        /// Control gridorden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridorden;
         
         /// <summary>
         /// Control paneldetalle.

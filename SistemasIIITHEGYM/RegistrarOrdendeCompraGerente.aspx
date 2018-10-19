@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarOrdendeCompraGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarOrdendeCompraGerente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" EnableEventValidation="false"  AutoEventWireup="true" CodeBehind="RegistrarOrdendeCompraGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarOrdendeCompraGerente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -235,7 +235,7 @@
                 </div>
                     <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nro:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nro Orden:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                       <asp:Label ID="lblnroOrden" CssClass="text-muted" runat="server" Text="numeroFactura"></asp:Label>
@@ -317,7 +317,7 @@
                       CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" 
                       ForeColor="Black" GridLines="Horizontal" Height="188px" 
                       HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" 
-                      style="margin-left: 107px; margin-bottom: 9px; margin-right: 11px;" 
+                      style="margin-left: 17px; margin-bottom: 9px; margin-right: 11px;" 
                       Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled" OnSelectedIndexChanged="gridproductos_SelectedIndexChanged">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_producto" HeaderText="ID" />
@@ -339,6 +339,11 @@
                                               <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                               <SortedDescendingHeaderStyle BackColor="#242121" />
                                           </asp:GridView>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
                   
                 <!-- /.col -->
                 <div class="col-md-4">
@@ -381,6 +386,7 @@
                                         <asp:BoundField DataField="ID" HeaderText="ID" />
                                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                         <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+                                        <asp:BoundField DataField="Precio" HeaderText="Precio" />
                                         <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
                                         <ControlStyle Height="20px" Width="20px" />
                                         </asp:CommandField>
@@ -400,16 +406,16 @@
                         </tr>
                     </table>
                     <br />
-                    <asp:Button ID="btnregistrar0" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" />
-                    &nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
+                    <asp:Button ID="btnregistrar0" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" CausesValidation="False" />
+                    &nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
                     <asp:Label ID="lblerror2" runat="server" CssClass="error-text" Visible="False"></asp:Label>
                     <br />
-               
-
-
+                    <br />
                             </ContentTemplate>
                             </asp:UpdatePanel>
-
+                  <asp:Button ID="btnPDF" runat="server" 
+                        CssClass="btn btn-success"  Text="Generar PDF" CausesValidation="False" 
+                        Enabled="False" OnClick="btnPDF_Click" />
                      </div>
                 <!-- /.col -->
               </div>
