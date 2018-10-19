@@ -178,6 +178,7 @@
     <Content Include="ConsultarRutinaEntrenador.aspx" />
     <Content Include="ConsultarSucursal.aspx" />
     <Content Include="EmailClientesPlanes.aspx" />
+    <Content Include="GenerarPDFcomprobante.aspx" />
     <Content Include="GenerarReportesGerente.aspx" />
     <Content Include="IngresoEgreso.aspx" />
     <Content Include="IngresoEgresoEmpleado.aspx" />
@@ -367,6 +368,13 @@
     </Compile>
     <Compile Include="EmailClientesPlanes.aspx.designer.cs">
       <DependentUpon>EmailClientesPlanes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarPDFcomprobante.aspx.cs">
+      <DependentUpon>GenerarPDFcomprobante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerarPDFcomprobante.aspx.designer.cs">
+      <DependentUpon>GenerarPDFcomprobante.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenerarReportesGerente.aspx.cs">
       <DependentUpon>GenerarReportesGerente.aspx</DependentUpon>

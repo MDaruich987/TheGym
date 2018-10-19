@@ -274,6 +274,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btnañadir;
         
         /// <summary>
+        /// Control lblDetCompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDetCompra;
+        
+        /// <summary>
         /// Control griddetallefactura.
         /// </summary>
         /// <remarks>
@@ -283,13 +292,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView griddetallefactura;
         
         /// <summary>
-        /// Control btnregistrar.
+        /// Control btnregistrar0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnregistrar;
+        protected global::System.Web.UI.WebControls.Button btnregistrar0;
         
         /// <summary>
         /// Control btncancelar.
@@ -299,5 +308,14 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btncancelar;
+        
+        /// <summary>
+        /// Control lblerror2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblerror2;
     }
 }
