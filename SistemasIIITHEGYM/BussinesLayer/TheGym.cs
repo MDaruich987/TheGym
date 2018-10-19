@@ -255,6 +255,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string fkproducto;
         public string cantidadorden;
         public string precioorden;
+        //Variable para consultar orden
+        public string IdProducto;
 
 
 
@@ -1137,12 +1139,22 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public void AddDetOrden()
         {
-            SqlParameter[] parameters = new SqlParameter[];
+            SqlParameter[] parameters = new SqlParameter[4];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_orden", fkorden, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 10);
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 10);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", fkproducto, SqlDbType.Int, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", cantidadorden, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Precio", precioorden, SqlDbType.Money, 10);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetOrden", parameters);
         }
+
+        public DataTable GetoneProducto()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIDemp", parameters);
+            return dt;
+        }
+
+
     }
 }
