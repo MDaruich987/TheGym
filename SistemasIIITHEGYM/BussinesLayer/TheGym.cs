@@ -256,8 +256,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string fkproducto;
         public string cantidadorden;
         public string precioorden;
-        //Variable para consultar orden
-        public string IdProducto;
+        public string idorden;
+
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -716,8 +716,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public DataTable GetOrdenIDprov()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_proveedor", idproveedor, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOrdenProveedor", parameters);
             return dt;
         }
 
@@ -725,8 +725,8 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public DataTable GetoneProducto()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreActividadBuscar, SqlDbType.VarChar, 50);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetActividad", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id", IdProducto, SqlDbType.VarChar, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetOneProducto", parameters);
             return dt;
         }
         //para buscar el producto y añadirlo al carrito de la factura
@@ -1161,11 +1161,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetOrden", parameters);
         }
 
-        public DataTable GetoneProducto()
+        public DataTable GetDetalleOrden()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.Int, 10);
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetIDemp", parameters);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@ID", idorden, SqlDbType.Int, 10);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetalleOrden", parameters);
             return dt;
         }
 

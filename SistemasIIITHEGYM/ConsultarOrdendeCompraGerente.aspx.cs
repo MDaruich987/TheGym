@@ -127,5 +127,34 @@ namespace SistemasIIITHEGYM
                 lblerrorgridprov.Text = "Error General";
             }
         }
+
+        protected void gridorden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym()
+            {
+                idorden = gridorden.SelectedRow.Cells[0].Text
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetDetalleOrden();
+
+            if (dt.Rows.Count > 0)
+            {
+                paneldetalle.Visible = true;
+                paneldetalle.Focus();
+                lblerrorgridprov.Visible = false;
+                griddepositoproductos.Visible = true;
+                griddepositoproductos.DataSource = dt;
+                griddepositoproductos.DataBind();
+            }
+            else
+            {
+                griddepositoproductos.Visible = true;
+                griddepositoproductos.DataSource = dt;
+                griddepositoproductos.DataBind();
+                lblerrorgridprov.Text = "Sin detalle de Orden";
+                lblerrorgridprov.Visible = true;
+            }
+
+        }
     }
 }
