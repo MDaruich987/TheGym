@@ -215,6 +215,7 @@
     <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarMovimientoStock.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
+    <Content Include="RegistrarRutinaxEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
   </ItemGroup>
@@ -540,6 +541,13 @@
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.designer.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarRutinaxEntrenador.aspx.cs">
+      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarRutinaxEntrenador.aspx.designer.cs">
+      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarSucursalGerente.aspx.cs">
       <DependentUpon>RegistrarSucursalGerente.aspx</DependentUpon>
