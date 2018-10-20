@@ -41,7 +41,7 @@
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Nombre:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="128px" ReadOnly="True"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
                                     </ajaxToolkit:ValidatorCalloutExtender>
@@ -55,11 +55,7 @@
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                  Cliente:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:DropDownList ID="ddlcliente" runat="server" CssClass="form-control" Height="32px" Width="128px">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlcliente" Display="None" ErrorMessage="Seleccione un cliente" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
+                                    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Height="24px" ReadOnly="True" Width="128px"></asp:TextBox>
                                 </div>
                             </div>
                             <br />
@@ -93,11 +89,17 @@
                   <p class="text-center">
                     <strong></strong>
                   </p>
-                  <asp:GridView ID="gridejerciciosrutina" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="188px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="451px" AutoGenerateColumns="False" ViewStateMode="Enabled">
+                  <asp:GridView ID="gridejerciciosrutina" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_ejercicio" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="188px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="451px" AutoGenerateColumns="False" ViewStateMode="Enabled" OnRowDeleting="gridejerciciosrutina_RowDeleting">
                                               <Columns>
-                                                  <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
+                                                   <asp:BoundField DataField="Grupo_muscular" HeaderText="Grupo Muscular"/>
+                            <asp:BoundField DataField="Ejercicio" HeaderText="Ejercicio"/>
+                            <asp:BoundField DataField="Id_ejercicio" HeaderText="Id ejercio"/>
+                            <asp:BoundField DataField="Serie" HeaderText="Serie"/>
+                            <asp:BoundField DataField="Rep" HeaderText="Repeticion"/>
+                            <asp:BoundField DataField="Dia" HeaderText="Dia"/>
+                                              <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
+                                                  <ControlStyle Height="20px" Width="20px" />
+                                                  </asp:CommandField>   
                                               </Columns>
                                               <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                               <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -123,7 +125,7 @@
                                 <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Grupo Muscular:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
-                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged" >
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlgrupomuscular" Display="None" ErrorMessage="Seleccione un grupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
@@ -139,8 +141,6 @@
                                     <asp:DropDownList ID="ddlejercicio" runat="server" CssClass="form-control" Height="32px" Width="128px">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlejercicio" Display="None" ErrorMessage="Seleccione un ejercicio" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
                                 </div>
                             </div>
                     <br />
@@ -149,8 +149,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 115px">Nº de Series:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 162px">
-                      <asp:ListBox ID="lbseries" runat="server" Height="24px" Width="37px">
-                          <asp:ListItem>0</asp:ListItem>
+                      <asp:ListBox ID="lbseries" runat="server" Height="24px" Width="37px" Rows="1">
                           <asp:ListItem>1</asp:ListItem>
                           <asp:ListItem>2</asp:ListItem>
                           <asp:ListItem>3</asp:ListItem>
@@ -171,8 +170,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top:0px; width: 115px">Nº de Repeticiones:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 162px">
-                      <asp:ListBox ID="lbrrepeticiones" runat="server" Height="24px" Width="37px">
-                          <asp:ListItem>0</asp:ListItem>
+                      <asp:ListBox ID="lbrrepeticiones" runat="server" Height="24px" Width="37px" Rows="1">
                           <asp:ListItem>1</asp:ListItem>
                           <asp:ListItem>2</asp:ListItem>
                           <asp:ListItem>3</asp:ListItem>
@@ -188,8 +186,26 @@
                       </asp:ListBox>
                   </div>
                        <br />
+                       <div class="form-group">
+                           <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                           Día:</label>
+                           <div class="col-sm-10" style="left: 0px; top: 0px; width: 165px">
+                               <asp:DropDownList ID="lbdias" runat="server">
+                                   <asp:ListItem>Lunes</asp:ListItem>
+                                   <asp:ListItem>Martes</asp:ListItem>
+                                   <asp:ListItem>Miercoles</asp:ListItem>
+                                   <asp:ListItem>Jueves</asp:ListItem>
+                                   <asp:ListItem>Viernes</asp:ListItem>
+                                   <asp:ListItem>Sabado</asp:ListItem>
+                               </asp:DropDownList>
+                               <asp:RequiredFieldValidator ID="RequiredFieldValidator48" runat="server" ControlToValidate="lbdias" Display="None" ErrorMessage="Seleccione un día" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                               <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender48" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator48">
+                               </ajaxToolkit:ValidatorCalloutExtender>
+                           </div>
+                       </div>
                        <br />
-                       &nbsp;&nbsp;<asp:Button ID="btneditarejercicio" runat="server" CssClass="btn btn-success"  Text="Editar" CausesValidation="False" />
+                       <br />
+                       &nbsp;&nbsp;<asp:Button ID="btneditarejercicio" runat="server" CssClass="btn btn-success" Text="Editar" OnClick="btneditarejercicio_Click" />
                 <!-- /.col -->
               </div>
 
@@ -202,10 +218,11 @@
             </div>
             <!-- ./box-body -->
              <div class="box-footer">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btneditarRutina" runat="server" CssClass="btn btn-info" Text="Editar" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btneditarRutina" runat="server" CssClass="btn btn-info" Text="Editar" OnClick="btneditarRutina_Click1" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
+                    <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
                 </div>
             <!-- /.box-footer -->
           </div>
@@ -238,7 +255,7 @@
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
                                             <td class="modal-sm" style="width:408px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" />
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultar_Click" />
                                             </td>
                                             <td>&nbsp;</td>
                                         </tr>
@@ -266,8 +283,13 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridfichaderutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfichaderutina_SelectedIndexChanged">
+                                          <asp:GridView ID="gridfichaderutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfichaderutina_SelectedIndexChanged" OnRowDeleting="gridfichaderutina_RowDeleting1">
                                               <Columns>
+                                                  <asp:BoundField DataField="id" HeaderText="ID Rutina" />
+                                                  <asp:BoundField DataField="cli" HeaderText="Cliente" />
+                                                  <asp:BoundField DataField="nom" HeaderText="Nombre Rutina" />
+                                                  <asp:BoundField DataField="emp" HeaderText="Nombre Empleado" />
+                                                  <asp:BoundField DataField="fecha" HeaderText="Fecha Rutina" />
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>
