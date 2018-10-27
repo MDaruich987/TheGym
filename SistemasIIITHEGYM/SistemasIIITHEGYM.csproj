@@ -210,11 +210,13 @@
     <Content Include="RegistrarEmpleadoGerente.aspx" />
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
+    <Content Include="RegistrarOrdenCompraGerente.aspx" />
     <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarMovimientoStock.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
+    <Content Include="RegistrarRutinaxEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
   </ItemGroup>
@@ -499,6 +501,13 @@
     <Compile Include="RegistrarHorariodeInstructor.aspx.designer.cs">
       <DependentUpon>RegistrarHorariodeInstructor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarOrdenCompraGerente.aspx.cs">
+      <DependentUpon>RegistrarOrdenCompraGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarOrdenCompraGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarOrdenCompraGerente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarOrdendeCompraGerente.aspx.cs">
       <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -540,6 +549,13 @@
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.designer.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarRutinaxEntrenador.aspx.cs">
+      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarRutinaxEntrenador.aspx.designer.cs">
+      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarSucursalGerente.aspx.cs">
       <DependentUpon>RegistrarSucursalGerente.aspx</DependentUpon>
