@@ -40,40 +40,40 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbnombreempleado.
+        /// Control tbnombrecliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbnombreempleado;
+        protected global::System.Web.UI.WebControls.TextBox tbnombrecliente;
         
         /// <summary>
-        /// Control btnconsultarempleado.
+        /// Control btnconsultarclientemodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnconsultarempleado;
+        protected global::System.Web.UI.WebControls.Button btnconsultarclientemodal;
         
         /// <summary>
-        /// Control lblerrorbuscarempleadomodal.
+        /// Control lblerrorconsultarclientemodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerrorbuscarempleadomodal;
+        protected global::System.Web.UI.WebControls.Label lblerrorconsultarclientemodal;
         
         /// <summary>
-        /// Control gvempleadosmodal.
+        /// Control gvproveedoresmodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvempleadosmodal;
+        protected global::System.Web.UI.WebControls.GridView gvproveedoresmodal;
         
         /// <summary>
         /// Control upproductos.

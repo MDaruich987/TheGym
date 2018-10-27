@@ -65,7 +65,7 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-    <div class="modal fade" id="modal-proveedor">
+     <div class="modal fade" id="modal-cliente">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -74,22 +74,22 @@
               <!-- /.row -->
             </div>--%>
                   <%--<span aria-hidden="true">&times;</span></button>--%>
-                <h4 class="modal-title">Seleccione un Empleado:</h4>
+                <h4 class="modal-title">Seleccione un cliente:</h4>
               </div>
               <div class="modal-body">
                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
-                             <asp:TextBox ID="tbnombreempleado" runat="server" Height="21px" Width="371px"></asp:TextBox>
+                             <asp:TextBox ID="tbnombrecliente" runat="server" Height="21px" Width="371px"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="btnconsultarempleado" runat="server" CssClass="btn btn-info" Text="Consultar" CausesValidation="False" />
+                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarproveedorgrid_Click" CausesValidation="False" />
                                        <br />
-                                       <asp:Label ID="lblerrorbuscarempleadomodal" runat="server" CssClass="error-text"></asp:Label>
+                                       <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvempleadosmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
+                                       <asp:GridView ID="gvproveedoresmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
                                            <Columns>
                                                <%--<asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
