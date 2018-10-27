@@ -64,8 +64,8 @@ namespace SistemasIIITHEGYM
                 TextBox1.Enabled = true;
                 TextBox2.Enabled = false;
                 tbprecio.Enabled = true;
-                tbstock.Enabled = true;
-                tbstockminimo.Enabled = true;
+                tbprecio0.Enabled = true;
+               
 
                 btneditar.Text = "Guardar";
                 btneditar.CausesValidation = true;
