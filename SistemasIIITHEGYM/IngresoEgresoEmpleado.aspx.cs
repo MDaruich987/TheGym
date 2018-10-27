@@ -58,14 +58,21 @@ namespace SistemasIIITHEGYM
             DataTable dtE = new DataTable();
             dtE= k.GetEgresoEmpleado();
 
-            if(dtI.Rows.Count>= 1)
+      
+            
+
+
+            if (dtI.Rows.Count>= 1)
             {
                 if (dtE.Rows.Count == 0)
-                {   
+                {
                     //Hubo un ingreso en el dia.se registra como egreso
+                    TheGym h = new TheGym();
+                    DataTable dth = new DataTable();
+                    dth = h.GetHoraDia();
+                    estado = dth.Rows[0][0].ToString();
                     Button1.Text = "Registrar Egreso";
                     Button1.Visible = true;
-                    estado = "Egreso";
                     lblerror.Text = "";
                 
                 }
@@ -79,10 +86,16 @@ namespace SistemasIIITHEGYM
             }
             else
             {
+
+
+
                 //No hubo un ingreso en el dia.se registra como ingreso
+                TheGym hi = new TheGym();
+                DataTable dthi = new DataTable();
+                dthi = hi.GetHoraDiaIngreso();
+                estado = dthi.Rows[0][0].ToString();
                 Button1.Text = "Registrar Ingreso";
                 Button1.Visible = true;
-                estado = "Ingreso";
                 lblerror.Text = "";
             }
 

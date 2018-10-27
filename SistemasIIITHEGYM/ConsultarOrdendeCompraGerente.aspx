@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-<asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
+    <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -99,7 +99,7 @@
                                       <asp:Label ID="LblOrden" runat="server" CssClass="h3" Text="Ficha de Orden" Visible="False"></asp:Label>
                                       <br />
                                       <br />
-                                      <asp:GridView ID="gridorden" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False">
+                                      <asp:GridView ID="gridorden" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False" OnSelectedIndexChanged="gridorden_SelectedIndexChanged">
                                           <Columns>
                                               <asp:BoundField DataField="Id_orden" HeaderText="ID" ItemStyle-Width="150px" />
                                               <asp:BoundField DataField="Fecha" HeaderText="Fecha" ItemStyle-Width="150px" />
@@ -144,11 +144,12 @@
                                 <div class="box-body">
                                     
                                     
-                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                         <Columns>
-                                            <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
-                                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad Pedida" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="Cantidad_Entregada" HeaderText="Cantidad Entregada" ItemStyle-Width="150px" />
                                         </Columns>
                                         <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

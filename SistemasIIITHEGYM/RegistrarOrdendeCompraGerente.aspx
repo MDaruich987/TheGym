@@ -317,7 +317,7 @@
                       CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" 
                       ForeColor="Black" GridLines="Horizontal" Height="188px" 
                       HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" 
-                      style="margin-left: 107px; margin-bottom: 9px; margin-right: 11px;" 
+                      style="margin-left: 17px; margin-bottom: 9px; margin-right: 11px;" 
                       Width="420px" AutoGenerateColumns="False" ViewStateMode="Enabled" OnSelectedIndexChanged="gridproductos_SelectedIndexChanged">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_producto" HeaderText="ID" />
@@ -339,6 +339,11 @@
                                               <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                               <SortedDescendingHeaderStyle BackColor="#242121" />
                                           </asp:GridView>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
                   
                 <!-- /.col -->
                 <div class="col-md-4">
@@ -405,12 +410,12 @@
                     &nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
                     <asp:Label ID="lblerror2" runat="server" CssClass="error-text" Visible="False"></asp:Label>
                     <br />
-               
-
-
+                    <br />
                             </ContentTemplate>
                             </asp:UpdatePanel>
-
+                  <asp:Button ID="btnPDF" runat="server" 
+                        CssClass="btn btn-success"  Text="Generar PDF" CausesValidation="False" 
+                        Enabled="False" OnClick="btnPDF_Click" />
                      </div>
                 <!-- /.col -->
               </div>

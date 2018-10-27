@@ -69,6 +69,8 @@
                                 Nombre de rutina:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                                     <asp:TextBox ID="tbnombre" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
+                                    <asp:Button ID="Button2" runat="server" CausesValidation="False" OnClick="Button2_Click" Text="Verificar" />
+                                    <asp:Label ID="Verificar" runat="server"></asp:Label>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
                                     </ajaxToolkit:ValidatorCalloutExtender>
@@ -94,6 +96,9 @@
                                     <asp:Label ID="Label2" runat="server" Text="Empleado:"></asp:Label>
                                     <asp:DropDownList ID="ddlprofesores" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlprofesores_SelectedIndexChanged" Width="169px">
                                     </asp:DropDownList>
+                                    <br />
+                                    <asp:Label ID="Label4" runat="server" Text="Dia"></asp:Label>
+                                    <asp:TextBox ID="Dia" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
                             <br />
@@ -143,7 +148,7 @@
                 <div class="col-md-8" style="left: 0px; top: 0px; height: 58px">
                   <p class="text-center">
                     <strong></strong>
-                      <asp:GridView ID="gridejerciciosrutina" runat="server" Height="16px" Width="344px" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black"  >
+                      <asp:GridView ID="gridejerciciosrutina" runat="server" Height="16px" Width="344px" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black"   >
                            <Columns>
                             <asp:BoundField DataField="Grupo_muscular" HeaderText="Grupo Muscular"/>
                             <asp:BoundField DataField="Ejercicio" HeaderText="Ejercicio"/>
@@ -151,16 +156,18 @@
                             <asp:BoundField DataField="Serie" HeaderText="Serie"/>
                             <asp:BoundField DataField="Rep" HeaderText="Repeticion"/>
                             <asp:BoundField DataField="Dia" HeaderText="Dia"/>
+
                         </Columns>
-                           <FooterStyle BackColor="#CCCCCC" />
-                           <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                           <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                           <RowStyle BackColor="White" />
-                           <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                           <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                           <SortedAscendingHeaderStyle BackColor="#808080" />
-                           <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                           <SortedDescendingHeaderStyle BackColor="#383838" />
+                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                              <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                              <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                              <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                              <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                              <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                              <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                              <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                              <SortedDescendingHeaderStyle BackColor="#242121" />
                       </asp:GridView>
                   </p>
                   
@@ -173,7 +180,7 @@
                   </p>
                     <br />
                     <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px; height: 40px;">
                                 Grupo Muscular:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
                                     <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged1">
@@ -203,8 +210,7 @@
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 162px">
                       &nbsp;&nbsp;
-                      <asp:ListBox ID="lbseries" runat="server" Height="24px" Width="37px">
-                          <asp:ListItem>0</asp:ListItem>
+                      <asp:ListBox ID="lbseries" runat="server" Height="24px" Width="37px" Rows="1">
                           <asp:ListItem>1</asp:ListItem>
                           <asp:ListItem>2</asp:ListItem>
                           <asp:ListItem>3</asp:ListItem>
@@ -225,8 +231,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 115px">Nº de Repeticiones:</label>
 
                   <div class="col-sm-10" style="left: 7px; top: 0px; width: 155px; height: 42px;">
-                      <asp:ListBox ID="lbrrepeticiones" runat="server" Height="24px" Width="37px">
-                          <asp:ListItem>0</asp:ListItem>
+                      <asp:ListBox ID="lbrrepeticiones" runat="server" Height="24px" Width="37px" Rows="1">
                           <asp:ListItem>1</asp:ListItem>
                           <asp:ListItem>2</asp:ListItem>
                           <asp:ListItem>3</asp:ListItem>
@@ -278,7 +283,7 @@
                        </div>--%>
                        <br />
                        <br />
-                       &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" CausesValidation="False" />
+                       &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" />
                 <!-- /.col -->
               </div>
 
