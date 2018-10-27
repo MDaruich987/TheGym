@@ -22,6 +22,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblusuario;
         
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control panelconsulta.
         /// </summary>
         /// <remarks>
@@ -31,31 +40,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbnombre.
+        /// Control tbnombreproveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbnombre;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator1_ValidatorCalloutExtender.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator1_ValidatorCalloutExtender;
+        protected global::System.Web.UI.WebControls.TextBox tbnombreproveedor;
         
         /// <summary>
         /// Control btnconsultarproveedorgrid.
@@ -76,13 +67,22 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblerrorbuscarmodalproveedor;
         
         /// <summary>
-        /// Control gvproveedores.
+        /// Control gvproveedoresmodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvproveedores;
+        protected global::System.Web.UI.WebControls.GridView gvproveedoresmodal;
+        
+        /// <summary>
+        /// Control upproductos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upproductos;
         
         /// <summary>
         /// Control panelmodalproductos.
@@ -103,24 +103,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbnombreproductos;
         
         /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// Control ValidatorCalloutExtender1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
-        
-        /// <summary>
         /// Control botonconsultarproductos.
         /// </summary>
         /// <remarks>
@@ -130,13 +112,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button botonconsultarproductos;
         
         /// <summary>
-        /// Control lblerrorproductos.
+        /// Control lblerrorproductosmodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerrorproductos;
+        protected global::System.Web.UI.WebControls.Label lblerrorproductosmodal;
         
         /// <summary>
         /// Control gvproductos.

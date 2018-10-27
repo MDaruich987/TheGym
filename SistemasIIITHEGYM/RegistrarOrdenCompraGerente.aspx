@@ -77,29 +77,27 @@
                 <h4 class="modal-title">Seleccione un proveedor:</h4>
               </div>
               <div class="modal-body">
+                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                      <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
-                             <asp:TextBox ID="tbnombre" runat="server" Height="21px" Width="371px"></asp:TextBox>
-                              <br />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Indique un producto" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
+                             <asp:TextBox ID="tbnombreproveedor" runat="server" Height="21px" Width="371px"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="btnconsultarproveedorgrid" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarproveedorgrid_Click" />
+                                       <asp:Button ID="btnconsultarproveedorgrid" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarproveedorgrid_Click" CausesValidation="False" />
                                        <br />
                                        <asp:Label ID="lblerrorbuscarmodalproveedor" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvproveedores" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
+                                       <asp:GridView ID="gvproveedoresmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
                                            <Columns>
-                                               <asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
+                                               <%--<asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                                <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                                                <asp:BoundField DataField="NomContacto" HeaderText="Representante" />
                                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                <ControlStyle Height="20px" Width="20px" />
-                                               </asp:CommandField>
+                                               </asp:CommandField>--%>
                                            </Columns>
                                            <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -116,6 +114,8 @@
                                    </caption>
                                     </table>
                           </asp:Panel>
+                     </ContentTemplate>
+                  </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
                 <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -136,18 +136,17 @@
                 <h4 class="modal-title">Seleccione un producto</h4>
               </div>
               <div class="modal-body">
+                  <asp:UpdatePanel ID="upproductos" runat="server">
+                      <ContentTemplate>
                           <asp:Panel ID="panelmodalproductos" runat="server">
                              <asp:TextBox ID="tbnombreproductos" runat="server" Height="21px" Width="371px"></asp:TextBox>
-                              <br />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbnombreproductos" Display="None" ErrorMessage="Indique un producto" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
+                              <br />                                   
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="botonconsultarproductos" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="botonconsultarproductos_Click" />
+                                       <asp:Button ID="botonconsultarproductos" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="botonconsultarproductos_Click" CausesValidation="False" />
                                        <br />
-                                       <asp:Label ID="lblerrorproductos" runat="server" CssClass="error-text"></asp:Label>
+                                       <asp:Label ID="lblerrorproductosmodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modalpara los productos--%>
                                        <asp:GridView ID="gvproductos" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
@@ -183,6 +182,8 @@
                               <asp:Button ID="btnañadirproductomodal" runat="server"  CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" Enabled="False" OnClick="btnañadirproductomodal_Click" />
                               
                           </asp:Panel>
+                    </ContentTemplate>
+                  </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
                   <%--<div class="box-footer">

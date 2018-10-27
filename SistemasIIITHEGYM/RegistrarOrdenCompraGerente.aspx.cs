@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasIIITHEGYM.BussinesLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -37,6 +38,14 @@ namespace SistemasIIITHEGYM
         protected void botonconsultarproductos_Click(object sender, EventArgs e)
         {
             //este es el boton consultar del modal de productos
+            if (tbnombreproductos.Text == "")
+            {
+
+            }
+            else
+            {
+                lblerrorproductosmodal.Text = "Ingrese un producto";
+            }
         }
 
         protected void btnañadirproductomodal_Click(object sender, EventArgs e)
@@ -47,6 +56,47 @@ namespace SistemasIIITHEGYM
         protected void btnconsultarproveedorgrid_Click(object sender, EventArgs e)
         {
             //este es el boton consultar proveedor del modal de proveedores
+            try
+            {
+                if (tbnombreproveedor.Text != string.Empty)
+                {
+                    TheGym k2 = new TheGym
+                    {
+                        NombreProveedorBusc = tbnombreproveedor.Text
+                    };
+                    DataTable dt2 = new DataTable();
+                    dt2 = k2.GetProveedorNom();
+                    if (dt2.Rows.Count > 0)
+                    {
+                        lblerrorbuscarmodalproveedor.Text = string.Empty;
+                        lblerrorbuscarmodalproveedor.Visible = false;
+                        gvproveedoresmodal.DataSource = dt2;
+                        gvproveedoresmodal.DataBind();
+                        gvproveedoresmodal.Visible = true;
+                        lblerrorbuscarmodalproveedor.Visible = true;
+                    }
+                    else
+                    {
+                        DataTable dt1 = new DataTable();
+                        gvproveedoresmodal.DataSource = dt1;
+                        gvproveedoresmodal.DataBind();
+                        gvproveedoresmodal.Visible = false;
+                        lblerrorbuscarmodalproveedor.Text = "No se encontro proveedor";
+                        lblerrorbuscarmodalproveedor.Visible = true;
+                    }
+                }
+                else
+                {
+                    lblerrorbuscarmodalproveedor.Text = "Ingrese un valor";
+                    lblerrorbuscarmodalproveedor.Visible = true;
+                }
+
+            }
+            catch
+            {
+                lblerrorbuscarmodalproveedor.Text = "Error general";
+                lblerrorbuscarmodalproveedor.Visible = true;
+            }
         }
 
         protected void gvproveedores_SelectedIndexChanged(object sender, EventArgs e)
