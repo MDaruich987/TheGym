@@ -301,8 +301,11 @@ namespace SistemasIIITHEGYM
 
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
-                    panelseleccionarproveedor.Visible = true;
-                    panelregistrarorden.Visible = false;
+                    btnPDF.Visible = true;
+                    btnPDF.Enabled = true;
+
+                    //panelseleccionarproveedor.Visible = true;
+                    //panelregistrarorden.Visible = false;
                     DataTable dtaux = new DataTable();
                     gridcliente.DataSource = dtaux;
                     gridcliente.DataBind();
@@ -373,6 +376,7 @@ namespace SistemasIIITHEGYM
             double precio;
             bool bandera = true;
 
+            
             id = Convert.ToInt32(gridproductos.SelectedRow.Cells[0].Text);
 
             for (int i = 0; i < griddetallefactura.Rows.Count; i++)
@@ -733,7 +737,7 @@ namespace SistemasIIITHEGYM
             HttpContext.Current.Response.OutputStream.Write(PDFData.GetBuffer(), 0, PDFData.GetBuffer().Length);
             HttpContext.Current.Response.OutputStream.Flush();
             HttpContext.Current.Response.OutputStream.Close();
-            HttpContext.Current.Response.End();
+            //HttpContext.Current.Response.End();
         }
         #endregion
 
@@ -783,18 +787,21 @@ namespace SistemasIIITHEGYM
                 }
                 else
                 {
-                    lblerror.Text = "No se encontraron filas";
+                        lblerror2.Visible = true;
+                    lblerror2.Text = "No se encontraron filas";
                 }
             }
             else
             {
-                lblerror.Text = "Error al recuperar Orden";
+                    lblerror2.Visible = true;
+                    lblerror2.Text = "Error al recuperar Orden";
             }
 
             }
             catch(Exception ex)
             {
-                lblerror.Text = ex.Message.ToString();
+                lblerror2.Visible = true;
+                lblerror2.Text = ex.Message.ToString();
             }
 
         }
