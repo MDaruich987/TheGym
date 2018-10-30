@@ -10,7 +10,7 @@
 namespace SistemasIIITHEGYM {
     
     
-    public partial class RegistrarOrdenCompraGerente {
+    public partial class RegistrarFacturadeVentaEmpleado {
         
         /// <summary>
         /// Control lblusuario.
@@ -40,31 +40,31 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbnombreproveedor.
+        /// Control tbnombrecliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbnombreproveedor;
+        protected global::System.Web.UI.WebControls.TextBox tbnombrecliente;
         
         /// <summary>
-        /// Control btnconsultarproveedorgrid.
+        /// Control btnconsultarclientemodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnconsultarproveedorgrid;
+        protected global::System.Web.UI.WebControls.Button btnconsultarclientemodal;
         
         /// <summary>
-        /// Control lblerrorbuscarmodalproveedor.
+        /// Control lblerrorconsultarclientemodal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerrorbuscarmodalproveedor;
+        protected global::System.Web.UI.WebControls.Label lblerrorconsultarclientemodal;
         
         /// <summary>
         /// Control gvproveedoresmodal.
@@ -211,13 +211,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblerror;
         
         /// <summary>
-        /// Control updetalleorden.
+        /// Control updetallefactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updetalleorden;
+        protected global::System.Web.UI.UpdatePanel updetallefactura;
         
         /// <summary>
         /// Control btnañadirproducto.

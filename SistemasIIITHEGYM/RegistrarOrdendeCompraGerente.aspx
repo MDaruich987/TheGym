@@ -409,13 +409,12 @@
                     <asp:Button ID="btnregistrar0" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" CausesValidation="False" />
                     &nbsp;<asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
                     <asp:Label ID="lblerror2" runat="server" CssClass="error-text" Visible="False"></asp:Label>
+                    
                     <br />
                     <br />
                             </ContentTemplate>
                             </asp:UpdatePanel>
-                  <asp:Button ID="btnPDF" runat="server" 
-                        CssClass="btn btn-success"  Text="Generar PDF" CausesValidation="False" 
-                        Enabled="False" OnClick="btnPDF_Click" />
+                  
                      </div>
                 <!-- /.col -->
               </div>
@@ -434,7 +433,7 @@
       <!-- /.row -->
 
 
-
+                <asp:Button ID="btnPDF" runat="server" CausesValidation="False" CssClass="btn btn-success" Enabled="False" OnClick="btnPDF_Click" Text="Generar PDF" Visible="False" />
             </asp:Panel>
 
 

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="RegistrarOrdenCompraGerente.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarOrdenCompraGerente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestraEmpleado.Master" AutoEventWireup="true" CodeBehind="RegistrarFacturadeVentaEmpleado.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarFacturadeVentaEmpleado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--gridmodal--%>
+     <%--gridmodal--%>
              <div class="modal fade" id="modal-aperturacaja">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -35,7 +35,7 @@
     }
     </script>
 <section class="content-header">
-      <h1>Registrar Orden de Compra<small>TheGym</small> </h1>
+      <h1>Registrar Factura de Venta<small>TheGym</small> </h1>
        <br />
 </section>
      <div class="modal fade" id="modal-compraregistrada">
@@ -47,7 +47,7 @@
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
-                <p>¡Orden de Compra registrada exitosamente!&hellip;</p>
+                <p>¡Factura de Venta registrada exitosamente!&hellip;</p>
               </div>
               <div class="modal-footer">
                   <%--<div class="box-footer">
@@ -65,7 +65,7 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-    <div class="modal fade" id="modal-proveedor">
+     <div class="modal fade" id="modal-cliente">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -74,19 +74,19 @@
               <!-- /.row -->
             </div>--%>
                   <%--<span aria-hidden="true">&times;</span></button>--%>
-                <h4 class="modal-title">Seleccione un proveedor:</h4>
+                <h4 class="modal-title">Seleccione un cliente:</h4>
               </div>
               <div class="modal-body">
                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
-                             <asp:TextBox ID="tbnombreproveedor" runat="server" Height="21px" Width="371px"></asp:TextBox>
+                             <asp:TextBox ID="tbnombrecliente" runat="server" Height="21px" Width="371px"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="btnconsultarproveedorgrid" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarproveedorgrid_Click" CausesValidation="False" />
+                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarproveedorgrid_Click" CausesValidation="False" />
                                        <br />
-                                       <asp:Label ID="lblerrorbuscarmodalproveedor" runat="server" CssClass="error-text"></asp:Label>
+                                       <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
                                        <asp:GridView ID="gvproveedoresmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
@@ -204,7 +204,7 @@
 <%--inicio boxs--%>
     <div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">Datos de la Orden de Compra </h3>
+            <h3 class="box-title">Datos de la Factura de Venta </h3>
             <div class="box-tools pull-right">
 <%--                boton minimizar y cerrar--%>
 <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -224,7 +224,7 @@
                 </div>
                     <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">Proveedor:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">Cliente:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                         <asp:TextBox ID="tbproveedor" runat="server" Height="22px" Width="158px" Enabled="False" OnTextChanged="tbproveedor_TextChanged">Seleccione un proveedor</asp:TextBox>
@@ -249,7 +249,7 @@
                 </div>
                     <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nro Orden:</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nro Factura:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                       <asp:Label ID="lblnroOrden" CssClass="text-muted" runat="server" Text="numeroFactura"></asp:Label>
@@ -282,13 +282,13 @@
     </div>
 
                       <%--panel detalle de orden--%>
-    <asp:UpdatePanel ID="updetalleorden" runat="server">
+    <asp:UpdatePanel ID="updetallefactura" runat="server">
         <ContentTemplate>
             <div class="row">
                           <div class="col-md-12">
                               <div class="box">
                                   <div class="box-header with-border" style="left: 0px; top: 0px; width: 898px;">
-                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Detalle de Orden de Compra</h3>
+                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Detalle de Factura</h3>
                                   </div>
                                   <div class="box-body">
               <!-- Date -->
