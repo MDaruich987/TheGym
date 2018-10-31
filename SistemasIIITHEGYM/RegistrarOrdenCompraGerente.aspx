@@ -31,8 +31,11 @@
 
  function show()
     {
-        document.write("<head runat='server'></head>");
-    }
+     document.write("<head runat='server'></head>");
+ }
+ function Forzar() {
+     __doPostBack('', '');
+ }
     </script>
 <section class="content-header">
       <h1>Registrar Orden de Compra<small>TheGym</small> </h1>
@@ -89,19 +92,19 @@
                                        <asp:Label ID="lblerrorbuscarmodalproveedor" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvproveedoresmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
+                                       <asp:GridView ID="gvproveedoresmodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" OnSelectedIndexChanged="gvproveedores_SelectedIndexChanged">
                                            <Columns>
-                                               <%--<asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
+                                               <asp:BoundField DataField="Id_proveedor" HeaderText="ID" />
                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                                               <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
-                                               <asp:BoundField DataField="NomContacto" HeaderText="Representante" />
+                                               <%--<asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                                               <asp:BoundField DataField="NomContacto" HeaderText="Representante" />--%>
                                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                <ControlStyle Height="20px" Width="20px" />
-                                               </asp:CommandField>--%>
+                                               </asp:CommandField>
                                            </Columns>
                                            <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="20px" />
                                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
                                            <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
                                            <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />

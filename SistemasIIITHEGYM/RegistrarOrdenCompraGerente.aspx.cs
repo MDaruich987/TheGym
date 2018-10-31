@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,12 +12,22 @@ namespace SistemasIIITHEGYM
 {
     public partial class RegistrarOrdenCompraGerente : System.Web.UI.Page
     {
+        static string id;
+        static string nom;
+        static bool flag = false;
+
         //para saber si se ha asignado el nombre del proveedor al label
        // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
+
+            if (flag == true)
+            {
+                tbproveedor.Text = nom;
+            }
+
         }
 
         protected void btnselecproveedor_Click(object sender, EventArgs e)
@@ -101,7 +112,17 @@ namespace SistemasIIITHEGYM
 
         protected void gvproveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //este es el grid de proveedores del modal
+            nom= gvproveedoresmodal.SelectedRow.Cells[1].Text;
+            tbproveedor.Text = gvproveedoresmodal.SelectedRow.Cells[1].Text;
+            id = gvproveedoresmodal.SelectedRow.Cells[0].Text;
+           
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-proveedor').modal('hide');", true);
+            flag = true;
+            tbproveedor.Text = nom;
+            //Page_Load(sender,e);
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "jsKeys", "javascript:Forzar();", true);
+
         }
 
         protected void griddetallefactura_RowDeleting(object sender, GridViewDeleteEventArgs e)
