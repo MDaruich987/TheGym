@@ -206,8 +206,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="RegistrarCobroPlanEmpleado.aspx" />
+    <Content Include="RegistrarCronogramaSemanalEmpleado.aspx" />
     <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
+    <Content Include="RegistrarFacturadeVentaEmpleado.aspx" />
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
     <Content Include="RegistrarOrdenCompraGerente.aspx" />
@@ -473,6 +475,13 @@
     <Compile Include="RegistrarCobroPlanEmpleado.aspx.designer.cs">
       <DependentUpon>RegistrarCobroPlanEmpleado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarCronogramaSemanalEmpleado.aspx.cs">
+      <DependentUpon>RegistrarCronogramaSemanalEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCronogramaSemanalEmpleado.aspx.designer.cs">
+      <DependentUpon>RegistrarCronogramaSemanalEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarEjercicioEntrenador.aspx.cs">
       <DependentUpon>RegistrarEjercicioEntrenador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -486,6 +495,13 @@
     </Compile>
     <Compile Include="RegistrarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>RegistrarEmpleadoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarFacturadeVentaEmpleado.aspx.cs">
+      <DependentUpon>RegistrarFacturadeVentaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarFacturadeVentaEmpleado.aspx.designer.cs">
+      <DependentUpon>RegistrarFacturadeVentaEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarFacturaEmpleado.aspx.cs">
       <DependentUpon>RegistrarFacturaEmpleado.aspx</DependentUpon>

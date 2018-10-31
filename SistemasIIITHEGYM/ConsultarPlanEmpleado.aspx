@@ -6,6 +6,10 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                    <section class="content-header">
+                    <h1>Consultar Plan <small>TheGym</small> </h1>
+                </section>
+
     <link href="EstilosCSS.css" rel="stylesheet" />
     <script type ="text/javascript">
        
@@ -20,10 +24,6 @@
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>
             <asp:Panel ID="paneledicion" runat="server">
-                <section class="content-header">
-                    <h1>Registrar Plan <small>TheGym</small> </h1>
-                </section>
-
                <%--inicio main--%>
             <!-- Main content -->
                 <section class="content">
