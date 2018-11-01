@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/MasterPageEntrenador.Master" AutoEventWireup="true" CodeBehind="RegistrarRutinaEntrenador.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarRutinaEntrenador" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/MasterPageEntrenador.Master" AutoEventWireup="true" CodeBehind="RegistrarRutinaEntrenador.aspx.cs" Inherits="SistemasIIITHEGYM.RegistrarRutinaxEntrenador" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>
@@ -6,12 +6,13 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <%--modal para el registro exitoso--%>
+    <link href="EstilosCSS.css" rel="stylesheet" />
+    <%-- inicio contenedor busqueda--%>
              <div class="modal fade" id="modal-default">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                  <%--fin de contenedor busqueda inicio contenedor gridview--%>
                   <%--<span aria-hidden="true">&times;</span></button>--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
@@ -28,119 +29,98 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
-
-                         <section class="content-header" style="left: 0px; top: 0px; height: 26px">
-      <h1>
-          Registrar Rutina
-        <small>TheGym</small>
-      </h1>
-    </section>
-               <script type="text/javascript">
-
+    <script type ="text/javascript">
        
-        function show()
-          {
-             document.write("<head runat='server'></head>");
-                  }
-
+ function show()
+    {
+        document.write("<head runat='server'></head>");
+    }
     </script>
+<section class="content-header" style="left: 0px; top: 0px; height: 26px">
+        <h1>Registrar Rutina a un Cliente <small>TheGym</small> </h1>
+</section>
     <br />
-    <br />
-    <asp:UpdatePanel ID="updatepanelgeneral" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-        <!-- SELECT2 EXAMPLE -->
-
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Datos de Rutina </h3>
-                    <div class="box-tools pull-right">
+    <%--inicio panel de edicion--%>
+<asp:Panel ID="paneledicion" runat="server" Height="1859px">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Datos de rutina </h3>
+            <div class="box-tools pull-right">
 <%--                boton minimizar y cerrar--%>
 <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
-                    </div>
-                </div>
+            </div>
+        </div>
         <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                Nombre de rutina:</label>
-                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:TextBox ID="tbnombre" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
-                                    <asp:Button ID="Button2" runat="server" CausesValidation="False" OnClick="Button2_Click" Text="Verificar" />
-                                    <asp:Label ID="Verificar" runat="server"></asp:Label>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
-                                </div>
-                            </div>
-                            <br />
-                        </div>
-            <!-- columna2 inicio/.col -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                 Cliente:</label>
-                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                    <asp:TextBox ID="tbdnicliente" runat="server"></asp:TextBox>
-                                    <asp:Button ID="Button1" runat="server" Text="Verificar" CausesValidation="False" OnClick="Button1_Click1" />
-                                    <br />
-                                    <asp:Label ID="Label1" runat="server"></asp:Label>
-                                    <br />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbdnicliente" Display="None" ErrorMessage="Seleccione un cliente" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
-                                    <br />
-                                    <asp:Label ID="Label2" runat="server" Text="Empleado:"></asp:Label>
-                                    <asp:DropDownList ID="ddlprofesores" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlprofesores_SelectedIndexChanged" Width="169px">
-                                    </asp:DropDownList>
-                                    <br />
-                                    <asp:Label ID="Label4" runat="server" Text="Dia"></asp:Label>
-                                    <asp:TextBox ID="Dia" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
-                                </div>
-                            </div>
-                            <br />
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nombre:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:TextBox  CssClass="form-control" ID="tbnombrerutina"  runat="server" Height="24px" Width="156px"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbnombrerutina" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator2">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+                  </div>
+                </div>
+                    <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Entrenador:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 256px; height: 62px;">
+                      <asp:Label ID="lblentrenador" CssClass="text-muted" runat="server" Text="ENTRENADOR"></asp:Label>
+                      <br />
+                      <asp:Label ID="lblentrenadordni" runat="server" CssClass="text-muted" Text="ID"></asp:Label>
+                      <br />
+                      <asp:Label ID="lblemail" runat="server" CssClass="text-muted" Text="EMAIL"></asp:Label>
+                  </div>
+                </div>
+                    <br />
               <!-- /.form-group -->
-                            <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
-                        </div>
-            <!-- /.col -->
-                    </div>
-          <!-- /.row -->
-                </div>
-        <!-- /.box-body -->
-                <%--pie con botones registrar--%>
-                <%--<div class="box-footer">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnregistrar" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
-                </div>--%>
             </div>
-    <!-- /.box -->
+            <!-- columna2 inicio/.col -->
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 68px">Cliente:</label>
 
-            <%--segunda caja inicio--%>
-            <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Ejercicios de la rutina</h3>
-
-              <%--<div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-wrench"></i></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 255px; height: 64px;">
+                      <asp:Label ID="lblnombre" CssClass="text-muted" runat="server" Text="NOMBREcliente"></asp:Label>
+                      <br />
+                      <asp:Label ID="lblapellido" runat="server" CssClass="text-muted" Text="APELLIDOcliente"></asp:Label>
+                      <br />
+                      <asp:Label ID="lblid" runat="server" CssClass="text-muted" Text="IDcliente"></asp:Label>
+                  </div>
                 </div>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                Dia:</label><br /><!-- /.form-group --><div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                    <asp:Label ID="lbldia" runat="server" CssClass="text-muted" Text="Dia"></asp:Label>
+                </div>
+                    <br />
+                <!-- /.form-group -->
+                <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+<%--<div class="box-footer">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
+                
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
+                
               </div>--%>
+    </div>
+<%--caja detalle--%>
+                <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ejercicios de la rutina</h3>             
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -148,27 +128,29 @@
                 <div class="col-md-8" style="left: 0px; top: 0px; height: 58px">
                   <p class="text-center">
                     <strong></strong>
-                      <asp:GridView ID="gridejerciciosrutina" runat="server" Height="16px" Width="344px" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black"   >
-                           <Columns>
+                      <asp:GridView ID="griddetallerutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="griddetallerutina_SelectedIndexChanged">
+                          <Columns>
                             <asp:BoundField DataField="Grupo_muscular" HeaderText="Grupo Muscular"/>
                             <asp:BoundField DataField="Ejercicio" HeaderText="Ejercicio"/>
                             <asp:BoundField DataField="Id_ejercicio" HeaderText="Id ejercio"/>
                             <asp:BoundField DataField="Serie" HeaderText="Serie"/>
                             <asp:BoundField DataField="Rep" HeaderText="Repeticion"/>
                             <asp:BoundField DataField="Dia" HeaderText="Dia"/>
-
-                        </Columns>
+                             <%-- <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
+                                            <ControlStyle Height="20px" Width="20px" />
+                                            </asp:CommandField>--%>
+                          </Columns>
                           <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                              <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                              <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                              <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                              <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                              <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                              <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                              <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                              <SortedDescendingHeaderStyle BackColor="#242121" />
-                      </asp:GridView>
+                           <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                           <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                            <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                             <SortedDescendingHeaderStyle BackColor="#242121" />
+                            </asp:GridView>
                   </p>
                   
                   <!-- /.chart-responsive -->
@@ -180,10 +162,10 @@
                   </p>
                     <br />
                     <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px; height: 40px;">
+                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                 Grupo Muscular:</label>
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 151px">
-                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged1">
+                                    <asp:DropDownList ID="ddlgrupomuscular" runat="server" CssClass="form-control" Height="32px" Width="128px" AutoPostBack="True" OnSelectedIndexChanged="ddlgrupomuscular_SelectedIndexChanged">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlgrupomuscular" Display="None" ErrorMessage="Seleccione un grupo" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
@@ -198,7 +180,7 @@
                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 165px">
                                     <asp:DropDownList ID="ddlejercicio" runat="server" CssClass="form-control" Height="32px" Width="128px">
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlejercicio" Display="None" ErrorMessage="Seleccione un ejercicio" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlejercicio" Display="None" ErrorMessage="Seleccione un ejercicio" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" BehaviorID="RequiredFieldValidator3_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator3">
                                     </ajaxToolkit:ValidatorCalloutExtender>
                                 </div>
@@ -283,27 +265,129 @@
                        </div>--%>
                        <br />
                        <br />
-                       &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" />
+                       &nbsp;&nbsp;<asp:Button ID="btnañadir" runat="server" CssClass="btn btn-success" OnClick="btnañadir_Click" Text="Añadir" CausesValidation="False" />
                 <!-- /.col -->
               </div>
-
-
-
-
-
                 </div>
               <!-- /.row -->
             </div>
             <!-- ./box-body -->
              <div class="box-footer">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="Label3" runat="server"></asp:Label>
                     <asp:Button ID="btnregistrar" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
+                    <br />
+                    <asp:Label ID="lblerroregistrar" CssClass="error-text" runat="server"></asp:Label>
                 </div>
             <!-- /.box-footer -->
           </div>
+            </asp:Panel>
+    <%--inicio panel de consulta--%>
+            <asp:Panel ID="panelconsulta" runat="server">
+        <%-- inicio contenedor busqueda--%>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header with-border" style="left: 0px; top: 0px; width: 607px;">
+                                <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seleccione&nbsp; al cliente&nbsp;</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbapellido" runat="server" Height="21px" Width="371px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbapellido" Display="None" ErrorMessage="Indique un Apellido" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
+                                    </ajaxToolkit:ValidatorCalloutExtender>
+                  <br />
+                                    <table class="nav-justified" style="height: 48px">
+                                        <tr>
+                                            <td class="modal-sm" style="width: 408px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%--fin de contenedor busqueda inicio contenedor gridview--%>
+
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="box">
+                                  <div class="box-header with-border" style="left: 0px; top: 0px; width: 607px;">
+                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Ficha de clientes</h3>
+                                  </div>
+                                  <div class="box-body">
+              <!-- Date -->
+                                      <div class="form-group">
+                                          &nbsp;
+                                          <table class="nav-justified">
+                                              <tr>
+                                                  <td style="width: 70px">&nbsp;</td>
+                                                  <td>
+                                                      <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridclientes_SelectedIndexChanged">
+                                                          <Columns>
+                                                              <asp:BoundField DataField="Id_cliente" HeaderText="ID" ItemStyle-Width="100" />
+                                                              <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">
+                                                              <ItemStyle Width="150px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="100">
+                                                              <ItemStyle Width="150px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField DataField="DNI" HeaderText="DNI" ItemStyle-Width="100">
+                                                              <ItemStyle Width="190px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField DataField="Fecha_nac" HeaderText="Fecha Nacimiento" ItemStyle-Width="100" Visible="False">
+                                                              <ItemStyle Width="180px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField DataField="Email" HeaderText="Emai" ItemStyle-Width="100" Visible="False">
+                                                              <ItemStyle Width="160px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="100" Visible="False">
+                                                              <ItemStyle Width="160px" />
+                                                              </asp:BoundField>
+                                                              <asp:BoundField ConvertEmptyStringToNull="true" DataField="Domicilio" HeaderText="Domicilio" ItemStyle-Width="100" Visible="False">
+                                                              <ItemStyle Width="190px" />
+                                                              </asp:BoundField>
+                                                              <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto">
+                                                              </asp:ImageField>
+                                                              <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
+                                                              <ControlStyle Height="20px" Width="20px" />
+                                                              </asp:CommandField>
+                                                          </Columns>
+                                                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                                          <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                                          <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                                          <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                                          <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                                          <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                                          <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                                          <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                                          <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                                          <SortedDescendingHeaderStyle BackColor="#242121" />
+                                                      </asp:GridView>
+                                                  </td>
+                                              </tr>
+                                          </table>
+
+                  <br />
+
+                  <br />
+                                      </div>
+                  <!-- /.description-block -->
+                <br />
+                                  </div>
+                              </div>
+              <!-- /.row -->
+                          </div>
+                </div>
+            <!-- /.box-footer -->
+
+
+            </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
 
