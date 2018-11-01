@@ -13,7 +13,9 @@
  function show()
     {
         document.write("<head runat='server'></head>");
-    }
+ }
+
+       
     </script>
 
 
