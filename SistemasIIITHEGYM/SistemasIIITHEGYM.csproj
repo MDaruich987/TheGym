@@ -170,6 +170,7 @@
     <Content Include="ConsultarDeposito.aspx" />
     <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
+    <Content Include="ConsultarFacturadeVentaEmpleado.aspx" />
     <Content Include="ConsultarMovimientodeStockEmpleado.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarOrdendeCompraGerente.aspx" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="ConsultarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarFacturadeVentaEmpleado.aspx.cs">
+      <DependentUpon>ConsultarFacturadeVentaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarFacturadeVentaEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarFacturadeVentaEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarMovimientodeStockEmpleado.aspx.cs">
       <DependentUpon>ConsultarMovimientodeStockEmpleado.aspx</DependentUpon>

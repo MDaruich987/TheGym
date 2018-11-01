@@ -26,6 +26,8 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+            generarPDF.Visible = false;
+            btnuevaorden.Visible = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -397,6 +399,8 @@ namespace SistemasIIITHEGYM
                 }
             btnregistrar.Visible = false;
             btncancelar.Visible = false;
+            generarPDF.Visible = true;
+            btnuevaorden.Visible = true;
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
@@ -693,6 +697,8 @@ namespace SistemasIIITHEGYM
             btnregistrar.Visible = true;
             btncancelar.Visible = true;
             //limpiar campos
+            generarPDF.Visible = false;
+            btnuevaorden.Visible = false;
         }
     }
 }

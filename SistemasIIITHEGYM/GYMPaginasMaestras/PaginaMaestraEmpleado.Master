@@ -188,6 +188,12 @@
                                 <li class="active"><a href="ConsultarClienteEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Cliente</a></li>
                             </ul>
                         </li>
+                        <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Ventas</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="RegistrarFacturadeVentaEmpleado.aspx"><i class="fa fa-circle-o"></i>Registrar Factura de Venta</a></li>
+                                <li class="active"><a href="ConsultarFacturadeVentaEmpleado.aspx"><i class="fa fa-circle-o"></i>Consultar Factura de Venta</a></li>
+                            </ul>
+                        </li>
                         <li><a href="EmailClientesPlanes.aspx"><i class="fa fa-th"></i><span>Envío de Promociones</span> <span class="pull-right-container"><small class="label pull-right bg-green"></small> </span></a></li>
                         <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Actividades</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
