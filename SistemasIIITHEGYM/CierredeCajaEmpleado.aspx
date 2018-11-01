@@ -3,6 +3,32 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <%--modal para el registro exitoso--%>
+             <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                  <%--<span aria-hidden="true">&times;</span></button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>¡Cierre de caja registrada exitosamente!&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+
     <!-- Select2 -->
     <link rel="stylesheet" href="../../bower_components/select2/dist/css/select2.min.css">
         <%--evitar error con el required validator--%>
@@ -56,7 +82,7 @@
                  <%--input dinero--%>
                  <div class="input-group" style="left: 0px; top: 0px; width: 320px">
                 <span class="input-group-addon">$</span>
-                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 44%" TextMode="Number"></asp:TextBox>
+                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 44%" Enabled="False" Font-Bold="True" ForeColor="#CC0000"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>

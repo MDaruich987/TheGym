@@ -6,6 +6,10 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                    <section class="content-header">
+                    <h1>Consultar Plan <small>TheGym</small> </h1>
+                </section>
+
     <link href="EstilosCSS.css" rel="stylesheet" />
     <script type ="text/javascript">
        
@@ -20,10 +24,6 @@
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>
             <asp:Panel ID="paneledicion" runat="server">
-                <section class="content-header">
-                    <h1>Registrar Plan <small>TheGym</small> </h1>
-                </section>
-
                <%--inicio main--%>
             <!-- Main content -->
                 <section class="content">
@@ -42,7 +42,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Nombre:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="128px"></asp:TextBox>
+                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="128px" Enabled="False"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Ingrese el nombre" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
                                             </ajaxToolkit:ValidatorCalloutExtender>
@@ -54,7 +54,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Duración:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:ListBox ID="lbduración" runat="server" Height="24px" Width="37px">
+                                            <asp:ListBox ID="lbduración" runat="server" Height="24px" Width="37px" Enabled="False">
                                                 <asp:ListItem>0</asp:ListItem>
                                                 <asp:ListItem>1</asp:ListItem>
                                                 <asp:ListItem>2</asp:ListItem>
@@ -73,6 +73,14 @@
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                                             </ajaxToolkit:ValidatorCalloutExtender>
                                         </div>
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                    Precio:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                        <asp:Label ID="Label1" runat="server" Font-Size="Medium" Text="$"></asp:Label>
+                                        <ajaxToolkit:ValidatorCalloutExtender ID="validadornombre0" runat="server" BehaviorID="validadornombre" TargetControlID="RequiredFieldValidator1">
+                                        </ajaxToolkit:ValidatorCalloutExtender>
+                                        &nbsp;<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Enabled="False" Height="24px" Width="128px"></asp:TextBox>
+                                        &nbsp;
                                     </div>
                     <br />
 
@@ -99,7 +107,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                         Actividad:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:DropDownList ID="ddlactividad" runat="server" CssClass="form-control" Height="24px" Width="128px">
+                                            <asp:DropDownList ID="ddlactividad" runat="server" CssClass="form-control" Height="32px" Width="128px" Enabled="False">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -110,7 +118,7 @@
                                         <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 115px">
                                         Clases semanales:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:ListBox ID="lbduración0" runat="server" Height="24px" Width="37px">
+                                            <asp:ListBox ID="lbduración0" runat="server" Height="24px" Width="37px" Enabled="False">
                                                 <asp:ListItem>0</asp:ListItem>
                                                 <asp:ListItem>1</asp:ListItem>
                                                 <asp:ListItem>2</asp:ListItem>
@@ -127,18 +135,22 @@
                                             </asp:ListBox>
                                         </div>
                                     </div>
-                                    &nbsp;&nbsp;&nbsp;<br />
+                                    &nbsp;&nbsp;&nbsp;<asp:Button ID="btnAdd" runat="server" Enabled="False" OnClick="btnAdd_Click" Text="Agregar" />
+                                    <br />
                                     <asp:GridView ID="gridactividades0" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="204px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 91px; margin-bottom: 9px;" Width="448px">
                                         <Columns>
+                                            <asp:BoundField DataField="Id_actividad" HeaderText="ID" ItemStyle-Width="150px">
+                                            <ItemStyle Width="150px" />
+                                            </asp:BoundField>
                                             <asp:BoundField DataField="Nombre" HeaderText="Actividad" ItemStyle-Width="150px">
                                             <ItemStyle Width="150px" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="Dias_semanas" HeaderText="Dias a la Semana" ItemStyle-Width="150px">
                                             <ItemStyle Width="150px" />
                                             </asp:BoundField>
-                                            <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
+                                            <%--<asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                             <ControlStyle Height="20px" Width="20px" />
-                                            </asp:CommandField>
+                                            </asp:CommandField>--%>
                                             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
                                             <ControlStyle Height="20px" Width="20px" />
                                             </asp:CommandField>
@@ -226,11 +238,12 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
+                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvplanes_RowDeleting">
                                               <Columns>
-                                                  <asp:BoundField DataField="Id_actividad" HeaderText="ID" ItemStyle-Width="150px" />
-                                                  <asp:BoundField DataField="Nombre" HeaderText="Actividad" ItemStyle-Width="150px" />
-                                                  <asp:BoundField DataField="Dias_semanas" HeaderText="Dias a la Semana" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Id_plan" HeaderText="ID" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Nombre" HeaderText="Plan" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-Width="150px" />
+                                                  <asp:BoundField DataField="Cantidad_dias" HeaderText="Dias" ItemStyle-Width="150px" />
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>

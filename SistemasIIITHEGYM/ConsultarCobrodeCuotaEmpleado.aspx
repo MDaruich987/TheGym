@@ -12,105 +12,7 @@
  }
                     </script>
 
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-            <asp:Panel ID="panelver" runat="server">
-
-                <asp:Panel ID="paneldatosdecobro" runat="server" Height="1859px">
-                    <!-- SELECT2 EXAMPLE -->
-                    <div class="box box-default">
-                        <div class="box-header with-border" style="left: 0px; top: 0px">
-                            <h3 class="box-title">Datos de Cobro</h3>
-                            <div class="box-tools pull-right">
-                                <%--                boton minimizar y cerrar--%><%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
-                            </div>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Fecha:</label>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:Label ID="lblFecha" runat="server" CssClass="text-muted" Text="HoraActual"></asp:Label>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Cliente:</label>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:Label ID="lblnombrecliente" runat="server" CssClass="text-muted" Text="APELLIDO, Nombre"></asp:Label>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Monto total:</label> <%--input dinero--%>
-                                        <div class="input-group" style="left: 0px; top: 0px; width: 320px">
-                                            <span class="input-group-addon">$</span>
-                                           <asp:Label ID="lblmonto" runat="server" CssClass="text-muted" Text="MONTO"></asp:Label>
-                                        </div>
-                                        <%--fin input dinero--%>
-                                    </div>
-                                    <br />
-                                    <!-- /.form-group -->
-                                </div>
-                                <!-- columna2 inicio/.col -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Hora:</label>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                            <asp:Label ID="lblhora" runat="server" CssClass="text-muted" Text="HoraActual"></asp:Label>
-                                        </div>
-                                    </div>
-                                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                                        <ContentTemplate>
-                                            <br />
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                Plan:</label>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                                    <asp:Label ID="lblplan" runat="server" CssClass="text-muted" Text="PLAN"></asp:Label>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                                Vencimiento:</label>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                                    <asp:Label ID="lblvencimiento" runat="server" CssClass="text-muted" Text="VENCIMIENTO"></asp:Label>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <br />
-                                            <!-- /.form-group -->
-                                            <asp:Label ID="lblerrorimpresion" runat="server" CssClass="error-text"></asp:Label>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                    <br />
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="btnimprimir" runat="server" CssClass="btn btn-info" Text="Imprimir Comprobante" OnClick="btnimprimir_Click" />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Volver" />
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </asp:Panel>
-
-            </asp:Panel>
-    
-            <asp:Panel ID="panelconsulta" runat="server">
+                            <asp:Panel ID="panelconsulta" runat="server">
         <%-- inicio contenedor busqueda--%>
                 <div class="row">
                     <div class="col-md-12">
@@ -189,9 +91,93 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-     
-
+                <asp:Panel ID="paneldatosdecobro" runat="server" Height="1859px">
+                    <!-- SELECT2 EXAMPLE -->
+                    <div class="box box-default">
+                        <div class="box-header with-border" style="left: 0px; top: 0px">
+                            <h3 class="box-title">Datos de Cobro</h3>
+                            <div class="box-tools pull-right">
+                                <%--                boton minimizar y cerrar--%><%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                        Fecha:</label>
+                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                            <asp:Label ID="lblFecha" runat="server" CssClass="text-muted" Text="HoraActual"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                        Cliente:</label>
+                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                            <asp:Label ID="lblnombrecliente" runat="server" CssClass="text-muted" Text="APELLIDO, Nombre"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                        Monto total:</label> <%--input dinero--%>
+                                        <div class="input-group" style="left: 0px; top: 0px; width: 320px">
+                                            <span class="input-group-addon">$</span>
+                                           <asp:Label ID="lblmonto" runat="server" CssClass="text-muted" Text="MONTO"></asp:Label>
+                                        </div>
+                                        <%--fin input dinero--%>
+                                    </div>
+                                    <br />
+                                    <!-- /.form-group -->
+                                </div>
+                                <!-- columna2 inicio/.col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                        Hora:</label>
+                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                            <asp:Label ID="lblhora" runat="server" CssClass="text-muted" Text="HoraActual"></asp:Label>
+                                        </div>
+                                    </div>
+                                            <br />
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                                Plan:</label>
+                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                    <asp:Label ID="lblplan" runat="server" CssClass="text-muted" Text="PLAN"></asp:Label>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                                Vencimiento:</label>
+                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                    <asp:Label ID="lblvencimiento" runat="server" CssClass="text-muted" Text="VENCIMIENTO"></asp:Label>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <br />
+                                            <!-- /.form-group -->
+                                            <asp:Label ID="lblerrorimpresion" runat="server" CssClass="error-text"></asp:Label>
+                                    <br />
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-body -->
+                
+                        <div class="box-footer">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnimprimir" runat="server" CssClass="btn btn-info" Text="Imprimir Comprobante" OnClick="btnimprimir_Click" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Volver" />
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </asp:Panel>
 
 </asp:Content>

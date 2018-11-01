@@ -61,14 +61,14 @@
 <body>
 
     <form id="form1" runat="server">
-<%--inicio cabecera--%>
+        <%--inicio cabecera--%>
     <section class="content-header">
       <h1>
        <a href="IngresoEgreso.aspx" onclick="redirectIngresoEgreso(); return false;"  data-dismiss="modal" class="btn btn-adn btn bottom-right">Volver</a>
           <a href="InicioLogueo.aspx" onclick="redirectLogin(); return false;"  data-dismiss="modal" class="btn btn-info btn bottom-right">Log In</a>
       </h1>
     </section>
-  <%--      fin cabecera--%>
+        <%--      fin cabecera--%>
 
         <div class="login-box">
   <div class="login-logo">
@@ -85,11 +85,18 @@
           <br />
             <asp:Panel ID="panelNOT" runat="server">
                 <div class="clean-gray">
-                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="APELLIDO, nombre"></asp:Label>
+                    <br />
+                    <br />
                 </div>
             </asp:Panel>
+          <asp:Label ID="lblerror" CssClass="error-text center-block text-center" runat="server"></asp:Label>
             <br />
           <asp:Button ID="Button1" runat="server" Text="Registrar" Cssclass="btn btn-success btn-block btn-flat" OnClick="Button1_Click"/>
+          <asp:Label ID="Hora" runat="server"></asp:Label>
+          <asp:Label ID="Tarde" runat="server"></asp:Label>
+          <asp:Label ID="Temprano" runat="server"></asp:Label>
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -100,20 +107,8 @@
         </div>
         <!-- /.col -->
         <div class="auto-style1">
-          <asp:Label ID="lblerror" CssClass="error-text center-block text-center" runat="server" Text="El empleado ya ha ingresado"></asp:Label>
-           <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)"></asp:SqlDataSource>
+            <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=DAVID\SQLEXPRESS;Initial Catalog=TheGymNEW;Integrated Security=True" InsertCommand="insert into Asistencia (FK_empleado,Fecha,Hora,Estado) values (@codigo,GETDATE(),GETDATE(),@estado)" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>--%>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" SelectCommand="SELECT Apellido + Nombre AS Empleado FROM Empleado WHERE (Id_empleado = @codigo)" ConnectionString="<%$ ConnectionStrings:MiConec %>" ProviderName="<%$ ConnectionStrings:MiConec.ProviderName %>">
-                <SelectParameters>
-                    <asp:Parameter Name="codigo" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MiConec %>" InsertCommand="insert into Asistencia (FK_empleado,Fecha,Hora,Estado) values (@codigo,GETDATE(),GETDATE(),@estado)" ProviderName="<%$ ConnectionStrings:MiConec.ProviderName %>" UpdateCommandType="StoredProcedure">
-                <InsertParameters>
-                    <asp:Parameter Name="codigo" />
-                    <asp:Parameter Name="estado" />
-                </InsertParameters>
-            </asp:SqlDataSource>
         </div>
         <!-- /.col -->
       </div>

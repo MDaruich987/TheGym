@@ -167,7 +167,7 @@ namespace SistemasIIITHEGYM
                 if (cont>=1)
                 {
                     lblerror.Text = "";
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>alert ('El horario se ha registrado exitosamente');</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
                 }
                 else

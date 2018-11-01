@@ -21,56 +21,28 @@
 
    <asp:Label ID="lblseleccione" runat="server" Text="Seleccione el cliente al cual desea enviar el Email:" Font-Names="Arial" Font-Size="Medium"></asp:Label>       
                     <br />       
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px">
+                        <Columns>
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre"/>
+                            <asp:BoundField DataField="Apellido" HeaderText="Apellido"/>
+                            <asp:BoundField DataField="DNI" HeaderText="DNI"/>
+                            <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto"/>
+                            <asp:BoundField DataField="Email" HeaderText="Email"/>
+                            <asp:BoundField DataField="Vencimiento" HeaderText="Vencimiento"/>
+                            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                        </Columns>
+                        <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                        <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+                        <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+                        <RowStyle BackColor="White" ForeColor="#003399" />
+                        <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SortedAscendingCellStyle BackColor="#EDF6F6" />
+                        <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+                        <SortedDescendingCellStyle BackColor="#D6DFDF" />
+                        <SortedDescendingHeaderStyle BackColor="#002876" />
+                    </asp:GridView>
                     <br /> 
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar." OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-                    <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
-                    <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
-                    <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto" SortExpression="Foto" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="Vencimiento" HeaderText="Vencimiento" SortExpression="Vencimiento" />
-                    <asp:CommandField ShowSelectButton="True" />
-                </Columns>
-            </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=DESKTOP-TN40SE1\SQLEXPRESS;Initial Catalog=TheGym;Integrated Security=True" DeleteCommand="DELETE FROM [Cliente] WHERE [Id_cliente] = @Id_cliente" InsertCommand="INSERT INTO [Cliente] ([Nombre], [Apellido], [Fecha_nac], [Email], [Telefono], [Foto], [Estado], [FK_TipoDocumento], [Numero], [Calle], [Barrio], [DNI], [FK_localidad]) VALUES (@Nombre, @Apellido, @Fecha_nac, @Email, @Telefono, @Foto, @Estado, @FK_TipoDocumento, @Numero, @Calle, @Barrio, @DNI, @FK_localidad)" ProviderName="System.Data.SqlClient" SelectCommand="select Nombre,Apellido,DNI,Foto,Email,Vencimiento
-from Cliente as cli inner join Cuota as cuo on cli.Id_cliente=cuo.FK_Cliente where Vencimiento  &lt; =  GETDATE()
-" UpdateCommand="UPDATE [Cliente] SET [Nombre] = @Nombre, [Apellido] = @Apellido, [Fecha_nac] = @Fecha_nac, [Email] = @Email, [Telefono] = @Telefono, [Foto] = @Foto, [Estado] = @Estado, [FK_TipoDocumento] = @FK_TipoDocumento, [Numero] = @Numero, [Calle] = @Calle, [Barrio] = @Barrio, [DNI] = @DNI, [FK_localidad] = @FK_localidad WHERE [Id_cliente] = @Id_cliente">
-                <DeleteParameters>
-                    <asp:Parameter Name="Id_cliente" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="Nombre" Type="String" />
-                    <asp:Parameter Name="Apellido" Type="String" />
-                    <asp:Parameter DbType="Date" Name="Fecha_nac" />
-                    <asp:Parameter Name="Email" Type="String" />
-                    <asp:Parameter Name="Telefono" Type="Int64" />
-                    <asp:Parameter Name="Foto" Type="String" />
-                    <asp:Parameter Name="Estado" Type="String" />
-                    <asp:Parameter Name="FK_TipoDocumento" Type="Int32" />
-                    <asp:Parameter Name="Numero" Type="Int32" />
-                    <asp:Parameter Name="Calle" Type="String" />
-                    <asp:Parameter Name="Barrio" Type="String" />
-                    <asp:Parameter Name="DNI" Type="String" />
-                    <asp:Parameter Name="FK_localidad" Type="Int32" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="Nombre" Type="String" />
-                    <asp:Parameter Name="Apellido" Type="String" />
-                    <asp:Parameter DbType="Date" Name="Fecha_nac" />
-                    <asp:Parameter Name="Email" Type="String" />
-                    <asp:Parameter Name="Telefono" Type="Int64" />
-                    <asp:Parameter Name="Foto" Type="String" />
-                    <asp:Parameter Name="Estado" Type="String" />
-                    <asp:Parameter Name="FK_TipoDocumento" Type="Int32" />
-                    <asp:Parameter Name="Numero" Type="Int32" />
-                    <asp:Parameter Name="Calle" Type="String" />
-                    <asp:Parameter Name="Barrio" Type="String" />
-                    <asp:Parameter Name="DNI" Type="String" />
-                    <asp:Parameter Name="FK_localidad" Type="Int32" />
-                    <asp:Parameter Name="Id_cliente" Type="Int32" />
-                </UpdateParameters>
-            </asp:SqlDataSource>
+                    <asp:Label ID="Label1" runat="server" Font-Size="Large" ForeColor="Red"></asp:Label>
 
           <!-- /.row -->
         </div>
