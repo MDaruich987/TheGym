@@ -130,6 +130,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView gvproductos;
         
         /// <summary>
+        /// Control Lblerror1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lblerror1;
+        
+        /// <summary>
         /// Control tbcantidad.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblFecha;
         
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
         /// Control tbproveedor.
         /// </summary>
         /// <remarks>
@@ -182,15 +200,6 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblhora;
-        
-        /// <summary>
-        /// Control lblnroOrden.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnroOrden;
         
         /// <summary>
         /// Control lblempleado.
@@ -236,6 +245,15 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView griddetallefactura;
+        
+        /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Control btnregistrar.

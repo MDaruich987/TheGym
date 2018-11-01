@@ -152,7 +152,7 @@
                                        <asp:Label ID="lblerrorproductosmodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modalpara los productos--%>
-                                       <asp:GridView ID="gvproductos" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
+                                       <asp:GridView ID="gvproductos" runat="server" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
                                            <Columns>
                                                <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -179,6 +179,7 @@
                               <%--boton añadir--%>
                               <br />
                                 <p class="text-center">
+                                    <asp:Label ID="Lblerror1" ForeColor="Red" runat="server" Visible="false"></asp:Label>
                                 <strong><asp:TextBox  CssClass="form-control"  ID="tbcantidad"  runat="server" Height="24px" Width="100px" TextMode="number" Enabled="False"></asp:TextBox></strong>
                                 </p>
                               <br />
@@ -229,11 +230,14 @@
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">Proveedor:</label>
 
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                        <asp:TextBox ID="tbproveedor" runat="server" Height="22px" Width="158px" Enabled="False" OnTextChanged="tbproveedor_TextChanged">Seleccione un proveedor</asp:TextBox>
-                         <asp:Button ID="btnselecproveedor" runat="server" CssClass="btn btn-success" Text="..." CausesValidation="False" OnClick="btnselecproveedor_Click" Width="39px" Height="30px" />
-                
-                  </div>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                <asp:TextBox ID="tbproveedor" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbproveedor_TextChanged" ReadOnly="True" Width="158px">Seleccione un proveedor</asp:TextBox>
+                                <asp:Button ID="btnselecproveedor" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" OnClick="btnselecproveedor_Click" Text="..." Width="39px" />
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <div class="form-group">
                             <br />
@@ -248,14 +252,6 @@
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                       <asp:Label ID="lblhora" CssClass="text-muted" runat="server" Text="HoraActual"></asp:Label>
-                  </div>
-                </div>
-                    <br />
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Nro Orden:</label>
-
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                      <asp:Label ID="lblnroOrden" CssClass="text-muted" runat="server" Text="numeroFactura"></asp:Label>
                   </div>
                 </div>
                     <br />
@@ -308,12 +304,13 @@
                                                   <td style="width: 70px">&nbsp;</td>
                                                   <td>
                                                       
-                                <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" style="margin-left: 107px; margin-bottom: 9px;" Width="425px" OnRowDeleting="griddetallefactura_RowDeleting">
+                                <asp:GridView ID="griddetallefactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" style="margin-left: 107px; margin-bottom: 9px;" Width="425px" OnRowDeleting="griddetallefactura_RowDeleting" OnSelectedIndexChanged="griddetallefactura_SelectedIndexChanged">
                                     <Columns>
-                                        <asp:BoundField DataField="ID" HeaderText="ID" />
+                                        <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                         <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
                                         <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                                        <asp:BoundField DataField="SubTotal" HeaderText="Sub Total" />
                                         <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
                                         <ControlStyle Height="20px" Width="20px" />
                                         </asp:CommandField>
@@ -329,6 +326,8 @@
                                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                     <SortedDescendingHeaderStyle BackColor="#242121" />
                                 </asp:GridView>
+                                                      
+                                                      <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
                                                       
                                                   </td>
                                               </tr>
@@ -346,7 +345,7 @@
                           </div>
                              <div class="box-footer">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnregistrar" runat="server" CssClass="btn btn-info" Text="Registrar" />
+                    <asp:Button ID="btnregistrar" runat="server" CssClass="btn btn-info" Text="Registrar" OnClick="btnregistrar_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
                     <br />
