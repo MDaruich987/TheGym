@@ -230,6 +230,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string IDCliete;
         public string EstadoRutina;
         //variable para agregar detalle drutina
+        
         public string IDRutina;
         public string Serie;
         public string Repeticion;
@@ -1205,7 +1206,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public DataTable GetRutina()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.NVarChar, 100);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoCliente, SqlDbType.NVarChar, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetRutina", parameters);
             return dt;
         }
@@ -1232,7 +1233,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_BorrarDetalle", parameters);
         }
 
-
+        public DataTable GetClientesRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoCliente, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetClientesRutina", parameters);
+            return dt;
+        }
 
 
     }

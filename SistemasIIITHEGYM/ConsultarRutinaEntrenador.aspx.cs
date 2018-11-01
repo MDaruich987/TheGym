@@ -83,6 +83,7 @@ namespace SistemasIIITHEGYM
             paneledicion.Focus();
 
             TextBox2.Text = gridfichaderutina.SelectedRow.Cells[1].Text;
+            TextBox1.Text = gridfichaderutina.SelectedRow.Cells[2].Text;
 
             TheGym k = new TheGym
             {
@@ -139,7 +140,7 @@ namespace SistemasIIITHEGYM
         {
             TheGym k = new TheGym
             {
-                NombreRutina = tbnombre.Text,
+                ApellidoCliente = tbcliente.Text,
 
             };
             
@@ -150,13 +151,12 @@ namespace SistemasIIITHEGYM
                 gridfichaderutina.DataSource = dt;
                 gridfichaderutina.DataBind();
                 gridfichaderutina.Focus();
-                TextBox1.Text = tbnombre.Text;
                 lblerror.Text = "";
-                
             }
             else
             {
-                lblerror.Text = "No existe rutina con este nombre";
+                lblerror.Text = "No existe cliente con ese Apellido o este no tiene una Rutina creada";
+                gridfichaderutina.DataBind();
             }
         }
 
@@ -206,6 +206,9 @@ namespace SistemasIIITHEGYM
             btneditarejercicio.Text = "Editar";
             btneditarRutina.Text = "Editar";
             btncancelar.Text = "Cancelar";
+            tbcliente.Text = "";
+            gridejerciciosrutina.DataBind();
+            gridfichaderutina.DataBind();
         }
 
         protected void gridfichaderutina_RowDeleting1(object sender, GridViewDeleteEventArgs e)
@@ -221,7 +224,7 @@ namespace SistemasIIITHEGYM
             gridfichaderutina.Visible = false;
             lblerror.Text = "Rutina inhabilitada";
             lblerror.Visible = true;
-            tbnombre.Text = "";
+            tbcliente.Text = "";
         }
 
         protected void gridejerciciosrutina_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -280,6 +283,7 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
         }
     }
 }
