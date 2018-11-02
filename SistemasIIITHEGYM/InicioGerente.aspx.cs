@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -35,6 +37,13 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
+            TheGym k = new TheGym();
+            DataTable dt = k.GetAllPlanEstadistica();
+            lblplanes.Text = dt.Rows[0][0].ToString();
+
+
+            DataTable dt1 = k.GetAsistenciaEstadistica();
+            lblasistencias.Text = dt1.Rows[0][0].ToString();
         }
     }
 }
