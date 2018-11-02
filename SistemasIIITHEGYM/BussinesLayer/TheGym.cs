@@ -261,6 +261,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string idorden;
         //variable para tener la hora del dia
         public string HoraDia;
+        //variable para Add Cronograma
+        public string fksemana;
+        public string fkactividad;
+        public string fkprofesor;
+        public string desdeCronograma;
+        public string hastaCronograma;
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -1230,6 +1236,19 @@ namespace SistemasIIITHEGYM.BussinesLayer
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_rutina", IDRutina, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_BorrarDetalle", parameters);
+        }
+
+
+        public void AddCronogramaSemanal()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Dia", fksemana , SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Desde", desdeCronograma, SqlDbType.Time, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", hastaCronograma, SqlDbType.Time, 100);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Profesor", fkprofesor, SqlDbType.VarChar, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Actividad", fkactividad, SqlDbType.VarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddCronogramaSemanal", parameters);
+
         }
 
 
