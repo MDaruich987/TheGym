@@ -133,18 +133,26 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultar_Click(object sender, EventArgs e)
         {
-
-            gvproveedores.Visible = true;
-
-            TheGym k = new TheGym();
-            k.NombreProveedorBusc = tbnombre.Text;
-            DataTable dt = k.GetProveedorNom();
-            if (dt.Rows.Count > 0)
+            gvproveedores.Visible = false;
+            try
             {
-                gvproveedores.DataSource = dt;
-                gvproveedores.DataBind();
-                gvproveedores.Focus();
+                gvproveedores.Visible = true;
+
+                TheGym k = new TheGym();
+                k.NombreProveedorBusc = tbnombre.Text;
+                DataTable dt = k.GetProveedorNom();
+                if (dt.Rows.Count > 0)
+                {
+                    gvproveedores.DataSource = dt;
+                    gvproveedores.DataBind();
+                    gvproveedores.Focus();
+                }
             }
+            catch 
+            {
+                lblerror.Text = "No existe";
+            }
+
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
