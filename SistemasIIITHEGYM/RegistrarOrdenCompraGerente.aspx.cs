@@ -155,11 +155,12 @@ namespace SistemasIIITHEGYM
                     griddetallefactura.DataSource = Tabla;
                     griddetallefactura.DataBind();
                     griddetallefactura.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
                     gvproductos.Visible = false;
                     tbcantidad.Text = "";
                     tbcantidad.Enabled = false;
                     btnañadirproductomodal.Enabled = false;
+                    tbnombreproductos.Text = string.Empty;
                 }
                 catch (Exception ex)
                 {
