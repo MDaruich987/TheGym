@@ -49,15 +49,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// Control validadornombre.
         /// </summary>
         /// <remarks>
@@ -229,13 +220,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbnombre.
+        /// Control tbcliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbnombre;
+        protected global::System.Web.UI.WebControls.TextBox tbcliente;
         
         /// <summary>
         /// Control RequiredFieldValidator1.

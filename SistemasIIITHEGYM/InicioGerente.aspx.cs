@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -11,6 +13,8 @@ namespace SistemasIIITHEGYM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            panelcobrodeplanes.Visible = false;
+            panelproductos.Visible = false;
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -35,6 +39,47 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
+            TheGym k = new TheGym();
+            DataTable dt = k.GetAllPlanEstadistica();
+            lblplanes.Text = dt.Rows[0][0].ToString();
+
+
+            DataTable dt1 = k.GetAsistenciaEstadistica();
+            lblasistencias.Text = dt1.Rows[0][0].ToString();
+        }
+
+        protected void btnverestadisticascobro_Click(object sender, EventArgs e)
+        {
+            panelcobrodeplanes.Visible = true;
+            panelproductos.Visible = false;
+
+            gridcobrocuota.Visible = true;
+
+
+            TheGym k = new TheGym();
+            DataTable dt2 = k.GetPlanEstadistica();
+
+            if (dt2.Rows.Count > 0)
+            {
+                lblerror.Visible = false;
+                gridcobrocuota.DataSource = dt2;
+                gridcobrocuota.DataBind();
+                gridcobrocuota.Focus();
+            }
+            else
+            {
+                lblerror.Visible = true;
+                lblerror.Text = "No se vendieron productos todavia";
+            }
+
+            
+         
+        }
+
+        protected void btnverestadisticaventasproducto_Click(object sender, EventArgs e)
+        {
+            panelproductos.Visible = true;
+            panelcobrodeplanes.Visible = false;
         }
     }
 }

@@ -198,7 +198,7 @@
                             <a href="#"><i class="fa fa-dashboard"></i><span>Gestión de Compras</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                             <ul class="treeview-menu">
                                 <li><a href="ConsultarDeposito.aspx"><i class="fa fa-circle-o"></i>Consultar Depósito</a></li>
-                                <li class="active"><a href="RegistrarOrdendeCompraGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Orden de Compra</a></li>
+                                <li class="active"><a href="RegistrarOrdenCompraGerente.aspx"><i class="fa fa-circle-o"></i>Registrar Orden de Compra</a></li>
                                 <li class="active"><a href="ConsultarOrdendeCompraGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Orden de Compra</a></li>
                             </ul>
                         </li>

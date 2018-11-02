@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -169,6 +170,7 @@
     <Content Include="ConsultarDeposito.aspx" />
     <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
+    <Content Include="ConsultarFacturadeVentaEmpleado.aspx" />
     <Content Include="ConsultarMovimientodeStockEmpleado.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
     <Content Include="ConsultarOrdendeCompraGerente.aspx" />
@@ -217,8 +219,8 @@
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarMovimientoStock.aspx" />
+    <Content Include="RegistrarRutinaEntrenadorViejo.aspx" />
     <Content Include="RegistrarRutinaEntrenador.aspx" />
-    <Content Include="RegistrarRutinaxEntrenador.aspx" />
     <Content Include="RegistrarSucursalGerente.aspx" />
     <Content Include="yarn.lock" />
   </ItemGroup>
@@ -309,6 +311,13 @@
     </Compile>
     <Compile Include="ConsultarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarFacturadeVentaEmpleado.aspx.cs">
+      <DependentUpon>ConsultarFacturadeVentaEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarFacturadeVentaEmpleado.aspx.designer.cs">
+      <DependentUpon>ConsultarFacturadeVentaEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarMovimientodeStockEmpleado.aspx.cs">
       <DependentUpon>ConsultarMovimientodeStockEmpleado.aspx</DependentUpon>
@@ -559,19 +568,19 @@
     <Compile Include="RegistrarMovimientoStock.aspx.designer.cs">
       <DependentUpon>RegistrarMovimientoStock.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarRutinaEntrenadorViejo.aspx.cs">
+      <DependentUpon>RegistrarRutinaEntrenadorViejo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarRutinaEntrenadorViejo.aspx.designer.cs">
+      <DependentUpon>RegistrarRutinaEntrenadorViejo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RegistrarRutinaEntrenador.aspx.designer.cs">
       <DependentUpon>RegistrarRutinaEntrenador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarRutinaxEntrenador.aspx.cs">
-      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrarRutinaxEntrenador.aspx.designer.cs">
-      <DependentUpon>RegistrarRutinaxEntrenador.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarSucursalGerente.aspx.cs">
       <DependentUpon>RegistrarSucursalGerente.aspx</DependentUpon>
