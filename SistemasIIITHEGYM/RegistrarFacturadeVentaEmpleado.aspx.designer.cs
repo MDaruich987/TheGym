@@ -166,6 +166,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblFecha;
         
         /// <summary>
+        /// Control UpdatePanel3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        
+        /// <summary>
         /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
@@ -191,6 +200,15 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnseleccioncliente;
+        
+        /// <summary>
+        /// Control CheckBox1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
         
         /// <summary>
         /// Control lblhora.
