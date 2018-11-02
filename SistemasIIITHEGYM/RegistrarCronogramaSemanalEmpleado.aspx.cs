@@ -225,6 +225,13 @@ namespace SistemasIIITHEGYM
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+            TheGym k1 = new TheGym
+            {
+                fkactividad = ddlActividad.SelectedValue,
+            };
+            k1.AddBorrarActividad();
+
+
 
             try
             {
@@ -322,11 +329,7 @@ namespace SistemasIIITHEGYM
 
                 lblerror.Text = ex.Message.ToString();
             }
-        }
-
-        protected void BtnCancelar_Click(object sender, EventArgs e)
-        {
-
+            { 
             ddlActividad.ClearSelection();
             ddlProfesor.ClearSelection();
             CbLunes.Checked = false;
@@ -336,19 +339,48 @@ namespace SistemasIIITHEGYM
             CbViernes.Checked = false;
             CbSabado.Checked = false;
             DdlLunes.ClearSelection();
-            DdlhastaLunes.Dispose();
+            DdlhastaLunes.Items.Clear();
             DdlMartes.ClearSelection();
-            DdlhastaMartes.ClearSelection();
+            DdlhastaMartes.Items.Clear();
             DdlMiercoles.ClearSelection();
-            DdlhastaMiercoles.ClearSelection();
+            DdlhastaMiercoles.Items.Clear();
             DdlJueves.ClearSelection();
-            DdlhastaJueves.ClearSelection();
+            DdlhastaJueves.Items.Clear();
             DdlViernes.ClearSelection();
-            DdlhastaViernes.ClearSelection();
+            DdlhastaViernes.Items.Clear();
             DdlSabado.ClearSelection();
-            DdlhastaSabado.ClearSelection();
-            
+            DdlhastaSabado.Items.Clear();
 
+
+        }
+    }
+
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+            {
+                ddlActividad.ClearSelection();
+                ddlProfesor.ClearSelection();
+                CbLunes.Checked = false;
+                CbMartes.Checked = false;
+                CbMiercoles.Checked = false;
+                CbJueves.Checked = false;
+                CbViernes.Checked = false;
+                CbSabado.Checked = false;
+                DdlLunes.ClearSelection();
+                DdlhastaLunes.Items.Clear();
+                DdlMartes.ClearSelection();
+                DdlhastaMartes.Items.Clear();
+                DdlMiercoles.ClearSelection();
+                DdlhastaMiercoles.Items.Clear();
+                DdlJueves.ClearSelection();
+                DdlhastaJueves.Items.Clear();
+                DdlViernes.ClearSelection();
+                DdlhastaViernes.Items.Clear();
+                DdlSabado.ClearSelection();
+                DdlhastaSabado.Items.Clear();
+
+            }
         }
 
 

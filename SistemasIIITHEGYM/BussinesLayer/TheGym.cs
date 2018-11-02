@@ -533,7 +533,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_localidad", FKLocalidadProveedor, SqlDbType.Int, 50);
             parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Telefono", TelefonoProveedor, SqlDbType.BigInt, 100);
             parameters[6] = BussinesDataLayer.DataAccess.AddParameter("@NomContacto", RepresentanteProveedor, SqlDbType.NVarChar, 50);
-            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailProveedor,SqlDbType.NVarChar, 50);
+            parameters[7] = BussinesDataLayer.DataAccess.AddParameter("@Email", EmailProveedor, SqlDbType.NVarChar, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProveedor", parameters);
         }
 
@@ -1245,7 +1245,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public void AddCronogramaSemanal()
         {
             SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Dia", fksemana , SqlDbType.Int, 50);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Dia", fksemana, SqlDbType.Int, 50);
             parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Desde", desdeCronograma, SqlDbType.Time, 100);
             parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", hastaCronograma, SqlDbType.Time, 100);
             parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Profesor", fkprofesor, SqlDbType.VarChar, 100);
@@ -1282,7 +1282,12 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAsistenciaEstadistica", parameters);
             return dt;
         }
+        public void AddBorrarActividad()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Actividad", fkactividad, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddBorrarActividad", parameters);
 
-
+        }
     }
 }
