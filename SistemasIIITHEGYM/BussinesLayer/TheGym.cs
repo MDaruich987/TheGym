@@ -1211,10 +1211,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public DataTable GetRutina()
         {
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreRutina, SqlDbType.NVarChar, 100);
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoCliente, SqlDbType.NVarChar, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetRutina", parameters);
             return dt;
         }
+
+
+
 
         public void InhabilitarRutina()
         {
@@ -1251,7 +1254,34 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         }
 
+        public DataTable GetClientesRutina()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Apellido", ApellidoCliente, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetClientesRutina", parameters);
+            return dt;
+        }
 
+        public DataTable GetPlanEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlanEstadistica", parameters);
+            return dt;
+        }
+
+        public DataTable GetAllPlanEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllPlanEstadistica", parameters);
+            return dt;
+        }
+
+        public DataTable GetAsistenciaEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAsistenciaEstadistica", parameters);
+            return dt;
+        }
 
 
     }
