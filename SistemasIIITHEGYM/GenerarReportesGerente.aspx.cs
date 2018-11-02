@@ -13,5 +13,20 @@ namespace SistemasIIITHEGYM
         {
 
         }
+
+        protected void gridejerciciosrutina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnconsultar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

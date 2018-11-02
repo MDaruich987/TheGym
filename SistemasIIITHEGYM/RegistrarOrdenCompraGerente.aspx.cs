@@ -1,7 +1,11 @@
-﻿using SistemasIIITHEGYM.BussinesLayer;
+﻿using iTextSharp.text;
+using iTextSharp.text.html;
+using iTextSharp.text.pdf;
+using SistemasIIITHEGYM.BussinesLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -22,6 +26,8 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+           generarPDF.Enabled = false;
+           btnuevaorden.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -256,36 +262,69 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            if (griddetallefactura.Columns.Count > 0)
-            {
-                Label1.Visible = false;
-                double total = 0;
-                double subtotal = 0;
-                string idorden;
+                if (griddetallefactura.Columns.Count > 0)
+                {
+                    Label1.Visible = false;
+                    double total = 0;
+                    double subtotal = 0;
+                    string idorden;
 
-                for (int i = 0; i < griddetallefactura.Rows.Count; i++)
-                {
-                    subtotal = Convert.ToDouble(Tabla.Rows[i][4]);
-                    total = total + subtotal;
-                }
-                if (griddetallefactura.Rows.Count > 0)
-                {
-                    try
+                    for (int i = 0; i < griddetallefactura.Rows.Count; i++)
                     {
-                        if ((String)Session["Usuario"] != null)
+                        subtotal = Convert.ToDouble(Tabla.Rows[i][4]);
+                        total = total + subtotal;
+                    }
+                    if (griddetallefactura.Rows.Count > 0)
+                    {
+                        try
                         {
-                            Label1.Visible = false;
-                            TheGym k = new TheGym
+                            if ((String)Session["Usuario"] != null)
                             {
-                                emailbusadm = (String)Session["Usuario"],
-                            };
+                                Label1.Visible = false;
+                                TheGym k = new TheGym
+                                {
+                                    emailbusadm = (String)Session["Usuario"],
+                                };
 
-                            DataTable dt = new DataTable();
-                            dt = k.GetIDemp();
+                                DataTable dt = new DataTable();
+                                dt = k.GetIDemp();
 
-                            if (dt.Rows.Count > 0)
+                                if (dt.Rows.Count > 0)
+                                {
+                                    k.fkempleadoorden = dt.Rows[0][0].ToString();
+                                    k.fkproveedororden = id;
+                                    k.fechaorden = lblFecha.Text;
+                                    k.horaorden = lblhora.Text;
+                                    k.totalorden = Convert.ToString(total);
+
+                                    DataTable dt1 = new DataTable();
+                                    dt1 = k.AddOrdenCompra();
+
+                                    idorden = dt1.Rows[0][0].ToString();
+
+                                    for (int i = 0; i < griddetallefactura.Rows.Count; i++)
+                                    {
+                                        k.fkorden = idorden;
+                                        k.fkproducto = Tabla.Rows[i][0].ToString();
+                                        k.cantidadorden = Tabla.Rows[i][2].ToString();
+                                        k.precioorden = Tabla.Rows[i][3].ToString();
+
+                                        k.AddDetOrden();
+                                    ///////
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    Label1.Text = "Empleado no encontrado";
+                                    Label1.Visible = true;
+                                }
+                            }
+                            else
                             {
-                                k.fkempleadoorden = dt.Rows[0][0].ToString();
+                                TheGym k = new TheGym();
+                                k.fkempleadoorden = "1";
                                 k.fkproveedororden = id;
                                 k.fechaorden = lblFecha.Text;
                                 k.horaorden = lblhora.Text;
@@ -305,92 +344,367 @@ namespace SistemasIIITHEGYM
 
                                     k.AddDetOrden();
                                 }
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
+                            generarPDF.Visible = true;
+                            btnuevaorden.Visible = true;
+                            btnregistrar.Visible = false;
+                            btncancelar.Visible = false;
 
-
-                            }
-                            else
-                            {
-                                Label1.Text = "Empleado no encontrado";
-                                Label1.Visible = true;
-                            }
                         }
-                        else
+
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+
+                            //btnPDF.Visible = true;
+                            //btnPDF.Enabled = true;
+
+                            //panelseleccionarproveedor.Visible = true;
+                            //panelregistrarorden.Visible = false;
+                            DataTable dtaux = new DataTable();
+                            griddetallefactura.DataSource = dtaux;
+                            griddetallefactura.DataBind();
+                            griddetallefactura.Dispose();
+                            griddetallefactura.Visible = false;
+                            griddetallefactura.DataSource = dtaux;
+                            griddetallefactura.DataBind();
+                            griddetallefactura.Dispose();
+                            griddetallefactura.Visible = false;
+                            gvproductos.DataSource = dtaux;
+                            gvproductos.DataBind();
+                            gvproductos.Dispose();
+                            gvproductos.Visible = false;
+                            tbcantidad.Text = string.Empty;
+                            tbcantidad.Enabled = false;
+                            tbcantidad.Text = string.Empty;
+                            lblempleado.Text = string.Empty;
+                            lblhora.Text = string.Empty;
+                            tbproveedor.Text = string.Empty;
+                            lblFecha.Text = string.Empty;
+                            tbnombreproveedor.Text = string.Empty;
+                            lblerror.Text = string.Empty;
+                            tbnombreproductos.Text = string.Empty;
+                            lblerror.Text = string.Empty;
+                            Lblerror1.Text = string.Empty;
+                            lblerror.Visible = false;
+                            lblerror.Visible = false;
+                            Lblerror1.Visible = false;
+                        btnregistrar.Enabled = false;
+                        btncancelar.Enabled = false;
+                        generarPDF.Enabled = true;
+                        btnuevaorden.Enabled = true;
+
+                    }
+                        catch (Exception ex)
                         {
-                            TheGym k = new TheGym();
-                            k.fkempleadoorden = "1";
-                            k.fkproveedororden = id;
-                            k.fechaorden = lblFecha.Text;
-                            k.horaorden = lblhora.Text;
-                            k.totalorden = Convert.ToString(total);
-
-                            DataTable dt1 = new DataTable();
-                            dt1 = k.AddOrdenCompra();
-
-                            idorden = dt1.Rows[0][0].ToString();
-
-                            for (int i = 0; i < griddetallefactura.Rows.Count; i++)
-                            {
-                                k.fkorden = idorden;
-                                k.fkproducto = Tabla.Rows[i][0].ToString();
-                                k.cantidadorden = Tabla.Rows[i][2].ToString();
-                                k.precioorden = Tabla.Rows[i][3].ToString();
-
-                                k.AddDetOrden();
-                            }
-
+                            Label1.Visible = true;
+                            Label1.Text = ex.Message.ToString();
                         }
-
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
-
-                        //btnPDF.Visible = true;
-                        //btnPDF.Enabled = true;
-
-                        //panelseleccionarproveedor.Visible = true;
-                        //panelregistrarorden.Visible = false;
-                        DataTable dtaux = new DataTable();
-                        griddetallefactura.DataSource = dtaux;
-                        griddetallefactura.DataBind();
-                        griddetallefactura.Dispose();
-                        griddetallefactura.Visible = false;
-                        griddetallefactura.DataSource = dtaux;
-                        griddetallefactura.DataBind();
-                        griddetallefactura.Dispose();
-                        griddetallefactura.Visible = false;
-                        gvproductos.DataSource = dtaux;
-                        gvproductos.DataBind();
-                        gvproductos.Dispose();
-                        gvproductos.Visible = false;
-                        tbcantidad.Text = string.Empty;
-                        tbcantidad.Enabled = false;
-                        tbcantidad.Text = string.Empty;
-                        lblempleado.Text = string.Empty;
-                        lblhora.Text = string.Empty;
-                        tbproveedor.Text = string.Empty;
-                        lblFecha.Text = string.Empty;
-                        tbnombreproveedor.Text = string.Empty;
-                        lblerror.Text = string.Empty;
-                        tbnombreproductos.Text = string.Empty;
-                        lblerror.Text = string.Empty;
-                        Lblerror1.Text = string.Empty;
-                        lblerror.Visible = false;
-                        lblerror.Visible = false;
-                        Lblerror1.Visible = false;
-
-
                     }
-                    catch (Exception ex)
+
+                    else
                     {
+                        Label1.Text = "Agregar productos a la Orden";
                         Label1.Visible = true;
-                        Label1.Text = ex.Message.ToString();
                     }
                 }
+            
+        }
 
-                else
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            //limpiar todos los campos y grid
+            griddetallefactura.DataBind();
+            griddetallefactura.Dispose();
+            griddetallefactura.Visible = false;
+            gvproductos.DataBind();
+            gvproductos.Dispose();
+            gvproductos.Visible = false;
+            tbcantidad.Text = string.Empty;
+            tbcantidad.Enabled = false;
+            tbcantidad.Text = string.Empty;
+            tbnombreproductos.Text = string.Empty;
+            tbproveedor.Text = string.Empty;
+            lblhora.Text = string.Empty;
+            lblempleado.Text = string.Empty;
+            lblFecha.Text = string.Empty;
+            Lblerror1.Text = string.Empty;
+            lblerror.Text = string.Empty;
+        }
+
+        public void GenerarPDF(DataTable dt, string fecha, string hora, string total, string proveedor)
+        {
+            try
+            {
+                //instanciamos el documento
+                Document pdfDoc = new Document(PageSize.A4, 10, 10, 10, 10);
+                MemoryStream PDFData = new MemoryStream();
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, PDFData);
+                //tipos de fuentes que vamos a utilizar
+                var titleFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
+                var titleFontBlue = FontFactory.GetFont("Arial", 14, Font.NORMAL, BaseColor.BLUE);
+                var boldTableFont = FontFactory.GetFont("Arial", 8, Font.BOLD);
+                var bodyFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
+                var EmailFont = FontFactory.GetFont("Arial", 8, Font.NORMAL, BaseColor.BLUE);
+                BaseColor TabelHeaderBackGroundColor = WebColors.GetRGBColor("#EEEEEE");
+
+                Rectangle pageSize = writer.PageSize;
+                // abrimos el documento para escribir
+                pdfDoc.Open();
+                //Agregamos los elementos para el documento
+
+                #region Top table
+                // creamos la tabla del encabezado
+                PdfPTable headertable = new PdfPTable(3);
+                headertable.HorizontalAlignment = 0;
+                headertable.WidthPercentage = 100;
+                headertable.SetWidths(new float[] { 100f, 320f, 100f });  // Establecemos las dimensiones de las columnas
+                headertable.DefaultCell.Border = Rectangle.NO_BORDER;
+                //headertable.DefaultCell.Border = Rectangle.BOX; //para probar el codigo        
+
+                //colocamos el logo
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(HttpContext.Current.Server.MapPath("~/ImagenesSistema/logoGym.JPG"));
+                logo.ScaleToFit(100, 15);
+
                 {
-                    Label1.Text = "Agregar productos a la Orden";
-                    Label1.Visible = true;
+                    PdfPCell pdfCelllogo = new PdfPCell(logo);
+                    pdfCelllogo.Border = Rectangle.NO_BORDER;
+                    pdfCelllogo.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    pdfCelllogo.BorderWidthBottom = 1f;
+                    headertable.AddCell(pdfCelllogo);
                 }
+
+                {
+                    PdfPCell middlecell = new PdfPCell();
+                    middlecell.Border = Rectangle.NO_BORDER;
+                    middlecell.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    middlecell.BorderWidthBottom = 1f;
+                    headertable.AddCell(middlecell);
+                }
+
+                {
+                    PdfPTable nested = new PdfPTable(1);
+                    nested.DefaultCell.Border = Rectangle.NO_BORDER;
+                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("THE GYM", titleFont));
+                    nextPostCell1.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell1);
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Salta, Argentina", bodyFont));
+                    nextPostCell2.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell2);
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Av. Entre Rios 865", bodyFont));
+                    nextPostCell3.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell3);
+                    PdfPCell nextPostCell4 = new PdfPCell(new Phrase("thegyminfo@gmail.com", EmailFont));
+                    nextPostCell4.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell4);
+                    nested.AddCell("");
+                    PdfPCell nesthousing = new PdfPCell(nested);
+                    nesthousing.Border = Rectangle.NO_BORDER;
+                    nesthousing.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    nesthousing.BorderWidthBottom = 1f;
+                    nesthousing.Rowspan = 5;
+                    nesthousing.PaddingBottom = 10f;
+                    headertable.AddCell(nesthousing);
+                }
+
+
+                PdfPTable Invoicetable = new PdfPTable(3);
+                Invoicetable.HorizontalAlignment = 0;
+                Invoicetable.WidthPercentage = 100;
+                Invoicetable.SetWidths(new float[] { 100f, 320f, 100f });  // establecemos el ancho de las columnas
+                Invoicetable.DefaultCell.Border = Rectangle.NO_BORDER;
+
+                {
+                    PdfPTable nested = new PdfPTable(1);
+                    nested.DefaultCell.Border = Rectangle.NO_BORDER;
+                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("PARA:", bodyFont));
+                    nextPostCell1.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell1);
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase(proveedor, titleFont));
+                    nextPostCell2.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell2);
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("", bodyFont));
+                    nextPostCell3.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell3);
+                    PdfPCell nextPostCell4 = new PdfPCell(new Phrase("", EmailFont));
+                    nextPostCell4.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell4);
+                    nested.AddCell("");
+                    PdfPCell nesthousing = new PdfPCell(nested);
+                    nesthousing.Border = Rectangle.NO_BORDER;
+                    //nesthousing.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    //nesthousing.BorderWidthBottom = 1f;
+                    nesthousing.Rowspan = 5;
+                    nesthousing.PaddingBottom = 10f;
+                    Invoicetable.AddCell(nesthousing);
+                }
+
+                {
+                    PdfPCell middlecell = new PdfPCell();
+                    middlecell.Border = Rectangle.NO_BORDER;
+                    //middlecell.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    //middlecell.BorderWidthBottom = 1f;
+                    Invoicetable.AddCell(middlecell);
+                }
+
+
+                {
+                    PdfPTable nested = new PdfPTable(1);
+                    nested.DefaultCell.Border = Rectangle.NO_BORDER;
+                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("ORDEN DE COMPRA", titleFontBlue));
+                    nextPostCell1.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell1);
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha: " + DateTime.Now.ToShortDateString(), bodyFont));
+                    nextPostCell2.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell2);
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Emisión: " + fecha, bodyFont));
+                    nextPostCell3.Border = Rectangle.NO_BORDER;
+                    nested.AddCell(nextPostCell3);
+                    nested.AddCell("");
+                    PdfPCell nesthousing = new PdfPCell(nested);
+                    nesthousing.Border = Rectangle.NO_BORDER;
+                    //nesthousing.BorderColorBottom = new BaseColor(System.Drawing.Color.Black);
+                    //nesthousing.BorderWidthBottom = 1f;
+                    nesthousing.Rowspan = 5;
+                    nesthousing.PaddingBottom = 10f;
+                    Invoicetable.AddCell(nesthousing);
+                }
+
+
+                pdfDoc.Add(headertable);
+                Invoicetable.PaddingTop = 10f;
+
+                pdfDoc.Add(Invoicetable);
+                #endregion
+
+                #region Items Table
+                //Create body table
+                PdfPTable itemTable = new PdfPTable(2);
+
+                itemTable.HorizontalAlignment = 0;
+                itemTable.WidthPercentage = 100;
+                itemTable.SetWidths(new float[] { 40, 10 });  // then set the column's __relative__ widths
+                itemTable.SpacingAfter = 40;
+                itemTable.DefaultCell.Border = Rectangle.BOX;
+                PdfPCell cell1 = new PdfPCell(new Phrase("Producto", boldTableFont));
+                cell1.BackgroundColor = TabelHeaderBackGroundColor;
+                cell1.HorizontalAlignment = Element.ALIGN_CENTER;
+                itemTable.AddCell(cell1);
+                PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
+                cell2.BackgroundColor = TabelHeaderBackGroundColor;
+                cell2.HorizontalAlignment = 1;
+                itemTable.AddCell(cell2);
+                foreach (DataRow row in dt.Rows)
+                {
+                    //instanciamos variables para los elementos del datatable
+                    string productonombre = row[0].ToString();
+                    string cantidadproducto = row[1].ToString();
+                    //insertamos en la tabla el nombre
+                    PdfPCell numberCell = new PdfPCell(new Phrase(productonombre, bodyFont));
+                    numberCell.HorizontalAlignment = 1;
+                    numberCell.PaddingLeft = 10f;
+                    numberCell.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
+                    itemTable.AddCell(numberCell);
+                    //insertamos en la tabla la cantidad
+                    var _phrase = new Phrase();
+                    _phrase.Add(new Chunk(cantidadproducto, EmailFont));
+                    PdfPCell descCell = new PdfPCell(_phrase);
+                    descCell.HorizontalAlignment = 0;
+                    descCell.PaddingLeft = 10f;
+                    descCell.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
+                    itemTable.AddCell(descCell);
+
+                }
+                //pie de tabla
+                PdfPCell totalAmtCell1 = new PdfPCell(new Phrase(""));
+                totalAmtCell1.Border = Rectangle.LEFT_BORDER | Rectangle.TOP_BORDER;
+                itemTable.AddCell(totalAmtCell1);
+                PdfPCell totalAmtCell2 = new PdfPCell(new Phrase(""));
+                totalAmtCell2.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
+                itemTable.AddCell(totalAmtCell2);
+                PdfPCell totalAmtCell3 = new PdfPCell(new Phrase(""));
+                totalAmtCell3.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
+                itemTable.AddCell(totalAmtCell3);
+                //PdfPCell totalAmtStrCell = new PdfPCell(new Phrase("Total", boldTableFont));
+                //totalAmtStrCell.Border = Rectangle.TOP_BORDER;   //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
+                //totalAmtStrCell.HorizontalAlignment = 1;
+                //itemTable.AddCell(totalAmtStrCell);
+                //PdfPCell totalAmtCell = new PdfPCell(new Phrase("TOTAL", boldTableFont));
+                //totalAmtCell.HorizontalAlignment = 1;
+                //itemTable.AddCell(totalAmtCell);
+
+                PdfPCell cell = new PdfPCell(new Phrase("***NOTA: Se acepta hasta un cargo del 0.5% en el periodo de 30 days. ***", bodyFont));
+                cell.Colspan = 5;
+                cell.HorizontalAlignment = 1;
+                itemTable.AddCell(cell);
+                pdfDoc.Add(itemTable);
+                #endregion
+
+                PdfContentByte cb = new PdfContentByte(writer);
+
+
+                BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);
+                cb = new PdfContentByte(writer);
+                cb = writer.DirectContent;
+                cb.BeginText();
+                cb.SetFontAndSize(bf, 8);
+                cb.SetTextMatrix(pageSize.GetLeft(120), 20);
+                cb.ShowText("Esta factura es válida como comprobante de solicitud de reposición");
+                cb.EndText();
+
+                //Movemos el puntero y dibujamos una linea para separa el resto del documento del footer
+                cb.MoveTo(40, pdfDoc.PageSize.GetBottom(50));
+                cb.LineTo(pdfDoc.PageSize.Width - 40, pdfDoc.PageSize.GetBottom(50));
+                cb.Stroke();
+
+                //cerramos el PDF
+                pdfDoc.Close();
+                DownloadPDF(PDFData);
+
+            }
+            catch (Exception ex)
+            {
+                lblerrorPDF.Text = ex.Message.ToString();
             }
         }
-        }   
+
+        #region--Download PDF
+        protected void DownloadPDF(System.IO.MemoryStream PDFData)
+        {
+            try
+            {
+                // Clear response content & headers
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.ClearContent();
+                HttpContext.Current.Response.ClearHeaders();
+                HttpContext.Current.Response.ContentType = "application/pdf";
+                HttpContext.Current.Response.Charset = string.Empty;
+                HttpContext.Current.Response.Cache.SetCacheability(System.Web.HttpCacheability.Public);
+                HttpContext.Current.Response.AddHeader("Content-Disposition", string.Format("attachment;filename=PROVEEDOR-{0}.pdf", "OrdendeCompraNº"));
+                HttpContext.Current.Response.OutputStream.Write(PDFData.GetBuffer(), 0, PDFData.GetBuffer().Length);
+                HttpContext.Current.Response.OutputStream.Flush();
+                HttpContext.Current.Response.OutputStream.Close();
+                //HttpContext.Current.Response.End();
+            }
+            catch (Exception ex)
+            {
+
+                lblerrorPDF.Text=ex.Message.ToString();
+            }
+            
+        }
+        #endregion
+
+        protected void generarPDF_Click(object sender, EventArgs e)
+        {
+            GenerarPDF(Tabla, lblFecha.Text, lblhora.Text, "", tbproveedor.Text);
+        }
+
+        protected void btnuevaorden_Click(object sender, EventArgs e)
+        {
+            btnregistrar.Visible = true;
+            btncancelar.Visible = true;
+            //limpiar campos
+            generarPDF.Visible = false;
+            btnuevaorden.Visible = false;
+        }
+    }
 }
