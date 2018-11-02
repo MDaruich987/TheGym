@@ -26,8 +26,8 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-            generarPDF.Visible = false;
-            btnuevaorden.Visible = false;
+           // generarPDF.Visible = false;
+           // btnuevaorden.Visible = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -310,6 +310,7 @@ namespace SistemasIIITHEGYM
                                         k.precioorden = Tabla.Rows[i][3].ToString();
 
                                         k.AddDetOrden();
+                                    ///////
                                     }
 
 
@@ -343,8 +344,13 @@ namespace SistemasIIITHEGYM
 
                                     k.AddDetOrden();
                                 }
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
+                            generarPDF.Visible = true;
+                            btnuevaorden.Visible = true;
+                            btnregistrar.Visible = false;
+                            btncancelar.Visible = false;
 
-                            }
+                        }
 
                             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
@@ -381,9 +387,12 @@ namespace SistemasIIITHEGYM
                             lblerror.Visible = false;
                             lblerror.Visible = false;
                             Lblerror1.Visible = false;
+                        btnregistrar.Visible = false;
+                        btncancelar.Visible = false;
+                        generarPDF.Visible = true;
+                        btnuevaorden.Visible = true;
 
-
-                        }
+                    }
                         catch (Exception ex)
                         {
                             Label1.Visible = true;
@@ -397,10 +406,7 @@ namespace SistemasIIITHEGYM
                         Label1.Visible = true;
                     }
                 }
-            btnregistrar.Visible = false;
-            btncancelar.Visible = false;
-            generarPDF.Visible = true;
-            btnuevaorden.Visible = true;
+            
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
