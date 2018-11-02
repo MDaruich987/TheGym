@@ -11,6 +11,8 @@ namespace SistemasIIITHEGYM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            panelcobrodeplanes.Visible = false;
+            panelproductos.Visible = false;
             if (Session["inicio"] != null)
             {
                 //declaramos una variale sesion para mantener el dato del usuario
@@ -35,6 +37,18 @@ namespace SistemasIIITHEGYM
                 //Response.Redirect("InicioLogin.aspx");
             }
 
+        }
+
+        protected void btnverestadisticascobro_Click(object sender, EventArgs e)
+        {
+            panelcobrodeplanes.Visible = true;
+            panelproductos.Visible = false;
+        }
+
+        protected void btnverestadisticaventasproducto_Click(object sender, EventArgs e)
+        {
+            panelproductos.Visible = true;
+            panelcobrodeplanes.Visible = false;
         }
     }
 }

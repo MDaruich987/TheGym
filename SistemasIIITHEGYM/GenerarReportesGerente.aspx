@@ -17,7 +17,6 @@
 
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="paneledicion" runat="server" Height="1109px">
                 <section class="content-header">
                     <h1>Reporte de Capital <small>TheGym</small> </h1>
                 </section>
@@ -38,10 +37,21 @@
                                     <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                     Fecha Inicio:</label>
                                     <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="128px" TextMode="DateTime"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Height="24px" Width="140px" TextMode="DateTime"></asp:TextBox>
                                     </div>
                                 </div>
                                 <br />
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                    Concepto:</label>
+                                    <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                     <asp:DropDownList ID="ddlplan" runat="server" AutoPostBack="True" Cssclass="form-control" Width="159px">
+                                            </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <br />
+                              
+                            
                             </div>
                             <!-- columna2 inicio/.col -->
                             <div class="col-md-6">
@@ -49,97 +59,68 @@
                                     <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
                                     Fecha Fin:</label>
                                     <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Height="24px" Width="128px" TextMode="DateTime"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Height="24px" Width="143px" TextMode="DateTime"></asp:TextBox>
                                     </div>
                                 </div>
                                 <br />
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                    Estado:</label>
+                                    <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                        <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Height="24px" Width="141px" TextMode="DateTime"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <br />
+                
+              
+                                
+                            
                                 <!-- /.form-group -->
                                 <asp:Label ID="Label1" runat="server" CssClass="error-text"></asp:Label>
-                                <asp:Button ID="btnconsultar0" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
                             </div>
                             <!-- /.col -->
                         </div>
                         <!-- /.row -->
                     </div>
                     <!-- /.box-body --><%--pie con botones registrar--%>
-                    <%--<div class="box-footer">
+                    <div class="box-footer">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnregistrar" runat="server" CssClass="btn btn-info" OnClick="btnregistrar_Click" Text="Registrar" />
+                    <asp:Button ID="btnaplicar" runat="server" CssClass="btn btn-info"  Text="Aplicar" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
-                </div>--%>
+                </div>
                 </div>
                 <!-- Horizontal Form -->
-                <div class="box" style="left: 0px; top: 0px; height: 755px">
+                <div class="box" style="left: 0px; top: 0px; height: 273px">
                     <div class="box-header with-border">
                         <h3 class="box-title">Reporte</h3>
                         <br />
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="row" style="height: 642px">
-                            <!-- /.col -->
-                            <!-- /.row -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <br />
-                            <br />
-                            <div class="col-lg-3 col-xs-6">
-                                <div class="small-box bg-aqua">
-                                    <div class="inner">
-                                        <h3>
-                                            <asp:Label ID="lblventas" runat="server" Text="150"></asp:Label>
-                                        </h3>
-                                        <p>
-                                            Ingreso</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-yellow">
-                                    <div class="inner">
-                                        <h3>
-                                            <asp:Label ID="lblclientes" runat="server" Text="150"></asp:Label>
-                                        </h3>
-                                        <p>
-                                            Egreso</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-person-add"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-red">
-                                    <div class="inner">
-                                        <h3>
-                                            <asp:Label ID="lblplanes" runat="server" Text="150"></asp:Label>
-                                        </h3>
-                                        <p>
-                                            Total</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-pie-graph"></i>
-                                    </div>
-                                </div>
-                                <br />
-                                <br />
-                                <br />
-                                <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Cancelar" />
-                                <br />
-                            </div>
-                            <!-- ./col -->
-                        </div>
                         <!-- ./box-body -->
+                        <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                            <Columns>
+                                
+                            </Columns>
+                            <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                            <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
                     </div>
-                    <!-- /.box -->
-                    <!-- general form elements disabled -->
-                    <!-- /.box -->
+                    <div class="box-footer">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-info"  Text="Aplicar" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button2" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" />
+                </div>
                 </div>
                 <!--/.col (right) -->
                 </div>
@@ -147,7 +128,8 @@
                 </section>
                 <!-- /.content -->
                 <!-- /.content-wrapper -->
-            </asp:Panel>
+
+          
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

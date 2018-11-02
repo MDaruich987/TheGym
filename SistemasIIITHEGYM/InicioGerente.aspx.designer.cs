@@ -31,6 +31,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblventas;
         
         /// <summary>
+        /// Control btnverestadisticaventasproducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnverestadisticaventasproducto;
+        
+        /// <summary>
         /// Control lblasistencias.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblasistencias;
         
         /// <summary>
-        /// Control lblclientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblclientes;
-        
-        /// <summary>
         /// Control lblplanes.
         /// </summary>
         /// <remarks>
@@ -56,5 +56,50 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblplanes;
+        
+        /// <summary>
+        /// Control btnverestadisticascobro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnverestadisticascobro;
+        
+        /// <summary>
+        /// Control panelcobrodeplanes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelcobrodeplanes;
+        
+        /// <summary>
+        /// Control gridcobrocuota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridcobrocuota;
+        
+        /// <summary>
+        /// Control panelproductos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelproductos;
+        
+        /// <summary>
+        /// Control gridplanes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridplanes;
     }
 }

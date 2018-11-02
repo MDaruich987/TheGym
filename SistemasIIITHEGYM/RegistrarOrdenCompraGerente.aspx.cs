@@ -26,8 +26,8 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-           // generarPDF.Visible = false;
-           // btnuevaorden.Visible = false;
+           generarPDF.Enabled = false;
+           btnuevaorden.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -387,10 +387,10 @@ namespace SistemasIIITHEGYM
                             lblerror.Visible = false;
                             lblerror.Visible = false;
                             Lblerror1.Visible = false;
-                        btnregistrar.Visible = false;
-                        btncancelar.Visible = false;
-                        generarPDF.Visible = true;
-                        btnuevaorden.Visible = true;
+                        btnregistrar.Enabled = false;
+                        btncancelar.Enabled = false;
+                        generarPDF.Enabled = true;
+                        btnuevaorden.Enabled = true;
 
                     }
                         catch (Exception ex)
