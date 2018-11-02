@@ -94,7 +94,8 @@
         </div>
         <!-- /.box-header -->
                 <div class="box-body">
-                    <asp:GridView ID="gridcobrocuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="163px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 316px; margin-bottom: 9px;" Width="333px" AutoGenerateColumns="False" Enabled="False">
+                    <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
+                    <asp:GridView ID="gridcobrocuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="163px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 316px; margin-bottom: 9px;" Width="333px" AutoGenerateColumns="False" Enabled="False">
                                               <Columns>
                                                   <asp:BoundField HeaderText="Producto" />
                                                   <asp:BoundField HeaderText="Cantidad" />

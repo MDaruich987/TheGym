@@ -1241,6 +1241,27 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetPlanEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlanEstadistica", parameters);
+            return dt;
+        }
+
+        public DataTable GetAllPlanEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllPlanEstadistica", parameters);
+            return dt;
+        }
+
+        public DataTable GetAsistenciaEstadistica()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAsistenciaEstadistica", parameters);
+            return dt;
+        }
+
 
     }
 }
