@@ -29,7 +29,7 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <table class="nav-justified" style="height: 270px">
+                                    <table class="nav-justified" style="height: 294px">
                                         <tr>
                                             <td style="height: 21px; width: 266px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblProfesor" runat="server" Text="Profesor:"></asp:Label>
                                                 <asp:DropDownList ID="ddlProfesor" runat="server">
@@ -233,7 +233,9 @@
                                             <td style="width: 198px">
                                                 <asp:Button ID="BtnCancelar" runat="server" CssClass="btn btn-default" OnClick="BtnCancelar_Click" Text="Cancelar" Width="123px" />
                                             </td>
-                                            <td>&nbsp;</td>
+                                            <td>
+                                                <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

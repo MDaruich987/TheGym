@@ -1,11 +1,11 @@
-﻿using SistemasIIITHEGYM.BussinesLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SistemasIIITHEGYM.BussinesLayer;
+using System.Data;
 
 namespace SistemasIIITHEGYM
 {
@@ -52,7 +52,7 @@ namespace SistemasIIITHEGYM
 
             }
         }
-         private void GetProfesores()
+        private void GetProfesores()
         {
             TheGym k = new TheGym();
             DataTable dt = k.GetProfesores();
@@ -163,7 +163,7 @@ namespace SistemasIIITHEGYM
             }
         }
 
-        protected void DdlMartes_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void DdlMartes_SelectedIndexChanged(object sender, EventArgs e)
         {
             string seleccion = DdlMartes.SelectedValue;
             int horainicio = Convert.ToInt32(seleccion) + 1;
@@ -226,10 +226,107 @@ namespace SistemasIIITHEGYM
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+
+                if (CbLunes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "1",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlLunes.SelectedItem.Text,
+                        hastaCronograma = DdlhastaLunes.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+                }
+                if (CbMartes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "2",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlMartes.SelectedItem.Text,
+                        hastaCronograma = DdlhastaMartes.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+
+                }
+                if (CbMiercoles.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "3",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlMiercoles.SelectedItem.Text,
+                        hastaCronograma = DdlhastaMiercoles.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+
+                }
+                if (CbJueves.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "4",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlJueves.SelectedItem.Text,
+                        hastaCronograma = DdlhastaJueves.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+
+                }
+                if (CbViernes.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "5",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlViernes.SelectedItem.Text,
+                        hastaCronograma = DdlhastaViernes.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+
+                }
+                if (CbSabado.Checked == true)
+                {
+                    TheGym k = new TheGym
+                    {
+                        fksemana = "6",
+                        fkactividad = ddlActividad.SelectedValue,
+                        fkprofesor = ddlProfesor.SelectedValue,
+                        desdeCronograma = DdlSabado.SelectedItem.Text,
+                        hastaCronograma = DdlhastaSabado.SelectedItem.Text
+
+                    };
+                    k.AddCronogramaSemanal();
+
+
+                    ddlProfesor.ClearSelection();
+                    ddlActividad.ClearSelection();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = ex.Message.ToString();
+            }
         }
 
         protected void BtnCancelar_Click(object sender, EventArgs e)
         {
+
             ddlActividad.ClearSelection();
             ddlProfesor.ClearSelection();
             CbLunes.Checked = false;
@@ -239,6 +336,7 @@ namespace SistemasIIITHEGYM
             CbViernes.Checked = false;
             CbSabado.Checked = false;
             DdlLunes.ClearSelection();
+            DdlhastaLunes.Dispose();
             DdlMartes.ClearSelection();
             DdlhastaMartes.ClearSelection();
             DdlMiercoles.ClearSelection();
@@ -249,18 +347,18 @@ namespace SistemasIIITHEGYM
             DdlhastaViernes.ClearSelection();
             DdlSabado.ClearSelection();
             DdlhastaSabado.ClearSelection();
-            DdlhastaLunes.ClearSelection();
+            
 
         }
+
+
+
 
         protected void DropDownList7_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void DdlMartes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
