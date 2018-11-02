@@ -82,7 +82,7 @@ namespace SistemasIIITHEGYM
                 TheGym k = new TheGym
                 {
                     NombreDepositoBusc = "",
-                    IdDep = griddepositoproductos.SelectedRow.Cells[0].Text
+                    IdDep = gridsucursales.SelectedRow.Cells[0].Text
                 };
 
                 DataTable dt1 = new DataTable();
@@ -98,6 +98,7 @@ namespace SistemasIIITHEGYM
             catch (Exception ex)
             {
                 lblerrorsucursales.Text = ex.Message.ToString();
+                lblerrorsucursales.Visible = true;
             }
         }
 
