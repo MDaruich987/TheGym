@@ -267,6 +267,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string fkprofesor;
         public string desdeCronograma;
         public string hastaCronograma;
+        //Variable para buscar productos de un deposito
+        public string NombreProdBusc;
+        public string SucBuscProd;
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -1093,7 +1096,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public DataTable GetSucEmailEmpleado()
         {
-            SqlParameter[] parameters = new SqlParameter[2];
+            SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Email", emailbusadm, SqlDbType.NVarChar, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSucEmailEmpleado", parameters);
             return dt;
@@ -1289,5 +1292,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddBorrarActividad", parameters);
 
         }
+
+        public DataTable GetProductoVenta()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProdBusc, SqlDbType.NVarChar, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", SucBuscProd, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProductoVenta", parameters);
+            return dt;
+        }
+
     }
 }

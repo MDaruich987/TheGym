@@ -15,7 +15,9 @@ namespace SistemasIIITHEGYM
         static DataColumn Column;
         static bool flag = false;
         static string id;
+        static string email;
         static string nom;
+        static string suc;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +26,8 @@ namespace SistemasIIITHEGYM
 
             lblFecha.Text = DateTime.Today.ToShortDateString();
             lblhora.Text = DateTime.Now.ToShortTimeString();
-            lblempleado.Text = (String)Session["usuario"];
+            lblempleado.Text = (String)Session["inicio"];
+            email = (String)Session["Usuario"];
 
             if (!IsPostBack)
             {
@@ -49,6 +52,24 @@ namespace SistemasIIITHEGYM
                 Column.DataType = System.Type.GetType("System.Double");
                 Column.ColumnName = "SubTotal";
                 Tabla.Columns.Add(Column);
+
+                
+
+                if(email != null)
+                {
+                    DataTable dt = new DataTable();
+                    TheGym k = new TheGym
+                    {
+                        emailbusadm = email
+                    };
+                    dt = k.GetSucEmailEmpleado();
+                    suc = dt.Rows[0][0].ToString();
+                }
+                else
+                {
+                    suc = "3";
+                }
+
             }
 
             if (flag == true)
@@ -113,11 +134,12 @@ namespace SistemasIIITHEGYM
                 {
                     TheGym k = new TheGym
                     {
-                        NombreProducto = tbnombreproductos.Text
+                        NombreProdBusc = tbnombreproductos.Text,
+                        SucBuscProd = suc
                     };
 
                     DataTable dt = new DataTable();
-                    dt = k.GetProducto();
+                    dt = k.GetProductoVenta();
 
                     if (dt.Rows.Count > 0)
                     {
