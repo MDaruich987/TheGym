@@ -202,6 +202,14 @@
                                 <li class="active"><a href="ConsultarOrdendeCompraGerente.aspx"><i class="fa fa-circle-o"></i>Consultar Orden de Compra</a></li>
                             </ul>
                         </li>
+                        <li>
+                         <a href="GenerarReportesGerente.aspx">
+                          <i class="fa fa-th"></i> <span>Reportes</span>
+                         <span class="pull-right-container">
+                          <small class="label pull-right bg-green"></small>
+                          </span>
+                            </a>
+                            </li>
             <%--fin contenedor--%>
                         <%--<li class="treeview">
                             <a href="#"><i class="fa fa-files-o"></i><span>Layout Options</span> <span class="pull-right-container"><span class="label label-primary pull-right"></span></span></a>

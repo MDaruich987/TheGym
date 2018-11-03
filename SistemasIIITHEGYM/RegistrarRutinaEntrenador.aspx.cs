@@ -25,9 +25,6 @@ namespace SistemasIIITHEGYM
             if (!IsPostBack)
             {
                 //mostramos solo el panel de busqueda
-                panelconsulta.Visible = true;
-                paneledicion.Visible = false;
-                panelconsulta.Focus();
                 griddetallerutina.DataBind();
             }
             if (Session["inicio"] != null)
@@ -118,29 +115,6 @@ namespace SistemasIIITHEGYM
 
         }
 
-        protected void btnconsultar_Click(object sender, EventArgs e)
-        {
-            TheGym k = new TheGym
-            {
-                ApellidoCliente = tbapellido.Text,
-
-            };
-
-            DataTable dt = new DataTable();
-            dt = k.GetClientesRutina();
-            if (dt.Rows.Count > 0)
-            {
-                gridclientes.DataSource = dt;
-                gridclientes.DataBind();
-                gridclientes.Focus();
-                lblerror.Text = "";
-
-            }
-            else
-            {
-                lblerror.Text = "No existe cliente con ese apellido";
-            }
-        }
 
         protected void btnañadir_Click(object sender, EventArgs e)
         {
@@ -217,9 +191,6 @@ namespace SistemasIIITHEGYM
             btnañadir.CausesValidation = false;
             btnregistrar.CausesValidation = false;
             btncancelar.CausesValidation = false;
-            panelconsulta.Visible = true;
-            paneledicion.Visible = false;
-            panelconsulta.Focus();
             lblerror.Text = "";
             griddetallerutina.DataBind();
 
@@ -231,13 +202,8 @@ namespace SistemasIIITHEGYM
             btnañadir.CausesValidation = false;
             btnregistrar.CausesValidation = false;
             btncancelar.CausesValidation = false;
-            panelconsulta.Visible = true;
-            paneledicion.Visible = false;
-            panelconsulta.Focus();
             lblerror.Text = "";
             griddetallerutina.DataBind();
-            tbapellido.Text = "";
-            gridclientes.DataBind();
             //Response.Redirect("InicioEntrenador.aspx");
         }
 
@@ -262,16 +228,19 @@ namespace SistemasIIITHEGYM
             ddlejercicio.DataBind();
         }
 
-        protected void gridclientes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnseleccioncliente_Click(object sender, EventArgs e)
         {
-            panelconsulta.Visible = false;
-            paneledicion.Visible = true;
-            paneledicion.Focus();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('show');", true);
+        }
 
+        protected void gvclientemodal_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-            lblnombre.Text = gridclientes.SelectedRow.Cells[1].Text;
-            lblapellido.Text = gridclientes.SelectedRow.Cells[2].Text;
-            lblid.Text = gridclientes.SelectedRow.Cells[0].Text;
+        }
+
+        protected void btnconsultarclientemodal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

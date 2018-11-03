@@ -34,9 +34,6 @@ namespace SistemasIIITHEGYM
                 
                 //la primera vez que se carga la página
                 //muestra el panel de  busqueda, no el de edicion
-                paneldatosdecobro.Visible = false;
-                panelseleccioncliente.Focus();
-                panelseleccioncliente.Visible = true;
                 //Response.Write("<script>window.alert('Bienvenido');</script>");
                 //preguntamos si no se realizo la apertura de caja del día en el 5==5
                 //if (5==5){
@@ -132,64 +129,37 @@ namespace SistemasIIITHEGYM
             }
         }
 
-        protected void btnconsultar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                gridclientes.Visible = true;
+        //protected void btnconsultar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        gridclientes.Visible = true;
 
-                TheGym k = new TheGym();
-                k.NombreClienteBusc = tbnombre.Text;
-                DataTable dt = k.GetClienteNom();
-                if (dt.Rows.Count > 0)
-                {
-                    gridclientes.DataSource = dt;
-                    gridclientes.DataBind();
-                    gridclientes.Focus();
-                    lblerror.Text = "";
-                }
-                else
-                {
-                    lblerror.Text = "No se encontraron clientes relacionados";
-                }
+        //        TheGym k = new TheGym();
+        //        k.NombreClienteBusc = tbnombre.Text;
+        //        DataTable dt = k.GetClienteNom();
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            gridclientes.DataSource = dt;
+        //            gridclientes.DataBind();
+        //            gridclientes.Focus();
+        //            lblerror.Text = "";
+        //        }
+        //        else
+        //        {
+        //            lblerror.Text = "No se encontraron clientes relacionados";
+        //        }
 
-                flag = true;
-            }
-            catch (Exception ex)
-            {
+        //        flag = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                lblerror.Text = ex.Message.ToString();
-            }
+        //        lblerror.Text = ex.Message.ToString();
+        //    }
             
-        }
+        //}
 
-        protected void gridclientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // cuando seleccionamos una fila del grid
-            try
-            {
-                //mostrar un panel y ocultar otro
-                panelseleccioncliente.Visible = false;
-                paneldatosdecobro.Visible = true;
-                paneldatosdecobro.Focus();
-                tbmonto.ReadOnly = true;
-                TbComprobante.Visible = false;
-                lblComprobante.Visible = false;
-                //codigo para cargar los valores de la fila en los textbox del panel de edicion
-
-            }
-            catch (Exception ex)
-            {
-
-                lblerror.Text = ex.Message.ToString();
-            }
-
-            nombre = gridclientes.SelectedRow.Cells[1].Text;
-            apellido = gridclientes.SelectedRow.Cells[2].Text;
-            id = gridclientes.SelectedRow.Cells[0].Text;
-            lblnombreusuario.Text = apellido + ", " + nombre;
-
-        }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
@@ -261,9 +231,8 @@ namespace SistemasIIITHEGYM
                     }
                     else
                     {
-                        lblerror.Visible = true;
-                        lblerror.ForeColor = System.Drawing.Color.Red;
-                        gridclientes.Enabled = false;
+                        Label1.Visible = true;
+                        Label1.ForeColor = System.Drawing.Color.Red;
                         btnregistrar.Enabled = false;
                         Label1.Text= "Caja No Abierta";
                     }
@@ -271,15 +240,15 @@ namespace SistemasIIITHEGYM
                 }
                 else
                 {
-                    lblerror.Visible = true;
-                    lblerror.Text = "Caja Cerrada";
-                    lblerror.ForeColor = System.Drawing.Color.Red;
+                    Label1.Visible = true;
+                    Label1.Text = "Caja Cerrada";
+                    Label1.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
 
-                lblerror.Text=ex.Message.ToString();
+                Label1.Text=ex.Message.ToString();
             }
           
 
@@ -288,10 +257,7 @@ namespace SistemasIIITHEGYM
 
         protected void btncancelar_Click(object sender, EventArgs e)
         {
-            panelseleccioncliente.Visible = true;
-            panelseleccioncliente.Focus();
-            paneldatosdecobro.Visible = false;
-            tbnombre.Text = "";
+            
         }
 
         protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
@@ -370,10 +336,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnvolver_Click(object sender, EventArgs e)
         {
-            paneldatosdecobro.Visible = false;
-            panelseleccioncliente.Visible = true;
-            gridclientes.Dispose();
-            gridclientes.DataBind();
+
         }
 
         public void GenerarPDF(string CLIENTE, string MONTO, string PLAN)
@@ -622,7 +585,7 @@ namespace SistemasIIITHEGYM
             }
             catch (Exception ex)
             {
-                lblerror.Text = ex.Message.ToString();
+                Label1.Text = ex.Message.ToString();
             }
         }
 
@@ -645,5 +608,10 @@ namespace SistemasIIITHEGYM
 
         }
         #endregion
+
+        protected void btnseleccioncliente_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('show');", true);
+        }
     }
 }
