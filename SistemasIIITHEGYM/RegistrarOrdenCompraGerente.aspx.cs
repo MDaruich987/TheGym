@@ -26,7 +26,7 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-           generarPDF.Enabled = false;
+           generarPDFssss.Enabled = false;
            btnuevaorden.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
@@ -155,11 +155,12 @@ namespace SistemasIIITHEGYM
                     griddetallefactura.DataSource = Tabla;
                     griddetallefactura.DataBind();
                     griddetallefactura.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
                     gvproductos.Visible = false;
                     tbcantidad.Text = "";
                     tbcantidad.Enabled = false;
                     btnañadirproductomodal.Enabled = false;
+                    tbnombreproductos.Text = string.Empty;
                 }
                 catch (Exception ex)
                 {
@@ -262,7 +263,8 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-                if (griddetallefactura.Columns.Count > 0)
+            
+            if (griddetallefactura.Columns.Count > 0)
                 {
                     Label1.Visible = false;
                     double total = 0;
@@ -345,8 +347,6 @@ namespace SistemasIIITHEGYM
                                     k.AddDetOrden();
                                 }
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
-                            generarPDF.Visible = true;
-                            btnuevaorden.Visible = true;
                             btnregistrar.Visible = false;
                             btncancelar.Visible = false;
 
@@ -389,8 +389,6 @@ namespace SistemasIIITHEGYM
                             Lblerror1.Visible = false;
                         btnregistrar.Enabled = false;
                         btncancelar.Enabled = false;
-                        generarPDF.Enabled = true;
-                        btnuevaorden.Enabled = true;
 
                     }
                         catch (Exception ex)
@@ -406,6 +404,7 @@ namespace SistemasIIITHEGYM
                         Label1.Visible = true;
                     }
                 }
+            
             
         }
 
@@ -584,11 +583,11 @@ namespace SistemasIIITHEGYM
                 itemTable.SetWidths(new float[] { 40, 10 });  // then set the column's __relative__ widths
                 itemTable.SpacingAfter = 40;
                 itemTable.DefaultCell.Border = Rectangle.BOX;
-                PdfPCell cell1 = new PdfPCell(new Phrase("Producto", boldTableFont));
+                PdfPCell cell1 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
                 cell1.BackgroundColor = TabelHeaderBackGroundColor;
                 cell1.HorizontalAlignment = Element.ALIGN_CENTER;
                 itemTable.AddCell(cell1);
-                PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
+                PdfPCell cell2 = new PdfPCell(new Phrase("Producto", boldTableFont));
                 cell2.BackgroundColor = TabelHeaderBackGroundColor;
                 cell2.HorizontalAlignment = 1;
                 itemTable.AddCell(cell2);
@@ -620,9 +619,9 @@ namespace SistemasIIITHEGYM
                 PdfPCell totalAmtCell2 = new PdfPCell(new Phrase(""));
                 totalAmtCell2.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
                 itemTable.AddCell(totalAmtCell2);
-                PdfPCell totalAmtCell3 = new PdfPCell(new Phrase(""));
-                totalAmtCell3.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
-                itemTable.AddCell(totalAmtCell3);
+                //PdfPCell totalAmtCell3 = new PdfPCell(new Phrase(""));
+                //totalAmtCell3.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
+                //itemTable.AddCell(totalAmtCell3);
                 //PdfPCell totalAmtStrCell = new PdfPCell(new Phrase("Total", boldTableFont));
                 //totalAmtStrCell.Border = Rectangle.TOP_BORDER;   //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
                 //totalAmtStrCell.HorizontalAlignment = 1;
@@ -700,11 +699,11 @@ namespace SistemasIIITHEGYM
 
         protected void btnuevaorden_Click(object sender, EventArgs e)
         {
-            btnregistrar.Visible = true;
-            btncancelar.Visible = true;
-            //limpiar campos
-            generarPDF.Visible = false;
-            btnuevaorden.Visible = false;
+            //btnregistrar.Visible = true;
+            //btncancelar.Visible = true;
+            ////limpiar campos
+            //generarPDF.Visible = false;
+            //btnuevaorden.Visible = false;
         }
     }
 }

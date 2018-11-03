@@ -40,7 +40,7 @@
  }
     </script>
 <section class="content-header">
-      <h1>Registrar Factura de Venta<small>TheGym</small> </h1>
+      <h1>Registrar Venta De Productos<small>TheGym</small> </h1>
        <br />
 </section>
      <div class="modal fade" id="modal-facturaregistrada">
@@ -81,17 +81,20 @@
                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                       <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
-                             <asp:TextBox ID="tbnombrcliente" runat="server" Height="21px" Width="371px"></asp:TextBox>
+                             <asp:TextBox ID="tbnombrcliente" runat="server" Height="21px" Width="371px" AutoPostBack="false"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar"  CausesValidation="False" />
+                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarclientemodal_Click"  CausesValidation="False" />
                                        <br />
                                        <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
+                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True"  AllowSorting="True" OnSelectedIndexChanged="gvclientemodal_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
                                            <Columns>
+                                               <asp:BoundField DataField="Id_cliente" HeaderText="ID" />
+                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                               <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
                                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                <ControlStyle Height="20px" Width="20px" />
                                                </asp:CommandField>
@@ -156,7 +159,7 @@
                                            <Columns>
                                                <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                                                  <asp:BoundField DataField="PrecioCompra" HeaderText="Precio" />
+                                                  <asp:BoundField DataField="PrecioVenta" HeaderText="Precio" />
                                                   <asp:CommandField ButtonType="Image" 
                                                    SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
@@ -226,20 +229,25 @@
                       <asp:Label ID="lblFecha" CssClass="text-muted" runat="server" Text="HoraActual"></asp:Label>
                   </div>
                 </div>
-                    <br />
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">Proveedor:</label>
-
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbcliente_TextChanged" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
-                                <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
-                            </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </div>
-                <div class="form-group">
+                <div class="form-group" style="text-align: left">
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <br />
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">
+                                        Cliente:</label>
+                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                            <ContentTemplate>
+                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                    <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbcliente_TextChanged" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
+                                                    <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                            <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
                             <br />
                             <br />
                         </div>
@@ -266,6 +274,7 @@
                 <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
             </div>
             <!-- /.col -->
+              <br />
           </div>
           <!-- /.row -->
         </div>
@@ -287,7 +296,7 @@
                           <div class="col-md-12">
                               <div class="box">
                                   <div class="box-header with-border" style="left: 0px; top: 0px; width: 898px;">
-                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Detalle de Factura de Venta</h3>
+                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Detalle de la Venta</h3>
                                   </div>
                                   <div class="box-body">
               <!-- Date -->
