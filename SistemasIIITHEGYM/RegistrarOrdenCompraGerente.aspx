@@ -365,7 +365,7 @@
             &nbsp;&nbsp;
             <asp:Button ID="generarPDFssss" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="generarPDF_Click" Text="Añadir Producto" Visible="False" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnuevaorden" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btnuevaorden_Click" Text="Nueva Orden de Compra" Width="227px" />
+            <asp:Button ID="btnenvioemail" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btnenvioemail_Click" Text="Enviar E-mail" />
         </asp:Panel>
     </div>
     <br />
