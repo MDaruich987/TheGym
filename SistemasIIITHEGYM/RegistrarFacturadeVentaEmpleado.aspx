@@ -241,13 +241,14 @@
                                                 <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                                                     <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbcliente_TextChanged" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
                                                     <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
+                                                    <br />
+                                                    <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                            <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
                             <br />
                             <br />
                         </div>

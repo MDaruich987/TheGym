@@ -211,6 +211,7 @@
     <Content Include="RegistrarCronogramaSemanalEmpleado.aspx" />
     <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
+    <Content Include="RegistrarFacturadePagoGerente.aspx" />
     <Content Include="RegistrarFacturadeVentaEmpleado.aspx" />
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
@@ -504,6 +505,13 @@
     </Compile>
     <Compile Include="RegistrarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>RegistrarEmpleadoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarFacturadePagoGerente.aspx.cs">
+      <DependentUpon>RegistrarFacturadePagoGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarFacturadePagoGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarFacturadePagoGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarFacturadeVentaEmpleado.aspx.cs">
       <DependentUpon>RegistrarFacturadeVentaEmpleado.aspx</DependentUpon>
