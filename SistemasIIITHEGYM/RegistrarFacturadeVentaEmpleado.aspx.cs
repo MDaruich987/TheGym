@@ -18,6 +18,8 @@ namespace SistemasIIITHEGYM
         static string email;
         static string nom;
         static string suc;
+        static string idEmpleado;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,12 +65,32 @@ namespace SistemasIIITHEGYM
                         emailbusadm = email
                     };
                     dt = k.GetSucEmailEmpleado();
-                    suc = dt.Rows[0][0].ToString();
+                    if (dt.Rows.Count > 0)
+                    {
+                        suc = dt.Rows[0][0].ToString();
+                    }
+                    else
+                    {
+                        suc = "3";
+                    }
+                    dt = k.GetIDemp();
+                    if (dt.Rows.Count > 0)
+                    {
+                        idEmpleado = dt.Rows[0][0].ToString();
+                    }
+                    else
+                    {
+                        idEmpleado = "1";
+                    }
+
                 }
                 else
                 {
                     suc = "3";
+                    idEmpleado = "1";
                 }
+
+                GetAllMedioPago();
 
             }
 
@@ -79,6 +101,21 @@ namespace SistemasIIITHEGYM
             }
 
         }
+
+        private void GetAllMedioPago()
+        {
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetAllMedioPago();
+            if (dt.Rows.Count > 1)
+            {
+                ddlformadepago.DataTextField = "descripcion";
+                ddlformadepago.DataValueField = "id_formapago";
+                ddlformadepago.DataSource = dt;
+                ddlformadepago.DataBind();
+            }
+        }
+
 
         protected void btnconsultarclientemodal_Click(object sender, EventArgs e)
         {
@@ -287,15 +324,164 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                string idFactura;
+
+                lblerroregistrar.Visible = false;
+                TheGym k = new TheGym
+                {
+                    FechaIdDetCaja = lblFecha.Text
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetEstadoDetCaja();
+                if (dt.Rows.Count == 0)
+                {
+                    DataTable dt1 = new DataTable();
+                    dt1 = k.GetEstadoDetCajaAP();
+
+                    if (dt1.Rows.Count == 1)
+                    {
+                        if (CheckBox1.Checked != true)
+                        {
+                            k.FactVentaCliente = id;
+                            k.FactVentaEmpleado = idEmpleado;
+                            k.FactVentaTotal = GetTotal();
+                            k.FactVentaFecha = lblFecha.Text;
+                            k.FactVentaHora = lblhora.Text;
+
+                            dt = k.AddFacturaVenta();
+                            idFactura = dt.Rows[0][0].ToString();
+
+                            k.FactVentaFormaPago = ddlformadepago.SelectedValue;
+                            k.FactVentaComprobante = TbComprobante.Text;
+                            k.FactVentaFactura = idFactura;
+
+                            k.AddMovimientoCajaVenta();
+
+                            k.FactVentaSucursal = suc;
+                            dt = k.AddMovStock();
+                            k.FactVentaMovimiento = dt.Rows[0][0].ToString();
+
+                            for (int i = 0; i < Tabla.Rows.Count; i++)
+                            {
+                                k.FactVentaProducto = Tabla.Rows[i][0].ToString();
+                                k.FactVentaPrecio = Tabla.Rows[i][3].ToString();
+                                k.FactVentaCantidad = Tabla.Rows[i][2].ToString();
+                                k.FactVentaSucursal = suc;
+
+                                k.AddDetalleFacturaVenta();
+
+                                k.AddDetMovStock();
+
+                            }
+
+                            btnregistrar.Visible = false;
+                            btncancelar.Visible = false;
+                            generarPDF.Visible = true;
+                            btnuevaFactura.Visible = true;
+                            tbcliente.Text = string.Empty;
+                            CheckBox1.Checked = false;
+                            ddlformadepago.ClearSelection();
+                            lblComprobante.Visible = false;
+                            TbComprobante.Visible = false;
+                            DataTable vacio = new DataTable();
+                            griddetallefactura.DataSource = vacio;
+                            griddetallefactura.DataBind();
+                            griddetallefactura.Dispose();
+                            griddetallefactura.Visible = false;
+                            
 
 
+                        }
+                        else
+                        {
+                            k.FactVentaCliente = "2107";
+                            k.FactVentaEmpleado = idEmpleado;
+                            k.FactVentaTotal = GetTotal();
+                            k.FactVentaFecha = lblFecha.Text;
+                            k.FactVentaHora = lblhora.Text;
 
+                            dt = k.AddFacturaVenta();
+                            idFactura = dt.Rows[0][0].ToString();
+
+                            k.FactVentaFormaPago = ddlformadepago.SelectedValue;
+                            k.FactVentaComprobante = lblComprobante.Text;
+                            k.FactVentaFactura = idFactura;
+
+                            k.AddMovimientoCajaVenta();
+
+                            k.FactVentaSucursal = suc;
+                            dt = k.AddMovStock();
+                            k.FactVentaMovimiento = dt.Rows[0][0].ToString();
+
+                            for (int i = 0; i < Tabla.Rows.Count; i++)
+                            {
+                                k.FactVentaProducto = Tabla.Rows[i][0].ToString();
+                                k.FactVentaPrecio = Tabla.Rows[i][3].ToString();
+                                k.FactVentaCantidad = Tabla.Rows[i][2].ToString();
+                                k.FactVentaSucursal = suc;
+
+                                k.AddDetalleFacturaVenta();
+
+                                k.AddDetMovStock();
+
+                            }
+
+                            btnregistrar.Visible = false;
+                            btncancelar.Visible = false;
+                            generarPDF.Visible = true;
+                            btnuevaFactura.Visible = true;
+                            tbcliente.Text = string.Empty;
+                            CheckBox1.Checked = false;
+                            ddlformadepago.ClearSelection();
+                            lblComprobante.Visible = false;
+                            TbComprobante.Visible = false;
+                            DataTable vacio = new DataTable();
+                            griddetallefactura.DataSource = vacio;
+                            griddetallefactura.DataBind();
+                            griddetallefactura.Dispose();
+                            griddetallefactura.Visible = false;
+
+                        }
+                    }
+                    else
+                    {
+                        lblerroregistrar.Visible = true;
+                        lblerroregistrar.Text = "Caja No Abierta";
+                    }
+                    
+
+                }
+                else
+                {
+                    lblerroregistrar.Visible = true;
+                    lblerroregistrar.Text = "Caja Cerrada";
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                lblerroregistrar.Text = ex.Message;
+                lblerroregistrar.Visible = true;
+            }
+            
 
             //ocultamos el resto de los botones
-            btnregistrar.Visible = false;
-            btncancelar.Visible = false;
-            generarPDF.Visible = true;
-            btnuevaFactura.Visible=true;
+            
+        }
+
+        protected string GetTotal()
+        {
+            Double total=0;
+            for(int i = 0; i < Tabla.Rows.Count; i++)
+            {
+                total = Convert.ToDouble(Tabla.Rows[i][4].ToString()) + total;
+            }
+            return Convert.ToString(total);
         }
 
         protected void btnseleccioncliente_Click(object sender, EventArgs e)
@@ -314,6 +500,21 @@ namespace SistemasIIITHEGYM
             tbcliente.Text = gvclientemodal.SelectedRow.Cells[2].Text + ", " + gvclientemodal.SelectedRow.Cells[1].Text;
             id = gvclientemodal.SelectedRow.Cells[0].Text;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('hide');", true);
+        }
+
+        protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblComprobante.Text = string.Empty;
+            if (ddlformadepago.SelectedItem.Text == "Efectivo")
+            {
+                lblComprobante.Visible = false;
+                TbComprobante.Visible = false;
+            }
+            else
+            {
+                lblComprobante.Visible = true;
+                TbComprobante.Visible = true;
+            }
         }
     }
 }

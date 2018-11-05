@@ -58,7 +58,7 @@ namespace SistemasIIITHEGYM
                 id = Convert.ToInt32(cadena);
 
                 lblsucursal.Text = "";
-                lblestadocaja.Text = "";
+                lblestadocaja.Text = "Apertura";
                 lblerror.Text = "";
                 /*if (Request.Params["parametro"] != null)
                 {
@@ -90,7 +90,14 @@ namespace SistemasIIITHEGYM
                 IdEmpleadoCargaSuc = Convert.ToString(id)
             };
             DataTable dt = k.GetAllSucursal();
-            lblsucursal.Text = dt.Rows[0][0].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                lblsucursal.Text = dt.Rows[0][0].ToString();
+            }
+            else
+            {
+                lblsucursal.Text = "3";
+            }
             IdSuc = dt.Rows[0][1].ToString();
         }
 
@@ -98,7 +105,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-
+            lblerror.Visible = false;
            
 
             //CODIGO QUE YA ESTABA
@@ -131,6 +138,8 @@ namespace SistemasIIITHEGYM
                             {
                                 lblerror.Text = "Ya se realizó la apertura de caja diaria.";
                             }
+                            lblerror.Text = "Ya se realizó la apertura de caja diaria.";
+                            lblerror.Visible = true;
                         }
                         else
                         {

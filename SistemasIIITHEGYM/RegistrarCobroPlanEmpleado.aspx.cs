@@ -262,6 +262,7 @@ namespace SistemasIIITHEGYM
 
         protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblComprobante.Text = string.Empty;
             if (ddlformadepago.SelectedItem.Text == "Efectivo")
             {
                 lblComprobante.Visible = false;

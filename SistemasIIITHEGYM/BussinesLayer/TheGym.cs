@@ -270,6 +270,23 @@ namespace SistemasIIITHEGYM.BussinesLayer
         //Variable para buscar productos de un deposito
         public string NombreProdBusc;
         public string SucBuscProd;
+        //Variables para registrar Factura de Venta
+        public string FactVentaCliente;
+        public string FactVentaEmpleado;
+        public string FactVentaTotal;
+        public string FactVentaFecha;
+        public string FactVentaHora;
+        public string FactVentaFormaPago;
+        public string FactVentaComprobante;
+        public string FactVentaFactura;
+        public string FactVentaProducto;
+        public string FactVentaPrecio;
+        public string FactVentaCantidad;
+        public string FactVentaSucursal;
+        public string FactVentaMovimiento;
+
+
+
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -1301,6 +1318,62 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProductoVenta", parameters);
             return dt;
         }
+
+        public DataTable AddFacturaVenta()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_cliente", FactVentaCliente, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FactVentaEmpleado, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Total", FactVentaTotal, SqlDbType.Money, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FactVentaFecha, SqlDbType.Date, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Hora", FactVentaHora, SqlDbType.Time, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddFacturaVenta", parameters);
+            return dt;
+        }
+
+        public void AddMovimientoCajaVenta()
+        {
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_formapago", FactVentaFormaPago, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Monto", FactVentaTotal, SqlDbType.Money, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Comprobante", FactVentaComprobante, SqlDbType.NVarChar, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", FactVentaHora, SqlDbType.Time, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FactVentaFactura, SqlDbType.Int, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FactVentaFecha, SqlDbType.Date, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_MovimientoCajaVenta", parameters);           
+        }
+
+        public void AddDetalleFacturaVenta()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FactVentaFactura, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", FactVentaProducto, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Precio", FactVentaPrecio, SqlDbType.Money, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", FactVentaCantidad, SqlDbType.Int, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FactVentaSucursal, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetalleFacturaVenta", parameters);
+        }
+
+        public DataTable AddMovStock()
+        {
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Fecha", FactVentaFecha, SqlDbType.Date, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FactVentaSucursal, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FactVentaFactura, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@FK_empleado", FactVentaEmpleado, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddMovStock", parameters);
+            return dt;
+        }
+
+        public void AddDetMovStock()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_MovStock", FactVentaMovimiento, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", FactVentaProducto, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", FactVentaCantidad, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddDetMovStock", parameters);
+        }
+
 
     }
 }

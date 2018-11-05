@@ -160,6 +160,7 @@
                                                <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                                   <asp:BoundField DataField="PrecioVenta" HeaderText="Precio" />
+                                                  <asp:BoundField DataField="Stock_Actual" HeaderText="Stock" />
                                                   <asp:CommandField ButtonType="Image" 
                                                    SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
@@ -221,7 +222,7 @@
         <!-- /.box-header -->
                 <div class="box-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="left: 0px; top: -2px; height: 235px">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Fecha:</label>
 
@@ -229,7 +230,7 @@
                       <asp:Label ID="lblFecha" CssClass="text-muted" runat="server" Text="HoraActual"></asp:Label>
                   </div>
                 </div>
-                <div class="form-group" style="text-align: left">
+                <div class="form-group" style="text-align: left; height: 111px;">
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
                                     <br />
@@ -242,13 +243,41 @@
                                                     <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbcliente_TextChanged" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
                                                     <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
                                                     <br />
-                                                    <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
+                                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
+                                        <br />
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
+                            <table class="nav-justified">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px" __designer:mapid="14b">
+                            Forma de Pago:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="14c">
+                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged" Width="170px">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
+                                </ajaxToolkit:ValidatorCalloutExtender>
+                            </div>
+                                    </td>
+                                    <td>
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 4px; width: 129px; height: 28px;" __designer:mapid="153">
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            </label>
+                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="156">
+                                            <br />
+                                <asp:TextBox ID="TbComprobante" runat="server" TextMode="Number" Visible="False"></asp:TextBox>
+                            </div>
+                                    </td>
+                                </tr>
+                            </table>
                             <br />
                             <br />
                         </div>
