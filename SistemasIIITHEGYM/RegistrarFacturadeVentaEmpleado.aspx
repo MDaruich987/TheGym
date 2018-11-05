@@ -253,27 +253,31 @@
                             </asp:UpdatePanel>
                             <table class="nav-justified">
                                 <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
+                                    <td>
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px" __designer:mapid="14b">
+                            Forma de Pago:</label></td>
+                                    <td>
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="width: 129px; height: 28px;" __designer:mapid="153">
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            </label>
+                                        <br />
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px" __designer:mapid="14b">
-                            Forma de Pago:</label><div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="14c">
+                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="14c">
                                 <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged" Width="170px">
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                 <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
                                 </ajaxToolkit:ValidatorCalloutExtender>
                             </div>
+                                        <br />
                                     </td>
                                     <td>
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 4px; width: 129px; height: 28px;" __designer:mapid="153">
-                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
-                            </label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="156">
-                                            <br />
                                 <asp:TextBox ID="TbComprobante" runat="server" TextMode="Number" Visible="False"></asp:TextBox>
+                                            <br />
                             </div>
                                     </td>
                                 </tr>

@@ -210,7 +210,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnañadirproductomodal_Click(object sender, EventArgs e)
         {
-            if (tbcantidad.Text != string.Empty && Convert.ToInt32(tbcantidad.Text) != 0 && Convert.ToInt32(tbcantidad.Text)>0)
+            if (tbcantidad.Text != string.Empty && Convert.ToInt32(tbcantidad.Text) != 0 && Convert.ToInt32(tbcantidad.Text)>0 && Convert.ToInt32(tbcantidad.Text) <= Convert.ToInt32(gvproductos.SelectedRow.Cells[3].Text))
             {
                 if (griddetallefactura.Rows.Count > 0)
                 {
@@ -294,6 +294,20 @@ namespace SistemasIIITHEGYM
 
         protected void btncancelar_Click(object sender, EventArgs e)
         {
+            btnregistrar.Visible = false;
+            btncancelar.Visible = false;
+            generarPDF.Visible = true;
+            btnuevaFactura.Visible = true;
+            tbcliente.Text = string.Empty;
+            CheckBox1.Checked = false;
+            ddlformadepago.ClearSelection();
+            lblComprobante.Visible = false;
+            TbComprobante.Visible = false;
+            DataTable vacio = new DataTable();
+            griddetallefactura.DataSource = vacio;
+            griddetallefactura.DataBind();
+            griddetallefactura.Dispose();
+            griddetallefactura.Visible = false;
 
         }
 
@@ -504,7 +518,7 @@ namespace SistemasIIITHEGYM
 
         protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblComprobante.Text = string.Empty;
+            TbComprobante.Text = string.Empty;
             if (ddlformadepago.SelectedItem.Text == "Efectivo")
             {
                 lblComprobante.Visible = false;
