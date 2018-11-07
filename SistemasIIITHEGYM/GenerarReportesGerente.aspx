@@ -23,7 +23,7 @@
                 <%--panel de datos generales rutina--%>
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Datos de Rutina </h3>
+                        <h3 class="box-title">Indique los datos </h3>
                         <div class="box-tools pull-right">
                             <%--                boton minimizar y cerrar--%><%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
