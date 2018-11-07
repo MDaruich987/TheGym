@@ -198,6 +198,7 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="pages\dashboard2.js" />
+    <Content Include="PagodeFacturaGerente.aspx" />
     <Content Include="README.md" />
     <Content Include="GYMPaginasMaestras\PaginaMaestraEmpleado.Master" />
     <Content Include="GYMPaginasMaestras\PaginaMaestaGerente.Master" />
@@ -470,6 +471,13 @@
     </Compile>
     <Compile Include="GYMPaginasMaestras\MasterPageEntrenador.Master.designer.cs">
       <DependentUpon>MasterPageEntrenador.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PagodeFacturaGerente.aspx.cs">
+      <DependentUpon>PagodeFacturaGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagodeFacturaGerente.aspx.designer.cs">
+      <DependentUpon>PagodeFacturaGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarActividadesEmpleado.aspx.cs">
