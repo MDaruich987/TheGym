@@ -52,6 +52,7 @@
                                        <br />
                                        <asp:GridView ID="griddetalleordenmodal" runat="server" AllowPaging="True"  AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
                                            <Columns>
+                                               <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
                                                <%--<asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/selecccionar.png" ShowSelectButton="True">
@@ -222,7 +223,11 @@
                  <%--input dinero--%>
                  <div class="input-group" style="left: 0px; top: 0px; width: 320px">
                 <span class="input-group-addon">$</span>
-                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 33%" TextMode="Number" Enabled="False"></asp:TextBox>
+                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                         <ContentTemplate>
+                             <asp:TextBox ID="tbmonto" runat="server" Cssclass="form-control" ReadOnly="True" style="left: 0px; top: 0px; height: 42px; width: 33%" TextMode="Number"></asp:TextBox>
+                         </ContentTemplate>
+                     </asp:UpdatePanel>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>

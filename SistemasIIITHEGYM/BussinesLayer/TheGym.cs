@@ -292,6 +292,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FacturaMonto;
         public string FacturaFecha;
         public string FacturaFKEmpleado;
+        public string FacturaIDSucursal;
+        public string FacturaProducto;
+        public string FacturaCantidad;
 
 
         //Metodo para registrar ingreso de cliente
@@ -1157,8 +1160,13 @@ namespace SistemasIIITHEGYM.BussinesLayer
 
         public DataTable GetUpProducto()
         {
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.Int, 10);
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Id_producto", IdProducto, SqlDbType.Int, 10);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Nombre", NombreProducto, SqlDbType.NVarChar, 10);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", FKproveedor, SqlDbType.Int, 10);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@PrecioCompra", PrecioCompra, SqlDbType.Money, 100);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@PrecioVenta", PrecioVenta, SqlDbType.Money, 100);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@Descripcion", DescripcionProducto, SqlDbType.NVarChar, 100);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetUpProducto", parameters);
             return dt;
         }
@@ -1440,6 +1448,36 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddFacturaPagoOtros", parameters);
         }
 
+        public void ActualizaStockOrden()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", FacturaProducto, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", FacturaCantidad, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FacturaIDSucursal, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_ActualizaStockOrden", parameters);
+        }
+
+        
+
+        public DataTable ProductoEnDeposito()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", FacturaProducto, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FacturaIDSucursal, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_ProductoEnDeposito", parameters);
+            return dt;
+        }
+
+
+        public DataTable AddProductoADeposito()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_producto", FacturaProducto, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Cantidad", FacturaCantidad, SqlDbType.Int, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FacturaIDSucursal, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProductoADeposito", parameters);
+            return dt;
+        }
 
     }
 }

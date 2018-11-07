@@ -15,6 +15,8 @@ namespace SistemasIIITHEGYM
         static string nom;
         static string idOrden;
         static string Total;
+        static string IdSucursal;
+        static DataTable Tabla;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,12 +35,13 @@ namespace SistemasIIITHEGYM
                 {
                     lblsucursal.Text = EncontrarIdSuc(nom);
                     id = EncontrarIdEmpleado(nom);
-
+                    IdSucursal = EncontrarIdSuc1(nom);
                 }
                 else
                 {
                     lblsucursal.Text = "Central";
                     id = "1";
+                    IdSucursal = "3";
                 }
                 
 
@@ -65,6 +68,8 @@ namespace SistemasIIITHEGYM
             }
         }
 
+        
+
         protected string EncontrarIdSuc(string aux)
         {
             string nombre;
@@ -82,6 +87,27 @@ namespace SistemasIIITHEGYM
             else
             {
                 return "Central";
+            }
+        }
+
+
+        protected string EncontrarIdSuc1(string aux)
+        {
+            string nombre;
+            TheGym k = new TheGym
+            {
+                emailbusadm = aux
+            };
+            DataTable dt = new DataTable();
+            dt = k.GetSucEmailEmpleado();
+            if (dt.Rows.Count > 0)
+            {
+                nombre = dt.Rows[0][0].ToString();
+                return nombre;
+            }
+            else
+            {
+                return "1";
             }
         }
 
@@ -168,6 +194,7 @@ namespace SistemasIIITHEGYM
                     try
                     {
                         k.AddFacturaPagoServicio();
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                     }
                     catch
                     {
@@ -191,6 +218,25 @@ namespace SistemasIIITHEGYM
                         try
                         {
                             k.AddFacturaPagoProveedor();
+                            k.FacturaIDSucursal = IdSucursal;
+                            for (int i = 0; i < Tabla.Rows.Count; i++)
+                            {
+                                k.FacturaProducto = Tabla.Rows[i][0].ToString();
+                                k.FacturaCantidad = Tabla.Rows[i][2].ToString();
+
+                                DataTable dt = new DataTable();
+                                dt = k.ProductoEnDeposito();
+
+                                if (dt.Rows.Count > 0)
+                                {
+                                    k.ActualizaStockOrden();
+                                }
+                                else
+                                {
+                                    k.AddProductoADeposito();
+                                }
+                            }
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                         }
                         catch
                         {
@@ -215,6 +261,7 @@ namespace SistemasIIITHEGYM
                             try
                             {
                                 k.AddFacturaPagoOtros();
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                             }
                             catch
                             {
@@ -235,12 +282,37 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = "Seleccione un tipo de comprobante!";
             }
             //mensaje de exito
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+            tbmonto.Text = string.Empty;
+            tbmonto.ReadOnly = true;
+            LblOrdenCompra.Visible = false;
+            tbordencompra.Text = string.Empty;
+            tbordencompra.Visible = false;
+            btnordencomprapopup.Visible = false;
+            LblServicios.Visible = false;
+            ddlservicio.Visible = false;
+            ddlTipoComprobante.ClearSelection();
+            griddetalleordenmodal.Dispose();
+            griddetalleordenmodal.Visible = false;
+            gridordenmodal.Dispose();
+            gridordenmodal.Visible = false;
+
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
         {
-
+            tbmonto.Text = string.Empty;
+            tbmonto.ReadOnly = true;
+            LblOrdenCompra.Visible = false;
+            tbordencompra.Text = string.Empty;
+            tbordencompra.Visible = false;
+            btnordencomprapopup.Visible = false;
+            LblServicios.Visible = false;
+            ddlservicio.Visible = false;
+            ddlTipoComprobante.ClearSelection();
+            griddetalleordenmodal.Dispose();
+            griddetalleordenmodal.Visible = false;
+            gridordenmodal.Dispose();
+            gridordenmodal.Visible = false;
         }
 
         protected void btnserviciopopup_Click(object sender, EventArgs e)
@@ -257,7 +329,7 @@ namespace SistemasIIITHEGYM
         {
             if(Convert.ToString(ddlTipoComprobante.SelectedItem) == "Factura Servicio")
             {
-                tbmonto.Enabled = true;
+                tbmonto.ReadOnly = false;
                 LblServicios.Visible = true;
                 ddlservicio.Visible = true;
                 LblOrdenCompra.Visible = false;
@@ -268,7 +340,7 @@ namespace SistemasIIITHEGYM
             {
                 if(Convert.ToString(ddlTipoComprobante.SelectedItem)=="Factura Proveedor")
                 {
-                    tbmonto.Enabled = false;
+                    tbmonto.ReadOnly = true;
                     LblServicios.Visible = false;
                     ddlservicio.Visible = false;
                     LblOrdenCompra.Visible = true;
@@ -277,7 +349,7 @@ namespace SistemasIIITHEGYM
                 }
                 else
                 {
-                    tbmonto.Enabled = true;
+                    tbmonto.ReadOnly = false;
                     LblServicios.Visible = false;
                     ddlservicio.Visible = false;
                     LblOrdenCompra.Visible = false;
@@ -348,6 +420,7 @@ namespace SistemasIIITHEGYM
             dt = k.GetDetOrden();
             if (dt.Rows.Count>0)
             {
+                Tabla = dt;
                 griddetalleordenmodal.DataSource = dt;
                 griddetalleordenmodal.DataBind();
                 griddetalleordenmodal.Visible = true;
