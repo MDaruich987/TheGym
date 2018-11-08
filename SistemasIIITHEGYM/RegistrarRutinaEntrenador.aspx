@@ -8,6 +8,62 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="EstilosCSS.css" rel="stylesheet" />
     <%-- inicio contenedor busqueda--%>
+        <div class="modal fade" id="modal-cliente">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--aqui esta el grid del modalpara los productos--%>                  <%--fingridmodal--%>
+                <h4 class="modal-title">Seleccione un Cliente:</h4>
+              </div>
+              <div class="modal-body">
+                  <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                      <ContentTemplate>
+                          <asp:Panel ID="panelconsulta" runat="server">
+                             <asp:TextBox ID="tbnombrclientemodal" runat="server" Height="21px" Width="371px" AutoPostBack="false"></asp:TextBox>
+                               <table class="nav-justified" style="height: 48px">
+                                   <caption>
+                                       <br />
+                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarclientemodal_Click"  CausesValidation="False" />
+                                       <br />
+                                       <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
+                                       <br />
+                                       <%--aqui esta el grid del modal para los proveedores--%>
+                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True"  AllowSorting="True" OnSelectedIndexChanged="gvclientemodal_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
+                                           <Columns>
+                                               <asp:BoundField DataField="Id_cliente" HeaderText="ID" />
+                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                               <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
+                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
+                                               <ControlStyle Height="20px" Width="20px" />
+                                               </asp:CommandField>
+                                           </Columns>
+                                           <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                           <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="20px" />
+                                           <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                           <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                           <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                           <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                           <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                           <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                           <SortedDescendingHeaderStyle BackColor="#242121" />
+                                       </asp:GridView>
+                                       <%--fingridmodal--%>
+                                   </caption>
+                                    </table>
+                          </asp:Panel>
+                     </ContentTemplate>
+                  </asp:UpdatePanel>
+              </div>
+              <div class="modal-footer">
+                  <%--inicio boxs--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+   <%-- otromodal--%>
              <div class="modal fade" id="modal-default">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -88,14 +144,17 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 68px">Cliente:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 255px; height: 64px;">
-                      <asp:Label ID="lblnombre" CssClass="text-muted" runat="server" Text="NOMBREcliente"></asp:Label>
-                      <br />
+                      <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
+                                                    <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
                       <asp:Label ID="lblapellido" runat="server" CssClass="text-muted" Text="APELLIDOcliente"></asp:Label>
                       <br />
                       <asp:Label ID="lblid" runat="server" CssClass="text-muted" Text="IDcliente"></asp:Label>
                   </div>
                 </div>
-                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                <br />
+                <br />
+                <br />
+                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: -1px; top: 15px; width: 114px">
                 Dia:</label><br /><!-- /.form-group --><div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
                     <asp:Label ID="lbldia" runat="server" CssClass="text-muted" Text="Dia"></asp:Label>
                 </div>
@@ -141,8 +200,9 @@
                                             </asp:CommandField>--%>
                           </Columns>
                           <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                           <EmptyDataRowStyle Height="20px" />
                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                           <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="20px" />
                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
                             <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
                             <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
@@ -284,110 +344,6 @@
           </div>
             </asp:Panel>
     <%--inicio panel de consulta--%>
-            <asp:Panel ID="panelconsulta" runat="server">
-        <%-- inicio contenedor busqueda--%>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box">
-                            <div class="box-header with-border" style="left: 0px; top: 0px; width: 607px;">
-                                <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seleccione&nbsp; al cliente&nbsp;</h3>
-                            </div>
-                            <div class="box-body">
-                                <div class="form-group">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbapellido" runat="server" Height="21px" Width="371px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbapellido" Display="None" ErrorMessage="Indique un Apellido" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
-                  <br />
-                                    <table class="nav-justified" style="height: 48px">
-                                        <tr>
-                                            <td class="modal-sm" style="width: 408px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
-                                            </td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <%--fin de contenedor busqueda inicio contenedor gridview--%>
-
-                      <div class="row">
-                          <div class="col-md-12">
-                              <div class="box">
-                                  <div class="box-header with-border" style="left: 0px; top: 0px; width: 607px;">
-                                      <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Ficha de clientes</h3>
-                                  </div>
-                                  <div class="box-body">
-              <!-- Date -->
-                                      <div class="form-group">
-                                          &nbsp;
-                                          <table class="nav-justified">
-                                              <tr>
-                                                  <td style="width: 70px">&nbsp;</td>
-                                                  <td>
-                                                      <asp:GridView ID="gridclientes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_cliente" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridclientes_SelectedIndexChanged">
-                                                          <Columns>
-                                                              <asp:BoundField DataField="Id_cliente" HeaderText="ID" ItemStyle-Width="100" />
-                                                              <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="100">
-                                                              <ItemStyle Width="150px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Apellido" HeaderText="Apellido" ItemStyle-Width="100">
-                                                              <ItemStyle Width="150px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="DNI" HeaderText="DNI" ItemStyle-Width="100">
-                                                              <ItemStyle Width="190px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Fecha_nac" HeaderText="Fecha Nacimiento" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="180px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Email" HeaderText="Emai" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="160px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField DataField="Telefono" HeaderText="Telefono" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="160px" />
-                                                              </asp:BoundField>
-                                                              <asp:BoundField ConvertEmptyStringToNull="true" DataField="Domicilio" HeaderText="Domicilio" ItemStyle-Width="100" Visible="False">
-                                                              <ItemStyle Width="190px" />
-                                                              </asp:BoundField>
-                                                              <asp:ImageField DataImageUrlField="Foto" HeaderText="Foto">
-                                                              </asp:ImageField>
-                                                              <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
-                                                          </Columns>
-                                                          <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                                          <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                          <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                                          <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                          <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                                          <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                                          <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                                          <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                                          <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                                          <SortedDescendingHeaderStyle BackColor="#242121" />
-                                                      </asp:GridView>
-                                                  </td>
-                                              </tr>
-                                          </table>
-
-                  <br />
-
-                  <br />
-                                      </div>
-                  <!-- /.description-block -->
-                <br />
-                                  </div>
-                              </div>
-              <!-- /.row -->
-                          </div>
-                </div>
-            <!-- /.box-footer -->
-
-
-            </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
 

@@ -11,10 +11,13 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarProductoGerente : System.Web.UI.Page
     {
+        static string id;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                CargarProveedores();
                 panelconsulta.Visible = true;
                 paneldatosdecobro.Visible = false;
                 panelconsulta.Focus();
@@ -25,7 +28,7 @@ namespace SistemasIIITHEGYM
                     lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
                     tbdescripcion.Enabled = false;
                     TextBox1.Enabled = false;
-                    TextBox2.Enabled = false;
+                    ddlProveedor.Enabled = false;
                     tbprecio.Enabled = false;
                     //tbstock.Enabled = false;
                     //tbstockminimo.Enabled = false;
@@ -55,6 +58,27 @@ namespace SistemasIIITHEGYM
             }
         }
 
+        protected void CargarProveedores()
+        {
+            lblerror.Visible = false;
+            TheGym k = new TheGym();
+            DataTable dt = new DataTable();
+            dt = k.GetProveedores();
+            if (dt.Rows.Count > 0)
+            {
+                ddlProveedor.DataTextField = "Nombre";
+                ddlProveedor.DataValueField = "Id_proveedor";
+                ddlProveedor.DataSource = dt;
+                ddlProveedor.DataBind();
+            }
+            else
+            {
+                lblerror.Visible = true;
+                lblerror.Text = "No se encontraron servicios";
+            }
+        }
+
+
         protected void btneditar_Click(object sender, EventArgs e)
         {
             if (btneditar.Text == "Editar")
@@ -62,8 +86,9 @@ namespace SistemasIIITHEGYM
 
                 tbdescripcion.Enabled = true;
                 TextBox1.Enabled = true;
-                TextBox2.Enabled = false;
+                //TextBox2.Enabled = false;
                 tbprecio.Enabled = true;
+                tbprecio0.Enabled = true;
                 //tbstock.Enabled = true;
                 //tbstockminimo.Enabled = true;
 
@@ -76,26 +101,27 @@ namespace SistemasIIITHEGYM
             }
             else
             {
+                btneditar.CausesValidation = false;
                 try
                 {
                     TheGym k = new TheGym
                     {
-                        NombreProducto= TextBox1.Text,
-                        FKproveedor = TextBox2.Text,
+                        NombreProducto = TextBox1.Text,
+                        FKproveedor = ddlProveedor.SelectedValue,
                         PrecioCompra = tbprecio.Text,
-                        PrecioVenta=tbprecio0.Text,
-                        DescripcionProducto=tbdescripcion.Text
-                       
+                        PrecioVenta = tbprecio0.Text,
+                        DescripcionProducto = tbdescripcion.Text,
+                        IdProducto = id
                     };
                     k.GetUpProducto();
 
                     TextBox1.Text = string.Empty;
-                    TextBox2.Text = string.Empty;
+                    ddlProveedor.ClearSelection();
                     tbprecio.Text=string.Empty;
                     tbprecio0.Text = string.Empty;
                     tbdescripcion.Text = string.Empty;
                     TextBox1.Enabled = false;
-                    TextBox2.Enabled = false;
+                    ddlProveedor.Enabled = false;
                     tbprecio.Enabled = false;
                     tbprecio0.Enabled = false;
                     tbdescripcion.Enabled = false;
@@ -131,12 +157,15 @@ namespace SistemasIIITHEGYM
                 paneldatosdecobro.Visible = false;
 
             }
+            gvproductos.Dispose();
+            gvproductos.Visible = false;
 
         }
 
 
         protected void gvproductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlProveedor.Enabled = false;
             //cuando seleccionamos una fila del grid
             try
             {
@@ -149,18 +178,19 @@ namespace SistemasIIITHEGYM
                 {
                     IdProducto = gvproductos.SelectedRow.Cells[0].Text
                 };
+                id = k.IdProducto;
                 DataTable dt = k.GetoneProducto();
                 if (dt.Rows.Count > 0)
                 {
                     TextBox1.Text =dt.Rows[0][1].ToString();
                     tbdescripcion.Text = dt.Rows[0][2].ToString();
-                    TextBox2.Text = dt.Rows[0][3].ToString();
+                    ddlProveedor.SelectedValue = dt.Rows[0][3].ToString();
                     tbprecio.Text = dt.Rows[0][4].ToString();
                     tbprecio0.Text = dt.Rows[0][5].ToString();
 
                     TextBox1.Enabled = false;
                     tbdescripcion.Enabled = false;
-                    TextBox2.Enabled = false;
+                    ddlProveedor.Enabled = false;
                     tbprecio.Enabled = false;
                     tbprecio0.Enabled = false;
 
@@ -196,7 +226,10 @@ namespace SistemasIIITHEGYM
 
         }
 
-       
+        protected void gvproductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
     }
     }
 

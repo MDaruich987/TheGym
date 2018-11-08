@@ -72,7 +72,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--aqui esta el grid del modalpara los productos--%>                  <%--fingridmodal--%>
+                  <%--aqui esta el grid del modalpara los productos--%><%--fingridmodal--%>
                 <h4 class="modal-title">Seleccione un proveedor:</h4>
               </div>
               <div class="modal-body">
@@ -154,7 +154,7 @@
                                        <asp:Label ID="lblerrorproductosmodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modalpara los productos--%>
-                                       <asp:GridView ID="gvproductos" runat="server" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px">
+                                       <asp:GridView ID="gvproductos" runat="server" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="550px">
                                            <Columns>
                                                <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -168,7 +168,7 @@
                                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                            <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
                                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                           <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                           <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="180px" />
                                            <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
                                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -359,14 +359,20 @@
             </ContentTemplate>
             </asp:UpdatePanel>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="text-center">
+        <asp:Panel ID="Panel1" runat="server">
+            <asp:Button ID="generarPDF" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="generarPDF_Click" Text="Generar PDF" />
+            &nbsp;&nbsp;
+            <asp:Button ID="generarPDFssss" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="generarPDF_Click" Text="Añadir Producto" Visible="False" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnenvioemail" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btnenvioemail_Click" Text="Enviar E-mail" />
+        </asp:Panel>
+    </div>
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="generarPDF" runat="server" CssClass="btn btn-success" Text="Generar PDF" OnClick="generarPDF_Click"  />
-        
+                    
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-            <asp:Button ID="btnuevaorden" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Nueva Orden de Compra" OnClick="btnuevaorden_Click" Width="227px" />
-                    
             <!-- /.box-footer -->
 
 
