@@ -262,6 +262,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string idorden;
         //variable para tener la hora del dia
         public string HoraDia;
+        //variable para generar reporte
+        public string FechaIn;
+        public string FechaFin;
+        public string Estado;
+        public string Capital;
 
         //Metodo para registrar ingreso de cliente
         public DataTable AddIngresoCliente()
@@ -1262,6 +1267,52 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetConceptos()
+        {
+           
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@capital", Estado, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetConceptos", parameters);
+            return dt;
+        }
 
+        public DataTable GetReporteDineroConcepto()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Estado", Estado, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 1000);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetReporteDineroConcepto", parameters);
+            return dt;
+        }
+
+        public DataTable GetReporteDineroConceptoTotal()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Capital", Capital, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetReporteDineroConceptoTotal", parameters);
+            return dt;
+        }
+
+        public DataTable GetSumTotal()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSumTotal", parameters);
+            return dt;
+        }
+
+        public DataTable GetSumTotalConcepto()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Estado", Estado, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSumTotalConcepto", parameters);
+            return dt;
+        }
     }
 }
