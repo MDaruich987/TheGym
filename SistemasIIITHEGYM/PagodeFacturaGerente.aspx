@@ -71,11 +71,13 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbbusqueda" runat="server" Height="21px" Width="371px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbbusqueda" Display="None" ErrorMessage="Indique una fecha" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
-                  <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="LbltipoComprobante" runat="server" Text="Tipo de Comprobante:"></asp:Label>
+                                    &nbsp;&nbsp;<asp:DropDownList ID="ddlTipoComprobante" runat="server" OnSelectedIndexChanged="ddlTipoComprobante_SelectedIndexChanged" OnTextChanged="ddlTipoComprobante_TextChanged" Width="150px" AutoPostBack="True">
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="LblProveedor" runat="server" Text="Proveedor:" Visible="False"></asp:Label>
+                                    &nbsp;&nbsp;<asp:DropDownList ID="ddlProveedor" runat="server" Visible="False" Width="150px">
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
                                             <td class="modal-sm" style="width: 429px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
@@ -109,8 +111,39 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridfacturas" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged">
+                                          <asp:GridView ID="gridfacturaServicio" runat="server" AllowSorting="true" AutoGenerateColumns="false" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged">
                                               <Columns>
+                                                  <asp:BoundField DataField="Id_facturapago" HeaderText="ID" />
+                                                  <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                                  <asp:BoundField DataField="Servicio" HeaderText="Servicio" />
+                                                  <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                                                  
+                                                  <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
+                                                  <ControlStyle Height="20px" Width="20px" />
+                                                  </asp:CommandField>
+                                                  <%--<asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
+                                                  <ControlStyle Height="20px" Width="20px" />
+                                                  </asp:CommandField>--%>
+                                              </Columns>
+                                              <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
+                                              <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                                              <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                                              <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                              <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
+                                              <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                                              <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                                              <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                                              <SortedDescendingHeaderStyle BackColor="#242121" />
+                                          </asp:GridView>
+                                          <asp:GridView ID="gridfacturaOrden" runat="server" AllowSorting="true" AutoGenerateColumns="false" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged">
+                                              <Columns>
+                                                  <asp:BoundField DataField="Id_facturapago" HeaderText="ID" />
+                                                  <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                                  <asp:BoundField DataField="Orden" HeaderText="Numero Orden" />
+                                                  <asp:BoundField DataField="Proveedor" HeaderText="Proveedor" />
+                                                  <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                                                  
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
                                                   </asp:CommandField>
