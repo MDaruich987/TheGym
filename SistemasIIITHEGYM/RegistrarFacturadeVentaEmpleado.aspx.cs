@@ -19,7 +19,7 @@ namespace SistemasIIITHEGYM
         static string nom;
         static string suc;
         static string idEmpleado;
-
+        static DataTable TablaCliente = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -128,6 +128,7 @@ namespace SistemasIIITHEGYM
                 };
                 DataTable dt = new DataTable();
                 dt = k.GetClienteNom();
+                TablaCliente = dt;
 
                 if (dt.Rows.Count > 0)
                 {
@@ -529,6 +530,13 @@ namespace SistemasIIITHEGYM
                 lblComprobante.Visible = true;
                 TbComprobante.Visible = true;
             }
+        }
+
+        protected void gvclientemodal_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvclientemodal.PageIndex = e.NewPageIndex;
+            gvclientemodal.DataSource = TablaCliente;
+            gvclientemodal.DataBind();
         }
     }
 }

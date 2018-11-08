@@ -85,31 +85,40 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control tbbusqueda.
+        /// Control LbltipoComprobante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbbusqueda;
+        protected global::System.Web.UI.WebControls.Label LbltipoComprobante;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control ddlTipoComprobante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoComprobante;
         
         /// <summary>
-        /// Control RequiredFieldValidator1_ValidatorCalloutExtender.
+        /// Control LblProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator1_ValidatorCalloutExtender;
+        protected global::System.Web.UI.WebControls.Label LblProveedor;
+        
+        /// <summary>
+        /// Control ddlProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
         
         /// <summary>
         /// Control btnconsultar.
@@ -130,12 +139,21 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblerror;
         
         /// <summary>
-        /// Control gridfacturas.
+        /// Control gridfacturaServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridfacturas;
+        protected global::System.Web.UI.WebControls.GridView gridfacturaServicio;
+        
+        /// <summary>
+        /// Control gridfacturaOrden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridfacturaOrden;
     }
 }

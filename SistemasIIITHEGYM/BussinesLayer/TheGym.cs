@@ -295,6 +295,7 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FacturaIDSucursal;
         public string FacturaProducto;
         public string FacturaCantidad;
+        
 
 
         //Metodo para registrar ingreso de cliente

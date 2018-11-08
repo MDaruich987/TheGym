@@ -90,7 +90,7 @@
                                        <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True"  AllowSorting="True" OnSelectedIndexChanged="gvclientemodal_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
+                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True" OnPageIndexChanging="gvclientemodal_PageIndexChanging"  AllowSorting="True" OnSelectedIndexChanged="gvclientemodal_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
                                            <Columns>
                                                <asp:BoundField DataField="Id_cliente" HeaderText="ID" />
                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
