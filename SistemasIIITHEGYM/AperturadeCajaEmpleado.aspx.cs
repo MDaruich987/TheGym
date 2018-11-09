@@ -98,7 +98,16 @@ namespace SistemasIIITHEGYM
             {
                 lblsucursal.Text = "3";
             }
-            IdSuc = dt.Rows[0][1].ToString();
+            try
+            {
+                IdSuc = dt.Rows[0][1].ToString();
+            }
+            catch (Exception ex)
+            {
+
+                lblerror.Text = "No sucursal " + ex.Message.ToString();
+            }
+            
         }
 
 
