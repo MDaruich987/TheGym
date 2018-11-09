@@ -7,6 +7,26 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>--%>
+        <div class="modal fade" id="modal-redirect">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>No se registró la apertura de caja diaria&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                  <%--                boton minimizar y cerrar--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     <div class="modal fade" id="modal-ordencompra">
           <div class="modal-dialog">
             <div class="modal-content">
