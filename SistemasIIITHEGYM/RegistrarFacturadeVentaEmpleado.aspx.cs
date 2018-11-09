@@ -6,11 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using SistemasIIITHEGYM.BussinesLayer;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SistemasIIITHEGYM
 {
+    
     public partial class RegistrarFacturadeVentaEmpleado : System.Web.UI.Page
     {
+        SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         static DataTable Tabla = new DataTable();
         static DataColumn Column;
         static bool flag = false;
@@ -33,7 +37,35 @@ namespace SistemasIIITHEGYM
 
             if (!IsPostBack)
             {
-                    
+                //para que no podamos registrar una factura hasta que este abierta la caja
+                //abrimos la conexion
+                conex.Open();
+                //creamos un comando sql, le pasamos la consulta a enviar a la base de datos y la conexion
+                SqlCommand com = new SqlCommand("select Monto from DetalleCaja where Convert(varchar(10),Fecha,103)=@Fecha", conex);
+                //con el @ parametrizamos nuestros elementos, y ahora le agregamos el valor
+                com.Parameters.AddWithValue("@Fecha", DateTime.Now.ToShortDateString());
+                //creamos un objetosql data adapter y le pasamos nuestro comando sql
+                SqlDataAdapter dap = new SqlDataAdapter(com);
+                //creamos un data table 
+                DataTable dat = new DataTable();
+                //para llenarlo con los datos de la tabla desde el data adapter
+                dap.Fill(dat);
+                //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
+                //evaluamos si la consulta nos devuelve filas quiere decir que si hay un elemento que coincida
+                if (dat.Rows.Count == 0)
+                {
+                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-redirect').modal('show');", true);
+                     Response.AddHeader("REFRESH", "3;URL=AperturadeCajaEmpleado.aspx");
+                    //tbnombre.Enabled = false;
+                    //btnconsultar.Enabled =false;
+                    //si no, me manda a la pagina de apertura de caja a los 3 segundos
+                }
+                else
+                {
+                    //si la apertura esta registrada, habilitamos la busqueda
+                    btnseleccioncliente.Visible = true;
+                }
+                DataTable Tabla = new DataTable();
                 Column = new DataColumn();
                 Column.DataType = System.Type.GetType("System.Int32");
                 Column.ColumnName = "Id_producto";
@@ -99,6 +131,7 @@ namespace SistemasIIITHEGYM
                 tbnombrcliente.Text = nom;
 
             }
+            
 
         }
 

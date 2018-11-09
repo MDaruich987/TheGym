@@ -6,7 +6,26 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+    <div class="modal fade" id="modal-redirect">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>No se registró la apertura de caja diaria&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                  <%--                boton minimizar y cerrar--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 <%--aqui esta el grid del modal para los clientes--%>
              <div class="modal fade" id="modal-aperturacaja">
           <div class="modal-dialog">
