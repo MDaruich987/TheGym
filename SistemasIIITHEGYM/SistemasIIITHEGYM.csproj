@@ -219,7 +219,6 @@
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
     <Content Include="RegistrarOrdenCompraGerente.aspx" />
-    <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarMovimientoStock.aspx" />
@@ -557,13 +556,6 @@
     </Compile>
     <Compile Include="RegistrarOrdenCompraGerente.aspx.designer.cs">
       <DependentUpon>RegistrarOrdenCompraGerente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarOrdendeCompraGerente.aspx.cs">
-      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrarOrdendeCompraGerente.aspx.designer.cs">
-      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarPlanEmpleado.aspx.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>
