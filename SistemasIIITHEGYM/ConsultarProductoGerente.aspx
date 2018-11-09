@@ -51,8 +51,9 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Proveedor:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                      <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Height="32px" Width="128px"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox2" Display="None" ErrorMessage="Seleccione un proveedor" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <asp:DropDownList ID="ddlProveedor" runat="server" Enabled="False" Width="175px">
+                      </asp:DropDownList>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlProveedor" Display="None" ErrorMessage="Seleccione un proveedor" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                       </ajaxToolkit:ValidatorCalloutExtender>
                   </div>

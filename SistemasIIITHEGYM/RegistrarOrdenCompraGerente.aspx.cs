@@ -4,9 +4,13 @@ using iTextSharp.text.pdf;
 using SistemasIIITHEGYM.BussinesLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -14,8 +18,10 @@ using System.Web.UI.WebControls;
 
 namespace SistemasIIITHEGYM
 {
+   
     public partial class RegistrarOrdenCompraGerente : System.Web.UI.Page
     {
+        SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         static string id;
         static string nom;
         static bool flag = false;
@@ -26,8 +32,7 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
-           generarPDF.Enabled = false;
-           btnuevaorden.Enabled = false;
+           generarPDFssss.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -155,11 +160,12 @@ namespace SistemasIIITHEGYM
                     griddetallefactura.DataSource = Tabla;
                     griddetallefactura.DataBind();
                     griddetallefactura.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
                     gvproductos.Visible = false;
                     tbcantidad.Text = "";
                     tbcantidad.Enabled = false;
                     btnañadirproductomodal.Enabled = false;
+                    tbnombreproductos.Text = string.Empty;
                 }
                 catch (Exception ex)
                 {
@@ -262,7 +268,8 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-                if (griddetallefactura.Columns.Count > 0)
+            
+            if (griddetallefactura.Columns.Count > 0)
                 {
                     Label1.Visible = false;
                     double total = 0;
@@ -345,8 +352,6 @@ namespace SistemasIIITHEGYM
                                     k.AddDetOrden();
                                 }
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
-                            generarPDF.Visible = true;
-                            btnuevaorden.Visible = true;
                             btnregistrar.Visible = false;
                             btncancelar.Visible = false;
 
@@ -389,8 +394,6 @@ namespace SistemasIIITHEGYM
                             Lblerror1.Visible = false;
                         btnregistrar.Enabled = false;
                         btncancelar.Enabled = false;
-                        generarPDF.Enabled = true;
-                        btnuevaorden.Enabled = true;
 
                     }
                         catch (Exception ex)
@@ -406,6 +409,7 @@ namespace SistemasIIITHEGYM
                         Label1.Visible = true;
                     }
                 }
+            
             
         }
 
@@ -584,11 +588,11 @@ namespace SistemasIIITHEGYM
                 itemTable.SetWidths(new float[] { 40, 10 });  // then set the column's __relative__ widths
                 itemTable.SpacingAfter = 40;
                 itemTable.DefaultCell.Border = Rectangle.BOX;
-                PdfPCell cell1 = new PdfPCell(new Phrase("Producto", boldTableFont));
+                PdfPCell cell1 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
                 cell1.BackgroundColor = TabelHeaderBackGroundColor;
                 cell1.HorizontalAlignment = Element.ALIGN_CENTER;
                 itemTable.AddCell(cell1);
-                PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
+                PdfPCell cell2 = new PdfPCell(new Phrase("Producto", boldTableFont));
                 cell2.BackgroundColor = TabelHeaderBackGroundColor;
                 cell2.HorizontalAlignment = 1;
                 itemTable.AddCell(cell2);
@@ -620,9 +624,9 @@ namespace SistemasIIITHEGYM
                 PdfPCell totalAmtCell2 = new PdfPCell(new Phrase(""));
                 totalAmtCell2.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
                 itemTable.AddCell(totalAmtCell2);
-                PdfPCell totalAmtCell3 = new PdfPCell(new Phrase(""));
-                totalAmtCell3.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
-                itemTable.AddCell(totalAmtCell3);
+                //PdfPCell totalAmtCell3 = new PdfPCell(new Phrase(""));
+                //totalAmtCell3.Border = Rectangle.TOP_BORDER; //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
+                //itemTable.AddCell(totalAmtCell3);
                 //PdfPCell totalAmtStrCell = new PdfPCell(new Phrase("Total", boldTableFont));
                 //totalAmtStrCell.Border = Rectangle.TOP_BORDER;   //Rectangle.NO_BORDER; //Rectangle.TOP_BORDER;
                 //totalAmtStrCell.HorizontalAlignment = 1;
@@ -700,11 +704,82 @@ namespace SistemasIIITHEGYM
 
         protected void btnuevaorden_Click(object sender, EventArgs e)
         {
-            btnregistrar.Visible = true;
-            btncancelar.Visible = true;
-            //limpiar campos
-            generarPDF.Visible = false;
-            btnuevaorden.Visible = false;
+            //btnregistrar.Visible = true;
+            //btncancelar.Visible = true;
+            ////limpiar campos
+            //generarPDF.Visible = false;
+            //btnuevaorden.Visible = false;
+        }
+
+        protected void btnenvioemail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conex.Open();
+                //creamos un comando sql, le pasamos la consulta a enviar a la base de datos y la conexion
+                SqlCommand com = new SqlCommand("select Monto from DetalleCaja where Convert(varchar(10),Fecha,103)=@prov", conex);
+                //con el @ parametrizamos nuestros elementos, y ahora le agregamos el valor
+                com.Parameters.AddWithValue("@prov", nom);
+                //creamos un objetosql data adapter y le pasamos nuestro comando sql
+                SqlDataAdapter dap = new SqlDataAdapter(com);
+                //creamos un data table 
+                DataTable dat = new DataTable();
+                //para llenarlo con los datos de la tabla desde el data adapter
+                dap.Fill(dat);
+                //lblusuario.Text = dat.Rows[0][0].ToString()+ dat.Rows[0][1].ToString()+ dat.Rows[0][2].ToString();
+                //evaluamos si la consulta nos devuelve filas quiere decir que si hay un elemento que coincida
+                if (dat.Rows.Count == 1)
+                {
+                    //Specify senders gmail address
+                    string SendersAddress = "thegyminfo@gmail.com";
+                    //Specify The Address You want to sent Email To(can be any valid email address)
+                    string ReceiversAddress = dat.Rows[0][0].ToString();
+                    //Specify The password of gmial account u are using to sent mail(pw of sender@gmail.com)
+                    const string SendersPassword = "thegymsistema2018";
+                    //Write the subject of ur mail.el asunto
+                    const string subject = "THE GYM";
+                    //Write the contents of your mail. En la pantalla yo copie lo mismo que el codigo para que sepan que se va a enviar pero solo se puede cambiar desde aca abajo
+                    const string body = "Te estamos esperando. Presentando este mail obtene un 20% de descuento.";
+
+                    try
+                    {
+                        //we will use Smtp client which allows us to send email using SMTP Protocol
+                        //i have specified the properties of SmtpClient smtp within{}
+                        //gmails smtp server name is smtp.gmail.com and port number is 587
+                        SmtpClient smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            Credentials = new NetworkCredential(SendersAddress, SendersPassword),
+                            Timeout = 10000
+                        };
+
+                        //MailMessage represents a mail message
+                        //it is 4 parameters(From,TO,subject,body)
+
+                        MailMessage message = new MailMessage(SendersAddress, ReceiversAddress, subject, body);
+                        /*WE use smtp sever we specified above to send the message(MailMessage message)*/
+
+                        smtp.Send(message);
+                        lblerrorPDF.Text = ("Envío exitoso!");
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        lblerrorPDF.Text = ex.Message.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblerrorPDF.Text=ex.Message.ToString();
+            }
+             
+            
         }
     }
 }

@@ -46,9 +46,9 @@
                                 <div class="box-body">
                                     
                                     
-                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="FK_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 22px; margin-bottom: 9px;" Width="471px">
                                         <Columns>
-                                            <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="FK_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
                                             <asp:BoundField DataField="Direccion" HeaderText="Direccion" ItemStyle-Width="150px" />
                                         </Columns>

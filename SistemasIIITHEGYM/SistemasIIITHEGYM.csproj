@@ -145,6 +145,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,6 +171,7 @@
     <Content Include="ConsultarDeposito.aspx" />
     <Content Include="ConsultarEjercicioEntrenador.aspx" />
     <Content Include="ConsultarEmpleadoGerente.aspx" />
+    <Content Include="ConsultarFacturadePagoGerente.aspx" />
     <Content Include="ConsultarFacturadeVentaEmpleado.aspx" />
     <Content Include="ConsultarMovimientodeStockEmpleado.aspx" />
     <Content Include="ConsultarMovimientosEmpleado.aspx" />
@@ -197,6 +199,7 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="pages\dashboard2.js" />
+    <Content Include="PagodeFacturaGerente.aspx" />
     <Content Include="README.md" />
     <Content Include="GYMPaginasMaestras\PaginaMaestraEmpleado.Master" />
     <Content Include="GYMPaginasMaestras\PaginaMaestaGerente.Master" />
@@ -211,11 +214,11 @@
     <Content Include="RegistrarCronogramaSemanalEmpleado.aspx" />
     <Content Include="RegistrarEjercicioEntrenador.aspx" />
     <Content Include="RegistrarEmpleadoGerente.aspx" />
+    <Content Include="RegistrarFacturadePagoGerente.aspx" />
     <Content Include="RegistrarFacturadeVentaEmpleado.aspx" />
     <Content Include="RegistrarFacturaEmpleado.aspx" />
     <Content Include="RegistrarHorariodeInstructor.aspx" />
     <Content Include="RegistrarOrdenCompraGerente.aspx" />
-    <Content Include="RegistrarOrdendeCompraGerente.aspx" />
     <Content Include="RegistrarProductoGerente.aspx" />
     <Content Include="RegistrarProveedorGerente.aspx" />
     <Content Include="RegistrarMovimientoStock.aspx" />
@@ -311,6 +314,13 @@
     </Compile>
     <Compile Include="ConsultarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>ConsultarEmpleadoGerente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarFacturadePagoGerente.aspx.cs">
+      <DependentUpon>ConsultarFacturadePagoGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarFacturadePagoGerente.aspx.designer.cs">
+      <DependentUpon>ConsultarFacturadePagoGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarFacturadeVentaEmpleado.aspx.cs">
       <DependentUpon>ConsultarFacturadeVentaEmpleado.aspx</DependentUpon>
@@ -462,6 +472,13 @@
     <Compile Include="GYMPaginasMaestras\MasterPageEntrenador.Master.designer.cs">
       <DependentUpon>MasterPageEntrenador.Master</DependentUpon>
     </Compile>
+    <Compile Include="PagodeFacturaGerente.aspx.cs">
+      <DependentUpon>PagodeFacturaGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagodeFacturaGerente.aspx.designer.cs">
+      <DependentUpon>PagodeFacturaGerente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarActividadesEmpleado.aspx.cs">
       <DependentUpon>RegistrarActividadesEmpleado.aspx</DependentUpon>
@@ -505,6 +522,13 @@
     <Compile Include="RegistrarEmpleadoGerente.aspx.designer.cs">
       <DependentUpon>RegistrarEmpleadoGerente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarFacturadePagoGerente.aspx.cs">
+      <DependentUpon>RegistrarFacturadePagoGerente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarFacturadePagoGerente.aspx.designer.cs">
+      <DependentUpon>RegistrarFacturadePagoGerente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarFacturadeVentaEmpleado.aspx.cs">
       <DependentUpon>RegistrarFacturadeVentaEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -532,13 +556,6 @@
     </Compile>
     <Compile Include="RegistrarOrdenCompraGerente.aspx.designer.cs">
       <DependentUpon>RegistrarOrdenCompraGerente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarOrdendeCompraGerente.aspx.cs">
-      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrarOrdendeCompraGerente.aspx.designer.cs">
-      <DependentUpon>RegistrarOrdendeCompraGerente.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarPlanEmpleado.aspx.cs">
       <DependentUpon>RegistrarPlanEmpleado.aspx</DependentUpon>

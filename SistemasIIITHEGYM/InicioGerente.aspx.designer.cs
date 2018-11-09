@@ -40,15 +40,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btnverestadisticaventasproducto;
         
         /// <summary>
-        /// lblasistencias control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblasistencias;
-        
-        /// <summary>
         /// lblplanes control.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblerror;
         
         /// <summary>
-        /// gridcobrocuota control.
+        /// ChartPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridcobrocuota;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartPlan;
         
         /// <summary>
         /// panelproductos control.
@@ -101,14 +92,5 @@ namespace SistemasIIITHEGYM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panelproductos;
-        
-        /// <summary>
-        /// gridplanes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridplanes;
     }
 }
