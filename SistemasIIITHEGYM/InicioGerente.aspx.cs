@@ -65,11 +65,10 @@ namespace SistemasIIITHEGYM
             panelcobrodeplanes.Visible = true;
             panelproductos.Visible = false;
 
-            //gridcobrocuota.Visible = true;
+          
 
-            Chart1.Visible = true;
-            //TheGym k = new TheGym();
-            //DataTable dt2 = k.GetPlanEstadistica();
+            ChartPlan.Visible = true;
+
 
             //if (dt2.Rows.Count > 0)
             //{
@@ -94,5 +93,14 @@ namespace SistemasIIITHEGYM
             panelcobrodeplanes.Visible = false;
         }
 
+        protected void ChartPlan_Load(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym();
+            DataTable dt2 = k.GetPlanChart();
+            ChartPlan.DataSource = dt2;
+            ChartPlan.DataBind();
+            ChartPlan.Focus();
+
+        }
     }
 }

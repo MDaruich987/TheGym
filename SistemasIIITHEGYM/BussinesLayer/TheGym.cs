@@ -1489,14 +1489,14 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public DataTable GetPlanChart()
         {
             SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetPlanChart", parameters);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllPlanChart", parameters);
             return dt;
         }
 
         public DataTable GetProductoChart()
         {
             SqlParameter[] parameters = new SqlParameter[0];
-            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetProductoChart", parameters);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllProductoChart", parameters);
             return dt;
         }
 
