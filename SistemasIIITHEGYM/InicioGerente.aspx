@@ -83,10 +83,9 @@
                 <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
                 <br />
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
-                <asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1">
                     <Series>
-                        <asp:Series Name="Series1">
+                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="Monto Total">
                         </asp:Series>
                     </Series>
                     <ChartAreas>
@@ -94,6 +93,7 @@
                         </asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
+                <br />
                 <br />
                 <br />
                 <!-- /.row -->
@@ -121,16 +121,6 @@
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Chart ID="ChartProd" runat="server">
-                        <Series>
-                            <asp:Series Name="Series1">
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
-                            </asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
                     <br />
                     <br />
                     <br />

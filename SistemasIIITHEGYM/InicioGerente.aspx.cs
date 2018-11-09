@@ -19,7 +19,6 @@ namespace SistemasIIITHEGYM
 
                 panelcobrodeplanes.Visible = false;
                 panelproductos.Visible = false;
-                //Chart1.Visible = false;
 
                 if (Session["inicio"] != null)
                 {
@@ -93,14 +92,19 @@ namespace SistemasIIITHEGYM
             panelcobrodeplanes.Visible = false;
         }
 
-        protected void ChartPlan_Load(object sender, EventArgs e)
+
+        protected void ChartPlan_Load1(object sender, EventArgs e)
         {
+
             TheGym k = new TheGym();
             DataTable dt2 = k.GetPlanChart();
             ChartPlan.DataSource = dt2;
+
+            ChartPlan.Series["Series1"].YValueMembers = dt2.Rows[0][1].ToString();
+            ChartPlan.Series["Series1"].XValueMember = dt2.Rows[0][0].ToString();
+
             ChartPlan.DataBind();
             ChartPlan.Focus();
-
         }
     }
 }
