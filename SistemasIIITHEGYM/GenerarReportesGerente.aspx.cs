@@ -209,6 +209,7 @@ namespace SistemasIIITHEGYM
             tbtotal.Text = "";
             detalle = null;
             gridreportes.Visible = false;
+            paneldetalle.Visible = false;
 
         }
 
@@ -297,7 +298,7 @@ namespace SistemasIIITHEGYM
                 var titleFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
                 var titleFontBlue = FontFactory.GetFont("Arial", 14, Font.NORMAL, BaseColor.BLUE);
                 var boldTableFont = FontFactory.GetFont("Arial", 8, Font.BOLD);
-                var bodyFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
+                var subtitleFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
                 var EmailFont = FontFactory.GetFont("Arial", 8, Font.NORMAL, BaseColor.BLUE);
                 BaseColor TabelHeaderBackGroundColor = WebColors.GetRGBColor("#EEEEEE");
 
@@ -341,10 +342,10 @@ namespace SistemasIIITHEGYM
                     PdfPCell nextPostCell1 = new PdfPCell(new Phrase("THE GYM", titleFont));
                     nextPostCell1.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell1);
-                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Salta, Argentina", bodyFont));
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Salta, Argentina", subtitleFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Av. Entre Rios 865", bodyFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Av. Entre Rios 865", subtitleFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     PdfPCell nextPostCell4 = new PdfPCell(new Phrase("thegyminfo@gmail.com", EmailFont));
@@ -376,7 +377,7 @@ namespace SistemasIIITHEGYM
                     PdfPCell nextPostCell2 = new PdfPCell(new Phrase("", titleFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("", bodyFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("", subtitleFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     PdfPCell nextPostCell4 = new PdfPCell(new Phrase("", EmailFont));
@@ -404,13 +405,13 @@ namespace SistemasIIITHEGYM
                 {
                     PdfPTable nested = new PdfPTable(1);
                     nested.DefaultCell.Border = Rectangle.NO_BORDER;
-                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), bodyFont));
+                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), subtitleFont));
                     nextPostCell1.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell1);
-                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha Inicio: " + fechainicio, bodyFont));
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha Inicio: " + fechainicio, subtitleFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Fin: " + fechafin, bodyFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Fin: " + fechafin, subtitleFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     //PdfPCell nextPostCell4 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), bodyFont));
@@ -478,37 +479,37 @@ namespace SistemasIIITHEGYM
                     string día = row[5].ToString();
 
                     //insertamos en la tabla la forma de pago
-                    PdfPCell numberCell = new PdfPCell(new Phrase(formadepago, bodyFont));
+                    PdfPCell numberCell = new PdfPCell(new Phrase(formadepago, subtitleFont));
                     numberCell.HorizontalAlignment = 1;
                     numberCell.PaddingLeft = 10f;
                     numberCell.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell);
                     //insertamos en la tabla el monto
-                    PdfPCell numberCell1 = new PdfPCell(new Phrase(monto, bodyFont));
+                    PdfPCell numberCell1 = new PdfPCell(new Phrase(monto, subtitleFont));
                     numberCell1.HorizontalAlignment = 1;
                     numberCell1.PaddingLeft = 10f;
                     numberCell1.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell1);
                     //insertamos en la tabla la estado
-                    PdfPCell numberCell2 = new PdfPCell(new Phrase(estado, bodyFont));
+                    PdfPCell numberCell2 = new PdfPCell(new Phrase(estado, subtitleFont));
                     numberCell2.HorizontalAlignment = 1;
                     numberCell2.PaddingLeft = 10f;
                     numberCell2.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell2);
                     //insertamos en la tabla la conceptp
-                    PdfPCell numberCell3 = new PdfPCell(new Phrase(concepto, bodyFont));
+                    PdfPCell numberCell3 = new PdfPCell(new Phrase(concepto, subtitleFont));
                     numberCell3.HorizontalAlignment = 1;
                     numberCell3.PaddingLeft = 10f;
                     numberCell3.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell3);
                     //insertamos en la tabla la comprobante
-                    PdfPCell numberCell4 = new PdfPCell(new Phrase(comprobante, bodyFont));
+                    PdfPCell numberCell4 = new PdfPCell(new Phrase(comprobante, subtitleFont));
                     numberCell4.HorizontalAlignment = 1;
                     numberCell4.PaddingLeft = 10f;
                     numberCell4.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell4);
                     //insertamos en la tabla la dia
-                    PdfPCell numberCell5 = new PdfPCell(new Phrase(día, bodyFont));
+                    PdfPCell numberCell5 = new PdfPCell(new Phrase(día, subtitleFont));
                     numberCell5.HorizontalAlignment = 1;
                     numberCell5.PaddingLeft = 10f;
                     numberCell5.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
