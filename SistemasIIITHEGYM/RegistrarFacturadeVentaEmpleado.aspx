@@ -262,45 +262,31 @@
                                                     <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" OnTextChanged="tbcliente_TextChanged" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
                                                     <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
                                                     <br />
+                                                    <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
+                                                    <br />
                                                 </div>
+                                                <%--/////--%>
+                                                                   <br />
+                                                <br />
+                                                <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Forma de Pago:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
+                    <asp:DropDownList  CssClass="form-control"   ID="ddlformadepago"  runat="server" Height="30px" Width="128px"></asp:DropDownList>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+                  </div>
+                </div>
+                                                <%--////--%>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Particular" />
+                                        
                                         <br />
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                            <table class="nav-justified">
-                                <tr>
-                                    <td>
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px" __designer:mapid="14b">
-                            Forma de Pago:</label></td>
-                                    <td>
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="width: 129px; height: 28px;" __designer:mapid="153">
-                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
-                            </label>
-                                        <br />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="14c">
-                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged" Width="170px">
-                                </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
-                                </ajaxToolkit:ValidatorCalloutExtender>
-                            </div>
-                                        <br />
-                                    </td>
-                                    <td>
-                                        <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="156">
-                                <asp:TextBox ID="TbComprobante" runat="server" TextMode="Number" Visible="False"></asp:TextBox>
-                                            <br />
-                            </div>
-                                    </td>
-                                </tr>
-                            </table>
                             <br />
                             <br />
                         </div>
@@ -323,11 +309,24 @@
                       <asp:Label ID="lblempleado" CssClass="text-muted" runat="server" Text="EMPLEADO"></asp:Label>
                   </div>
                 </div>
+                 <br />
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="width: 84px; height: 28px; left: -15px; top: 3px;">
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            </label>
+                                        </label>
+&nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 257px">
+                    <asp:TextBox  CssClass="form-control"  ID="TbComprobante"  runat="server" Height="24px" Width="128px" TextMode="Number"></asp:TextBox>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TbComprobante" Font-Bold="True" ForeColor="#CC0000" SetFocusOnError="True" ValidationExpression="^\d+$" Display="None" ErrorMessage="Ingrese un documento válido" ValidateRequestMode="Enabled"></asp:RegularExpressionValidator>                    
+                  </div>
+                </div>
+                <%--/////--%>
               <!-- /.form-group -->
                 <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
             </div>
             <!-- /.col -->
-              <br />
+
           </div>
           <!-- /.row -->
         </div>
