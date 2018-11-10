@@ -15,13 +15,13 @@
 
 
 
-    <asp:UpdatePanel ID="upgeneral" runat="server">
-        <ContentTemplate>
+    
                 <section class="content-header">
                     <h1>Reporte de Capital <small>TheGym</small> </h1>
                 </section>
                 <%--panel de datos generales rutina--%>
-                <div class="box box-default">
+    <asp:Panel ID="panelreporte" runat="server">
+    <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">Datos&nbsp;capital </h3>
                         <div class="box-tools pull-right">
@@ -101,8 +101,10 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
+        </asp:Panel>
                 <!-- Horizontal Form -->
-                <div class="box" style="left: 0px; top: 0px; height: 762px">
+    <asp:Panel ID="paneldetalle" runat="server">
+                    <div class="box" style="left: 0px; top: 0px; height: 762px">
                     <div class="box-header with-border">
                         <h3 class="box-title">Reporte</h3>
                         <br />
@@ -159,19 +161,25 @@
                     </div>
                     <div class="box-footer">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-info"  Text="Exportar" OnClick="Button1_Click" />
+                    
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="Button2_Click" />
+                    <asp:Button ID="Button3" runat="server" CssClass="btn btn-info"  Text="Exportar" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="Button2_Click" />
                 </div>
                 </div>
+     
                 <!--/.col (right) -->
                 </div>
+    </asp:Panel>
                 <!-- /.row -->
                 </section>
+
+    
                 <!-- /.content -->
                 <!-- /.content-wrapper -->
+    
+  
+        
+    
 
-          
-        </ContentTemplate>
-    </asp:UpdatePanel>
 </asp:Content>
