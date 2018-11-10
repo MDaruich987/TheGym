@@ -3,6 +3,26 @@
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                 <div class="modal fade" id="modal-envio">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>¡Promoción enviada exitosamene!</p>
+              </div>
+              <div class="modal-footer">
+                  <%--                boton minimizar y cerrar--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     <%--<section class="content-header">
                     <h1>Operaciones de caja <small>TheGym</small> </h1>
                 </section>--%>
@@ -21,7 +41,7 @@
 
    <asp:Label ID="lblseleccione" runat="server" Text="Seleccione el cliente al cual desea enviar el Email:" Font-Names="Arial" Font-Size="Medium"></asp:Label>       
                     <br />       
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px">
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" AllowPaging="True" PageSize="5">
                         <Columns>
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre"/>
                             <asp:BoundField DataField="Apellido" HeaderText="Apellido"/>

@@ -318,7 +318,7 @@ namespace SistemasIIITHEGYM
                     //tbprecio.Text = string.Empty;
 
                     griddetallefactura.Dispose();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-redirect').modal('show');", true);
                     griddetallefactura.Dispose();
                     griddetallefactura.DataBind();
                 }
