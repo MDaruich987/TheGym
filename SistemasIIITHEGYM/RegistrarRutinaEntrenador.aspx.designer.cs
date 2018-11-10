@@ -166,15 +166,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Button btnseleccioncliente;
         
         /// <summary>
-        /// Control lblapellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblapellido;
-        
-        /// <summary>
         /// Control lblid.
         /// </summary>
         /// <remarks>

@@ -20,7 +20,7 @@
                     <h1>Reporte de Capital <small>TheGym</small> </h1>
                 </section>
                 <%--panel de datos generales rutina--%>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
+    
     <asp:Panel ID="panelreporte" runat="server">
     <div class="box box-default">
                     <div class="box-header with-border">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
         </asp:Panel>
-        </ContentTemplate></asp:UpdatePanel>
+        
                 <!-- Horizontal Form -->
     <asp:Panel ID="paneldetalle" runat="server">
                     <div class="box" style="left: 0px; top: 0px; height: 762px">

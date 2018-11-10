@@ -146,9 +146,8 @@
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 255px; height: 64px;">
                       <asp:TextBox ID="tbcliente" runat="server" AutoPostBack="True" Enabled="False" Height="22px" ReadOnly="True" Width="158px">Seleccione un cliente</asp:TextBox>
                                                     <asp:Button ID="btnseleccioncliente" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" Text="..." Width="39px" OnClick="btnseleccioncliente_Click" />
-                      <asp:Label ID="lblapellido" runat="server" CssClass="text-muted" Text="APELLIDOcliente"></asp:Label>
                       <br />
-                      <asp:Label ID="lblid" runat="server" CssClass="text-muted" Text="IDcliente"></asp:Label>
+                      <asp:Label ID="lblid" runat="server" CssClass="text-muted" Text="IDcliente" Visible="False"></asp:Label>
                   </div>
                 </div>
                 <br />
