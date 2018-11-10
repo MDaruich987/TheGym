@@ -299,7 +299,11 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FacturaDetCaja;
         public string FacturaHora;
         public string FacturaIDFact;
-        
+        //variable para generar reporte
+        public string FechaIn;
+        public string FechaFin;
+        public string Estado;
+        public string Capital;
 
 
         //Metodo para registrar ingreso de cliente
@@ -1549,6 +1553,68 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", FacturaHora, SqlDbType.Time, 50);
             parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FacturaIDFact, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_PagoFacturaServicio", parameters);
+        }
+
+        public DataTable GetPlanChart()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllPlanChart", parameters);
+            return dt;
+        }
+
+        public DataTable GetProductoChart()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllProductoChart", parameters);
+            return dt;
+        }
+
+        public DataTable GetConceptos()
+        {
+
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@capital", Estado, SqlDbType.NVarChar, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetConceptos", parameters);
+            return dt;
+        }
+
+        public DataTable GetReporteDineroConcepto()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Estado", Estado, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 1000);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetReporteDineroConcepto", parameters);
+            return dt;
+        }
+
+        public DataTable GetReporteDineroConceptoTotal()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Capital", Capital, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetReporteDineroConceptoTotal", parameters);
+            return dt;
+        }
+
+        public DataTable GetSumTotal()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSumTotal", parameters);
+            return dt;
+        }
+
+        public DataTable GetSumTotalConcepto()
+        {
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Estado", Estado, SqlDbType.NVarChar, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSumTotalConcepto", parameters);
+            return dt;
         }
 
     }
