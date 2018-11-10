@@ -44,9 +44,9 @@ namespace SistemasIIITHEGYM
                     //Response.Redirect("InicioLogin.aspx");
                 }
 
-                TheGym k = new TheGym();
-                DataTable dt = k.GetAllPlanEstadistica();
-                lblplanes.Text = dt.Rows[0][0].ToString();
+                //TheGym k = new TheGym();
+                //DataTable dt = k.GetAllPlanEstadistica();
+                //lblplanes.Text = dt.Rows[0][0].ToString();
 
 
                 //DataTable dt1 = k.GetAsistenciaEstadistica();
@@ -61,26 +61,26 @@ namespace SistemasIIITHEGYM
 
         protected void btnverestadisticascobro_Click(object sender, EventArgs e)
         {
-            panelcobrodeplanes.Visible = true;
-            panelproductos.Visible = false;
+            //panelcobrodeplanes.Visible = true;
+            //panelproductos.Visible = false;
 
           
 
-            ChartPlan.Visible = true;
+            //ChartPlan.Visible = true;
 
 
-            //if (dt2.Rows.Count > 0)
-            //{
-            //    lblerror.Visible = false;
-            //    gridcobrocuota.DataSource = dt2;
-            //    gridcobrocuota.DataBind();
-            //    gridcobrocuota.Focus();
-            //}
-            //else
-            //{
-            //    lblerror.Visible = true;
-            //    lblerror.Text = "No se vendieron productos todavia";
-            //}
+            ////if (dt2.Rows.Count > 0)
+            ////{
+            ////    lblerror.Visible = false;
+            ////    gridcobrocuota.DataSource = dt2;
+            ////    gridcobrocuota.DataBind();
+            ////    gridcobrocuota.Focus();
+            ////}
+            ////else
+            ////{
+            ////    lblerror.Visible = true;
+            ////    lblerror.Text = "No se vendieron productos todavia";
+            ////}
 
             
          
@@ -96,15 +96,15 @@ namespace SistemasIIITHEGYM
         protected void ChartPlan_Load1(object sender, EventArgs e)
         {
 
-            TheGym k = new TheGym();
-            DataTable dt2 = k.GetPlanChart();
-            ChartPlan.DataSource = dt2;
+            //TheGym k = new TheGym();
+            //DataTable dt2 = k.GetPlanChart();
+            //ChartPlan.DataSource = dt2;
 
-            ChartPlan.Series["Series1"].YValueMembers = dt2.Rows[0][1].ToString();
-            ChartPlan.Series["Series1"].XValueMember = dt2.Rows[0][0].ToString();
+            //ChartPlan.Series["Series1"].YValueMembers = dt2.Rows[0][1].ToString();
+            //ChartPlan.Series["Series1"].XValueMember = dt2.Rows[0][0].ToString();
 
-            ChartPlan.DataBind();
-            ChartPlan.Focus();
+            //ChartPlan.DataBind();
+            //ChartPlan.Focus();
         }
     }
 }
