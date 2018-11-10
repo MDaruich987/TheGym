@@ -89,6 +89,7 @@ namespace SistemasIIITHEGYM
 
                 smtp.Send(message);
                 lberror.Text = ("Message Sent Successfully");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
             }
 

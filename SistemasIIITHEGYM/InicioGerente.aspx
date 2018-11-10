@@ -83,18 +83,16 @@
                 <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
                 <br />
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1">
-                    <series>
-                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="monto total">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1">
+                    <Series>
+                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="Monto Total">
                         </asp:Series>
-                    </series>
-                    <chartareas>
+                    </Series>
+                    <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
                         </asp:ChartArea>
-                    </chartareas>
+                    </ChartAreas>
                 </asp:Chart>
-                &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TheGymConnectionString %>" SelectCommand="PA_GetAllPlanChart" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 <br />
                 <br />
                 <br />
@@ -123,17 +121,6 @@
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource2">
-                        <Series>
-                            <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="monto total">
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
-                            </asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:TheGymConnectionString2 %>" SelectCommand="PA_GetAllProductoChart" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                     <br />
                     <br />
                     <br />
