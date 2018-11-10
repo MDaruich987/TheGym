@@ -258,7 +258,7 @@
                             Forma de Pago:</label></td>
                                     <td>
                             <label class="col-sm-2 control-label" for="inputEmail3" style="width: 129px; height: 28px;" __designer:mapid="153">
-                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:" Visible="False"></asp:Label>
                             </label>
                                         <br />
                                     </td>

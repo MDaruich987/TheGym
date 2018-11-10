@@ -235,12 +235,41 @@ namespace SistemasIIITHEGYM
 
         protected void gvclientemodal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbcliente.Text = gvclientemodal.SelectedRow.Cells[2].Text + ", " + gvclientemodal.SelectedRow.Cells[1].Text;
+            lblid.Text = gvclientemodal.SelectedRow.Cells[0].Text;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('hide');", true);
         }
 
         protected void btnconsultarclientemodal_Click(object sender, EventArgs e)
         {
-
+            lblerrorconsultarclientemodal.Visible = false;
+            if (tbnombrclientemodal.Text != string.Empty)
+            {
+                TheGym k = new TheGym
+                {
+                    NombreClienteBusc = tbnombrclientemodal.Text
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetClienteNom();
+                if (dt.Rows.Count > 0)
+                {
+                    gvclientemodal.DataSource = dt;
+                    gvclientemodal.DataBind();
+                    gvclientemodal.Visible = true;
+                }
+                else
+                {
+                    gvclientemodal.Dispose();
+                    gvclientemodal.Visible = false;
+                    lblerrorconsultarclientemodal.Visible = true;
+                    lblerrorconsultarclientemodal.Text = "Error al cargar Clientes";
+                }
+            }
+            else
+            {
+                lblerrorconsultarclientemodal.Visible = true;
+                lblerrorconsultarclientemodal.Text = "Ingrese el nombre de un Cliente";
+            }
         }
     }
 }

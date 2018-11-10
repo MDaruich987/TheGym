@@ -295,6 +295,10 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FacturaIDSucursal;
         public string FacturaProducto;
         public string FacturaCantidad;
+        public string FacturaConcepto;
+        public string FacturaDetCaja;
+        public string FacturaHora;
+        public string FacturaIDFact;
         
 
 
@@ -1478,6 +1482,73 @@ namespace SistemasIIITHEGYM.BussinesLayer
             parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@Sucursal", FacturaIDSucursal, SqlDbType.Int, 50);
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_AddProductoADeposito", parameters);
             return dt;
+        }
+
+
+        public DataTable GetFacturaAllTipo()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoComprobante", FacturaFKTipoComp, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactTipoAll", parameters);
+            return dt;
+        }
+
+        public DataTable GetFacturaAllTipoProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoComprobante", FacturaFKTipoComp, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactTipoAllProveedor", parameters);
+            return dt;
+        }
+
+
+        public DataTable GetFacturaAllTipoServicios()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoComprobante", FacturaFKTipoComp, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactTipoAllServicios", parameters);
+            return dt;
+        }
+
+        public DataTable GetFacturaAllTipoProv()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoComprobante", FacturaFKTipoComp, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_proveedor", FacturaIDProv, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactProv", parameters);
+            return dt;
+        }
+
+        public DataTable GetFacturaAllTipoServicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_TipoComprobante", FacturaFKTipoComp, SqlDbType.Int, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FK_Servicio", FacturaFKServicio, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactTipoServicio", parameters);
+            return dt;
+        }
+
+        public void PagarFacturaProveedor()
+        {
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Monto", FacturaMonto, SqlDbType.Money, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Concepto", FacturaConcepto, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_detCaja", FacturaDetCaja, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", FacturaHora, SqlDbType.Time, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FacturaIDFact, SqlDbType.Int, 50);
+            parameters[5] = BussinesDataLayer.DataAccess.AddParameter("@FK_orden", FacturaIDOrden, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_PagoFacturaProveedor", parameters);
+        }
+
+        public void PagarFacturaServicio()
+        {
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Monto", FacturaMonto, SqlDbType.Money, 50);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Concepto", FacturaConcepto, SqlDbType.NVarChar, 50);
+            parameters[2] = BussinesDataLayer.DataAccess.AddParameter("@FK_detCaja", FacturaDetCaja, SqlDbType.Int, 50);
+            parameters[3] = BussinesDataLayer.DataAccess.AddParameter("@Hora", FacturaHora, SqlDbType.Time, 50);
+            parameters[4] = BussinesDataLayer.DataAccess.AddParameter("@FK_factura", FacturaIDFact, SqlDbType.Int, 50);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_PagoFacturaServicio", parameters);
         }
 
     }

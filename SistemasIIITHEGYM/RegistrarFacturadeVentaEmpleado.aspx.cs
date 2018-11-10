@@ -153,6 +153,7 @@ namespace SistemasIIITHEGYM
 
         protected void gvproductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Lblerror1.Visible = false;
             tbcantidad.Enabled = true;
             btnañadirproductomodal.Enabled = true;
         }
@@ -211,43 +212,46 @@ namespace SistemasIIITHEGYM
 
         protected void btnañadirproductomodal_Click(object sender, EventArgs e)
         {
+            Lblerror1.Visible = false;
             if (tbcantidad.Text != string.Empty && Convert.ToInt32(tbcantidad.Text) != 0 && Convert.ToInt32(tbcantidad.Text)>0 && Convert.ToInt32(tbcantidad.Text) <= Convert.ToInt32(gvproductos.SelectedRow.Cells[3].Text))
             {
+                bool flag = true;
                 if (griddetallefactura.Rows.Count > 0)
                 {
                     for (int i = 0; i < griddetallefactura.Rows.Count; i++)
                     {
-                        if (griddetallefactura.Rows[i].Cells[0].Text != gvproductos.SelectedRow.Cells[0].Text)
+                        if (griddetallefactura.Rows[i].Cells[0].Text == gvproductos.SelectedRow.Cells[0].Text)
                         {
-                            DataRow fila = Tabla.NewRow();
-                            fila[0] = Convert.ToInt32(gvproductos.SelectedRow.Cells[0].Text);
-                            fila[1] = gvproductos.SelectedRow.Cells[1].Text;
-                            fila[2] = tbcantidad.Text;
-                            fila[3] = Convert.ToDouble(gvproductos.SelectedRow.Cells[2].Text);
-                            fila[4] = Convert.ToDouble(gvproductos.SelectedRow.Cells[2].Text) * Convert.ToInt32(tbcantidad.Text);
-                            try
-                            {
-                                Tabla.Rows.Add(fila);
-                                griddetallefactura.DataSource = Tabla;
-                                griddetallefactura.DataBind();
-                                griddetallefactura.Visible = true;
-                                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
-                                gvproductos.Visible = false;
-                                tbcantidad.Text = "";
-                                tbcantidad.Enabled = false;
-                                btnañadirproductomodal.Enabled = false;
-                                tbnombreproductos.Text = string.Empty;
-                            }
-                            catch (Exception ex)
-                            {
-                                Lblerror1.Text = ex.Message;
-                                Lblerror1.Visible = true;
-                            }
-                        }
-                        else
-                        {
+                            flag = false;
                             Lblerror1.Visible = true;
                             Lblerror1.Text = "Producto ya añadido";
+                        }
+                    }
+                    if (flag == true)
+                    {
+                        DataRow fila = Tabla.NewRow();
+                        fila[0] = Convert.ToInt32(gvproductos.SelectedRow.Cells[0].Text);
+                        fila[1] = gvproductos.SelectedRow.Cells[1].Text;
+                        fila[2] = tbcantidad.Text;
+                        fila[3] = Convert.ToDouble(gvproductos.SelectedRow.Cells[2].Text);
+                        fila[4] = Convert.ToDouble(gvproductos.SelectedRow.Cells[2].Text) * Convert.ToInt32(tbcantidad.Text);
+                        try
+                        {
+                            Tabla.Rows.Add(fila);
+                            griddetallefactura.DataSource = Tabla;
+                            griddetallefactura.DataBind();
+                            griddetallefactura.Visible = true;
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-añadirproducto').modal('hide');", true);
+                            gvproductos.Visible = false;
+                            tbcantidad.Text = "";
+                            tbcantidad.Enabled = false;
+                            btnañadirproductomodal.Enabled = false;
+                            tbnombreproductos.Text = string.Empty;
+                        }
+                        catch (Exception ex)
+                        {
+                            Lblerror1.Text = ex.Message;
+                            Lblerror1.Visible = true;
                         }
                     }
                 }
