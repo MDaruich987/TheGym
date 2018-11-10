@@ -19,6 +19,7 @@ namespace SistemasIIITHEGYM
 
                 panelcobrodeplanes.Visible = false;
                 panelproductos.Visible = false;
+
                 if (Session["inicio"] != null)
                 {
                     //declaramos una variale sesion para mantener el dato del usuario
@@ -48,8 +49,8 @@ namespace SistemasIIITHEGYM
                 lblplanes.Text = dt.Rows[0][0].ToString();
 
 
-                DataTable dt1 = k.GetAsistenciaEstadistica();
-                lblasistencias.Text = dt1.Rows[0][0].ToString();
+                //DataTable dt1 = k.GetAsistenciaEstadistica();
+                //lblasistencias.Text = dt1.Rows[0][0].ToString();
 
             }
             catch (Exception ex)
@@ -63,24 +64,23 @@ namespace SistemasIIITHEGYM
             panelcobrodeplanes.Visible = true;
             panelproductos.Visible = false;
 
-            gridcobrocuota.Visible = true;
+          
+
+            ChartPlan.Visible = true;
 
 
-            TheGym k = new TheGym();
-            DataTable dt2 = k.GetPlanEstadistica();
-
-            if (dt2.Rows.Count > 0)
-            {
-                lblerror.Visible = false;
-                gridcobrocuota.DataSource = dt2;
-                gridcobrocuota.DataBind();
-                gridcobrocuota.Focus();
-            }
-            else
-            {
-                lblerror.Visible = true;
-                lblerror.Text = "No se vendieron productos todavia";
-            }
+            //if (dt2.Rows.Count > 0)
+            //{
+            //    lblerror.Visible = false;
+            //    gridcobrocuota.DataSource = dt2;
+            //    gridcobrocuota.DataBind();
+            //    gridcobrocuota.Focus();
+            //}
+            //else
+            //{
+            //    lblerror.Visible = true;
+            //    lblerror.Text = "No se vendieron productos todavia";
+            //}
 
             
          
@@ -92,5 +92,19 @@ namespace SistemasIIITHEGYM
             panelcobrodeplanes.Visible = false;
         }
 
+
+        protected void ChartPlan_Load1(object sender, EventArgs e)
+        {
+
+            TheGym k = new TheGym();
+            DataTable dt2 = k.GetPlanChart();
+            ChartPlan.DataSource = dt2;
+
+            ChartPlan.Series["Series1"].YValueMembers = dt2.Rows[0][1].ToString();
+            ChartPlan.Series["Series1"].XValueMember = dt2.Rows[0][0].ToString();
+
+            ChartPlan.DataBind();
+            ChartPlan.Focus();
+        }
     }
 }

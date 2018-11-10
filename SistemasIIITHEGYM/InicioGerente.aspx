@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GYMPaginasMaestras/PaginaMaestaGerente.Master" AutoEventWireup="true" CodeBehind="InicioGerente.aspx.cs" Inherits="SistemasIIITHEGYM.InicioGerente" %>
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Label ID="lblusuario" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="Small" ForeColor="White"></asp:Label>
 </asp:Content>
@@ -25,21 +26,6 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>
-                  <asp:Label ID="lblasistencias" runat="server" Text="150"></asp:Label>
-                  <sup style="font-size: 20px">%</sup></h3>
-
-              <p>Asistencias</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-              Ver estadísticas <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
         </div>
         <!-- ./col -->
         <%--<div class="col-lg-3 col-xs-6">
@@ -92,28 +78,27 @@
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
             </div>
         </div>
+            <div class="box-body">
+                <br />
+                <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
+                <br />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1">
+                    <Series>
+                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="Monto Total">
+                        </asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1">
+                        </asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+                <br />
+                <br />
+                <br />
+                <!-- /.row -->
+            </div>
         <!-- /.box-header -->
-                <div class="box-body">
-                    <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
-                    <asp:GridView ID="gridcobrocuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="163px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 316px; margin-bottom: 9px;" Width="333px" AutoGenerateColumns="False" Enabled="False" >
-                                              <Columns>
-                                                  <asp:BoundField DataField="Nombre" HeaderText="Producto" />
-                                                  <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                                              </Columns>
-                                              <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                              <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                              <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                              <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                              <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                              <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                              <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                              <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                              <SortedDescendingHeaderStyle BackColor="#242121" />
-                                          </asp:GridView>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-body -->
     </div>
     </asp:Panel>
     
@@ -131,22 +116,19 @@
                 <div class="box-body">
 
           <!-- /.row -->
-                    <asp:GridView ID="gridplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Enabled="False" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="163px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 316px; margin-bottom: 9px;" Width="333px">
-                        <Columns>
-                            <asp:BoundField HeaderText="Producto" />
-                            <asp:BoundField HeaderText="Cantidad" />
-                        </Columns>
-                        <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                        <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                        <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                        <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                        <SortedDescendingHeaderStyle BackColor="#242121" />
-                    </asp:GridView>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
         </div>
         <!-- /.box-body -->
     </div>

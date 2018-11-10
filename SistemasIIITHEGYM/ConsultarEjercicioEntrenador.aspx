@@ -175,9 +175,6 @@
                                                               <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />
                                                               </asp:CommandField>
-                                                              <asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
-                                                              <ControlStyle Height="20px" Width="20px" />
-                                                              </asp:CommandField>
                                                           </Columns>
                                                           <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                                           <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
