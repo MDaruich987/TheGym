@@ -238,7 +238,7 @@ namespace SistemasIIITHEGYM
                 {
                     TheGym k = new TheGym
                     {
-                        FechaIdDetCaja = lblFecha.Text
+                        FechaIdDetCaja = DateTime.Today.ToShortDateString()
                     };
                     DataTable dt = new DataTable();
                     dt = k.GetEstadoDetCaja();
@@ -246,12 +246,14 @@ namespace SistemasIIITHEGYM
                     {
                         DataTable dt1 = new DataTable();
                         dt1 = k.GetEstadoDetCajaAP();
-                        DetCaja = dt.Rows[0][6].ToString();
+                        //DetCaja = dt.Rows[0][6].ToString();
 
                         if (dt1.Rows.Count == 1)
                         {
+                            DetCaja = dt1.Rows[0][6].ToString();
                             TheGym k1 = new TheGym
                             {
+                               
                                 FacturaMonto = tbtotalFactura.Text,
                                 FacturaConcepto = "Factura Proveedor",
                                 FacturaDetCaja = DetCaja,
@@ -260,6 +262,24 @@ namespace SistemasIIITHEGYM
                                 FacturaIDOrden = orden
                             };
                             k1.PagarFacturaProveedor();
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-Detalle').modal('hide');", true);
+                            grid.Dispose();
+                            grid.Visible = false;
+                            LblFiltro.Visible = false;
+                            LblServicio.Visible = false;
+                            ddlServicio.ClearSelection();
+                            ddlServicio.Visible = false;
+                            LblProveedor.Visible = false;
+                            ddlProveedor.Visible = false;
+                            ddlProveedor.ClearSelection();
+                            ddlTipoComprobante.ClearSelection();
+                            tbConcepto.Text = string.Empty;
+                            tbFecha.Text = string.Empty;
+                            tbIdFact.Text = string.Empty;
+                            tbTipo.Text = string.Empty;
+                            tbtotalFactura.Text = string.Empty;
+                            lblerror.Visible = true;
+                            lblerror.Text = "Pago Registrado Exitosamente!";
                         }
                         else
                         {
@@ -290,7 +310,7 @@ namespace SistemasIIITHEGYM
                     {
                         TheGym k = new TheGym
                         {
-                            FechaIdDetCaja = lblFecha.Text
+                            FechaIdDetCaja = DateTime.Today.ToShortDateString()
                         };
                         DataTable dt = new DataTable();
                         dt = k.GetEstadoDetCaja();
@@ -298,10 +318,11 @@ namespace SistemasIIITHEGYM
                         {
                             DataTable dt1 = new DataTable();
                             dt1 = k.GetEstadoDetCajaAP();
-                            DetCaja = dt.Rows[0][6].ToString();
+                            //DetCaja = dt.Rows[0][6].ToString();
 
                             if (dt1.Rows.Count == 1)
                             {
+                                DetCaja = dt1.Rows[0][6].ToString();
                                 TheGym k1 = new TheGym
                                 {
                                     FacturaMonto = tbtotalFactura.Text,
@@ -311,6 +332,24 @@ namespace SistemasIIITHEGYM
                                     FacturaIDFact = tbIdFact.Text,
                                 };
                                 k1.PagarFacturaServicio();
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-Detalle').modal('hide');", true);
+                                grid.Dispose();
+                                grid.Visible = false;
+                                LblFiltro.Visible = false;
+                                LblServicio.Visible = false;
+                                ddlServicio.ClearSelection();
+                                ddlServicio.Visible = false;
+                                LblProveedor.Visible = false;
+                                ddlProveedor.Visible = false;
+                                ddlProveedor.ClearSelection();
+                                ddlTipoComprobante.ClearSelection();
+                                tbConcepto.Text = string.Empty;
+                                tbFecha.Text = string.Empty;
+                                tbIdFact.Text = string.Empty;
+                                tbTipo.Text = string.Empty;
+                                tbtotalFactura.Text = string.Empty;
+                                lblerror.Visible = true;
+                                lblerror.Text = "Pago Registrado Exitosamente!";
                             }
                             else
                             {
@@ -337,7 +376,7 @@ namespace SistemasIIITHEGYM
                 {
                     TheGym k = new TheGym
                     {
-                        FechaIdDetCaja = lblFecha.Text
+                        FechaIdDetCaja = DateTime.Today.ToShortDateString()
                     };
                     DataTable dt = new DataTable();
                     dt = k.GetEstadoDetCaja();
@@ -345,10 +384,11 @@ namespace SistemasIIITHEGYM
                     {
                         DataTable dt1 = new DataTable();
                         dt1 = k.GetEstadoDetCajaAP();
-                        DetCaja = dt.Rows[0][6].ToString();
+                        //DetCaja = dt.Rows[0][6].ToString();
 
                         if (dt1.Rows.Count == 1)
                         {
+                            DetCaja = dt1.Rows[0][6].ToString();
                             TheGym k1 = new TheGym
                             {
                                 FacturaMonto = tbtotalFactura.Text,
@@ -358,6 +398,25 @@ namespace SistemasIIITHEGYM
                                 FacturaIDFact = tbIdFact.Text,
                             };
                             k1.PagarFacturaServicio();
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-Detalle').modal('hide');", true);
+                            grid.Dispose();
+                            grid.Visible = false;
+                            LblFiltro.Visible = false;
+                            LblServicio.Visible = false;
+                            ddlServicio.ClearSelection();
+                            ddlServicio.Visible = false;
+                            LblProveedor.Visible = false;
+                            ddlProveedor.Visible = false;
+                            ddlProveedor.ClearSelection();
+                            ddlTipoComprobante.ClearSelection();
+                            tbConcepto.Text = string.Empty;
+                            tbFecha.Text = string.Empty;
+                            tbIdFact.Text = string.Empty;
+                            tbTipo.Text = string.Empty;
+                            tbtotalFactura.Text = string.Empty;
+                            lblerror.Visible = true;
+                            lblerror.Text = "Pago Registrado Exitosamente!";
+
                         }
                         else
                         {
