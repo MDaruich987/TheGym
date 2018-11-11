@@ -12,7 +12,7 @@ namespace SistemasIIITHEGYM
     public partial class ConsultarEmpleadoGerente : System.Web.UI.Page
     {
         static string EditDni;
-
+        static DataTable TablaEmpleado = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -102,6 +102,7 @@ namespace SistemasIIITHEGYM
             //k.NombreEmpleadoBusc = "";
             DataTable dt1 = new DataTable();
             dt1 = k.GetEmpleadoNom();
+            TablaEmpleado = dt1;
             if (dt1.Rows.Count > 0)
             {
                 gridempleados.DataSource = dt1;
@@ -291,6 +292,13 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "Empleado inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
+        }
+
+        protected void gridempleados_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridempleados.PageIndex = e.NewPageIndex;
+            gridempleados.DataSource = TablaEmpleado;
+            gridempleados.DataBind();
         }
     }
 }

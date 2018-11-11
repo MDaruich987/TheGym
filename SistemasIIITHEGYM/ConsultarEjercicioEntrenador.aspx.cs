@@ -12,6 +12,7 @@ namespace SistemasIIITHEGYM
 
     public partial class ConsultarEjercicioEntrenador : System.Web.UI.Page
     {
+        static DataTable TablaEjercicio = new DataTable();
         static string idejercicio;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -179,7 +180,7 @@ namespace SistemasIIITHEGYM
                 NombreEjercicio = TextBox1.Text
             };
             DataTable dt = k.GetEjercicio();
-
+            TablaEjercicio = dt;
             if (dt.Rows.Count > 0)
             {
                 gridejercicios.DataSource = dt;
@@ -189,6 +190,13 @@ namespace SistemasIIITHEGYM
             {
                 lblerror.Text = "No se encontro el Ejercicio";
             }
+        }
+
+        protected void gridejercicios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridejercicios.PageIndex = e.NewPageIndex;
+            gridejercicios.DataSource = TablaEjercicio;
+            gridejercicios.DataBind();
         }
     }
 

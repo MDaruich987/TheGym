@@ -164,7 +164,7 @@
                                               <tr>
                                                   <td style="width: 125px">&nbsp;</td>
                                                   <td>
-                                                      <asp:GridView ID="gridejercicios" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridejercicios_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" DataKeyNames="Id_ejercicio">
+                                                      <asp:GridView ID="gridejercicios" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="3" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridejercicios_SelectedIndexChanged" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" DataKeyNames="Id_ejercicio" AllowPaging="True" OnPageIndexChanging="gridejercicios_PageIndexChanging">
                                                           <Columns>
                                                               <asp:BoundField DataField="Id_ejercicio" HeaderText="ID" Visible="true" />
                                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
