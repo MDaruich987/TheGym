@@ -273,7 +273,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Forma de Pago:</label>
 
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                    <asp:DropDownList  CssClass="form-control"   ID="ddlformadepago"  runat="server" Height="30px" Width="128px"></asp:DropDownList>
+                    <asp:DropDownList  CssClass="form-control"   ID="ddlformadepago"  runat="server" Height="30px" Width="128px" AutoPostBack="True"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                       </ajaxToolkit:ValidatorCalloutExtender>

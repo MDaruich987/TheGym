@@ -65,7 +65,7 @@ namespace SistemasIIITHEGYM
                     //si la apertura esta registrada, habilitamos la busqueda
                     btnseleccioncliente.Visible = true;
                 }
-                DataTable Tabla = new DataTable();
+                //DataTable Tabla = new DataTable();
                 Column = new DataColumn();
                 Column.DataType = System.Type.GetType("System.Int32");
                 Column.ColumnName = "Id_producto";
