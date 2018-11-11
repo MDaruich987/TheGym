@@ -11,8 +11,8 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarActividadEmpleado : System.Web.UI.Page
     {
-       
 
+        static DataTable TablaActividad = new DataTable();
         static string idact;
         static string idsuc;
         static string idemp;
@@ -67,6 +67,7 @@ namespace SistemasIIITHEGYM
                 };
 
                 DataTable dt = k.GetOneActividad();
+                TablaActividad = dt;
                 if (dt.Rows.Count > 0)
                 {
                     gridactividades.DataSource = dt;
@@ -240,6 +241,13 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "Actividad inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
+        }
+
+        protected void gridactividades_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridactividades.PageIndex = e.NewPageIndex;
+            gridactividades.DataSource = TablaActividad;
+            gridactividades.DataBind();
         }
     }
     }
