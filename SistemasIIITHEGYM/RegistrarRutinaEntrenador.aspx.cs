@@ -16,8 +16,9 @@ namespace SistemasIIITHEGYM
     {
 
         static bool flag = true;
-
         
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,7 +49,7 @@ namespace SistemasIIITHEGYM
                 lblentrenador.Text = (string)Session["inicio"];
                 lblentrenador.Visible = true;
                 lblemail.Text = (string)Session["usuario"];
-                lblemail.Visible = true;
+                
                 TheGym k = new TheGym
                 {
                     emailbusadm = lblemail.Text,
@@ -125,6 +126,8 @@ namespace SistemasIIITHEGYM
             griddetallerutina.DataSource = Tabla;
             griddetallerutina.DataBind();
             Session["Datos"] = Tabla;
+
+            griddetallerutina.Visible = true;
         }
 
         protected void btnregistrar_Click(object sender, EventArgs e)
@@ -171,18 +174,27 @@ namespace SistemasIIITHEGYM
 
 
                     q.AddDetalleRutina();
+                   
 
                     //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
                 }
                 //mensaje de exito de registro
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                //vuelvo a vaciar datos
+                tbnombrerutina.Text = null;
+                //significa que estaba viendo y ahora vuelve a la busqueda
+                btnañadir.CausesValidation = false;
+                btnregistrar.CausesValidation = false;
+                btncancelar.CausesValidation = false;
+                lblerror.Text = "";
+                griddetallerutina.DataSource = null;
+                griddetallerutina.DataBind();
             }
             catch (Exception ex)
             {
 
                 lblerror.Text = ex.Message.ToString();
             }
-
 
 
             //vuelvo a vaciar datos
@@ -192,7 +204,10 @@ namespace SistemasIIITHEGYM
             btnregistrar.CausesValidation = false;
             btncancelar.CausesValidation = false;
             lblerror.Text = "";
+            griddetallerutina.DataSource = null;
             griddetallerutina.DataBind();
+
+
 
 
         }
@@ -204,6 +219,10 @@ namespace SistemasIIITHEGYM
             btncancelar.CausesValidation = false;
             lblerror.Text = "";
             griddetallerutina.DataBind();
+            griddetallerutina = null;
+            tbnombrerutina = null;
+
+
             //Response.Redirect("InicioEntrenador.aspx");
         }
 
