@@ -270,7 +270,7 @@ namespace SistemasIIITHEGYM
                     {
                         DataTable dt1 = new DataTable();
                         dt1 = k.GetEstadoDetCajaAP();
-                        DetCaja = dt.Rows[0][6].ToString();
+                       // DetCaja = dt.Rows[0][6].ToString();
 
                         if (dt1.Rows.Count == 1)
                         {
