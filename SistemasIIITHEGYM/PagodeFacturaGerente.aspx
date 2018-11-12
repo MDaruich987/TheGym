@@ -20,7 +20,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--aqui esta el grid del modalpara los productos--%>                  <%--fingridmodal--%>
+                  <%--<asp:CommandField ButtonType="Image" DeleteImageUrl="~/ImagenesSistema/eliminar.png" ShowDeleteButton="True">
+                                                  <ControlStyle Height="20px" Width="20px" />
+                                                  </asp:CommandField>--%>                  <%--fingridmodal--%>
                 <h4 class="modal-title">Detalle de factura:</h4>
               </div>
               <div class="modal-body">
@@ -86,58 +88,82 @@
               <ContentTemplate>
                   <asp:Panel ID="panelconsulta" runat="server">
         <%-- inicio contenedor busqueda--%>
+                      <div class="box box-default" style="left: 0px; top: 0px; width: 109%">
+        <div class="box-header with-border">
+            <h3 class="box-title">Datos de Factura: </h3>
+            <div class="box-tools pull-right">
+<%--                boton minimizar y cerrar--%>
+<%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
+            </div>
+        </div>
+        <!-- /.box-header -->
+                <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Tipo de Comprobante:</label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:DropDownList ID="ddlTipoComprobante" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoComprobante_SelectedIndexChanged" OnTextChanged="ddlTipoComprobante_TextChanged" Width="150px">
+                                          </asp:DropDownList>
+                                          
+                  </div>
+                </div>
+                    <br />
+                <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                      <asp:Label ID="LblProveedor" runat="server" Text="Proveedor:" Visible="False"></asp:Label>
+                  </label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:DropDownList ID="ddlProveedor" runat="server" Visible="False" Width="150px">
+                                                      </asp:DropDownList>
+                      <%--<asp:Label ID="Label1" CssClass="text-muted" runat="server" Text="HoraActual"></asp:Label>--%>
+                  </div>
+                </div>
+              <!-- /.form-group -->
+            </div>
+            <!-- columna2 inicio/.col -->
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                      <asp:Label ID="LblServicio" runat="server" Text="Servicio:" Visible="False"></asp:Label>
+                  </label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                                            
+                                                      <asp:DropDownList ID="ddlServicio" runat="server" Visible="False" Width="150px" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged">
+                                                      </asp:DropDownList>
+                                                  
+                  </div>
+                </div>
+                    <br />                              
+              <!-- /.form-group -->
+                <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
+                &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="LblFiltro" runat="server" CssClass="error-text"></asp:Label>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+<div class="box-footer">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="btnconsultar0" CssClass="btn btn-info" runat="server" Text="Consultar" OnClick="btnconsultar_Click" />
+                
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  
+              </div>
+    </div>
+
+
+
+
                       <div class="row">
                           <div class="col-md-12">
-                              <div class="box">
-                                  <div class="box-header with-border" style="left: 0px; top: 0px; width: 998px;">
-                                      <h3 class="box-title">Consultar Factura&nbsp;</h3>
-                                  </div>
-                                  <div class="box-body">
-                                      <div class="form-group" style="text-align: center">
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="LbltipoComprobante" runat="server" Text="Tipo de Comprobante:"></asp:Label>
-                                          &nbsp;&nbsp;<asp:DropDownList ID="ddlTipoComprobante" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoComprobante_SelectedIndexChanged" OnTextChanged="ddlTipoComprobante_TextChanged" Width="150px">
-                                          </asp:DropDownList>
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
-                                    <br />
-                                          <table class="nav-justified">
-                                              <tr>
-                                                  <td class="text-center" colspan="2">
-                                                      <asp:Label ID="LblFiltro" runat="server" Text="Filtro:" Visible="False"></asp:Label>
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td class="text-center">
-                                                      <asp:Label ID="LblProveedor" runat="server" Text="Proveedor:" Visible="False"></asp:Label>
-                                                      <asp:DropDownList ID="ddlProveedor" runat="server" Visible="False" Width="150px">
-                                                      </asp:DropDownList>
-                                                  </td>
-                                                  <td class="text-center">
-                                                      <asp:Label ID="LblServicio" runat="server" Text="Servicio:" Visible="False"></asp:Label>
-                                                      <asp:DropDownList ID="ddlServicio" runat="server" Visible="False" Width="150px">
-                                                      </asp:DropDownList>
-                                                  </td>
-                                              </tr>
-                                          </table>
-                                    <br />
-                                    <br />
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                                          <table class="nav-justified" style="height: 48px">
-                                              <tr>
-                                                  <td class="text-center" colspan="2" style="height: 43px;">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <br />
-                                                      &nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultar" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>
-                                                      <asp:Label ID="lblerror" runat="server" CssClass="error-text"></asp:Label>
-                                                  </td>
-                                                  <td>&nbsp;</td>
-                                              </tr>
-                                          </table>
-                                      </div>
-                                  </div>
-                              </div>
                           </div>
                       </div>
             <%--fin de contenedor busqueda inicio contenedor gridview--%>
@@ -152,7 +178,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="grid" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                                          <asp:GridView ID="grid" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging">
                                               <Columns>
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />

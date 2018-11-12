@@ -32,15 +32,49 @@ namespace SistemasIIITHEGYM
         // static bool flagproveedor = true;
         protected void Page_Load(object sender, EventArgs e)
         {
+
            generarPDFssss.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
             {
+                if (Session["inicio"] != null)
+                {
+                    //declaramos una variale sesion para mantener el dato del usuario
+                    string usuario = (string)Session["Usuario"];
+                    lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
+                    /*if (Request.Params["parametro"] != null)
+                    {
+                        //para que el label capte el nombre y apellido enviado desde el form de acceso
+                        lblmensajebienvenida.Text = "Bienvenido " + Request.Params["parametro"];
+                    }
+                    else
+                    {
+                        //si no, muestra un mensaje de bienvenida solamente
+                        lblmensajebienvenida.Text = "Bienvenido";
+                    }
+                    */
+
+                }
+                else
+                {
+                    //si no se ha iniciado sesion me manda al inicio
+                    //Response.Redirect("InicioLogin.aspx");
+                }
+
+                generarPDF.Visible = false;
                 Column = new DataColumn();
                 Column.DataType = System.Type.GetType("System.Int32");
-                Column.ColumnName = "Id_producto";
-                Tabla.Columns.Add(Column);
+                try
+                {
+                    Column.ColumnName = "Id_producto";
+                    Tabla.Columns.Add(Column);
+                }
+                catch (Exception)
+                {
+
+                    
+                }               
                 Column = new DataColumn();
                 Column.DataType = System.Type.GetType("System.String");
                 Column.ColumnName = "Nombre";
@@ -145,7 +179,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnañadirproductomodal_Click(object sender, EventArgs e)
         {
-            if (tbcantidad.Text != "" && Convert.ToInt32(tbcantidad.Text) != 0)
+            if (tbcantidad.Text != "" && Convert.ToInt32(tbcantidad.Text) > 0)
             {
                 Lblerror1.Visible = false;
                 DataRow fila = Tabla.NewRow();
@@ -169,7 +203,7 @@ namespace SistemasIIITHEGYM
                 }
                 catch (Exception ex)
                 {
-                    Lblerror1.Text = ex.Message;
+                    Lblerror1.Text = "ingrese una cantidad valida";
                     Lblerror1.Visible = true;
                 }
             }
@@ -394,6 +428,7 @@ namespace SistemasIIITHEGYM
                             Lblerror1.Visible = false;
                         btnregistrar.Enabled = false;
                         btncancelar.Enabled = false;
+                        generarPDF.Visible = true;
 
                     }
                         catch (Exception ex)
@@ -588,19 +623,19 @@ namespace SistemasIIITHEGYM
                 itemTable.SetWidths(new float[] { 40, 10 });  // then set the column's __relative__ widths
                 itemTable.SpacingAfter = 40;
                 itemTable.DefaultCell.Border = Rectangle.BOX;
-                PdfPCell cell1 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
+                PdfPCell cell1 = new PdfPCell(new Phrase("Producto", boldTableFont));
                 cell1.BackgroundColor = TabelHeaderBackGroundColor;
                 cell1.HorizontalAlignment = Element.ALIGN_CENTER;
                 itemTable.AddCell(cell1);
-                PdfPCell cell2 = new PdfPCell(new Phrase("Producto", boldTableFont));
+                PdfPCell cell2 = new PdfPCell(new Phrase("Cantidad", boldTableFont));
                 cell2.BackgroundColor = TabelHeaderBackGroundColor;
                 cell2.HorizontalAlignment = 1;
                 itemTable.AddCell(cell2);
                 foreach (DataRow row in dt.Rows)
                 {
                     //instanciamos variables para los elementos del datatable
-                    string productonombre = row[0].ToString();
-                    string cantidadproducto = row[1].ToString();
+                    string productonombre = row[1].ToString();
+                    string cantidadproducto = row[0].ToString();
                     //insertamos en la tabla el nombre
                     PdfPCell numberCell = new PdfPCell(new Phrase(productonombre, bodyFont));
                     numberCell.HorizontalAlignment = 1;

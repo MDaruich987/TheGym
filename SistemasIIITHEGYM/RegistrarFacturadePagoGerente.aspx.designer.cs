@@ -85,6 +85,15 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView griddetalleordenmodal;
         
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control lblFecha.
         /// </summary>
         /// <remarks>
@@ -139,15 +148,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label LblServicios;
         
         /// <summary>
-        /// Control LblOrdenCompra.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblOrdenCompra;
-        
-        /// <summary>
         /// Control ddlservicio.
         /// </summary>
         /// <remarks>
@@ -175,31 +175,22 @@ namespace SistemasIIITHEGYM {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator91_ValidatorCalloutExtender;
         
         /// <summary>
-        /// Control UpdatePanel2.
+        /// Control lblhora.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.WebControls.Label lblhora;
         
         /// <summary>
-        /// Control tbordencompra.
+        /// Control lblsucursal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbordencompra;
-        
-        /// <summary>
-        /// Control btnordencomprapopup.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnordencomprapopup;
+        protected global::System.Web.UI.WebControls.Label lblsucursal;
         
         /// <summary>
         /// Control UpdatePanel4.
@@ -238,22 +229,31 @@ namespace SistemasIIITHEGYM {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator12_ValidatorCalloutExtender;
         
         /// <summary>
-        /// Control lblhora.
+        /// Control LblOrdenCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblhora;
+        protected global::System.Web.UI.WebControls.Label LblOrdenCompra;
         
         /// <summary>
-        /// Control lblsucursal.
+        /// Control tbordencompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblsucursal;
+        protected global::System.Web.UI.WebControls.TextBox tbordencompra;
+        
+        /// <summary>
+        /// Control btnordencomprapopup.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnordencomprapopup;
         
         /// <summary>
         /// Control lblerror.
