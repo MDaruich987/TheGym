@@ -112,13 +112,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbFecha;
         
         /// <summary>
-        /// Control Lblerror1.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lblerror1;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Control tbtotalFactura.
@@ -128,6 +128,15 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbtotalFactura;
+        
+        /// <summary>
+        /// Control Lblerror1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lblerror1;
         
         /// <summary>
         /// Control Pagofactura.
