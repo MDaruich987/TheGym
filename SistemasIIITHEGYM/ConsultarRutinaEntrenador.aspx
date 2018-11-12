@@ -285,7 +285,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridfichaderutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfichaderutina_SelectedIndexChanged" OnRowDeleting="gridfichaderutina_RowDeleting1">
+                                          <asp:GridView ID="gridfichaderutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridfichaderutina_SelectedIndexChanged" OnRowDeleting="gridfichaderutina_RowDeleting1" AllowPaging="True" OnPageIndexChanging="gridfichaderutina_PageIndexChanging">
                                               <Columns>
                                                   <asp:BoundField DataField="id" HeaderText="ID Rutina" />
                                                   <asp:BoundField DataField="cli" HeaderText="Cliente" />

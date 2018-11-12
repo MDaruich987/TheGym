@@ -14,7 +14,7 @@ namespace SistemasIIITHEGYM
     {
         static bool flag = true;
         static DataTable detalle = new DataTable();
-
+        static DataTable TablaRutina = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -146,6 +146,7 @@ namespace SistemasIIITHEGYM
             
             DataTable dt = new DataTable();
             dt = k.GetRutina();
+            TablaRutina = dt;
             if (dt.Rows.Count > 0)
             {
                 gridfichaderutina.DataSource = dt;
@@ -284,6 +285,13 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = ex.Message.ToString();
             }
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+        }
+
+        protected void gridfichaderutina_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridfichaderutina.PageIndex = e.NewPageIndex;
+            gridfichaderutina.DataSource = TablaRutina;
+            gridfichaderutina.DataBind();
         }
     }
 }
