@@ -71,6 +71,22 @@ namespace SistemasIIITHEGYM
                 {
                     Column.ColumnName = "Id_producto";
                     Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.String");
+                    Column.ColumnName = "Nombre";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Cantidad";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Double");
+                    Column.ColumnName = "Precio";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Double");
+                    Column.ColumnName = "SubTotal";
+                    Tabla.Columns.Add(Column);
                 }
                 catch (Exception)
                 {
@@ -79,22 +95,7 @@ namespace SistemasIIITHEGYM
                     //mostrar boton generar PDF
                     //correr grid en factura de venta
                 }               
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.String");
-                Column.ColumnName = "Nombre";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Int32");
-                Column.ColumnName = "Cantidad";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Double");
-                Column.ColumnName = "Precio";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Double");
-                Column.ColumnName = "SubTotal";
-                Tabla.Columns.Add(Column);
+                
 
                 lblFecha.Text = DateTime.Today.ToShortDateString();
                 lblhora.Text = DateTime.Now.ToShortTimeString();

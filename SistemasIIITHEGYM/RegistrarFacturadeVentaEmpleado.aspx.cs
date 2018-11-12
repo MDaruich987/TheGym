@@ -65,27 +65,37 @@ namespace SistemasIIITHEGYM
                     //si la apertura esta registrada, habilitamos la busqueda
                     btnseleccioncliente.Visible = true;
                 }
-                //DataTable Tabla = new DataTable();
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Int32");
-                Column.ColumnName = "Id_producto";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.String");
-                Column.ColumnName = "Nombre";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Int32");
-                Column.ColumnName = "Cantidad";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Double");
-                Column.ColumnName = "Precio";
-                Tabla.Columns.Add(Column);
-                Column = new DataColumn();
-                Column.DataType = System.Type.GetType("System.Double");
-                Column.ColumnName = "SubTotal";
-                Tabla.Columns.Add(Column);
+
+                try
+                {
+                    //DataTable Tabla = new DataTable();
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Id_producto";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.String");
+                    Column.ColumnName = "Nombre";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Int32");
+                    Column.ColumnName = "Cantidad";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Double");
+                    Column.ColumnName = "Precio";
+                    Tabla.Columns.Add(Column);
+                    Column = new DataColumn();
+                    Column.DataType = System.Type.GetType("System.Double");
+                    Column.ColumnName = "SubTotal";
+                    Tabla.Columns.Add(Column);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+               
 
                 
 
