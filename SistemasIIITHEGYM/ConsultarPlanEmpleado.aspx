@@ -137,7 +137,7 @@
                                     </div>
                                     &nbsp;&nbsp;&nbsp;<asp:Button ID="btnAdd" runat="server" Enabled="False" OnClick="btnAdd_Click" Text="Agregar" />
                                     <br />
-                                    <asp:GridView ID="gridactividades0" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="204px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 91px; margin-bottom: 9px;" Width="448px">
+                                    <asp:GridView ID="gridactividades0" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="204px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="448px">
                                         <Columns>
                                             <asp:BoundField DataField="Id_actividad" HeaderText="ID" ItemStyle-Width="150px">
                                             <ItemStyle Width="150px" />
@@ -238,7 +238,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvplanes_RowDeleting">
+                                          <asp:GridView ID="gvplanes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvplanes_SelectedIndexChanged" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvplanes_RowDeleting" AllowPaging="True" OnPageIndexChanging="gvplanes_PageIndexChanging">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_plan" HeaderText="ID" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Plan" ItemStyle-Width="150px" />
