@@ -354,6 +354,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btncancelar" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Cancelar" OnClick="btncancelar_Click" />
                     <br />                                 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                 
                     <asp:Label ID="lblerroregistrar" CssClass="error-text" runat="server"></asp:Label>
                 </div>
                 </div>
@@ -379,4 +380,8 @@
 
     <br />
                     <asp:Label ID="lblerrorPDF" CssClass="error-text" runat="server"></asp:Label>
-                </asp:Content>
+                <br />
+    <br />
+    <br />
+    <br />
+</asp:Content>
