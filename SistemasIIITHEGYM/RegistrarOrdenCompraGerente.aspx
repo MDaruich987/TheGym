@@ -181,8 +181,9 @@
                               <%--boton añadir--%>
                               <br />
                                 <p class="text-center">
-                                    <asp:Label ID="Lblerror1" ForeColor="Red" runat="server" Visible="false"></asp:Label>
+                                    <asp:Label ID="Lblerror1"  ForeColor="Red" CssClass="error-text" runat="server" Visible="false"></asp:Label>
                                 <strong><asp:TextBox  CssClass="form-control"  ID="tbcantidad"  runat="server" Height="24px" Width="100px" TextMode="number" Enabled="False"></asp:TextBox></strong>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="tbcantidad" CssClass="error-text" Display="Dynamic" ErrorMessage="Ingrese una cantidad válida" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                                 </p>
                               <br />
                               <asp:Button ID="btnañadirproductomodal" runat="server"  CssClass="btn btn-success"  Text="Añadir" CausesValidation="False" Enabled="False" OnClick="btnañadirproductomodal_Click" />
@@ -299,7 +300,7 @@
                
 
 
-                                          <br />
+                                          <br >
                                           &nbsp;
                                           <table class="nav-justified">
                                               <tr>

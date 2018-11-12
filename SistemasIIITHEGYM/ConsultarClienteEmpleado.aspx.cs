@@ -14,6 +14,7 @@ namespace SistemasIIITHEGYM
         public static bool flag = true;
 
         static string DNIedit;
+        static DataTable TablaCliente = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -104,6 +105,7 @@ namespace SistemasIIITHEGYM
             TheGym k = new TheGym();
             k.NombreClienteBusc = tbnombre.Text;
             DataTable dt = k.GetClienteNom();
+            TablaCliente = dt;
             if (dt.Rows.Count > 0)
             {
                 gridclientes.DataSource = dt;
@@ -274,6 +276,13 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "Cliente inhabilitado";
             lblerror.Visible = true;
             tbnombre.Text = "";
+        }
+
+        protected void gridclientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridclientes.PageIndex = e.NewPageIndex;
+            gridclientes.DataSource = TablaCliente;
+            gridclientes.DataBind();
         }
     }
 }

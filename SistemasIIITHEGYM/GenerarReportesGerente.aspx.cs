@@ -18,6 +18,7 @@ namespace SistemasIIITHEGYM
     {
 
         static DataTable detalle = new DataTable();
+        private Decimal total;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,6 +53,7 @@ namespace SistemasIIITHEGYM
             }
             //cargarconceptos();
             gridreportes.Visible = false;
+            
 
 
 
@@ -82,42 +84,50 @@ namespace SistemasIIITHEGYM
 
         protected void btnaplicar_Click(object sender, EventArgs e)
         {
-            if (ddlconcepto.SelectedItem.Text == "Total")
+            if (ddlcapital.SelectedItem.Text == "Todo")
             {
-                TheGym q = new TheGym
+
+                TheGym z = new TheGym
                 {
-                    Capital = ddlcapital.SelectedItem.Text,
                     FechaIn = TextBox1.Text,
                     FechaFin = TextBox2.Text,
 
                 };
 
-                DataTable dt1 = new DataTable();
-                dt1 = q.GetReporteDineroConceptoTotal();
-                
+                DataTable dt4 = new DataTable();
+                dt4 = z.GetReporteDineroConceptoTotales();
 
                 gridreportes.Visible = true;
-                if (dt1.Rows.Count > 0)
+
+                if (dt4.Rows.Count > 0)
                 {
-                    gridreportes.DataSource = dt1;
+                    gridreportes.DataSource = dt4;
                     gridreportes.DataBind();
                     gridreportes.Focus();
                     Label1.Text = "";
-                    detalle = q.GetReporteDineroConceptoTotal();
+                    detalle = z.GetReporteDineroConceptoTotales();
 
                     TheGym r = new TheGym
                     {
-                        
+
                         FechaIn = TextBox1.Text,
                         FechaFin = TextBox2.Text,
 
                     };
 
-                    
+
                     DataTable dt3 = new DataTable();
                     dt3 = r.GetSumTotal();
 
-                    tbtotal.Text = dt3.Rows[0][1].ToString();
+                    tbegreso.Text = dt3.Rows[0][1].ToString();
+                    tbingreso.Text = dt3.Rows[1][1].ToString();
+
+
+                    total = (Convert.ToDecimal(tbingreso.Text)) - (Convert.ToDecimal(tbegreso.Text));
+
+                    tbtotal.Text = total.ToString();
+
+
 
 
                 }
@@ -128,69 +138,140 @@ namespace SistemasIIITHEGYM
                 }
 
                 paneldetalle.Visible = true;
-
             }
             else
             {
-                TheGym w = new TheGym
+                if (ddlconcepto.SelectedItem.Text == "Total")
                 {
-                    
-                    Estado = ddlconcepto.SelectedItem.Text,
-                    FechaIn = TextBox1.Text,
-                    FechaFin = TextBox2.Text,
-
-                };
-
-                DataTable dt2 = new DataTable();
-                dt2 = w.GetReporteDineroConcepto();
-                
-                gridreportes.Visible = true;
-                if (dt2.Rows.Count > 0)
-                {
-                    gridreportes.DataSource = dt2;
-                    gridreportes.DataBind();
-                    gridreportes.Focus();
-                    Label1.Text = "";
-                    detalle = w.GetReporteDineroConcepto();
-
-
-                    TheGym r = new TheGym
+                    TheGym q = new TheGym
                     {
+                        Capital = ddlcapital.SelectedItem.Text,
+                        FechaIn = TextBox1.Text,
+                        FechaFin = TextBox2.Text,
+
+                    };
+
+                    DataTable dt1 = new DataTable();
+                    dt1 = q.GetReporteDineroConceptoTotal();
+
+
+                    gridreportes.Visible = true;
+                    if (dt1.Rows.Count > 0)
+                    {
+                        gridreportes.DataSource = dt1;
+                        gridreportes.DataBind();
+                        gridreportes.Focus();
+                        Label1.Text = "";
+                        detalle = q.GetReporteDineroConceptoTotal();
+
+                        if (ddlcapital.SelectedItem.Text == "Ingreso")
+                        {
+                            TheGym r = new TheGym
+                            {
+
+                                FechaIn = TextBox1.Text,
+                                FechaFin = TextBox2.Text,
+
+                            };
+
+
+                            DataTable dt3 = new DataTable();
+                            dt3 = r.GetSumTotal();
+
+                            tbingreso.Text = dt3.Rows[1][1].ToString();
+                            tbtotal.Text = dt3.Rows[1][1].ToString();
+
+
+
+                        }
+                        else
+                        {
+                            TheGym r = new TheGym
+                            {
+
+                                FechaIn = TextBox1.Text,
+                                FechaFin = TextBox2.Text,
+
+                            };
+
+
+                            DataTable dt3 = new DataTable();
+                            dt3 = r.GetSumTotal();
+
+                            tbegreso.Text = dt3.Rows[0][1].ToString();
+                            tbtotal.Text = dt3.Rows[0][1].ToString();
+                        }
+
+
+
+                    }
+                    else
+                    {
+                        Label1.Text = "No existen datos";
+                        gridreportes.DataBind();
+                    }
+
+                    paneldetalle.Visible = true;
+                }
+                else
+                {
+                    TheGym w = new TheGym
+                    {
+
                         Estado = ddlconcepto.SelectedItem.Text,
                         FechaIn = TextBox1.Text,
                         FechaFin = TextBox2.Text,
 
                     };
 
-                    DataTable dt3 = new DataTable();
-                    dt3 = r.GetSumTotalConcepto();
+                    DataTable dt2 = new DataTable();
+                    dt2 = w.GetReporteDineroConcepto();
 
-                    if (ddlcapital.Text == "Ingreso")
+                    gridreportes.Visible = true;
+                    if (dt2.Rows.Count > 0)
                     {
-                        tbingreso.Text = dt3.Rows[0][1].ToString();
-                        tbtotal.Text = dt3.Rows[0][1].ToString();
+                        gridreportes.DataSource = dt2;
+                        gridreportes.DataBind();
+                        gridreportes.Focus();
+                        Label1.Text = "";
+                        detalle = w.GetReporteDineroConcepto();
+
+
+                        TheGym r = new TheGym
+                        {
+                            Estado = ddlconcepto.SelectedItem.Text,
+                            FechaIn = TextBox1.Text,
+                            FechaFin = TextBox2.Text,
+
+                        };
+
+                        DataTable dt3 = new DataTable();
+                        dt3 = r.GetSumTotalConcepto();
+
+                        if (ddlcapital.Text == "Ingreso")
+                        {
+                            tbingreso.Text = dt3.Rows[0][1].ToString();
+                            tbtotal.Text = dt3.Rows[0][1].ToString();
+                        }
+                        else
+                        {
+                            tbegreso.Text = dt3.Rows[0][1].ToString();
+                            tbtotal.Text = dt3.Rows[0][1].ToString();
+                        }
+
+                        paneldetalle.Visible = true;
+
+
                     }
                     else
                     {
-                        tbegreso.Text = dt3.Rows[0][1].ToString();
-                        tbtotal.Text = dt3.Rows[0][1].ToString();
-                    }
-
-                    paneldetalle.Visible = true;
-                    //tbtotal.Text = dt3.Rows[0][1].ToString();
-
+                        Label1.Text = "No existen datos";
+                        gridreportes.DataBind();
+                    };
                 }
-                else
-                {
-                    Label1.Text = "No existen datos";
-                    gridreportes.DataBind();
-                };
             }
 
 
-
-           
-           
         }
 
         protected void btncancelar_Click1(object sender, EventArgs e)
@@ -210,6 +291,7 @@ namespace SistemasIIITHEGYM
             detalle = null;
             gridreportes.Visible = false;
             paneldetalle.Visible = false;
+            total = 0;
 
         }
 
@@ -225,6 +307,8 @@ namespace SistemasIIITHEGYM
 
         protected void ddlcapital_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
             if (ddlcapital.Text == "Ingreso")
             {
                 tbingreso.Visible = true;
@@ -265,6 +349,8 @@ namespace SistemasIIITHEGYM
             //ddlplan.DataValueField = "Id_concepto";
             ddlconcepto.DataTextField = "Concepto";
             ddlconcepto.DataBind();
+            paneldetalle.Visible = false;
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -298,7 +384,7 @@ namespace SistemasIIITHEGYM
                 var titleFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
                 var titleFontBlue = FontFactory.GetFont("Arial", 14, Font.NORMAL, BaseColor.BLUE);
                 var boldTableFont = FontFactory.GetFont("Arial", 8, Font.BOLD);
-                var subtitleFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
+                var bodyFont = FontFactory.GetFont("Arial", 8, Font.NORMAL);
                 var EmailFont = FontFactory.GetFont("Arial", 8, Font.NORMAL, BaseColor.BLUE);
                 BaseColor TabelHeaderBackGroundColor = WebColors.GetRGBColor("#EEEEEE");
 
@@ -342,10 +428,10 @@ namespace SistemasIIITHEGYM
                     PdfPCell nextPostCell1 = new PdfPCell(new Phrase("THE GYM", titleFont));
                     nextPostCell1.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell1);
-                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Salta, Argentina", subtitleFont));
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Salta, Argentina", bodyFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Av. Entre Rios 865", subtitleFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Av. Entre Rios 865", bodyFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     PdfPCell nextPostCell4 = new PdfPCell(new Phrase("thegyminfo@gmail.com", EmailFont));
@@ -377,7 +463,7 @@ namespace SistemasIIITHEGYM
                     PdfPCell nextPostCell2 = new PdfPCell(new Phrase("", titleFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("", subtitleFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("", bodyFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     PdfPCell nextPostCell4 = new PdfPCell(new Phrase("", EmailFont));
@@ -405,13 +491,13 @@ namespace SistemasIIITHEGYM
                 {
                     PdfPTable nested = new PdfPTable(1);
                     nested.DefaultCell.Border = Rectangle.NO_BORDER;
-                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), subtitleFont));
+                    PdfPCell nextPostCell1 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), bodyFont));
                     nextPostCell1.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell1);
-                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha Inicio: " + fechainicio, subtitleFont));
+                    PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha Inicio: " + fechainicio, bodyFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Fin: " + fechafin, subtitleFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Fin: " + fechafin, bodyFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     //PdfPCell nextPostCell4 = new PdfPCell(new Phrase("Fecha del Reporte: " + DateTime.Now.ToShortDateString(), bodyFont));
@@ -479,37 +565,37 @@ namespace SistemasIIITHEGYM
                     string día = row[5].ToString();
 
                     //insertamos en la tabla la forma de pago
-                    PdfPCell numberCell = new PdfPCell(new Phrase(formadepago, subtitleFont));
+                    PdfPCell numberCell = new PdfPCell(new Phrase(formadepago, bodyFont));
                     numberCell.HorizontalAlignment = 1;
                     numberCell.PaddingLeft = 10f;
                     numberCell.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell);
                     //insertamos en la tabla el monto
-                    PdfPCell numberCell1 = new PdfPCell(new Phrase(monto, subtitleFont));
+                    PdfPCell numberCell1 = new PdfPCell(new Phrase(monto, bodyFont));
                     numberCell1.HorizontalAlignment = 1;
                     numberCell1.PaddingLeft = 10f;
                     numberCell1.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell1);
                     //insertamos en la tabla la estado
-                    PdfPCell numberCell2 = new PdfPCell(new Phrase(estado, subtitleFont));
+                    PdfPCell numberCell2 = new PdfPCell(new Phrase(estado, bodyFont));
                     numberCell2.HorizontalAlignment = 1;
                     numberCell2.PaddingLeft = 10f;
                     numberCell2.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell2);
                     //insertamos en la tabla la conceptp
-                    PdfPCell numberCell3 = new PdfPCell(new Phrase(concepto, subtitleFont));
+                    PdfPCell numberCell3 = new PdfPCell(new Phrase(concepto, bodyFont));
                     numberCell3.HorizontalAlignment = 1;
                     numberCell3.PaddingLeft = 10f;
                     numberCell3.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell3);
                     //insertamos en la tabla la comprobante
-                    PdfPCell numberCell4 = new PdfPCell(new Phrase(comprobante, subtitleFont));
+                    PdfPCell numberCell4 = new PdfPCell(new Phrase(comprobante, bodyFont));
                     numberCell4.HorizontalAlignment = 1;
                     numberCell4.PaddingLeft = 10f;
                     numberCell4.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;
                     itemTable.AddCell(numberCell4);
                     //insertamos en la tabla la dia
-                    PdfPCell numberCell5 = new PdfPCell(new Phrase(día, subtitleFont));
+                    PdfPCell numberCell5 = new PdfPCell(new Phrase(día, bodyFont));
                     numberCell5.HorizontalAlignment = 1;
                     numberCell5.PaddingLeft = 10f;
                     numberCell5.Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER;

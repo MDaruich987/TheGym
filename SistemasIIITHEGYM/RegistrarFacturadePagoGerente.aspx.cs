@@ -353,6 +353,8 @@ namespace SistemasIIITHEGYM
 
         protected void btnordencomprapopup_Click(object sender, EventArgs e)
         {
+            gridordenmodal.Visible = true;
+            griddetalleordenmodal.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-ordencompra').modal('show');", true);
         }
 
@@ -392,6 +394,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnconsultarodenmodel_Click(object sender, EventArgs e)
         {
+            griddetalleordenmodal.Visible = false;
             lblerrorordenmodal.Visible = false;
             if (ddlProveedor.SelectedItem.Text != "--Seleccione--")
             {
@@ -439,6 +442,7 @@ namespace SistemasIIITHEGYM
 
         protected void gridordenmodal_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             Total = gridordenmodal.SelectedRow.Cells[2].Text;
             tbmonto.Text = Total;
             idOrden = gridordenmodal.SelectedRow.Cells[0].Text;
@@ -451,6 +455,7 @@ namespace SistemasIIITHEGYM
             dt = k.GetDetOrden();
             if (dt.Rows.Count>0)
             {
+                gridordenmodal.Visible = false;
                 Tabla = dt;
                 griddetalleordenmodal.DataSource = dt;
                 griddetalleordenmodal.DataBind();

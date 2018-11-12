@@ -130,9 +130,9 @@
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 256px; height: 62px;">
                       <asp:Label ID="lblentrenador" CssClass="text-muted" runat="server" Text="ENTRENADOR"></asp:Label>
                       <br />
-                      <asp:Label ID="lblentrenadordni" runat="server" CssClass="text-muted" Text="ID"></asp:Label>
+                      <asp:Label ID="lblentrenadordni" runat="server" CssClass="text-muted" Text="ID" Visible="False"></asp:Label>
                       <br />
-                      <asp:Label ID="lblemail" runat="server" CssClass="text-muted" Text="EMAIL"></asp:Label>
+                      <asp:Label ID="lblemail" runat="server" CssClass="text-muted" Text="EMAIL" Visible="False"></asp:Label>
                   </div>
                 </div>
                     <br />
@@ -186,7 +186,7 @@
                 <div class="col-md-8" style="left: 0px; top: 0px; height: 58px">
                   <p class="text-center">
                     <strong></strong>
-                      <asp:GridView ID="griddetallerutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="griddetallerutina_SelectedIndexChanged">
+                      <asp:GridView ID="griddetallerutina" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="griddetallerutina_SelectedIndexChanged" Visible="False">
                           <Columns>
                             <asp:BoundField DataField="Grupo_muscular" HeaderText="Grupo Muscular"/>
                             <asp:BoundField DataField="Ejercicio" HeaderText="Ejercicio"/>

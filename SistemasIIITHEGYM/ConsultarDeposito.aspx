@@ -35,22 +35,28 @@
                 <section class="content">
                     <div class="row">
         <!-- left column -->
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="left: 0px; top: 0px; width: 986px">
           <!-- general form elements -->
                             <div class="box box-primary">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title" style="width: 390px">Información de Depósito</h3>
+                                    <h3 class="box-title" style="width: 842px">Información de Depósito</h3>
                                 </div>
             <!-- /.box-header -->
             <!-- form start -->
                                 <div class="box-body">
                                     
                                     
-                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="FK_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 22px; margin-bottom: 9px;" Width="471px">
+                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Nombre" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 96px; margin-bottom: 9px;" Width="471px">
                                         <Columns>
-                                            <asp:BoundField DataField="FK_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
-                                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
-                                            <asp:BoundField DataField="Direccion" HeaderText="Direccion" ItemStyle-Width="150px" />
+                                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" >
+                                            <ItemStyle Width="150px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="Stock_actual" HeaderText="Stock Actual" ItemStyle-Width="150px" >
+                                            <ItemStyle Width="150px" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="Stock_minimo" HeaderText="Stock Minimo" ItemStyle-Width="150px" >
+                                            <ItemStyle Width="150px" />
+                                            </asp:BoundField>
                                         </Columns>
                                         <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -65,9 +71,20 @@
                                     </asp:GridView>
                                     
                                     
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblerrorsucursales0" runat="server" CssClass="error-text"></asp:Label>
+                                    <br />
+                                    
+                                    
                                 </div>
               <!-- /.box-body -->
-
+ <div class="box-footer">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%--<asp:Button ID="btnimprimir" runat="server" CssClass="btn btn-info" Text="Imprimir Comprobante" OnClick="btnimprimir_Click" />--%>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Volver" OnClick="btnvolver_Click" />
+                        </div>
                             </div>
           <!-- /.box -->
 
@@ -279,7 +296,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridsucursales" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AutoGenerateColumns="False" OnSelectedIndexChanged="gridsucursales_SelectedIndexChanged1">
+                                          <asp:GridView ID="gridsucursales" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_sucursal" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 174px; margin-bottom: 9px;" Width="601px" AutoGenerateColumns="False" OnSelectedIndexChanged="gridsucursales_SelectedIndexChanged1" AllowPaging="True" OnPageIndexChanging="gridsucursales_PageIndexChanging">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_sucursal" HeaderText="ID" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />

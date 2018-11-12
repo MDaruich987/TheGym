@@ -30,7 +30,7 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-header with-border" style="left: 0px; top: 0px; width: 846px;">
-                                <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Búsqueda de Orden de Compra</h3>
+                                <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ingrese un Proveedor</h3>
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
@@ -70,7 +70,7 @@
                                           <asp:Label ID="lblProveedor" runat="server" CssClass="h3" Text="Ficha Proveedor" Visible="False"></asp:Label>
                                           <br />
                                           &nbsp;<br />
-                                          <asp:GridView ID="gridproveedor" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_proveedor" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridproveedor_SelectedIndexChanged">
+                                          <asp:GridView ID="gridproveedor" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_proveedor" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 201px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridproveedor_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="gridproveedor_PageIndexChanging">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_proveedor" HeaderText="ID" ItemStyle-Width="150px" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
@@ -95,11 +95,25 @@
                                           <br />
                                           <br />
                                       </div>
+                                      <br />
+                                  </div>
+                              </div>
+              <!-- /.row -->
+                          </div>
+                </div>
+                       
+                 </asp:Panel>
+            <asp:Panel ID="panelordencompra" runat="server">
+                    <div class="row">
+                          <div class="col-md-12">
+                              <div class="box">
+                                  <div class="box-body" style="text-align: center;">
+                                      <!-- Date -->
                                       <!-- /.description-block -->
                                       <asp:Label ID="LblOrden" runat="server" CssClass="h3" Text="Ficha de Orden" Visible="False"></asp:Label>
                                       <br />
                                       <br />
-                                      <asp:GridView ID="gridorden" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False" OnSelectedIndexChanged="gridorden_SelectedIndexChanged">
+                                      <asp:GridView ID="gridorden" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False" OnSelectedIndexChanged="gridorden_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="gridorden_PageIndexChanging">
                                           <Columns>
                                               <asp:BoundField DataField="Id_orden" HeaderText="ID" ItemStyle-Width="150px" />
                                               <asp:BoundField DataField="Fecha" HeaderText="Fecha" ItemStyle-Width="150px" />
@@ -120,14 +134,24 @@
                                           <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                           <SortedDescendingHeaderStyle BackColor="#242121" />
                                       </asp:GridView>
+                                      <asp:Label ID="lblerrorgridprov0" runat="server" CssClass="error-text"></asp:Label>
                                       <br />
                                   </div>
+                                  <div class="box-footer">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%--<asp:Button ID="btnimprimir" runat="server" CssClass="btn btn-info" Text="Imprimir Comprobante" OnClick="btnimprimir_Click" />--%>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button1" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Volver" OnClick="Button1_Click" />
+                        </div>
                               </div>
               <!-- /.row -->
+                              
                           </div>
+                        
                 </div>
+
             <!-- /.box-footer -->
-            </asp:Panel>
+           </asp:Panel>
                         <asp:Panel ID="paneldetalle" runat="server" Visible="False">
      <!-- Main content -->
                 <section class="content">
@@ -135,16 +159,16 @@
         <!-- left column -->
                         <div class="col-md-6">
           <!-- general form elements -->
-                            <div class="box box-primary">
+                            <div class="box box-primary" style="left: 0px; top: 0px; width: 113%">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title" style="width: 390px">Detalle de Orden de compra</h3>
+                                    <h3 class="box-title" style="width: 831px">Detalle de Orden de compra</h3>
                                 </div>
             <!-- /.box-header -->
             <!-- form start -->
-                                <div class="box-body">
+                                <div class="box-body" style="width: 832px">
                                     
                                     
-                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                                    <asp:GridView ID="griddepositoproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="9" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                         <Columns>
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
                                             <asp:BoundField DataField="Precio" HeaderText="Precio" ItemStyle-Width="150px" />
@@ -164,8 +188,21 @@
                                     </asp:GridView>
                                     
                                     
+                                    <br />
+                                    
+                                    
+                                    <br />
+                                    <br />
+                                    
+                                    
                                 </div>
               <!-- /.box-body -->
+                                <div class="box-footer">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <%--<asp:Button ID="btnimprimir" runat="server" CssClass="btn btn-info" Text="Imprimir Comprobante" OnClick="btnimprimir_Click" />--%>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" Text="Volver" OnClick="btnvolver_Click" />
+                        </div>
 
                             </div>
           <!-- /.box -->

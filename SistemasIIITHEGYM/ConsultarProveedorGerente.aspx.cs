@@ -11,7 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarProveedorGerente : System.Web.UI.Page
     {
-       
+        static DataTable TablaProveedor = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -141,6 +141,7 @@ namespace SistemasIIITHEGYM
                 TheGym k = new TheGym();
                 k.NombreProveedorBusc = tbnombre.Text;
                 DataTable dt = k.GetProveedorNom();
+                TablaProveedor = dt;
                 if (dt.Rows.Count > 0)
                 {
                     gvproveedores.DataSource = dt;
@@ -225,6 +226,13 @@ namespace SistemasIIITHEGYM
 
                 }
             }
+        }
+
+        protected void gvproveedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvproveedores.PageIndex = e.NewPageIndex;
+            gvproveedores.DataSource = TablaProveedor;
+            gvproveedores.DataBind();
         }
     }
 }

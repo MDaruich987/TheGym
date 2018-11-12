@@ -17,7 +17,7 @@ namespace SistemasIIITHEGYM
 
     public partial class ConsultarCobrodeCuotaEmpleado : System.Web.UI.Page
     {
- 
+        static DataTable TablaCliente = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,6 +50,7 @@ namespace SistemasIIITHEGYM
                 };
 
                 DataTable dt = k.GetCuota();
+                TablaCliente = dt;
                 if (dt.Rows.Count > 0)
                 {
                     gridcuota.DataSource = dt;
@@ -512,5 +513,12 @@ namespace SistemasIIITHEGYM
             
         }
         #endregion
+
+        protected void gridcuota_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridcuota.PageIndex = e.NewPageIndex;
+            gridcuota.DataSource = TablaCliente;
+            gridcuota.DataBind();
+        }
     }
 }

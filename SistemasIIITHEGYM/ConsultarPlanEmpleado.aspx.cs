@@ -13,6 +13,7 @@ namespace SistemasIIITHEGYM
     {
 
         static DataTable aux = new DataTable();
+        static DataTable TablaPlanes = new DataTable();
         static string idplan;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -75,7 +76,8 @@ namespace SistemasIIITHEGYM
             };
             DataTable dt = new DataTable();
             dt = k.GetPlans();
-            if(dt.Rows.Count > 0)
+            TablaPlanes = dt;
+            if (dt.Rows.Count > 0)
             {
                 lblerror.Visible = false;
                 gvplanes.Visible = true;
@@ -112,7 +114,7 @@ namespace SistemasIIITHEGYM
                     IdPlanBuscar = idplan
                 };
                 DataTable dt = new DataTable();
-                dt = k.GetDetPlans();
+                dt = k.GetDetPlans();             
                 if (dt.Rows.Count > 0)
                 {
                     aux = dt;
@@ -224,6 +226,13 @@ namespace SistemasIIITHEGYM
             dt.Rows.Add(row);
             gridactividades0.DataSource = dt;
             gridactividades0.DataBind();
+        }
+
+        protected void gvplanes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvplanes.PageIndex = e.NewPageIndex;
+            gvplanes.DataSource = TablaPlanes;
+            gvplanes.DataBind();
         }
     }
 }

@@ -11,6 +11,7 @@
         document.write("<head runat='server'></head>");
  }
                     </script>
+    <%--No tiene update panel ya que si no no descarga el PDF--%>
 
                             <asp:Panel ID="panelconsulta" runat="server">
         <%-- inicio contenedor busqueda--%>
@@ -60,7 +61,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gridcuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 235px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridcuota_SelectedIndexChanged" DataKeyNames="Id_cuota">
+                                          <asp:GridView ID="gridcuota" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 235px; margin-bottom: 9px;" Width="601px" OnSelectedIndexChanged="gridcuota_SelectedIndexChanged" DataKeyNames="Id_cuota" AllowPaging="True" OnPageIndexChanging="gridcuota_PageIndexChanging">
                                               <Columns>
                                                    <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
                                                               <ControlStyle Height="20px" Width="20px" />

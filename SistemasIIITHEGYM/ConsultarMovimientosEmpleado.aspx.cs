@@ -11,6 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarMovimientos : System.Web.UI.Page
     {
+        static DataTable TablaMovimiento = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -58,6 +59,7 @@ namespace SistemasIIITHEGYM
                 };
                 DataTable dt = new DataTable();
                 dt = k.GetMovimientoCaja();
+                TablaMovimiento = dt;
                 if (dt.Rows.Count > 0)
                 {
                     gridplanes.DataSource = dt;
@@ -77,6 +79,13 @@ namespace SistemasIIITHEGYM
             }
             
 
+        }
+
+        protected void gridplanes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridplanes.PageIndex = e.NewPageIndex;
+            gridplanes.DataSource = TablaMovimiento;
+            gridplanes.DataBind();
         }
     }
 }

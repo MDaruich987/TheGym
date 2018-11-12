@@ -12,6 +12,7 @@ namespace SistemasIIITHEGYM
     public partial class ConsultarProductoGerente : System.Web.UI.Page
     {
         static string id;
+        static DataTable TablaProductos = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -165,6 +166,7 @@ namespace SistemasIIITHEGYM
 
         protected void gvproductos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            gvproductos.Dispose();
             ddlProveedor.Enabled = false;
             //cuando seleccionamos una fila del grid
             try
@@ -212,6 +214,7 @@ namespace SistemasIIITHEGYM
                 NombreProducto = TextBox1.Text
             };
             DataTable dt = k.GetProducto();
+            TablaProductos = dt;
 
             if (dt.Rows.Count > 0)
             {
@@ -229,6 +232,13 @@ namespace SistemasIIITHEGYM
         protected void gvproductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
+        }
+
+        protected void gvproductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvproductos.PageIndex = e.NewPageIndex;
+            gvproductos.DataSource = TablaProductos;
+            gvproductos.DataBind();
         }
     }
     }

@@ -157,15 +157,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Panel panelconsulta;
         
         /// <summary>
-        /// Control LbltipoComprobante.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbltipoComprobante;
-        
-        /// <summary>
         /// Control ddlTipoComprobante.
         /// </summary>
         /// <remarks>
@@ -173,15 +164,6 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoComprobante;
-        
-        /// <summary>
-        /// Control LblFiltro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFiltro;
         
         /// <summary>
         /// Control LblProveedor.
@@ -220,15 +202,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.DropDownList ddlServicio;
         
         /// <summary>
-        /// Control btnconsultar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnconsultar;
-        
-        /// <summary>
         /// Control lblerror.
         /// </summary>
         /// <remarks>
@@ -236,6 +209,24 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblerror;
+        
+        /// <summary>
+        /// Control LblFiltro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblFiltro;
+        
+        /// <summary>
+        /// Control btnconsultar0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnconsultar0;
         
         /// <summary>
         /// Control grid.

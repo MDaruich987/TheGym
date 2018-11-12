@@ -11,6 +11,7 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarDeposito : System.Web.UI.Page
     {
+        static DataTable TablaDeposito = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -58,6 +59,7 @@ namespace SistemasIIITHEGYM
             TheGym k = new TheGym();
             k.NomSucBuscar = tbnombre.Text;
             DataTable dt = k.GetOneSucursal();
+            TablaDeposito = dt;
 
             if (dt.Rows.Count > 0)
             {
@@ -90,9 +92,16 @@ namespace SistemasIIITHEGYM
 
                 if (dt1.Rows.Count > 0)
                 {
+                    griddepositoproductos.Visible = true;
                     griddepositoproductos.DataSource = dt1;
                     griddepositoproductos.DataBind();
                     griddepositoproductos.Focus();
+                }
+                else
+                {
+                    griddepositoproductos.Visible = false;
+                    lblerrorsucursales0.Text = "Este depósito no tiene existencias";
+                    
                 }
             }
             catch (Exception ex)
@@ -102,5 +111,19 @@ namespace SistemasIIITHEGYM
             }
         }
 
+        protected void gridsucursales_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridsucursales.PageIndex = e.NewPageIndex;
+            gridsucursales.DataSource = TablaDeposito;
+            gridsucursales.DataBind();
+        }
+
+        protected void btnvolver_Click(object sender, EventArgs e)
+        {
+            panelconsulta.Visible = true;
+            paneledicion.Visible = false;
+            lblerrorsucursales0.Text = "";
+            griddepositoproductos.Dispose();
+        }
     }
 }

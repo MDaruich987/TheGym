@@ -14,6 +14,10 @@
         document.write("<head runat='server'></head>");
     }
     </script>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+
+
             <asp:Panel ID="paneledicion" runat="server">
                 <section class="content-header">
                     <h1>Datos de Producto <small>TheGym</small> </h1>
@@ -180,7 +184,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="gvproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvproductos_RowDeleting">
+                                          <asp:GridView ID="gvproductos" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" ShowHeaderWhenEmpty="True" style="margin-left: 136px; margin-bottom: 9px;" Width="601px" OnRowDeleting="gvproductos_RowDeleting" AllowPaging="True" OnPageIndexChanging="gvproductos_PageIndexChanging">
                                               <Columns>
                                                   <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -196,7 +200,7 @@
                                               <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                                               <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
                                               <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
+                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Height="30px" Width="220px" />
                                               <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
                                               <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                               <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
@@ -216,4 +220,6 @@
                 </div>
             <!-- /.box-footer -->
             </asp:Panel>
+                    </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

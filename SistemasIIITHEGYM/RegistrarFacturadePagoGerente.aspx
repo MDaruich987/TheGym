@@ -150,7 +150,9 @@
                     <h1>Operaciones de caja <small>TheGym</small> </h1>
                 </section>--%>
     <!-- SELECT2 EXAMPLE -->
-    <div class="box box-default">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="box box-default">
         <div class="box-header with-border">
             <h3 class="box-title">Registrar Factura de Pago </h3>
             <div class="box-tools pull-right">
@@ -179,81 +181,35 @@
                   </div>
                 </div>
                     <br />
-                                <table class="nav-justified">
-                                    <tr>
-                                        <td>
-                                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 1px; top: -5px; width: 147px">Tipo Comprobante:</label></div>
-                                        </td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-
+                <div class="form-group">
+                  <%--<label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Empleado:</label>--%>
+                    <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Tipo Comprobante:</label>
                   <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                       <asp:DropDownList  CssClass="form-control"   ID="ddlTipoComprobante"  runat="server" Height="30px" Width="167px" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoComprobante_SelectedIndexChanged"></asp:DropDownList>
+                      <%--<asp:Label ID="Label1" CssClass="text-muted" runat="server" Text="APELLIDO, Nombre"></asp:Label>--%>
+                  <asp:DropDownList  CssClass="form-control"   ID="ddlTipoComprobante"  runat="server" Height="30px" Width="167px" AutoPostBack="True" OnSelectedIndexChanged="ddlTipoComprobante_SelectedIndexChanged"></asp:DropDownList>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTipoComprobante" Display="None" ErrorMessage="Seleccione el tipo de Documento" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                       </ajaxToolkit:ValidatorCalloutExtender>
                   </div>
-                                        </td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px; height: 20px;">
-                                            <asp:Label ID="LblServicios" runat="server" Text="Servicios:" Visible="False"></asp:Label>
-                                            </label>
-                                        </td>
-                                        <td>
+                </div>
+                <br />
+                <br />
                 <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 135px; height: 20px;">
-                                        <asp:Label ID="LblOrdenCompra" runat="server" Text="Orden de Compra:" Visible="False" Width="159px"></asp:Label>
-&nbsp;</label>
-                                    </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px" __designer:mapid="22b">
-                                                   <asp:DropDownList  CssClass="form-control"   ID="ddlservicio"  runat="server" Height="30px" Width="128px" Visible="False"></asp:DropDownList>
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                       <asp:Label ID="LblServicios" runat="server" Text="Servicios:" Visible="False"></asp:Label>
+                  </label>
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                       <asp:DropDownList  CssClass="form-control"   ID="ddlservicio"  runat="server" Height="30px" Width="128px" Visible="False"></asp:DropDownList>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator91" runat="server" ControlToValidate="ddlservicio" Display="None" ErrorMessage="Seleccione el tipo la Sucursal" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                     <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator91_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator91">
                                                     </ajaxToolkit:ValidatorCalloutExtender>
-                                                </div>
-                                            </td>
-                                        <td>
-                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                            <ContentTemplate>
-                                                <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                                    <asp:TextBox ID="tbordencompra" runat="server" AutoPostBack="True" Enabled="False" Font-Size="Small" Height="22px" ReadOnly="True" Visible="False" Width="128px">Seleccione una orden</asp:TextBox>
-                                                    <asp:Button ID="btnordencomprapopup" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" OnClick="btnordencomprapopup_Click" Text="..." Visible="False" Width="39px" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        </td>
-                                    </tr>
-                </table>
-                <br />
-             <br />
+                  </div>
+                </div>
                 <br />
                                 <br />
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 10px; width: 128px">Total:</label>
-                 <%--input dinero--%>
-                 <div class="input-group" style="left: 0px; top: 0px; width: 320px">
-                <span class="input-group-addon">$</span>
-                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                         <ContentTemplate>
-                             <asp:TextBox ID="tbmonto" runat="server" Cssclass="form-control" ReadOnly="True" style="left: 0px; top: 0px; height: 42px; width: 33%" TextMode="Number"></asp:TextBox>
-                         </ContentTemplate>
-                     </asp:UpdatePanel>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
-                      </ajaxToolkit:ValidatorCalloutExtender>
-              </div>
-                 <%--fin input dinero--%>
-                </div>
+                                <br />
+                
               <!-- /.form-group -->
             </div>
             <!-- columna2 inicio/.col -->
@@ -274,7 +230,37 @@
                   </div>
                 </div>
                     <br />
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 10px; width: 128px">Total:</label>
+                 <%--input dinero--%>
+                 <div class="input-group" style="left: 0px; top: 0px; width: 286px">
+                <span class="input-group-addon">$</span>
+                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                         <ContentTemplate>
+                             <asp:TextBox ID="tbmonto" runat="server" Cssclass="form-control" ReadOnly="True" style="left: 0px; top: 0px; height: 42px; width: 33%" TextMode="Number"></asp:TextBox>
+                         </ContentTemplate>
+                     </asp:UpdatePanel>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                      <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
+                      </ajaxToolkit:ValidatorCalloutExtender>
+              </div>
+                 <%--fin input dinero--%>
+                </div>
+                <br />
+                 <div class="form-group">
+                     <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                          <asp:Label ID="LblOrdenCompra" runat="server" Text="Orden de Compra:" Visible="False" Width="159px" Font-Bold="True"></asp:Label>
+                     </label>
+                 
+
+                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:TextBox ID="tbordencompra" runat="server" AutoPostBack="True" Enabled="False" Font-Size="Small" Height="22px" ReadOnly="True" Visible="False" Width="109px">Seleccione una orden</asp:TextBox>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <asp:Button ID="btnordencomprapopup" runat="server" CausesValidation="False" CssClass="btn btn-success" Height="30px" OnClick="btnordencomprapopup_Click" Text="..." Visible="False" Width="39px" />
+                  </div>
+                </div>
                <br />
+                   
               <!-- /.form-group -->
                 <asp:Label ID="lblerror" CssClass="error-text" runat="server"></asp:Label>
             </div>
@@ -292,5 +278,8 @@
                 
               </div>
     </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    
     <!-- /.box -->
 </asp:Content>
