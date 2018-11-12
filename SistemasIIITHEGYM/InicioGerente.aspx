@@ -83,9 +83,9 @@
                 <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
                 <br />
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1" Palette="Excel">
                     <Series>
-                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="Monto Total">
+                        <asp:Series Name="Series1" XValueMember="mes" YValueMembers="monto total">
                         </asp:Series>
                     </Series>
                     <ChartAreas>
@@ -122,6 +122,16 @@
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
+                    <asp:Chart ID="ChartProd" runat="server" OnLoad="ChartProd_Load" Palette="Excel">
+                        <Series>
+                            <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="monto total">
+                            </asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChartArea1">
+                            </asp:ChartArea>
+                        </ChartAreas>
+                    </asp:Chart>
                     <br />
                     <br />
                     <br />

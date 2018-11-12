@@ -61,50 +61,48 @@ namespace SistemasIIITHEGYM
 
         protected void btnverestadisticascobro_Click(object sender, EventArgs e)
         {
-            //panelcobrodeplanes.Visible = true;
-            //panelproductos.Visible = false;
-
-          
-
-            //ChartPlan.Visible = true;
+            panelcobrodeplanes.Visible = true;
+            panelproductos.Visible = false;
 
 
-            ////if (dt2.Rows.Count > 0)
-            ////{
-            ////    lblerror.Visible = false;
-            ////    gridcobrocuota.DataSource = dt2;
-            ////    gridcobrocuota.DataBind();
-            ////    gridcobrocuota.Focus();
-            ////}
-            ////else
-            ////{
-            ////    lblerror.Visible = true;
-            ////    lblerror.Text = "No se vendieron productos todavia";
-            ////}
 
-            
-         
+            ChartPlan.Visible = true;
+
+
         }
 
         protected void btnverestadisticaventasproducto_Click(object sender, EventArgs e)
         {
             panelproductos.Visible = true;
             panelcobrodeplanes.Visible = false;
+
+            ChartProd.Visible = true;
         }
 
 
         protected void ChartPlan_Load1(object sender, EventArgs e)
         {
 
-            //TheGym k = new TheGym();
-            //DataTable dt2 = k.GetPlanChart();
-            //ChartPlan.DataSource = dt2;
+            TheGym k = new TheGym();
+            DataTable dt2 = k.GetPlanChart();
+            ChartPlan.DataSource = dt2;
 
-            //ChartPlan.Series["Series1"].YValueMembers = dt2.Rows[0][1].ToString();
-            //ChartPlan.Series["Series1"].XValueMember = dt2.Rows[0][0].ToString();
+            ChartPlan.Series["Series1"].YValueMembers = "monto total";
+            ChartPlan.Series["Series1"].XValueMember = "mes";
+            ChartPlan.DataBind();
+            ChartPlan.Focus();
+        }
 
-            //ChartPlan.DataBind();
-            //ChartPlan.Focus();
+        protected void ChartProd_Load(object sender, EventArgs e)
+        {
+            TheGym k = new TheGym();
+            DataTable dt3 = k.GetProductoChart();
+            ChartProd.DataSource = dt3;
+
+            ChartProd.Series["Series1"].YValueMembers = "monto total";
+            ChartProd.Series["Series1"].XValueMember = "Mes";
+            ChartProd.DataBind();
+            ChartProd.Focus();
         }
     }
 }

@@ -93,7 +93,7 @@ namespace SistemasIIITHEGYM
                 catch (Exception)
                 {
 
-                    throw;
+                   
                 }
                
 
@@ -439,21 +439,21 @@ namespace SistemasIIITHEGYM
 
                             }
 
-                            btnregistrar.Visible = false;
-                            btncancelar.Visible = false;
-                            generarPDF.Visible = true;
-                            btnuevaFactura.Visible = true;
-                            tbcliente.Text = string.Empty;
-                            CheckBox1.Checked = false;
-                            ddlformadepago.ClearSelection();
-                            lblComprobante.Visible = false;
-                            TbComprobante.Visible = false;
+                            //btnregistrar.Visible = false;
+                            //btncancelar.Visible = false;
+                            //generarPDF.Visible = true;
+                            //btnuevaFactura.Visible = true;
+                            //tbcliente.Text = string.Empty;
+                            //CheckBox1.Checked = false;
+                            //ddlformadepago.ClearSelection();
+                            //lblComprobante.Visible = false;
+                            //TbComprobante.Visible = false;
                             DataTable vacio = new DataTable();
                             griddetallefactura.DataSource = vacio;
-                            griddetallefactura.DataBind();
-                            griddetallefactura.Dispose();
-                            griddetallefactura.Visible = false;
-                            
+                            //griddetallefactura.DataBind();
+                            //griddetallefactura.Dispose();
+                            //griddetallefactura.Visible = false;
+
 
 
                         }
