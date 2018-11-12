@@ -154,7 +154,7 @@
                                        <asp:Label ID="lblerrorproductosmodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modalpara los productos--%>
-                                       <asp:GridView ID="gvproductos" runat="server" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="550px">
+                                       <asp:GridView ID="gvproductos" runat="server" OnSelectedIndexChanged="gvproductos_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="550px" AllowCustomPaging="True" OnPageIndexChanging="gvproductos_PageIndexChanging">
                                            <Columns>
                                                <asp:BoundField DataField="Id_producto" HeaderText="ID" />
                                                   <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
