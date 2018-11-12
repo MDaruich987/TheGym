@@ -262,7 +262,7 @@ namespace SistemasIIITHEGYM
                 {
                     TheGym k = new TheGym
                     {
-                        FechaIdDetCaja = DateTime.Today.ToShortDateString()
+                        FechaIdDetCaja = DateTime.Now.ToShortDateString()
                     };
                     DataTable dt = new DataTable();
                     dt = k.GetEstadoDetCaja();
@@ -274,7 +274,7 @@ namespace SistemasIIITHEGYM
 
                         if (dt1.Rows.Count == 1)
                         {
-                            DetCaja = dt1.Rows[0][6].ToString();
+                            DetCaja = dt1.Rows[0][1].ToString();
                             TheGym k1 = new TheGym
                             {
                                
@@ -285,25 +285,36 @@ namespace SistemasIIITHEGYM
                                 FacturaIDFact = tbIdFact.Text,
                                 FacturaIDOrden = orden
                             };
-                            k1.PagarFacturaProveedor();
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-Detalle').modal('hide');", true);
-                            grid.Dispose();
-                            grid.Visible = false;
-                            LblFiltro.Visible = false;
-                            LblServicio.Visible = false;
-                            ddlServicio.ClearSelection();
-                            ddlServicio.Visible = false;
-                            LblProveedor.Visible = false;
-                            ddlProveedor.Visible = false;
-                            ddlProveedor.ClearSelection();
-                            ddlTipoComprobante.ClearSelection();
-                            tbConcepto.Text = string.Empty;
-                            tbFecha.Text = string.Empty;
-                            tbIdFact.Text = string.Empty;
-                            tbTipo.Text = string.Empty;
-                            tbtotalFactura.Text = string.Empty;
-                            lblerror.Visible = true;
-                            lblerror.Text = "Pago Registrado Exitosamente!";
+                            try
+                            {
+                                k1.PagarFacturaProveedor();
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-Detalle').modal('hide');", true);
+                                grid.Dispose();
+                                grid.Visible = false;
+                                LblFiltro.Visible = false;
+                                LblServicio.Visible = false;
+                                ddlServicio.ClearSelection();
+                                ddlServicio.Visible = false;
+                                LblProveedor.Visible = false;
+                                ddlProveedor.Visible = false;
+                                ddlProveedor.ClearSelection();
+                                ddlTipoComprobante.ClearSelection();
+                                tbConcepto.Text = string.Empty;
+                                tbFecha.Text = string.Empty;
+                                tbIdFact.Text = string.Empty;
+                                tbTipo.Text = string.Empty;
+                                tbtotalFactura.Text = string.Empty;
+                                lblerror.Visible = true;
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-exito').modal('show');", true);
+                                lblerror.Text = "Pago Registrado Exitosamente!";
+                            }
+                            catch (Exception ex)
+                            {
+
+                                lblerror.Text = ex.Message.ToString();
+                            }
+                            
+                           
                         }
                         else
                         {
@@ -319,10 +330,10 @@ namespace SistemasIIITHEGYM
                         Lblerror1.Text = "Caja Cerrada";
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     Lblerror1.Visible = true;
-                    Lblerror1.Text = "Error al pagar Factura Proveedor"; 
+                    Lblerror1.Text = ex.Message.ToString(); 
                 }
                
             }

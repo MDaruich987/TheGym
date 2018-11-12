@@ -16,6 +16,26 @@
                     <h1>Registrar Pago de Factura<small>TheGym</small> </h1>
        <br />
                 </section>
+    <div class="modal fade" id="modal-exito">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>¡El pago se ha registrado Exitosamente!&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                  <%--                boton minimizar y cerrar--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
     <div class="modal fade" id="modal-Detalle">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -41,33 +61,62 @@
                                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                            <SortedDescendingHeaderStyle BackColor="#242121" />
                                        </asp:GridView>--%>
-                                        <div>
-                                            <asp:Label runat="server" id="lblIdFact" Text="Id Factura:" ></asp:Label>
-                                            <asp:TextBox runat="server" ID ="tbIdFact" ReadOnly="true"></asp:TextBox>
+                                        <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                                            <asp:Label runat="server" id="lblIdFact" Text="Id Factura:" Font-Bold="True"></asp:Label>
+                                        </label>
+                                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                <asp:TextBox runat="server" ID ="tbIdFact" ReadOnly="true"></asp:TextBox>                                      
+                                            </div>
                                         </div>
                                         <br />
-                                        <div>
-                                            <asp:Label runat="server" id="lblTipo" Text="Tipo Comprobante:" ></asp:Label>
-                                            <asp:TextBox runat="server" ID ="tbTipo" ReadOnly="true"></asp:TextBox>
+                                        <br />
+                                        <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                                            <asp:Label runat="server" id="lblTipo" Text="Tipo Comprobante:" Font-Bold="True"></asp:Label>
+                                        </label>
+                                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                <asp:TextBox runat="server" ID ="tbTipo" ReadOnly="true"></asp:TextBox>                                    
+                                            </div>
                                         </div>
                                         <br />
-                                        <div>
-                                            <asp:Label runat="server" id="lblConcepto" Text="Concepto:" ></asp:Label>
-                                            <asp:TextBox runat="server" ID ="tbConcepto" ReadOnly="true" Width="200px"></asp:TextBox>
+                                        <br />
+                                        <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                                            <asp:Label runat="server" id="lblConcepto" Text="Concepto:" Font-Bold="True"></asp:Label>
+                                        </label>
+                                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                <asp:TextBox runat="server" ID ="tbConcepto" ReadOnly="true" Width="200px"></asp:TextBox>                                  
+                                            </div>
                                         </div>
                                         <br />
-                                        <div>
-                                            <asp:Label runat="server" id="lblFecha" Text="Fecha:" ></asp:Label>
-                                            <asp:TextBox runat="server" ID ="tbFecha" ReadOnly="true"></asp:TextBox>
+                                        <br />
+                                        <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                                            <asp:Label runat="server" id="lblFecha" Text="Fecha:" Font-Bold="True"></asp:Label>
+                                        </label>
+                                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                <asp:TextBox runat="server" ID ="tbFecha" ReadOnly="true"></asp:TextBox>                                  
+                                            </div>
+                                        </div>
+                              <%-------%>
+                                        <br />
+                                        <br />
+                                        <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">
+                                            <asp:Label runat="server" id="Label1" Text="Total:" Font-Bold="True"></asp:Label>
+                                        </label>
+                                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                                <asp:TextBox  CssClass="form-control"  ID="tbtotalFactura"  runat="server" Height="24px" Width="100px" TextMode="SingleLine" Enabled="False"></asp:TextBox>                                  
+                                            </div>
                                         </div>
                                         <br />
-                                        
+                              
                                 <p class="text-center">
-                                    <asp:Label ID="Lblerror1" ForeColor="Red" runat="server" Visible="false"></asp:Label>
-                                <strong><asp:TextBox  CssClass="form-control"  ID="tbtotalFactura"  runat="server" Height="24px" Width="100px" TextMode="SingleLine" Enabled="False"></asp:TextBox></strong>
+                                    <asp:Label ID="Lblerror1" CssClass="error-text" ForeColor="Red" runat="server" Visible="false"></asp:Label>
                                 </p>
                               <br />
-                              <asp:Button ID="Pagofactura" runat="server"  CssClass="btn btn-success"  Text="Pago de Factura" CausesValidation="False" OnClick="Pagofactura_Click" />
+                              <asp:Button ID="Pagofactura" runat="server"  CssClass="btn btn-success"  Text="Pagar Factura" CausesValidation="False" OnClick="Pagofactura_Click" />
                                        <%--fingridmodal--%>
                                    </caption>
                                     </table>
@@ -178,7 +227,7 @@
               <!-- Date -->
                                       <div class="form-group">
                                           &nbsp;
-                                          <asp:GridView ID="grid" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging">
+                                          <asp:GridView ID="grid" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" OnSelectedIndexChanged="gridfacturas_SelectedIndexChanged" PageSize="5" ShowHeaderWhenEmpty="True" style="margin-left: 238px; margin-bottom: 9px;" Width="601px" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging">
                                               <Columns>
                                                   <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/ver.png" ShowSelectButton="True">
                                                   <ControlStyle Height="20px" Width="20px" />
