@@ -11,10 +11,27 @@ namespace SistemasIIITHEGYM
 {
     public partial class ConsultarFacturadePagoGerente : System.Web.UI.Page
     {
+
+        static DataTable TablaFactura = new DataTable();
+        static DataTable TablaDetalle = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                if (Session["inicio"] != null)
+                {
+                    //declaramos una variale sesion para mantener el dato del usuario
+                    string usuario = (string)Session["Usuario"];
+                    lblusuario.Text = "Bienvenido/a " + (String)Session["inicio"];
+
+                }
+                else
+                {
+                    //si no se ha iniciado sesion me manda al inicio
+                    //Response.Redirect("InicioLogin.aspx");
+                }
+
                 CargarProveedores();
                 CargarServicios();
                 CargarTipoComprobante();
@@ -105,6 +122,7 @@ namespace SistemasIIITHEGYM
                         dt = k.GetFacturaAllTipoProv();
                         if (dt.Rows.Count > 0)
                         {
+                            TablaDetalle = dt;
                             grid.DataSource = dt;
                             grid.DataBind();
                             grid.Visible = true;
@@ -128,6 +146,7 @@ namespace SistemasIIITHEGYM
                         dt = k.GetFacturaAllTipoProveedor();
                         if (dt.Rows.Count > 0)
                         {
+                            TablaDetalle = dt;
                             grid.DataSource = dt;
                             grid.DataBind();
                             grid.Visible = true;
@@ -157,6 +176,7 @@ namespace SistemasIIITHEGYM
                             dt = k.GetFacturaAllTipoServicio();
                             if (dt.Rows.Count > 0)
                             {
+                                TablaDetalle = dt;
                                 grid.DataSource = dt;
                                 grid.DataBind();
                                 grid.Visible = true;
@@ -177,8 +197,10 @@ namespace SistemasIIITHEGYM
                             };
                             DataTable dt = new DataTable();
                             dt = k.GetFacturaAllTipoServicios();
+
                             if (dt.Rows.Count > 0)
                             {
+                                TablaDetalle = dt;
                                 grid.DataSource = dt;
                                 grid.DataBind();
                                 grid.Visible = true;
@@ -199,9 +221,11 @@ namespace SistemasIIITHEGYM
                             FacturaFKTipoComp = ddlTipoComprobante.SelectedValue
                         };
                         DataTable dt = new DataTable();
+                        
                         dt = k.GetFacturaAllTipo();
                         if (dt.Rows.Count > 0)
                         {
+                            TablaDetalle = dt;
                             grid.DataSource = dt;
                             grid.DataBind();
                             grid.Visible = true;
@@ -266,6 +290,23 @@ namespace SistemasIIITHEGYM
                     ddlProveedor.ClearSelection();
                 }
             }
+        }
+
+        protected void griddetallefactura_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            //para que se pagine
+            griddetallefactura.PageIndex = e.NewPageIndex;
+            griddetallefactura.DataSource = TablaDetalle;
+            griddetallefactura.DataBind();
+        }
+
+        protected void gridfactura_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+            //para que se pagine
+            //gridfactura.PageIndex = e.NewPageIndex;
+            //gridfactura.DataSource = TablaFactura ;
+            //gridfactura.DataBind();
         }
 
     }

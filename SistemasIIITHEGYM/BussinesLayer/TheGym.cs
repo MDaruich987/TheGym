@@ -1652,6 +1652,15 @@ namespace SistemasIIITHEGYM.BussinesLayer
             return dt;
         }
 
+        public DataTable GetReporteDineroConceptoTotales()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FechaIn", FechaIn, SqlDbType.Date, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@FechaFin", FechaFin, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetReporteDineroConceptoTotales", parameters);
+            return dt;
+        }
+
 
     }
 }
