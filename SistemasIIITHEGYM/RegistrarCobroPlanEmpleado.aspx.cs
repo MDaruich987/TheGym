@@ -23,6 +23,8 @@ namespace SistemasIIITHEGYM
         public static string apellido;
         public static string id;
 
+        public static DataTable TablaCliente = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -262,15 +264,15 @@ namespace SistemasIIITHEGYM
 
         protected void ddlformadepago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblComprobante.Text = string.Empty;
+            TbComprobante.Text = string.Empty;
             if (ddlformadepago.SelectedItem.Text == "Efectivo")
             {
-                lblComprobante.Visible = false;
+                //lblComprobante.Visible = false;
                 TbComprobante.Visible = false;
             }
             else
             {
-                lblComprobante.Visible = true;
+                //lblComprobante.Visible = true;
                 TbComprobante.Visible = true;
             }
         }
@@ -613,6 +615,57 @@ namespace SistemasIIITHEGYM
         protected void btnseleccioncliente_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('show');", true);
+        }
+
+        protected void btnconsultarclientemodal_Click(object sender, EventArgs e)
+        {
+            if (tbnombrcliente.Text != string.Empty)
+            {
+                lblerrorconsultarclientemodal.Visible = false;
+                TheGym k = new TheGym()
+                {
+                    NombreClienteBusc = tbnombrcliente.Text
+                };
+                DataTable dt = new DataTable();
+                dt = k.GetClienteNom();
+                TablaCliente = dt;
+
+                if (dt.Rows.Count > 0)
+                {
+                    gvclientemodal.DataSource = dt;
+                    gvclientemodal.DataBind();
+                    gvclientemodal.Visible = true;
+                }
+                else
+                {
+                    lblerrorconsultarclientemodal.Visible = true;
+                    lblerrorconsultarclientemodal.Text = "No se encontro el cliente";
+                }
+
+
+            }
+            else
+            {
+                lblerrorconsultarclientemodal.Visible = true;
+                lblerrorconsultarclientemodal.Text = "Ingrese el nombre de un cliente";
+            }
+        }
+
+        protected void gvclientemodal_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvclientemodal.PageIndex = e.NewPageIndex;
+            gvclientemodal.DataSource = TablaCliente;
+            gvclientemodal.DataBind();
+        }
+
+        protected void gvclientemodal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            id = gvclientemodal.SelectedRow.Cells[0].Text;
+            tbcliente.Text = gvclientemodal.SelectedRow.Cells[2].Text + ", " + gvclientemodal.SelectedRow.Cells[1].Text;
+            tbnombrcliente.Text = string.Empty;
+            gvclientemodal.Dispose();
+            gvclientemodal.Visible = false;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-cliente').modal('hide');", true);
         }
     }
 }

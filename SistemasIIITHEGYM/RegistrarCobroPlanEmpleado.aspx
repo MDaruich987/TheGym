@@ -58,13 +58,16 @@
                                <table class="nav-justified" style="height: 48px">
                                    <caption>
                                        <br />
-                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar"  CausesValidation="False" />
+                                       <asp:Button ID="btnconsultarclientemodal" runat="server" CssClass="btn btn-info" Text="Consultar" OnClick="btnconsultarclientemodal_Click"  CausesValidation="False" />
                                        <br />
                                        <asp:Label ID="lblerrorconsultarclientemodal" runat="server" CssClass="error-text"></asp:Label>
                                        <br />
                                        <%--aqui esta el grid del modal para los proveedores--%>
-                                       <asp:GridView ID="gvclientemodal" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
+                                       <asp:GridView ID="gvclientemodal" runat="server" OnPageIndexChanging="gvclientemodal_PageIndexChanging" OnSelectedIndexChanged="gvclientemodal_SelectedIndexChanged" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="4" ShowHeaderWhenEmpty="True" style="margin-left: 0px; margin-bottom: 9px;" Width="401px" >
                                            <Columns>
+                                               <asp:BoundField DataField="Id_cliente" HeaderText="ID" />
+                                               <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                               <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
                                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/ImagenesSistema/editargrid.png" ShowSelectButton="True">
                                                <ControlStyle Height="20px" Width="20px" />
                                                </asp:CommandField>
@@ -138,7 +141,7 @@
                  <%--input dinero--%>
                  <div class="input-group" style="left: 0px; top: 0px; width: 320px">
                 <span class="input-group-addon">$</span>
-                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 37%"></asp:TextBox>
+                     <asp:TextBox ID="tbmonto" Cssclass="form-control" runat="server" style="left: 0px; top: 0px; height: 42px; width: 37%" ReadOnly="True"></asp:TextBox>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="tbmonto" Display="None" ErrorMessage="Ingrese un monto" SetFocusOnError="True"></asp:RequiredFieldValidator>
                       <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator12_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator12_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator12">
                       </ajaxToolkit:ValidatorCalloutExtender>
@@ -171,27 +174,32 @@
                             </div>
                         </div>
                         <br />
-                        <br />
+                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                            <ContentTemplate>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                                    Forma de Pago:</label>
+                                    <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                                        <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged" Width="170px">
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
+                                        </ajaxToolkit:ValidatorCalloutExtender>
+                                    </div>
+                                    <br />
+                                    <br />
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                            Forma de Pago:</label>
-                            <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:DropDownList ID="ddlformadepago" runat="server" AutoPostBack="True" Cssclass="form-control" OnSelectedIndexChanged="ddlformadepago_SelectedIndexChanged" Width="170px">
-                                </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="ddlformadepago" Display="None" ErrorMessage="Seleccione una forma de pago" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                <ajaxToolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender45" runat="server" BehaviorID="RequiredFieldValidator45_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator45">
-                                </ajaxToolkit:ValidatorCalloutExtender>
-                            </div>
-                            <br />
-                            <br />
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: -4px; top: 18px; width: 131px">
                             <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
                             </label>
                             <br />
-                            &nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                                <asp:TextBox ID="TbComprobante" runat="server"></asp:TextBox>
+                            <br />
+                            <br />
+                            &nbsp;<div class="col-sm-10" style="left: -16px; top: 0px; width: 253px">
+                                <asp:TextBox ID="TbComprobante" runat="server" Visible="False"></asp:TextBox>
                             </div>
                         </div>
                         <asp:Label ID="Label1" runat="server" CssClass="error-text"></asp:Label>

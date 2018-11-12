@@ -58,31 +58,67 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView griddetallefactura;
         
         /// <summary>
-        /// Control tbbusqueda.
+        /// Control LbltipoComprobante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbbusqueda;
+        protected global::System.Web.UI.WebControls.Label LbltipoComprobante;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control ddlTipoComprobante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoComprobante;
         
         /// <summary>
-        /// Control RequiredFieldValidator1_ValidatorCalloutExtender.
+        /// Control LblFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender RequiredFieldValidator1_ValidatorCalloutExtender;
+        protected global::System.Web.UI.WebControls.Label LblFiltro;
+        
+        /// <summary>
+        /// Control LblProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblProveedor;
+        
+        /// <summary>
+        /// Control ddlProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
+        
+        /// <summary>
+        /// Control LblServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblServicio;
+        
+        /// <summary>
+        /// Control ddlServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlServicio;
         
         /// <summary>
         /// Control btnconsultar.
@@ -103,12 +139,12 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.Label lblerror;
         
         /// <summary>
-        /// Control gridfactura.
+        /// Control grid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridfactura;
+        protected global::System.Web.UI.WebControls.GridView grid;
     }
 }

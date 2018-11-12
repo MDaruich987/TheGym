@@ -32,18 +32,31 @@
                                 <h3 class="box-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Búsqueda de Factura de Venta</h3>
                             </div>
                             <div class="box-body">
-                                <div class="form-group">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="tbnombre" runat="server" Height="21px" Width="371px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbnombre" Display="None" ErrorMessage="Indique una sucursal" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator1_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator1">
-                                    </ajaxToolkit:ValidatorCalloutExtender>
-                  <br />
+                                <div class="form-group" style="text-align: center">
+                                    <div class="text-center">
+                                        <br />
+                                        <table class="nav-justified">
+                                            <tr>
+                                                <td class="text-right">
+                                                    <asp:Label ID="Label1" runat="server" CssClass="h3" Text="Desde:"></asp:Label>
+                                                </td>
+                                                <td class="text-left">
+                                                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" ></asp:TextBox>
+                                                </td>
+                                                <td class="text-right">
+                                                    <asp:Label ID="Label2" runat="server" CssClass="h3" Text="Hasta:"></asp:Label>
+                                                </td>
+                                                <td class="text-left">
+                                                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                     <table class="nav-justified" style="height: 48px">
                                         <tr>
-                                            <td class="modal-sm" style="width: 408px">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnconsultarsucursales" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
+                                            <td class="modal-sm" style="width: 408px" colspan="2">
+                                                <asp:Button ID="btnconsultarsucursales" runat="server" CssClass="btn btn-info" OnClick="btnconsultar_Click" Text="Consultar" />
                                             </td>
-                                            <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">
@@ -64,35 +77,13 @@
                               <div class="box">
                                   <div class="box-body" style="text-align: center;">
                                       <!-- Date -->
-                                      <div class="form-group">
-                                          &nbsp;<br />
-                                          <asp:Label ID="lblcliente" runat="server" CssClass="h3" Text="Ficha Cliente" Visible="False"></asp:Label>
-                                          <br />
-                                          &nbsp;<br />
-                                          <asp:GridView ID="gridlciente" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_proveedor" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
-                                              <Columns>
-                                              </Columns>
-                                              <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
-                                              <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                              <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
-                                              <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                              <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
-                                              <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />
-                                              <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                                              <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                                              <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                                              <SortedDescendingHeaderStyle BackColor="#242121" />
-                                          </asp:GridView>
-                                          <asp:Label ID="lblerrorgridprov" runat="server" CssClass="error-text"></asp:Label>
-                                          <br />
-                                          <br />
-                                      </div>
                                       <!-- /.description-block -->
                                       <asp:Label ID="lblFactura" runat="server" CssClass="h3" Text="Ficha de Factura" Visible="False"></asp:Label>
                                       <br />
                                       <br />
-                                      <asp:GridView ID="gridfactura" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" DataKeyNames="Id_orden" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False">
+                                      <asp:GridView ID="gridfactura" runat="server" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1"  Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px" Visible="False" OnPageIndexChanging="gridfactura_PageIndexChanging" OnSelectedIndexChanged="gridfactura_SelectedIndexChanged">
                                           <Columns>
+                                              <asp:CommandField ShowSelectButton="True" />
                                           </Columns>
                                           <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                                           <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -129,7 +120,7 @@
                                 <div class="box-body">
                                     
                                     
-                                    <asp:GridView ID="gridfacturadeventa" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
+                                    <asp:GridView ID="gridfacturadeventa" runat="server" AllowSorting="True" AutoGenerateColumns="true" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" PageSize="6" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="601px">
                                         <Columns>
                                         </Columns>
                                         <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />

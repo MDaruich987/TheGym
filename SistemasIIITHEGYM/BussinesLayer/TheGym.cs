@@ -304,6 +304,9 @@ namespace SistemasIIITHEGYM.BussinesLayer
         public string FechaFin;
         public string Estado;
         public string Capital;
+        //Variables para busqueda de Factura Venta
+        public string FacturaDesde;
+        public string FacturaHasta;
 
 
         //Metodo para registrar ingreso de cliente
@@ -1616,6 +1619,39 @@ namespace SistemasIIITHEGYM.BussinesLayer
             DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetSumTotalConcepto", parameters);
             return dt;
         }
+
+        public DataTable GetFacturaVentaFecha()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@Desde", FacturaDesde, SqlDbType.Date, 100);
+            parameters[1] = BussinesDataLayer.DataAccess.AddParameter("@Hasta", FacturaHasta, SqlDbType.Date, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetFactVentaFechas", parameters);
+            return dt;
+        }
+
+        public DataTable GetDetalleFactura()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_Factura", FacturaIDFact, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetDetFactura", parameters);
+            return dt;
+        }
+
+        public DataTable GetDeposito()
+        {
+            SqlParameter[] parameters = new SqlParameter[0];
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetAllDeposito", parameters);
+            return dt;
+        }
+
+        public DataTable GetMovimiento()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = BussinesDataLayer.DataAccess.AddParameter("@FK_deposito", IdDep, SqlDbType.Int, 100);
+            DataTable dt = BussinesDataLayer.DataAccess.ExcecuteDTbyProcedure("PA_GetMovimientoStock", parameters);
+            return dt;
+        }
+
 
     }
 }
