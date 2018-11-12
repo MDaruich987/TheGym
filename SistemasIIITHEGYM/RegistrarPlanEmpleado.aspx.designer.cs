@@ -94,13 +94,13 @@ namespace SistemasIIITHEGYM {
         protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
         
         /// <summary>
-        /// Control lbduracion.
+        /// Control tbCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbduracion;
+        protected global::System.Web.UI.WebControls.TextBox tbCantidad;
         
         /// <summary>
         /// Control RequiredFieldValidator5.

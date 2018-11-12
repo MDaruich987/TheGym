@@ -106,7 +106,7 @@ namespace SistemasIIITHEGYM
                 TheGym k = new TheGym
                 {
                     Nombreplanins = tbnombre.Text,
-                    duracionplanins = lbduracion.SelectedValue,
+                    duracionplanins = tbCantidad.Text,
                     precioplanins = tbprecio.Text
                 };
 

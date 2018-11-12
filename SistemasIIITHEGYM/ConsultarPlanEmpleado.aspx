@@ -51,25 +51,11 @@
                     <br />
 
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                        Duración:</label>
+                                        <label class="col-sm-2 control-label" for="inputEmail3" style="left: -3px; top: -4px; width: 171px">
+                                        Cantidad dias al mes:</label>
                                         <div class="col-sm-10" style="left: 0px; top: 0px; width: 258px">
-                                            <asp:ListBox ID="lbduración" runat="server" Height="24px" Width="37px" Enabled="False">
-                                                <asp:ListItem>0</asp:ListItem>
-                                                <asp:ListItem>1</asp:ListItem>
-                                                <asp:ListItem>2</asp:ListItem>
-                                                <asp:ListItem>3</asp:ListItem>
-                                                <asp:ListItem>4</asp:ListItem>
-                                                <asp:ListItem>5</asp:ListItem>
-                                                <asp:ListItem>6</asp:ListItem>
-                                                <asp:ListItem>7</asp:ListItem>
-                                                <asp:ListItem>8</asp:ListItem>
-                                                <asp:ListItem>9</asp:ListItem>
-                                                <asp:ListItem>10</asp:ListItem>
-                                                <asp:ListItem>11</asp:ListItem>
-                                                <asp:ListItem>12</asp:ListItem>
-                                            </asp:ListBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="lbduración" Display="None" ErrorMessage="Seleccione una sucursal" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                            <asp:TextBox ID="tbCantidad" runat="server" CssClass="form-control" Enabled="False" Height="25px" TextMode="Number" Width="130px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="tbCantidad" Display="None" ErrorMessage="Seleccione una sucursal" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             <ajaxToolkit:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" runat="server" BehaviorID="RequiredFieldValidator5_ValidatorCalloutExtender" TargetControlID="RequiredFieldValidator5">
                                             </ajaxToolkit:ValidatorCalloutExtender>
                                         </div>

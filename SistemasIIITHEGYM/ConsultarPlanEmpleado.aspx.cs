@@ -104,9 +104,9 @@ namespace SistemasIIITHEGYM
                 panelconsulta.Visible = false;
                 paneledicion.Visible = true;
                 paneledicion.Focus();
-                lbduración.Enabled = false;
+                tbCantidad.Enabled = false;
                 lbduración0.Enabled = false;
-                lbduración.SelectedValue = gvplanes.SelectedRow.Cells[3].Text;
+                tbCantidad.Text = gvplanes.SelectedRow.Cells[3].Text;
                 //codigo para cargar los valores de la fila en los textbox del panel de edicion
                 idplan = gvplanes.SelectedRow.Cells[0].Text;
                 TheGym k = new TheGym
@@ -147,7 +147,7 @@ namespace SistemasIIITHEGYM
                 TextBox1.Enabled = true;
                 TextBox2.Enabled = true;
                 ddlactividad.Enabled = true;
-                lbduración.Enabled = true;
+                tbCantidad.Enabled = true;
                 lbduración0.Enabled = true;
 
                 btneditar.Text = "Guardar";
@@ -162,7 +162,7 @@ namespace SistemasIIITHEGYM
                         IdPlanBuscar = idplan,
                         Nombreplanins = TextBox1.Text,
                         precioplanins = TextBox2.Text,
-                        duracionplanins = lbduración.SelectedItem.Text
+                        duracionplanins = tbCantidad.Text
                     };
                     k.UpdatePlan();
                     k.DeleteDetPlan();
