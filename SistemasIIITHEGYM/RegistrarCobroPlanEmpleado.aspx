@@ -50,8 +50,6 @@
                 <h4 class="modal-title">Seleccione un Cliente:</h4>
               </div>
               <div class="modal-body">
-                  <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                      <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
                              <asp:TextBox ID="tbnombrcliente" runat="server" Height="21px" Width="371px"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
@@ -86,8 +84,6 @@
                                    </caption>
                                     </table>
                           </asp:Panel>
-                     </ContentTemplate>
-                  </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
                   <%--inicio boxs--%>
@@ -97,8 +93,6 @@
           </div>
           <!-- /.modal-dialog -->
         </div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
     <%--inicio panel de edicion--%>
             <asp:Panel ID="paneldatosdecobro" runat="server" Height="1161px">
                   <!-- SELECT2 EXAMPLE -->
@@ -227,7 +221,7 @@
                   <asp:Panel ID="Panel1" runat="server">
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <asp:Button ID="btncancelar0" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Cancelar" Visible="False" />
-                      &nbsp;<asp:Button ID="btngenerarcomprobante" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click" Text="Generar Comprobante" Width="177px" />
+                      &nbsp;<asp:Button ID="btngenerarcomprobante" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click1" Text="Generar Comprobante" Width="177px" />
                       <asp:Button ID="btncancelar1" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Cancelar" Visible="False" />
                   </asp:Panel>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -238,8 +232,6 @@
                   <br />
                   <br />
                  </asp:Panel>
-                 </ContentTemplate>
-    </asp:UpdatePanel>
     <br />
             
     <%--inicio panel de consulta--%>
