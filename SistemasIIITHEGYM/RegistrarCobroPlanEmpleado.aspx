@@ -87,9 +87,10 @@
                                    </caption>
                                     </table>
                               
-        </ContentTemplate>
-    </asp:UpdatePanel>
+        
                           </asp:Panel>
+                  </ContentTemplate>
+    </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
                   <%--inicio boxs--%>
@@ -99,6 +100,8 @@
           </div>
           <!-- /.modal-dialog -->
         </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
     <%--inicio panel de edicion--%>
             <asp:Panel ID="paneldatosdecobro" runat="server" Height="1161px">
                   <!-- SELECT2 EXAMPLE -->
