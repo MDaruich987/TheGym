@@ -252,8 +252,8 @@ namespace SistemasIIITHEGYM
                         {
 
 
-                            tbingreso.Text = dt3.Rows[0][1].ToString("0.0"); ;
-                            tbtotal.Text = dt3.Rows[0][1].ToString("0.0"); ;
+                            tbingreso.Text = dt3.Rows[0][1].ToString();
+                            tbtotal.Text = dt3.Rows[0][1].ToString();
                         }
                         else
                         {
