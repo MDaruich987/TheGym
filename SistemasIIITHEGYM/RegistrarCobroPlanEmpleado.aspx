@@ -42,7 +42,10 @@
         <small>TheGym</small>
       </h1>
     </section>
+
     <div class="modal fade" id="modal-cliente">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -83,6 +86,9 @@
                                        <%--fingridmodal--%>
                                    </caption>
                                     </table>
+                              
+        </ContentTemplate>
+    </asp:UpdatePanel>
                           </asp:Panel>
               </div>
               <div class="modal-footer">
