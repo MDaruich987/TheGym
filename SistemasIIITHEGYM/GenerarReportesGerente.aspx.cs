@@ -250,8 +250,10 @@ namespace SistemasIIITHEGYM
 
                         if (ddlcapital.Text == "Ingreso")
                         {
-                            tbingreso.Text = dt3.Rows[0][1].ToString();
-                            tbtotal.Text = dt3.Rows[0][1].ToString();
+
+
+                            tbingreso.Text = dt3.Rows[0][1].ToString("0.0"); ;
+                            tbtotal.Text = dt3.Rows[0][1].ToString("0.0"); ;
                         }
                         else
                         {
