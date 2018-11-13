@@ -22,6 +22,7 @@ namespace SistemasIIITHEGYM
     
     public partial class RegistrarOrdenCompraGerente : System.Web.UI.Page
     {
+        static DataTable TablaPDF = new DataTable();
         static DataTable TablaProductos = new DataTable();
         SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         static string id;
@@ -308,7 +309,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            
+            TablaPDF = Tabla;
             if (griddetallefactura.Columns.Count > 0)
                 {
                     Label1.Visible = false;
@@ -357,14 +358,16 @@ namespace SistemasIIITHEGYM
                                         k.precioorden = Tabla.Rows[i][3].ToString();
 
                                         k.AddDetOrden();
+                                    
                                     ///////
                                     }
+                                
 
 
-                                }
+                            }
                                 else
                                 {
-                                    Label1.Text = "Empleado no encontrado";
+                                    Label1.Text = "Orden de Compra Registrada";
                                     Label1.Visible = true;
                                 }
                             }
@@ -382,6 +385,7 @@ namespace SistemasIIITHEGYM
 
                                 idorden = dt1.Rows[0][0].ToString();
 
+
                                 for (int i = 0; i < griddetallefactura.Rows.Count; i++)
                                 {
                                     k.fkorden = idorden;
@@ -390,44 +394,47 @@ namespace SistemasIIITHEGYM
                                     k.precioorden = Tabla.Rows[i][3].ToString();
 
                                     k.AddDetOrden();
+                                
+
                                 }
+                            
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
                             //btnregistrar.Visible = false;
                             //btncancelar.Visible = false;
 
                         }
 
-                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
+                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-default').modal('show');", true);
 
-                            //btnPDF.Visible = true;
-                            //btnPDF.Enabled = true;
+                        //btnPDF.Visible = true;
+                        //btnPDF.Enabled = true;
 
-                            //panelseleccionarproveedor.Visible = true;
-                            //panelregistrarorden.Visible = false;
-                            DataTable dtaux = new DataTable();
-                            griddetallefactura.DataSource = dtaux;
-                            griddetallefactura.DataBind();
-                            griddetallefactura.Dispose();
-                            griddetallefactura.Visible = false;
-                            griddetallefactura.DataSource = dtaux;
-                            griddetallefactura.DataBind();
-                            griddetallefactura.Dispose();
-                            griddetallefactura.Visible = false;
-                            Tabla.Rows.Clear();
-                            gvproductos.DataSource = dtaux;
-                            gvproductos.DataBind();
-                            gvproductos.Dispose();
-                            gvproductos.Visible = false;
-                            tbcantidad.Text = "";
-                            tbcantidad.Enabled = false;
-                            tbcantidad.Text = "";
-                            lblempleado.Text = "";
-                            lblhora.Text = "";
-                            tbproveedor.Text = "";
-                            lblFecha.Text = "";
-                            tbnombreproveedor.Text = "";
-                            lblerror.Text = "";
-                            tbnombreproductos.Text = "";
+                        //panelseleccionarproveedor.Visible = true;
+                        //panelregistrarorden.Visible = false;
+                        //DataTable dtaux = new DataTable();
+                        //griddetallefactura.DataSource = dtaux;
+                        //griddetallefactura.DataBind();
+                        //griddetallefactura.Dispose();
+                        //griddetallefactura.Visible = false;
+                        //griddetallefactura.DataSource = dtaux;
+                        //griddetallefactura.DataBind();
+                        //griddetallefactura.Dispose();
+                        //griddetallefactura.Visible = false;
+                        //Tabla.Rows.Clear();
+                        //gvproductos.DataSource = dtaux;
+                            //gvproductos.DataBind();
+                            //gvproductos.Dispose();
+                            //gvproductos.Visible = false;
+                            //tbcantidad.Text = "";
+                            //tbcantidad.Enabled = false;
+                            //tbcantidad.Text = "";
+                            //lblempleado.Text = "";
+                            //lblhora.Text = "";
+                            //tbproveedor.Text = "";
+                            //lblFecha.Text = "";
+                            //tbnombreproveedor.Text = "";
+                            //lblerror.Text = "";
+                            //tbnombreproductos.Text = "";
                             Lblerror1.Text = "";
                             lblerror.Visible = false;
                             lblerror.Visible = false;
@@ -602,7 +609,7 @@ namespace SistemasIIITHEGYM
                     PdfPCell nextPostCell2 = new PdfPCell(new Phrase("Fecha: " + DateTime.Now.ToShortDateString(), bodyFont));
                     nextPostCell2.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell2);
-                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase("Fecha Emisión: " + fecha, bodyFont));
+                    PdfPCell nextPostCell3 = new PdfPCell(new Phrase(" " + fecha, bodyFont));
                     nextPostCell3.Border = Rectangle.NO_BORDER;
                     nested.AddCell(nextPostCell3);
                     nested.AddCell("");

@@ -10,15 +10,14 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                  <%--aqui esta el grid del modalpara los productos--%><%--fingridmodal--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>No se registró la apertura de caja diaria&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--                boton minimizar y cerrar--%>
+                  <%--boton añadir--%>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -26,20 +25,20 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-<%--aqui esta el grid del modal para los clientes--%>
+    <%--aqui esta el grid del modal para los proveedores--%>
              <div class="modal fade" id="modal-aperturacaja">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--<asp:BoundField DataField="Telefono" HeaderText="Telefono" />
-                                               <asp:BoundField DataField="NomContacto" HeaderText="Representante" />--%><%--fingridmodal--%>
+                  <%--fingridmodal--%><%--                boton minimizar y cerrar--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>No se registró la apertura de caja diaria&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--inicio boxs--%>
+                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -66,22 +65,14 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--                boton minimizar y cerrar--%><%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
+                  <%--/////--%><%--////--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>¡Factura de Venta registrada exitosamente!&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--<div class="box-footer">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
-                
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
-                
-              </div>--%>
+                  <%--aqui esta el grid del modalpara los productos--%>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -93,7 +84,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--aqui esta el grid del modalpara los productos--%>                  <%--fingridmodal--%>
+                  <%--fingridmodal--%><%--boton añadir--%>
                 <h4 class="modal-title">Seleccione un Cliente:</h4>
               </div>
               <div class="modal-body">
@@ -137,27 +128,20 @@
                   </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
-                  <%--inicio boxs--%>
+                  <%--                boton minimizar y cerrar--%>
               </div>
             </div>
             <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
         </div>
-    <%--                boton minimizar y cerrar--%>
+    <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
     <div class="modal fade" id="modal-añadirproductos">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%><%--<div class="box-footer">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btnregistrar" CssClass="btn btn-info" runat="server" Text="Registrar" OnClick="btnregistrar_Click" />
-                
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="btncancelar" runat="server" CssClass="btn btn-default" Text="Cancelar" CausesValidation="False" />
-                
-              </div>--%>
+                  <%--/////--%><%--////--%>
                 <h4 class="modal-title">Seleccione un producto</h4>
               </div>
               <div class="modal-body">
@@ -388,7 +372,8 @@
                                     <SortedDescendingHeaderStyle BackColor="#242121" />
                                 </asp:GridView>
                                                       
-                                                      <asp:Label ID="Label1" runat="server" Cssclass="error-text" Text="Label" Visible="False"></asp:Label>
+                                                      <br />
+                                                      <asp:Label ID="lblm" runat="server" OnDataBinding="btnregistrar_Click"></asp:Label>
                                                       
                                                   </td>
                                               </tr>

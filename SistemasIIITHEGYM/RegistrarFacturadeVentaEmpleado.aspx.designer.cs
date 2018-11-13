@@ -319,13 +319,13 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.GridView griddetallefactura;
         
         /// <summary>
-        /// Control Label1.
+        /// Control lblm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblm;
         
         /// <summary>
         /// Control btnregistrar.

@@ -259,10 +259,8 @@
                 </div>
                     <br />
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label" style="left: 0px; top: 0px; width: 114px">Empleado:</label>
-
-                  <div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
-                      <asp:Label ID="lblempleado" CssClass="text-muted" runat="server" Text="EMPLEADO"></asp:Label>
+                  &nbsp;<div class="col-sm-10" style="left: 0px; top: 0px; width: 253px">
+                      <asp:Label ID="lblempleado" CssClass="text-muted" runat="server" Text="EMPLEADO" Visible="False"></asp:Label>
                   </div>
                 </div>
               <!-- /.form-group -->

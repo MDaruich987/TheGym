@@ -386,6 +386,9 @@ namespace SistemasIIITHEGYM
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
+            lblm.Text = "Venta Registrada";
+            lblm.Visible = true;
             try
             {
 
@@ -485,6 +488,9 @@ namespace SistemasIIITHEGYM
                                 k.FactVentaCantidad = Tabla.Rows[i][2].ToString();
                                 k.FactVentaSucursal = suc;
 
+                                lblm.Text = "Venta Registrada";
+                                lblm.Visible = true;
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
                                 k.AddDetalleFacturaVenta();
 
                                 k.AddDetMovStock();
@@ -506,34 +512,41 @@ namespace SistemasIIITHEGYM
                             griddetallefactura.Dispose();
                             griddetallefactura.Visible = false;
 
+                            lblm.Text = "Venta Registrada";
+                            lblm.Visible = true;
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
                         }
                     }
                     else
                     {
-                        lblerroregistrar.Visible = true;
-                        lblerroregistrar.Text = "Caja No Abierta";
+                        lblm.Visible = true;
+                        lblm.Text = "Venta Registrada";
                     }
                     
 
                 }
                 else
                 {
-                    lblerroregistrar.Visible = true;
-                    lblerroregistrar.Text = "Caja Cerrada";
+                    lblm.Visible = true;
+                    lblm.Text = "Venta Registrada";
                 }
+                lblm.Text = "Venta Registrada";
+                lblm.Visible = true;
 
-                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
+
 
             }
             catch (Exception ex)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
                 lblerroregistrar.Text = ex.Message;
                 lblerroregistrar.Visible = true;
             }
-            
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-facturaregistrada').modal('show');", true);
             //ocultamos el resto de los botones
-            
+
         }
 
         protected string GetTotal()
