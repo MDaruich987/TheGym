@@ -101,6 +101,7 @@ namespace SistemasIIITHEGYM
 
                 if (dt4.Rows.Count > 0)
                 {
+                    //recortarfecha(dt4);
                     gridreportes.DataSource = dt4;
                     gridreportes.DataBind();
                     gridreportes.Focus();
@@ -252,8 +253,8 @@ namespace SistemasIIITHEGYM
                         {
 
 
-                            //tbingreso.Text = dt3.Rows[0][1].ToString("0.0"); ;
-                            //tbtotal.Text = dt3.Rows[0][1].ToString("0.0"); ;
+                            tbingreso.Text = dt3.Rows[0][1].ToString(); ;
+                            tbtotal.Text = dt3.Rows[0][1].ToString(); ;
                         }
                         else
                         {
@@ -275,6 +276,27 @@ namespace SistemasIIITHEGYM
 
 
         }
+
+        //protected void recortarfecha(DataTable dt)
+        //{
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        try
+        //        {
+        //            //instanciamos variables para los elementos del datatable
+
+        //            string día = row[5].ToString();
+        //            row[5] = Convert.ToDateTime(row[5]).ToShortDateString().ToString();
+                   
+        //        }
+        //        catch (Exception ex)
+        //        {
+
+        //            Label1.Text = ex.Message.ToString();
+        //        }
+               
+        //    }
+        //}
 
         protected void btncancelar_Click1(object sender, EventArgs e)
         {

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SistemasIIITHEGYM.BussinesLayer;
 using System.Data;
+using System.Drawing;
 
 namespace SistemasIIITHEGYM
 {
@@ -89,6 +90,10 @@ namespace SistemasIIITHEGYM
 
             ChartPlan.Series["Series1"].YValueMembers = "monto total";
             ChartPlan.Series["Series1"].XValueMember = "mes";
+            ChartPlan.ChartAreas["ChartArea1"].AxisX.Title = "Meses";
+            ChartPlan.ChartAreas["ChartArea1"].AxisY.Title = "Ingresos por planes";
+            ChartPlan.ChartAreas["ChartArea1"].AxisX.TitleFont = new Font("Sans Serif", 10, FontStyle.Bold);
+            ChartPlan.ChartAreas["ChartArea1"].AxisY.TitleFont = new Font("Sans Serif", 10, FontStyle.Bold);
             ChartPlan.DataBind();
             ChartPlan.Focus();
         }
@@ -101,6 +106,10 @@ namespace SistemasIIITHEGYM
 
             ChartProd.Series["Series1"].YValueMembers = "monto total";
             ChartProd.Series["Series1"].XValueMember = "Mes";
+            ChartProd.ChartAreas["ChartArea1"].AxisX.Title = "Meses";
+            ChartProd.ChartAreas["ChartArea1"].AxisY.Title = "Ingresos por ventas";
+            ChartProd.ChartAreas["ChartArea1"].AxisX.TitleFont = new Font("Sans Serif", 10, FontStyle.Bold);
+            ChartProd.ChartAreas["ChartArea1"].AxisY.TitleFont = new Font("Sans Serif", 10, FontStyle.Bold);
             ChartProd.DataBind();
             ChartProd.Focus();
         }

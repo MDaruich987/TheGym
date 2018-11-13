@@ -114,7 +114,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <!-- ./box-body -->
-                        <asp:GridView ID="gridreportes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Justify" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="800px" AllowPaging="True" OnPageIndexChanging="gridreportes_PageIndexChanging">
+                        <asp:GridView ID="gridreportes" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CaptionAlign="Bottom" CellPadding="4" CellSpacing="1" Font-Size="Medium" ForeColor="Black" GridLines="Horizontal" Height="210px" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" style="margin-left: 107px; margin-bottom: 9px;" Width="800px" AllowPaging="True" OnPageIndexChanging="gridreportes_PageIndexChanging">
                             <Columns>
                             <%--<asp:BoundField DataField="ID_MovimientoCaja" HeaderText="Id Movimiento"/>--%>
                             <asp:BoundField DataField="descripcion" HeaderText="Forma Pago"/>
@@ -127,7 +127,7 @@
                             </Columns>
                             <EditRowStyle BorderColor="Black" BorderStyle="None" Font-Size="Small" />
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                            <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" />
+                            <HeaderStyle BackColor="#364E6F" Font-Bold="True" ForeColor="White" Height="30px" HorizontalAlign="Center" />
                             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
                             <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="220px" />
                             <SelectedRowStyle BackColor="#6A8BB7" Font-Bold="True" ForeColor="White" />

@@ -16,7 +16,8 @@ namespace SistemasIIITHEGYM
     {
 
         static bool flag = true;
-        
+        DataTable Tabla = new DataTable();
+
 
 
 
@@ -119,7 +120,7 @@ namespace SistemasIIITHEGYM
 
         protected void btnañadir_Click(object sender, EventArgs e)
         {
-            DataTable Tabla = new DataTable();
+          
             Tabla = (DataTable)Session["Datos"];
             Tabla.Rows.Add(ddlgrupomuscular.SelectedItem, ddlejercicio.SelectedItem, ddlejercicio.Text,
             lbseries.Text, lbrrepeticiones.Text, lbdias.Text);
@@ -189,6 +190,7 @@ namespace SistemasIIITHEGYM
                 lblerror.Text = "";
                 griddetallerutina.DataSource = null;
                 griddetallerutina.DataBind();
+                
             }
             catch (Exception ex)
             {
@@ -206,7 +208,8 @@ namespace SistemasIIITHEGYM
             lblerror.Text = "";
             griddetallerutina.DataSource = null;
             griddetallerutina.DataBind();
-
+            Tabla.Rows.Clear();
+            griddetallerutina.Dispose();
 
 
 
@@ -221,6 +224,8 @@ namespace SistemasIIITHEGYM
             griddetallerutina.DataBind();
             griddetallerutina = null;
             tbnombrerutina = null;
+            Tabla.Rows.Clear();
+            
 
 
             //Response.Redirect("InicioEntrenador.aspx");
