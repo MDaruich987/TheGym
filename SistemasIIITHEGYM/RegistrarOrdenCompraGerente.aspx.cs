@@ -392,8 +392,8 @@ namespace SistemasIIITHEGYM
                                     k.AddDetOrden();
                                 }
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
-                            btnregistrar.Visible = false;
-                            btncancelar.Visible = false;
+                            //btnregistrar.Visible = false;
+                            //btncancelar.Visible = false;
 
                         }
 
@@ -413,36 +413,38 @@ namespace SistemasIIITHEGYM
                             griddetallefactura.DataBind();
                             griddetallefactura.Dispose();
                             griddetallefactura.Visible = false;
+                            Tabla.Rows.Clear();
                             gvproductos.DataSource = dtaux;
                             gvproductos.DataBind();
                             gvproductos.Dispose();
                             gvproductos.Visible = false;
-                            tbcantidad.Text = string.Empty;
+                            tbcantidad.Text = "";
                             tbcantidad.Enabled = false;
-                            tbcantidad.Text = string.Empty;
-                            lblempleado.Text = string.Empty;
-                            lblhora.Text = string.Empty;
-                            tbproveedor.Text = string.Empty;
-                            lblFecha.Text = string.Empty;
-                            tbnombreproveedor.Text = string.Empty;
-                            lblerror.Text = string.Empty;
-                            tbnombreproductos.Text = string.Empty;
-                            lblerror.Text = string.Empty;
-                            Lblerror1.Text = string.Empty;
+                            tbcantidad.Text = "";
+                            lblempleado.Text = "";
+                            lblhora.Text = "";
+                            tbproveedor.Text = "";
+                            lblFecha.Text = "";
+                            tbnombreproveedor.Text = "";
+                            lblerror.Text = "";
+                            tbnombreproductos.Text = "";
+                            Lblerror1.Text = "";
                             lblerror.Visible = false;
                             lblerror.Visible = false;
                             Lblerror1.Visible = false;
-                        btnregistrar.Enabled = false;
-                        btncancelar.Enabled = false;
+                        //btnregistrar.Enabled = false;
+                        //btncancelar.Enabled = false;
                         generarPDF.Visible = true;
 
                     }
                         catch (Exception ex)
                         {
-                            Label1.Visible = true;
-                            Label1.Text = ex.Message.ToString();
-                        }
+                            //Label1.Visible = true;
+                        //Label1.Text = ex.Message.ToString()+"a";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modal-compraregistrada').modal('show');", true);
+
                     }
+                }
 
                     else
                     {
