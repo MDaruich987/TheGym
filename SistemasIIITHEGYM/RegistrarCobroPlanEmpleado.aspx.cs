@@ -29,9 +29,11 @@ namespace SistemasIIITHEGYM
         {
             if (!IsPostBack)
             {
+                lblComprobante.Visible = false;
+                TbComprobante.Visible = false;
                 GetAllMedioPago();
                 GetAllPlan();
-                btngenerarcomprobante.Visible = false;
+               // btngenerarcomprobante.Visible = false;
                 btnvolver.Visible = false;
                 
                 //la primera vez que se carga la página
@@ -267,12 +269,12 @@ namespace SistemasIIITHEGYM
             TbComprobante.Text = string.Empty;
             if (ddlformadepago.SelectedItem.Text == "Efectivo")
             {
-                //lblComprobante.Visible = false;
+                lblComprobante.Visible = false;
                 TbComprobante.Visible = false;
             }
             else
             {
-                //lblComprobante.Visible = true;
+                lblComprobante.Visible = true;
                 TbComprobante.Visible = true;
             }
         }

@@ -18,9 +18,11 @@ using System.Web.UI.WebControls;
 
 namespace SistemasIIITHEGYM
 {
-   
+
+    
     public partial class RegistrarOrdenCompraGerente : System.Web.UI.Page
     {
+        static DataTable TablaProductos = new DataTable();
         SqlConnection conex = new SqlConnection(ConfigurationManager.ConnectionStrings["MiConec"].ConnectionString.ToString());
         static string id;
         static string nom;
@@ -33,7 +35,7 @@ namespace SistemasIIITHEGYM
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           generarPDFssss.Enabled = false;
+           //generarPDFssss.Enabled = false;
             //el panel no se debe habilitar hasta que seleccionemos un proveedor
             //updetalleorden.Visible = false;
             if (!IsPostBack)
@@ -62,7 +64,7 @@ namespace SistemasIIITHEGYM
                     //Response.Redirect("InicioLogin.aspx");
                 }
 
-                generarPDF.Visible = false;
+                //generarPDF.Visible = false;
                 Column = new DataColumn();
                 Column.DataType = System.Type.GetType("System.Int32");
                 try
@@ -89,7 +91,9 @@ namespace SistemasIIITHEGYM
                 catch (Exception)
                 {
 
-                    
+                    //cambiar indice en orden de compra pop up
+                    //mostrar boton generar PDF
+                    //correr grid en factura de venta
                 }               
                 
 
@@ -145,6 +149,7 @@ namespace SistemasIIITHEGYM
 
                     DataTable dt2 = new DataTable();
                     dt2 = k.GetProductPorProveedor();
+                    TablaProductos = dt2;
 
                     if (dt2.Rows.Count > 0)
                     {
@@ -816,6 +821,13 @@ namespace SistemasIIITHEGYM
             }
              
             
+        }
+
+        protected void gvproductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvproductos.PageIndex = e.NewPageIndex;
+            gvproductos.DataSource = TablaProductos;
+            gvproductos.DataBind();
         }
     }
 }

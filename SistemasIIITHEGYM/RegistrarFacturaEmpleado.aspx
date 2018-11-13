@@ -29,6 +29,26 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+    <div class="modal fade" id="modal-exito">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <%--<span aria-hidden="true">&times;</span></button>--%>                  <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
+                <h4 class="modal-title">THEGYM</h4>
+              </div>
+              <div class="modal-body">
+                <p>¡Factura registrada exitosamente!&hellip;</p>
+              </div>
+              <div class="modal-footer">
+                  <%--                boton minimizar y cerrar--%>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 
 
         <link rel="stylesheet" href="../../bower_components/select2/dist/css/select2.min.css">
