@@ -5,20 +5,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="EstilosCSS.css" rel="stylesheet" />
 
-     <%--inicio panel de edicion--%>
+     <%--modal para el registro exitoso--%>
              <div class="modal fade" id="modal-default">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--                boton minimizar y cerrar--%>                  <%--                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--%>
+                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                  <%--<span aria-hidden="true">&times;</span></button>--%>
                 <h4 class="modal-title">THEGYM</h4>
               </div>
               <div class="modal-body">
                 <p>¡Cobro registrado exitosamente!&hellip;</p>
               </div>
               <div class="modal-footer">
-                  <%--input dinero--%>
+                <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>--%>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -42,17 +43,16 @@
         <small>TheGym</small>
       </h1>
     </section>
-
     <div class="modal fade" id="modal-cliente">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                  <%--fin input dinero--%><%--inicio panel de consulta--%>
+                  <%--aqui esta el grid del modalpara los productos--%>                  <%--fingridmodal--%>
                 <h4 class="modal-title">Seleccione un Cliente:</h4>
               </div>
               <div class="modal-body">
+                  <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                      <ContentTemplate>
                           <asp:Panel ID="panelconsulta" runat="server">
                              <asp:TextBox ID="tbnombrcliente" runat="server" Height="21px" Width="371px"></asp:TextBox>
                                <table class="nav-justified" style="height: 48px">
@@ -86,11 +86,9 @@
                                        <%--fingridmodal--%>
                                    </caption>
                                     </table>
-                              
-        
                           </asp:Panel>
-                  </ContentTemplate>
-    </asp:UpdatePanel>
+                     </ContentTemplate>
+                  </asp:UpdatePanel>
               </div>
               <div class="modal-footer">
                   <%--inicio boxs--%>
@@ -100,10 +98,10 @@
           </div>
           <!-- /.modal-dialog -->
         </div>
-    </ContentTemplate>
-    </asp:UpdatePanel>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
     <%--inicio panel de edicion--%>
-            <asp:Panel ID="paneldatosdecobro" runat="server" Height="1161px">
+            <asp:Panel ID="paneldatosdecobro" runat="server" Height="1859px">
                   <!-- SELECT2 EXAMPLE -->
     <div class="box box-default">
         <div class="box-header with-border">
@@ -194,18 +192,22 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
                         <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="inputEmail3" style="left: 0px; top: 0px; width: 114px">
-                                    <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            <label class="col-sm-2 control-label" for="inputEmail3" style="left: -4px; top: 18px; width: 131px">
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
                             </label>
-                            &nbsp;<div class="col-sm-10" style="left: 6px; top: 0px; width: 231px">
-                                <asp:TextBox ID="TbComprobante" runat="server" AutoPostBack="True" Height="34px" ReadOnly="True" Width="140px" style="margin-left: 10"></asp:TextBox>
+                            <br />
+                            <br />
+                            <br />
+                            &nbsp;<div class="col-sm-10" style="left: -16px; top: 0px; width: 253px">
+                                <asp:TextBox ID="TbComprobante" runat="server" Visible="False"></asp:TextBox>
                             </div>
                         </div>
                         <asp:Label ID="Label1" runat="server" CssClass="error-text"></asp:Label>
                         <br />
                         <br />
+                        <asp:Button ID="btngenerarcomprobante" runat="server" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click" Text="Generar Comprobante" Width="177px" CausesValidation="False" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnvolver" runat="server" CssClass="btn btn-default" OnClick="btnvolver_Click" Text="Volver" CausesValidation="False" />
+                        <asp:Button ID="btnvolver" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btnvolver_Click" Text="Volver" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
                     <br />
@@ -227,22 +229,8 @@
               </div>
     </div>
     <!-- /.box -->
-                  <asp:Panel ID="Panel1" runat="server">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:Button ID="btncancelar0" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Cancelar" Visible="False" />
-                      &nbsp;<asp:Button ID="btngenerarcomprobante" runat="server" CausesValidation="False" CssClass="btn btn-success" OnClick="btngenerarcomprobante_Click1" Text="Generar Comprobante" Width="177px" />
-                      <asp:Button ID="btncancelar1" runat="server" CausesValidation="False" CssClass="btn btn-default" OnClick="btncancelar_Click" Text="Cancelar" Visible="False" />
-                  </asp:Panel>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                 </asp:Panel>
-    <br />
-            
+            </asp:Panel>
     <%--inicio panel de consulta--%>
-        
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
