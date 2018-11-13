@@ -139,15 +139,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbingreso;
         
         /// <summary>
-        /// Control lbingreso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbingreso;
-        
-        /// <summary>
         /// Control tbegreso.
         /// </summary>
         /// <remarks>
@@ -157,15 +148,6 @@ namespace SistemasIIITHEGYM {
         protected global::System.Web.UI.WebControls.TextBox tbegreso;
         
         /// <summary>
-        /// Control lbegreso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbegreso;
-        
-        /// <summary>
         /// Control tbtotal.
         /// </summary>
         /// <remarks>
@@ -173,15 +155,6 @@ namespace SistemasIIITHEGYM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbtotal;
-        
-        /// <summary>
-        /// Control lbtotal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbtotal;
         
         /// <summary>
         /// Control Button3.

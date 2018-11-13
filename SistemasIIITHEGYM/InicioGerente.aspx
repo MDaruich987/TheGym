@@ -11,7 +11,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>
-                  <asp:Label ID="lblventas" runat="server" Text="150"></asp:Label>
+                  <asp:Label ID="lblventas" runat="server" Text="150" Visible="False"></asp:Label>
                 </h3>
 
               <p>Ventas de Productos</p>
@@ -24,9 +24,6 @@
 &nbsp;<i class="fa fa-arrow-circle-right"></i></a></div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-        </div>
         <!-- ./col -->
         <%--<div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -52,7 +49,7 @@
           <div class="small-box bg-red">
             <div class="inner">
               <h3>
-                  <asp:Label ID="lblplanes" runat="server" Text="150"></asp:Label>
+                  <asp:Label ID="lblplanes" runat="server" Text="150" Visible="False"></asp:Label>
                 </h3>
 
               <p>Cobro de planes</p>
@@ -83,17 +80,35 @@
                 <asp:Label ID="lblerror" runat="server" BackColor="White" BorderColor="White" ForeColor="#CC0000" Visible="False"></asp:Label>
                 <br />
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1" Palette="Excel">
-                    <Series>
-                        <asp:Series Name="Series1" XValueMember="mes" YValueMembers="monto total">
-                        </asp:Series>
-                    </Series>
-                    <ChartAreas>
-                        <asp:ChartArea Name="ChartArea1">
-                        </asp:ChartArea>
-                    </ChartAreas>
-                </asp:Chart>
-                <br />
+                <table class="nav-justified">
+                    <tr>
+                        <td style="width: 377px">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 377px">&nbsp;</td>
+                        <td>
+                            <asp:Chart ID="ChartPlan" runat="server" OnLoad="ChartPlan_Load1" Palette="Excel">
+                                <Series>
+                                    <asp:Series Name="Series1" XValueMember="mes" YValueMembers="monto total">
+                                    </asp:Series>
+                                </Series>
+                                <ChartAreas>
+                                    <asp:ChartArea Name="ChartArea1">
+                                    </asp:ChartArea>
+                                </ChartAreas>
+                            </asp:Chart>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 377px">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
                 <br />
                 <br />
                 <!-- /.row -->
@@ -118,26 +133,37 @@
           <!-- /.row -->
                     <br />
                     <br />
+                    <table class="nav-justified">
+                        <tr>
+                            <td style="width: 340px">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 340px">&nbsp;</td>
+                            <td>
+                                <asp:Chart ID="ChartProd" runat="server" OnLoad="ChartProd_Load" Palette="Excel">
+                                    <Series>
+                                        <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="monto total">
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1">
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                </asp:Chart>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 340px">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
                     <br />
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-                    <asp:Chart ID="ChartProd" runat="server" OnLoad="ChartProd_Load" Palette="Excel">
-                        <Series>
-                            <asp:Series Name="Series1" XValueMember="Mes" YValueMembers="monto total">
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
-                            </asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<br />
                     <br />
         </div>
         <!-- /.box-body -->
