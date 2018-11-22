@@ -268,12 +268,12 @@ namespace SistemasIIITHEGYM
             if (ddlformadepago.SelectedItem.Text == "Efectivo")
             {
                 //lblComprobante.Visible = false;
-                TbComprobante.Visible = false;
+                //TbComprobante.Visible = false;
             }
             else
             {
                 //lblComprobante.Visible = true;
-                TbComprobante.Visible = true;
+                //TbComprobante.Visible = true;
             }
         }
 

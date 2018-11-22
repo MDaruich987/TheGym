@@ -193,7 +193,7 @@
                         </asp:UpdatePanel>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="inputEmail3" style="left: -4px; top: 18px; width: 131px">
-                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:"></asp:Label>
+                            <asp:Label ID="lblComprobante" runat="server" Text="Nº Comprobante:" Visible="False"></asp:Label>
                             </label>
                             <br />
                             <br />
